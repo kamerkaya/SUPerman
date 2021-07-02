@@ -193,7 +193,7 @@ extern "C" double matlab_calculate_return(int* mat, int algorithm, int nt, int x
 int main(){
 
   shell();
-  std::cout << "Just an empty shell of a man" << std::endl;
+  std::cout << "This is a shared object library" << std::endl;
   
   return 0;
   
