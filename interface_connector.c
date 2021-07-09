@@ -1,4 +1,6 @@
 #include "algo.h"
+//#include "matlab_calculate_return_int.h"
+//#include "matlab_calculate_return_double.h"
 #include "matlab_calculate_return.h"
 
 
@@ -149,8 +151,8 @@ extern "C" double read_calculate_return(char* filename, int algorithm, int nt, i
   return perman;
 }
 
-extern "C" double matlab_calculate_return(int* mat, int algorithm, int nt, int x, int y, int z,
-					  int nov, int nnz)
+extern "C" double matlab_calculate_return_int(int* mat, int algorithm, int nt, int x, int y, int z,
+					      int nov, int nnz)
 {
 
   //std::cout << algorithm << " " << nt << " " << x << " " << y << " " << z << std::endl;
@@ -175,6 +177,45 @@ extern "C" double matlab_calculate_return(int* mat, int algorithm, int nt, int x
   }
    
   int *cvals, *rvals;
+  int *cptrs, *rows, *rptrs, *cols;
+  if (preprocessing == 1) {
+    matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
+  } else if (preprocessing == 2) {
+    matrix2compressed_skipOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
+  } else {
+    matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
+  }
+  perman = decide_and_call(mat, nov, nnz, nt, x, y, z, algorithm, cptrs, rows, rptrs, cols, rvals, cvals);
+
+
+  return perman;
+}
+
+extern "C" double matlab_calculate_return_double(double* mat, int algorithm, int nt, int x, int y, int z, int nov, int nnz)
+{
+
+  //std::cout << algorithm << " " << nt << " " << x << " " << y << " " << z << std::endl;
+  std::cout << "Your matrix from Matlab: " << std::endl;
+  print_mat(mat, nov);
+  
+  //Reading the matrix
+  bool generic = 0;
+  double perman = 0;
+
+  int preprocessing = 0;
+  std::cout << "Preprocessing: " << preprocessing << std::endl;
+  if(algorithm == 0 || algorithm == 2 || algorithm == 4){
+    preprocessing = 1;
+  }
+  else if(algorithm == 6 || algorithm == 7){
+    preprocessing = 2;
+  }
+  else{
+    //std::cout << "SUPerpython can't achieve that right now, exiting.." << std::endl;
+    preprocessing = 0;
+  }
+   
+  double *cvals, *rvals;
   int *cptrs, *rows, *rptrs, *cols;
   if (preprocessing == 1) {
     matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
