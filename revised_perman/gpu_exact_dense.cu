@@ -1,7 +1,6 @@
 #include <omp.h>
 #include <stdio.h>
-//using namespace std; Weird
-
+#include "flags.h"
 
 //This is a CPU helper kernel for hybrid setting
 template <class T>
@@ -401,7 +400,11 @@ __global__ void kernel_xshared_coalescing_mshared(T* mat_t, double* x, double* p
 }
 
 template <class T>
-double gpu_perman64_xglobal(T* mat, int nov, int grid_dim, int block_dim) {
+extern double gpu_perman64_xglobal(T* mat, int nov, flags flags) {
+  
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
   float x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -467,7 +470,12 @@ double gpu_perman64_xglobal(T* mat, int nov, int grid_dim, int block_dim) {
 }
 
 template <class T>
-double gpu_perman64_xlocal(T* mat, int nov, int grid_dim, int block_dim) {
+extern double gpu_perman64_xlocal(T* mat, int nov, flags flags) {
+
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
+
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -526,7 +534,11 @@ double gpu_perman64_xlocal(T* mat, int nov, int grid_dim, int block_dim) {
 }
 
 template <class T>
-double gpu_perman64_xshared(T* mat, int nov, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared(T* mat, int nov, flags flags) {
+  
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -585,7 +597,11 @@ double gpu_perman64_xshared(T* mat, int nov, int grid_dim, int block_dim) {
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing(T* mat, int nov, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared_coalescing(T* mat, int nov, flags flags) {
+  
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -644,7 +660,11 @@ double gpu_perman64_xshared_coalescing(T* mat, int nov, int grid_dim, int block_
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared(T* mat, int nov, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared_coalescing_mshared(T* mat, int nov, flags flags) {
+  
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -706,7 +726,12 @@ double gpu_perman64_xshared_coalescing_mshared(T* mat, int nov, int grid_dim, in
 } 
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_multigpu(T* mat, int nov, int gpu_num, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpu(T* mat, int nov, flags flags) {
+  
+  int gpu_num = flags.gpu_num;
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -782,7 +807,15 @@ double gpu_perman64_xshared_coalescing_mshared_multigpu(T* mat, int nov, int gpu
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat, int nov, int gpu_num, bool cpu, int threads, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat, int nov, flags flags) {
+
+  
+  int gpu_num = flags.gpu_num;
+  bool cpu = flags.cpu;
+  int threads = flags.threads;
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -914,14 +947,13 @@ double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat, int no
 }
 
 
-
-
-
-
-
-
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T* mat, int nov, int gpu_num, int grid_dim, int block_dim) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T* mat, int nov, flags flags) {
+
+  int gpu_num = flags.gpu_num;
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -999,3 +1031,49 @@ double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T* m
 
   return((4*(nov&1)-2) * p);
 }
+
+
+
+//Explicit instantiations required for separated compilation
+template extern double gpu_perman64_xglobal<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xglobal<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xglobal<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xlocal<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xlocal<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xlocal<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xshared<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xshared_coalescing<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xshared_coalescing_mshared<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<double>(double* mat, int nov, flags flags);
+
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<int>(int* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<double>(double* mat, int nov, flags flags);
+
+//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<int>(int* mat, int nov, flags flags);
+//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<float>(float* mat, int nov, flags flags);
+//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<double>(double* mat, int nov, flags flags);
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<int>(int* mat, int nov,  flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<float>(float* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<double>(double* mat, int nov, flags flags);
+//Explicit instantiations required for separated compilation

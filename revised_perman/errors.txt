@@ -1,0 +1,2105 @@
+g++ -c main.cpp -fopenmp -O3 -std=c++11
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:74:1: error: ‘__global__’ does not name a type; did you mean ‘__locale_t’?
+ __global__ void kernel_xglobal(T* mat_t, float* x, double* p, int nov) {
+ ^~~~~~~~~~
+ __locale_t
+gpu_exact_dense.cu:132:1: error: ‘__global__’ does not name a type; did you mean ‘__locale_t’?
+ __global__ void kernel_xlocal(T* mat_t, double* x, double* p, int nov) {
+ ^~~~~~~~~~
+ __locale_t
+gpu_exact_dense.cu:199:1: error: ‘__global__’ does not name a type; did you mean ‘__locale_t’?
+ __global__ void kernel_xshared(T* mat_t, double* x, double* p, int nov) {
+ ^~~~~~~~~~
+ __locale_t
+gpu_exact_dense.cu:265:1: error: ‘__global__’ does not name a type; did you mean ‘__locale_t’?
+ __global__ void kernel_xshared_coalescing(T* mat_t, double* x, double* p, int nov) {
+ ^~~~~~~~~~
+ __locale_t
+gpu_exact_dense.cu:332:1: error: ‘__global__’ does not name a type; did you mean ‘__locale_t’?
+ __global__ void kernel_xshared_coalescing_mshared(T* mat_t, double* x, double* p, int nov, long long start, long long end) {
+ ^~~~~~~~~~
+ __locale_t
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xglobal(T*, int, int, int)’:
+gpu_exact_dense.cu:432:3: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+   cudaSetDevice(1);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:432:3: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+gpu_exact_dense.cu:438:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:439:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:442:67: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:446:3: error: ‘kernel_xglobal’ was not declared in this scope
+   kernel_xglobal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~~
+gpu_exact_dense.cu:446:19: error: expected primary-expression before ‘<’ token
+   kernel_xglobal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+                   ^
+gpu_exact_dense.cu:446:44: error: expected primary-expression before ‘>’ token
+   kernel_xglobal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+                                            ^
+gpu_exact_dense.cu:447:3: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+   cudaDeviceSynchronize();
+   ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:452:64: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:452:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:455:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_x);
+   ^~~~~~~~
+gpu_exact_dense.cu:456:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_p);
+   ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xlocal(T*, int, int, int)’:
+gpu_exact_dense.cu:493:3: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+   cudaSetDevice(1);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:498:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:499:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:502:47: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:506:3: error: ‘kernel_xlocal’ was not declared in this scope
+   kernel_xlocal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:506:3: note: suggested alternative: ‘thread_local’
+   kernel_xlocal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~
+   thread_local
+gpu_exact_dense.cu:506:18: error: expected primary-expression before ‘<’ token
+   kernel_xlocal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+                  ^
+gpu_exact_dense.cu:506:43: error: expected primary-expression before ‘>’ token
+   kernel_xlocal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+                                           ^
+gpu_exact_dense.cu:507:3: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+   cudaDeviceSynchronize();
+   ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:512:64: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:512:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:515:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_x);
+   ^~~~~~~~
+gpu_exact_dense.cu:516:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_p);
+   ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared(T*, int, int, int)’:
+gpu_exact_dense.cu:552:3: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+   cudaSetDevice(1);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:557:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:558:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:561:47: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:565:3: error: ‘kernel_xshared’ was not declared in this scope
+   kernel_xshared<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~~
+gpu_exact_dense.cu:565:19: error: expected primary-expression before ‘<’ token
+   kernel_xshared<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+                   ^
+gpu_exact_dense.cu:565:74: error: expected primary-expression before ‘>’ token
+   kernel_xshared<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+                                                                          ^
+gpu_exact_dense.cu:566:3: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+   cudaDeviceSynchronize();
+   ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:571:64: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:571:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:574:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_x);
+   ^~~~~~~~
+gpu_exact_dense.cu:575:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_p);
+   ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared_coalescing(T*, int, int, int)’:
+gpu_exact_dense.cu:611:3: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+   cudaSetDevice(1);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:616:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:617:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:620:47: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:624:3: error: ‘kernel_xshared_coalescing’ was not declared in this scope
+   kernel_xshared_coalescing<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:624:3: note: suggested alternative: ‘gpu_perman64_xshared_coalescing’
+   kernel_xshared_coalescing<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   gpu_perman64_xshared_coalescing
+gpu_exact_dense.cu:624:30: error: expected primary-expression before ‘<’ token
+   kernel_xshared_coalescing<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+                              ^
+gpu_exact_dense.cu:624:85: error: expected primary-expression before ‘>’ token
+   kernel_xshared_coalescing<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+                                                                                     ^
+gpu_exact_dense.cu:625:3: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+   cudaDeviceSynchronize();
+   ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:630:64: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:630:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:633:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_x);
+   ^~~~~~~~
+gpu_exact_dense.cu:634:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_p);
+   ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared_coalescing_mshared(T*, int, int, int)’:
+gpu_exact_dense.cu:670:3: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+   cudaSetDevice(1);
+   ^~~~~~~~~~~~~
+gpu_exact_dense.cu:675:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:676:3: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ^~~~~~~~~~
+gpu_exact_dense.cu:679:47: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:686:3: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+   kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:686:3: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+   kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:686:38: error: expected primary-expression before ‘<’ token
+   kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
+                                      ^
+gpu_exact_dense.cu:686:115: error: expected primary-expression before ‘>’ token
+   kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
+                                                                                                                   ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:687:3: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+   cudaDeviceSynchronize();
+   ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:692:64: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:692:3: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+   ^~~~~~~~~~
+gpu_exact_dense.cu:695:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_x);
+   ^~~~~~~~
+gpu_exact_dense.cu:696:3: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+   cudaFree(d_p);
+   ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared_coalescing_mshared_multigpu(T*, int, int, int, int)’:
+gpu_exact_dense.cu:742:7: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+       cudaSetDevice(gpu_id);
+       ^~~~~~~~~~~~~
+gpu_exact_dense.cu:747:7: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ^~~~~~~~~~
+gpu_exact_dense.cu:748:7: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ^~~~~~~~~~
+gpu_exact_dense.cu:751:51: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                   ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:756:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), end);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:756:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), end);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:756:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), end);
+                                            ^
+gpu_exact_dense.cu:756:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), end);
+                                                                                                                         ^
+gpu_exact_dense.cu:758:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:758:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:758:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+                                            ^
+gpu_exact_dense.cu:758:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+                                                                                                                         ^
+gpu_exact_dense.cu:760:7: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+       cudaDeviceSynchronize();
+       ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:765:68: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:765:7: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+       ^~~~~~~~~~
+gpu_exact_dense.cu:768:7: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+       cudaFree(d_x);
+       ^~~~~~~~
+gpu_exact_dense.cu:769:7: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+       cudaFree(d_p);
+       ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T*, int, int, bool, int, int, int)’:
+gpu_exact_dense.cu:856:9: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+         cudaSetDevice(id);
+         ^~~~~~~~~~~~~
+gpu_exact_dense.cu:862:9: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ^~~~~~~~~~
+gpu_exact_dense.cu:863:9: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+         cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+         ^~~~~~~~~~
+gpu_exact_dense.cu:866:53: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                     ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:879:13: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), end);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:879:13: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), end);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:879:48: error: expected primary-expression before ‘<’ token
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), end);
+                                                ^
+gpu_exact_dense.cu:879:125: error: expected primary-expression before ‘>’ token
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), end);
+                                                                                                                             ^
+gpu_exact_dense.cu:881:13: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:881:13: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:881:48: error: expected primary-expression before ‘<’ token
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+                                                ^
+gpu_exact_dense.cu:881:125: error: expected primary-expression before ‘>’ token
+             kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+                                                                                                                             ^
+gpu_exact_dense.cu:883:11: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+           cudaDeviceSynchronize();
+           ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:888:72: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                        ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:888:11: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+           ^~~~~~~~~~
+gpu_exact_dense.cu:902:9: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+         cudaFree(d_x);
+         ^~~~~~~~
+gpu_exact_dense.cu:903:9: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+         cudaFree(d_p);
+         ^~~~~~~~
+gpu_exact_dense.cu: In function ‘double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T*, int, int, int, int)’:
+gpu_exact_dense.cu:957:7: error: there are no arguments to ‘cudaSetDevice’ that depend on a template parameter, so a declaration of ‘cudaSetDevice’ must be available [-fpermissive]
+       cudaSetDevice(gpu_id);
+       ^~~~~~~~~~~~~
+gpu_exact_dense.cu:962:7: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ^~~~~~~~~~
+gpu_exact_dense.cu:963:7: error: there are no arguments to ‘cudaMalloc’ that depend on a template parameter, so a declaration of ‘cudaMalloc’ must be available [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ^~~~~~~~~~
+gpu_exact_dense.cu:966:51: error: ‘cudaMemcpyHostToDevice’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                   ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:971:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, start + 3*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:971:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, start + 3*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:971:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, start + 3*offset);
+                                            ^
+gpu_exact_dense.cu:971:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, start + 3*offset);
+                                                                                                                         ^
+gpu_exact_dense.cu:973:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 3*offset, start + 6*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:973:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 3*offset, start + 6*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:973:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 3*offset, start + 6*offset);
+                                            ^
+gpu_exact_dense.cu:973:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 3*offset, start + 6*offset);
+                                                                                                                         ^
+gpu_exact_dense.cu:975:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 6*offset, start + 7*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:975:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 6*offset, start + 7*offset);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:975:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 6*offset, start + 7*offset);
+                                            ^
+gpu_exact_dense.cu:975:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 6*offset, start + 7*offset);
+                                                                                                                         ^
+gpu_exact_dense.cu:977:9: error: ‘kernel_xshared_coalescing_mshared’ was not declared in this scope
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 7*offset, end);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:977:9: note: suggested alternative: ‘gpu_perman64_xshared_coalescing_mshared’
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 7*offset, end);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         gpu_perman64_xshared_coalescing_mshared
+gpu_exact_dense.cu:977:44: error: expected primary-expression before ‘<’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 7*offset, end);
+                                            ^
+gpu_exact_dense.cu:977:121: error: expected primary-expression before ‘>’ token
+         kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start + 7*offset, end);
+                                                                                                                         ^
+gpu_exact_dense.cu:979:7: error: there are no arguments to ‘cudaDeviceSynchronize’ that depend on a template parameter, so a declaration of ‘cudaDeviceSynchronize’ must be available [-fpermissive]
+       cudaDeviceSynchronize();
+       ^~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:984:68: error: ‘cudaMemcpyDeviceToHost’ was not declared in this scope
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:984:7: error: there are no arguments to ‘cudaMemcpy’ that depend on a template parameter, so a declaration of ‘cudaMemcpy’ must be available [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+       ^~~~~~~~~~
+gpu_exact_dense.cu:987:7: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+       cudaFree(d_x);
+       ^~~~~~~~
+gpu_exact_dense.cu:988:7: error: there are no arguments to ‘cudaFree’ that depend on a template parameter, so a declaration of ‘cudaFree’ must be available [-fpermissive]
+       cudaFree(d_p);
+       ^~~~~~~~
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xglobal(T*, int, int, int) [with T = int]’:
+main.cpp:209:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:432:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:438:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:439:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:440:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:442:89: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+                                                                                         wmemcpy
+gpu_exact_dense.cu:443:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:447:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:447:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:452:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:454:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:454:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:455:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:456:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xlocal(T*, int, int, int) [with T = int]’:
+main.cpp:214:35:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:493:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:498:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:499:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:500:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:502:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:503:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:507:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:507:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:512:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:514:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:514:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:515:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:516:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared(T*, int, int, int) [with T = int]’:
+main.cpp:219:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:552:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:557:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:558:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:559:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:561:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:562:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:566:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:566:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:571:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:573:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:573:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:574:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:575:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing(T*, int, int, int) [with T = int]’:
+main.cpp:224:47:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:611:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:616:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:617:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:618:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:620:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:621:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:625:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:625:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:630:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:632:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:632:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:633:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:634:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared(T*, int, int, int) [with T = int]’:
+main.cpp:229:55:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:670:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:675:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:676:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:677:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:679:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:680:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:687:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:687:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:692:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:694:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:694:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:695:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:696:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu(T*, int, int, int, int) [with T = int]’:
+main.cpp:234:64:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:742:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:747:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:748:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:749:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:751:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:752:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:760:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:760:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:765:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:767:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:767:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:768:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:769:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T*, int, int, bool, int, int, int) [with T = int]’:
+main.cpp:239:74:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:856:22: error: ‘cudaSetDevice’ was not declared in this scope
+         cudaSetDevice(id);
+         ~~~~~~~~~~~~~^~~~
+gpu_exact_dense.cu:862:19: error: ‘cudaMalloc’ was not declared in this scope
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: suggested alternative: ‘calloc’
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         calloc
+gpu_exact_dense.cu:863:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:864:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: error: ‘cudaMemcpy’ was not declared in this scope
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:866:75: note: suggested alternative: ‘wmemcpy’
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+                                                                           wmemcpy
+gpu_exact_dense.cu:867:19: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:883:32: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:883:32: note: suggested alternative: ‘__sync_synchronize’
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+           __sync_synchronize
+gpu_exact_dense.cu:888:94: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                              ^
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:901:17: error: ‘cudaFree’ was not declared in this scope
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:901:17: note: suggested alternative: ‘cfree’
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+         cfree
+gpu_exact_dense.cu:902:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_x);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:903:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_p);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T*, int, int, int, int) [with T = int]’:
+main.cpp:244:84:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = int; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:594:79:   required from here
+gpu_exact_dense.cu:957:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:962:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:963:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:964:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:966:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:967:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:979:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:979:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:984:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:986:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:986:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:987:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:988:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xglobal(T*, int, int, int) [with T = float]’:
+main.cpp:209:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:432:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:438:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:439:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:440:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:442:89: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+                                                                                         wmemcpy
+gpu_exact_dense.cu:443:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:447:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:447:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:452:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:454:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:454:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:455:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:456:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xlocal(T*, int, int, int) [with T = float]’:
+main.cpp:214:35:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:493:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:498:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:499:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:500:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:502:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:503:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:507:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:507:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:512:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:514:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:514:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:515:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:516:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared(T*, int, int, int) [with T = float]’:
+main.cpp:219:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:552:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:557:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:558:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:559:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:561:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:562:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:566:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:566:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:571:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:573:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:573:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:574:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:575:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing(T*, int, int, int) [with T = float]’:
+main.cpp:224:47:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:611:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:616:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:617:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:618:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:620:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:621:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:625:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:625:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:630:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:632:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:632:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:633:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:634:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared(T*, int, int, int) [with T = float]’:
+main.cpp:229:55:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:670:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:675:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:676:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:677:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:679:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:680:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:687:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:687:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:692:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:694:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:694:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:695:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:696:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu(T*, int, int, int, int) [with T = float]’:
+main.cpp:234:64:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:742:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:747:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:748:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:749:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:751:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:752:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:760:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:760:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:765:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:767:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:767:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:768:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:769:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T*, int, int, bool, int, int, int) [with T = float]’:
+main.cpp:239:74:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:856:22: error: ‘cudaSetDevice’ was not declared in this scope
+         cudaSetDevice(id);
+         ~~~~~~~~~~~~~^~~~
+gpu_exact_dense.cu:862:19: error: ‘cudaMalloc’ was not declared in this scope
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: suggested alternative: ‘calloc’
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         calloc
+gpu_exact_dense.cu:863:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:864:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: error: ‘cudaMemcpy’ was not declared in this scope
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:866:75: note: suggested alternative: ‘wmemcpy’
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+                                                                           wmemcpy
+gpu_exact_dense.cu:867:19: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:883:32: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:883:32: note: suggested alternative: ‘__sync_synchronize’
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+           __sync_synchronize
+gpu_exact_dense.cu:888:94: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                              ^
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:901:17: error: ‘cudaFree’ was not declared in this scope
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:901:17: note: suggested alternative: ‘cfree’
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+         cfree
+gpu_exact_dense.cu:902:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_x);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:903:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_p);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T*, int, int, int, int) [with T = float]’:
+main.cpp:244:84:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = float; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:627:79:   required from here
+gpu_exact_dense.cu:957:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:962:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:963:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:964:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:966:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:967:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:979:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:979:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:984:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:986:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:986:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:987:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:988:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xglobal(T*, int, int, int) [with T = double]’:
+main.cpp:209:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:432:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:438:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:439:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:440:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:438:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:442:89: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+                                                                                         wmemcpy
+gpu_exact_dense.cu:443:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:447:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:447:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:452:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:442:89: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
+                                                                                         ^
+gpu_exact_dense.cu:454:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:454:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:455:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:456:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:454:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xlocal(T*, int, int, int) [with T = double]’:
+main.cpp:214:35:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:493:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:498:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:499:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:500:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:498:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:502:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:503:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:507:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:507:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:512:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:502:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:514:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:514:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:515:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:516:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:514:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared(T*, int, int, int) [with T = double]’:
+main.cpp:219:36:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:552:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:557:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:558:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:559:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:557:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:561:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:562:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:566:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:566:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:571:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:561:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:573:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:573:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:574:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:575:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:573:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing(T*, int, int, int) [with T = double]’:
+main.cpp:224:47:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:611:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:616:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:617:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:618:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:616:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:620:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:621:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:625:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:625:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:630:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+gpu_exact_dense.cu:620:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:632:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:632:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:633:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:634:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:632:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared(T*, int, int, int) [with T = double]’:
+main.cpp:229:55:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:670:16: error: ‘cudaSetDevice’ was not declared in this scope
+   cudaSetDevice(1);
+   ~~~~~~~~~~~~~^~~
+gpu_exact_dense.cu:675:13: error: ‘cudaMalloc’ was not declared in this scope
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: suggested alternative: ‘calloc’
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   calloc
+gpu_exact_dense.cu:676:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:677:13: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:675:13: note: ‘cudaMalloc’ declared here, later in the translation unit
+   cudaMalloc( &d_x, (nov) * sizeof(double));
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: error: ‘cudaMemcpy’ was not declared in this scope
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+gpu_exact_dense.cu:679:69: note: suggested alternative: ‘wmemcpy’
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+                                                                     wmemcpy
+gpu_exact_dense.cu:680:13: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:687:24: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:687:24: note: suggested alternative: ‘__sync_synchronize’
+   cudaDeviceSynchronize();
+   ~~~~~~~~~~~~~~~~~~~~~^~
+   __sync_synchronize
+gpu_exact_dense.cu:692:86: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                      ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:679:69: note: ‘cudaMemcpy’ declared here, later in the translation unit
+   cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                     ^
+In file included from main.cpp:13:0:
+gpu_exact_dense.cu:694:11: error: ‘cudaFree’ was not declared in this scope
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:694:11: note: suggested alternative: ‘cfree’
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+   cfree
+gpu_exact_dense.cu:695:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_x);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:696:11: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+   cudaFree(d_p);
+   ~~~~~~~~^~~~~
+gpu_exact_dense.cu:694:11: note: ‘cudaFree’ declared here, later in the translation unit
+   cudaFree(d_mat_t);
+   ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu(T*, int, int, int, int) [with T = double]’:
+main.cpp:234:64:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:742:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:747:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:748:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:749:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:747:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:751:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:752:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:760:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:760:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:765:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:751:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:767:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:767:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:768:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:769:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:767:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T*, int, int, bool, int, int, int) [with T = double]’:
+main.cpp:239:74:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:856:22: error: ‘cudaSetDevice’ was not declared in this scope
+         cudaSetDevice(id);
+         ~~~~~~~~~~~~~^~~~
+gpu_exact_dense.cu:862:19: error: ‘cudaMalloc’ was not declared in this scope
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: suggested alternative: ‘calloc’
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         calloc
+gpu_exact_dense.cu:863:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:864:19: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:862:19: note: ‘cudaMalloc’ declared here, later in the translation unit
+         cudaMalloc( &d_x, (nov) * sizeof(double));
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: error: ‘cudaMemcpy’ was not declared in this scope
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:866:75: note: suggested alternative: ‘wmemcpy’
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+                                                                           wmemcpy
+gpu_exact_dense.cu:867:19: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:883:32: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:883:32: note: suggested alternative: ‘__sync_synchronize’
+           cudaDeviceSynchronize();
+           ~~~~~~~~~~~~~~~~~~~~~^~
+           __sync_synchronize
+gpu_exact_dense.cu:888:94: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                              ^
+gpu_exact_dense.cu:866:75: note: ‘cudaMemcpy’ declared here, later in the translation unit
+         cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                           ^
+gpu_exact_dense.cu:901:17: error: ‘cudaFree’ was not declared in this scope
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:901:17: note: suggested alternative: ‘cfree’
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+         cfree
+gpu_exact_dense.cu:902:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_x);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:903:17: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         cudaFree(d_p);
+         ~~~~~~~~^~~~~
+gpu_exact_dense.cu:901:17: note: ‘cudaFree’ declared here, later in the translation unit
+         cudaFree(d_mat_t);
+         ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu: In instantiation of ‘double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T*, int, int, int, int) [with T = double]’:
+main.cpp:244:84:   required from ‘void RunAlgo(T*, int*, int*, T*, int*, int*, T*, int, int, std::__cxx11::string, flags) [with T = double; std::__cxx11::string = std::__cxx11::basic_string<char>]’
+main.cpp:661:79:   required from here
+gpu_exact_dense.cu:957:20: error: ‘cudaSetDevice’ was not declared in this scope
+       cudaSetDevice(gpu_id);
+       ~~~~~~~~~~~~~^~~~~~~~
+gpu_exact_dense.cu:962:17: error: ‘cudaMalloc’ was not declared in this scope
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: suggested alternative: ‘calloc’
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       calloc
+gpu_exact_dense.cu:963:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:964:17: error: ‘cudaMalloc’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:962:17: note: ‘cudaMalloc’ declared here, later in the translation unit
+       cudaMalloc( &d_x, (nov) * sizeof(double));
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: error: ‘cudaMemcpy’ was not declared in this scope
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:966:73: note: suggested alternative: ‘wmemcpy’
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+                                                                         wmemcpy
+gpu_exact_dense.cu:967:17: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+       ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:979:28: error: ‘cudaDeviceSynchronize’ was not declared in this scope
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+gpu_exact_dense.cu:979:28: note: suggested alternative: ‘__sync_synchronize’
+       cudaDeviceSynchronize();
+       ~~~~~~~~~~~~~~~~~~~~~^~
+       __sync_synchronize
+gpu_exact_dense.cu:984:90: error: ‘cudaMemcpy’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+                                                                                          ^
+gpu_exact_dense.cu:966:73: note: ‘cudaMemcpy’ declared here, later in the translation unit
+       cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
+                                                                         ^
+gpu_exact_dense.cu:986:15: error: ‘cudaFree’ was not declared in this scope
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:986:15: note: suggested alternative: ‘cfree’
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+       cfree
+gpu_exact_dense.cu:987:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_x);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+gpu_exact_dense.cu:988:15: error: ‘cudaFree’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+       cudaFree(d_p);
+       ~~~~~~~~^~~~~
+gpu_exact_dense.cu:986:15: note: ‘cudaFree’ declared here, later in the translation unit
+       cudaFree(d_mat_t);
+       ~~~~~~~~^~~~~~~~~
+make: *** [main] Error 1

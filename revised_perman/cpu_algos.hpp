@@ -1,5 +1,5 @@
-#ifndef ALGO
-#define ALGO
+#ifndef ALGO_HPP
+#define ALGO_HPP
 
 #include <iostream>
 #include <bitset>
@@ -169,7 +169,12 @@ double greedy(T* mat, int nov, int number_of_times) {
 }
 
 template <class T>
-double rasmussen_sparse(T *mat, int *rptrs, int *cols, int nov, int number_of_times, int threads) {
+double rasmussen_sparse(T *mat, int *rptrs, int *cols, int nov, flags flags) {
+
+  int number_of_times = flags.number_of_times;
+  int threads = flags.threads;
+
+
   T* mat_t = new T[nov * nov];
   
   for (int i = 0; i < nov; i++) {
@@ -267,7 +272,11 @@ double rasmussen_sparse(T *mat, int *rptrs, int *cols, int nov, int number_of_ti
 }
 
 template <class T>
-double rasmussen(T* mat, int nov, int number_of_times, int threads) {
+double rasmussen(T* mat, int nov, flags flags) {
+  
+  int threads = flags.threads;
+  int number_of_times = flags.number_of_times;
+
   T* mat_t = new T[nov * nov];
   
   for (int i = 0; i < nov; i++) {
@@ -282,7 +291,7 @@ double rasmussen(T* mat, int nov, int number_of_times, int threads) {
   double sum_zeros = 0;
   
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
-    for (int time = 0; time < number_of_times; time++) {
+  for (int time = 0; time < number_of_times; time++) {
       int row_nnz[nov];
       long col_extracted = 0;
       long row_extracted = 0;
@@ -363,7 +372,12 @@ double rasmussen(T* mat, int nov, int number_of_times, int threads) {
   return (sum_perm / number_of_times);
 }
 
-double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int number_of_times, int scale_intervals, int scale_times, int threads) {
+double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, flags flags) {
+
+  int number_of_times = flags.number_of_times;
+  int scale_intervals = flags.scale_intervals;
+  int scale_times = flags.scale_times;
+  int threads = flags.threads;
 
   srand(time(0));
 
@@ -469,7 +483,13 @@ double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *col
 }
 
 template <class T>
-double approximation_perman64(T* mat, int nov, int number_of_times, int scale_intervals, int scale_times, int threads) {
+double approximation_perman64(T* mat, int nov, flags flags) {
+  
+  int number_of_times = flags.number_of_times;
+  int scale_intervals  = flags.scale_intervals;
+  int scale_times = flags.scale_times;
+  int threads = flags.threads;
+
   srand(time(0));
 
   double sum_perm = 0;
@@ -566,7 +586,10 @@ double approximation_perman64(T* mat, int nov, int number_of_times, int scale_in
 }
 
 template <class T>
-double parallel_perman64_sparse(T* mat, int* cptrs, int* rows, T* cvals, int nov, int threads) {
+double parallel_perman64_sparse(T* mat, int* cptrs, int* rows, T* cvals, int nov, flags flags) {
+  
+  int threads = flags.threads;
+  
   float x[nov];   
   float rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -660,7 +683,10 @@ double parallel_perman64_sparse(T* mat, int* cptrs, int* rows, T* cvals, int nov
 }
 
 template <class T>
-double parallel_perman64(T* mat, int nov, int threads) {
+double parallel_perman64(T* mat, int nov, flags flags) {
+  
+  int threads = flags.threads;
+  
   float x[nov];   
   float rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -746,7 +772,11 @@ double parallel_perman64(T* mat, int nov, int threads) {
 }
 
 template <class T>
-double parallel_skip_perman64_w(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, int threads) {
+double parallel_skip_perman64_w(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, flags flags) {
+
+  int threads = flags.threads;
+  
+
   //first initialize the vector then we will copy it to ourselves
   std::cout << "I'm here " << std::endl;
   double rs, x[64], p;
@@ -883,7 +913,10 @@ double parallel_skip_perman64_w(int *rptrs, int *cols, T *rvals, int *cptrs, int
 
 
 template <class T>
-double parallel_skip_perman64_w_balanced(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, int threads) {
+double parallel_skip_perman64_w_balanced(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, flags flags) {
+  
+  int threads = flags.threads;
+  
   //first initialize the vector then we will copy it to ourselves
   double rs, x[nov], p;
   int j, ptr;
