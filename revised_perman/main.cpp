@@ -21,13 +21,46 @@
 #include <math.h>
 using namespace std;
 
+void print_flags(flags flags){
+
+  std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
+  std::cout << "- cpu: " << flags.cpu << std::endl;
+  std::cout << "- gpu: " << flags.gpu << std::endl;
+  std::cout << "- sparse: " << flags.sparse << std::endl;
+  std::cout << "- dense: " << flags.dense << std::endl;
+  std::cout << "- exact: " << flags.exact << std::endl;
+  std::cout << "- approximation: " << flags.approximation << std::endl;
+  std::cout << "- grid_graph: " << flags.grid_graph << std::endl;
+  std::cout << "- gridm: " << flags.gridm << std::endl;
+  std::cout << "- gridn: " << flags.gridn << std::endl;
+  std::cout << "- perman_algo: " << flags.perman_algo << std::endl;
+  std::cout << "- threads: " << flags.threads << std::endl;
+  std::cout << "- scale_intervals: " << flags.scale_intervals << std::endl;
+  std::cout << "- scale_times: " << flags.scale_times << std::endl;
+  std::string fname = &flags.filename[0];
+  std::cout << "- fname: " << fname << std::endl;
+  std::cout << "- type: " << flags.type << std::endl;
+  std::cout << "- preprocessing: " << flags.preprocessing << std::endl;
+  std::cout << "- gpu_num: " << flags.gpu_num << std::endl;
+  std::cout << "- number_of_times: " << flags.number_of_times << std::endl;
+  std::cout << "- grid_dim: " << flags.grid_dim << std::endl;
+  std::cout << "- block_dim: " << flags.block_dim << std::endl;
+  std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
+
+}
+
+
 template <class T>
 void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *rvals, int nov, int nnz, flags flags) 
 {
+  
+  print_flags(flags);
+
   int grid_dim = 2048;
   int block_dim = 256;
   
-  if(flags.type == "double"){
+  if(flags.type == "double"){ //This is possible error because 
+    //flags.type is a char*
     block_dim = 128;
   }
 
@@ -339,7 +372,7 @@ int main (int argc, char **argv)
   bool cpu = false;
   int gpu_num = 2;
   int threads = 16;
-  string filename;
+  //string filename;
   int perman_algo = 1;
   int preprocessing = 0;
 
@@ -377,12 +410,14 @@ int main (int argc, char **argv)
     { "gridn",  1, NULL, 'n' },
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
-
+  
+  
+  std::string holder;
   int next_option;
   do {
-    next_option = getopt_long (argc, argv, short_options, long_options, NULL);
+    next_option = getopt_long(argc, argv, short_options, long_options, NULL);
     switch (next_option)
-    {
+      {
       case 'b':
         generic = false;
         break;
@@ -405,17 +440,18 @@ int main (int argc, char **argv)
         flags.threads = atoi(optarg);
         break;
       case 'f':
-        if (optarg[0] == '-'){
-          fprintf (stderr, "Option -f requires an argument.\n");
+	if (optarg[0] == '-'){
+	  fprintf (stderr, "Option -f requires an argument.\n");
           return 1;
         }
-        flags.filename = std::string(optarg).c_str();
-        break;
+	holder = optarg;
+        flags.filename = holder.c_str();
+	break;
       case 'a':
         flags.approximation = true;
         break;
       case 'g':
-        flags.gpu = 1;
+	flags.gpu = 1;
 	flags.cpu = 0;
         break;
       case 'd':
@@ -480,57 +516,60 @@ int main (int argc, char **argv)
         break;
       default:
         abort ();
-    }
-
+      }
+    
   } while (next_option != -1);
-
-  if (!grid_graph && filename == "") {
+  
+  
+  if (!grid_graph && flags.filename == "") {
     fprintf (stderr, "Option -f is a required argument.\n");
     return 1;
   }
-
+  
   for (int index = optind; index < argc; index++)
-  {
-    printf ("Non-option argument %s\n", argv[index]);
-  }
-
-  if (!cpu && !gpu) {
+    {
+      printf ("Non-option argument %s\n", argv[index]);
+    }
+  
+  if (!flags.cpu && !flags.gpu) {
     gpu = true;
   }
-
-  if (grid_graph) {
+  
+  if (flags.grid_graph) {
     std::cout << "Grid graphs are out of support for a limited time, exiting.. " << std::endl;
     exit(1);
     //RunPermanForGridGraphs(gridm, gridn, perman_algo, gpu, cpu, gpu_num, threads, number_of_times, scale_intervals, scale_times);
     return 0;
   }
-
+  
   int nov, nnz;
   string type;
 
-  ifstream inFile(filename);
+
+  std::string fname = &flags.filename[0];
+  //This is to have filename in the struct, but ifstream don't like 
+  //char*, so.
+  //Type also goes same.
+  //The reason they are being char* is they are also included in .cu
+  //files
+  ifstream inFile(fname);
   string line;
   getline(inFile, line);
+  std::cout << "line: " << line << std::endl;
   istringstream iss(line);
   iss >> nov >> nnz >> type;
-
-  flags.type = type.c_str(); //This is only placeholder to compiler ugly code
+  flags.type = type.c_str(); 
 
   if (type == "int") {
     int* mat = new int[nov*nov];
     ReadMatrix(mat, inFile, nov, generic);
-    //for (int i = 0; i < nov; i++) {
-    //for(int j = 0; j < nov; j++) {
-    //cout << mat[i*nov+j] << " ";
-    //}
-    //cout << endl;
-    //}
-
+    //printMatrix()?
+    
     int *cvals, *rvals;
     int *cptrs, *rows, *rptrs, *cols;
-    if (preprocessing == 1) {
+    if (flags.preprocessing == 1) {
       matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else if (preprocessing == 2) {
+    } else if (flags.preprocessing == 2) {
       matrix2compressed_skipOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
     } else {
       matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
@@ -546,7 +585,7 @@ int main (int argc, char **argv)
     delete[] cols;
     delete[] rvals;
     
-  } else if (type == "float") {
+  } else if (flags.type == "float") {
     float* mat = new float[nov*nov];
     ReadMatrix(mat, inFile, nov, generic);
     //for (int i = 0; i < nov; i++) {
@@ -579,7 +618,7 @@ int main (int argc, char **argv)
     delete[] cols;
     delete[] rvals;
 
-  } else if (type == "double") {
+  } else if (flags.type == "double") {
     double* mat = new double[nov*nov];
     ReadMatrix(mat, inFile, nov, generic);
     //for (int i = 0; i < nov; i++) {

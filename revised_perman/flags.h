@@ -48,7 +48,8 @@ struct flags {
     gridm = -1; //If stay -1, means there is a problem getting the actual value
     gridn = -1; //If stay -1, means there is a problem getting the actual value
 
-    perman_algo = -1; //If stay -1, means there is a problem getting the actual value
+    perman_algo = 0; //If no algorithm is stated, run the first algo
+
     threads = 1; //Assumed sequential execution if not stated
 
     scale_intervals = 4; //If stay -1, means there is a problem getting the actual value
