@@ -1,0 +1,27 @@
+##Backtrace which hints a big change in memory management
+
+#0  0x0000003cbba0cd2b in pthread_once () from /lib64/libpthread.so.0
+#1  0x0000003cbb6fec54 in backtrace () from /lib64/libc.so.6
+#2  0x0000003cbb67084b in __libc_message () from /lib64/libc.so.6
+#3  0x0000003cbb676166 in malloc_printerr () from /lib64/libc.so.6
+#4  0x0000003cbb679be4 in _int_malloc () from /lib64/libc.so.6
+#5  0x0000003cbb67a991 in malloc () from /lib64/libc.so.6
+#6  0x0000003cbae0cbad in _dl_map_object_deps () from /lib64/ld-linux-x86-64.so.2
+#7  0x0000003cbae12aa1 in dl_open_worker () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000003cbae0e1b6 in _dl_catch_error () from /lib64/ld-linux-x86-64.so.2
+#9  0x0000003cbae124fa in _dl_open () from /lib64/ld-linux-x86-64.so.2
+#10 0x0000003cbb726e10 in do_dlopen () from /lib64/libc.so.6
+#11 0x0000003cbae0e1b6 in _dl_catch_error () from /lib64/ld-linux-x86-64.so.2
+#12 0x0000003cbb726f67 in __libc_dlopen_mode () from /lib64/libc.so.6
+#13 0x0000003cbb6feb25 in init () from /lib64/libc.so.6
+#14 0x0000003cbba0cd33 in pthread_once () from /lib64/libpthread.so.0
+#15 0x0000003cbb6fec54 in backtrace () from /lib64/libc.so.6
+#16 0x0000003cbb67084b in __libc_message () from /lib64/libc.so.6
+#17 0x0000003cbb676166 in malloc_printerr () from /lib64/libc.so.6
+#18 0x0000003cbb678c93 in _int_free () from /lib64/libc.so.6
+#19 0x000000000043fecd in cudart::globalState::destroyModule(cudart::globalModule*) ()
+#20 0x0000000000440366 in cudart::globalState::unregisterFatBinary(cudart::globalModule*) ()
+#21 0x000000000040f543 in __cudaUnregisterBinaryUtil() ()
+#22 0x0000003cbb635e22 in exit () from /lib64/libc.so.6
+#23 0x0000003cbb61ed24 in __libc_start_main () from /lib64/libc.so.6
+#24 0x00000000004061f1 in _start ()
