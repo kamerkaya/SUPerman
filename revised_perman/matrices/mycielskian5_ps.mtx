@@ -1,0 +1,108 @@
+%%MatrixMarket matrix coordinate pattern symmetric
+%-------------------------------------------------------------------------------
+% SuiteSparse Matrix Collection, Tim Davis
+% https://sparse.tamu.edu/Mycielski/mycielskian5
+% name: Mycielski/mycielskian5
+% [Mycielskian graph M5]
+% id: 2761
+% date: 2018
+% author: J. Mycielski
+% ed: S. Kolodziej
+% fields: title A name id date author ed kind notes
+% kind: undirected graph
+%-------------------------------------------------------------------------------
+% notes:
+% Mycielskian graph M5.                                                   
+%                                                                         
+% The Mycielskian graph sequence generates graphs that are triangle-free  
+% and with a known chromatic number (i.e. the minimum number of colors    
+% required to color the vertices of the graph).                           
+%                                                                         
+% Known properties of this graph (M5) include the following:              
+%                                                                         
+%  * M5 has a minimum chromatic number of 5.                              
+%  * M5 is triangle-free (i.e. no cycles of length 3 exist).              
+%  * M5 has a Hamiltonian cycle.                                          
+%  * M5 has a clique number of 2.                                         
+%  * M5 is factor-critical, meaning every subgraph of |V|-1 vertices has  
+%    a perfect matching.                                                  
+%                                                                         
+% Mycielski graphs were first described by Jan Mycielski in the following 
+% publication:                                                            
+%                                                                         
+%     Mycielski, J., 1955. Sur le coloriage des graphes. Colloq. Math.,   
+%     3: 161-162.                                                         
+%                                                                         
+%-------------------------------------------------------------------------------
+23 23 71
+2 1
+4 1
+7 1
+9 1
+13 1
+15 1
+18 1
+20 1
+3 2
+6 2
+8 2
+12 2
+14 2
+17 2
+19 2
+5 3
+7 3
+10 3
+13 3
+16 3
+18 3
+21 3
+5 4
+6 4
+10 4
+12 4
+16 4
+17 4
+21 4
+8 5
+9 5
+14 5
+15 5
+19 5
+20 5
+11 6
+13 6
+15 6
+22 6
+11 7
+12 7
+14 7
+22 7
+11 8
+13 8
+16 8
+22 8
+11 9
+12 9
+16 9
+22 9
+11 10
+14 10
+15 10
+22 10
+17 11
+18 11
+19 11
+20 11
+21 11
+23 12
+23 13
+23 14
+23 15
+23 16
+23 17
+23 18
+23 19
+23 20
+23 21
+23 22

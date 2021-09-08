@@ -33,7 +33,7 @@ double cpu_perman64_sparse(int* cptrs, int* rows, T* cvals, double x[], int nov,
         }
       }
     }
-
+    
     prod = 1.0;
     int zero_num = 0;
     for (int j = 0; j < nov; j++) {

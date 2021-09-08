@@ -19,7 +19,42 @@
 #include "cpu_algos.hpp"
 //
 #include <math.h>
+//
+#include "read_matrix.hpp"
+//
+#include "mmio.c"
+
+
 using namespace std;
+
+template<class T>
+void escape(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags){
+
+
+  print_densematrix(densemat);
+
+  std::cout << "Trying to escape mate.. 0" << std::endl;
+  delete[] densemat->mat;
+  std::cout << "Trying to escape mate.. 1" << std::endl;
+  delete densemat;
+  std::cout << "Trying to escape mate.. 2" << std::endl;
+  
+  delete[] sparsemat->cptrs;
+  std::cout << "Trying to escape mate.. 3" << std::endl;
+  delete[] sparsemat->rptrs;
+  std::cout << "Trying to escape mate.. 4" << std::endl;
+  delete[] sparsemat->rows;
+  std::cout << "Trying to escape mate.. 5" << std::endl;
+  delete[] sparsemat->cols;
+  std::cout << "Trying to escape mate.. 6" << std::endl;
+  delete[] sparsemat->cvals;
+  std::cout << "Trying to escape mate.. 7" << std::endl;
+  delete[] sparsemat->rvals;
+  std::cout << "Trying to escape mate.. 8" << std::endl;
+  delete sparsemat;
+  std::cout << "Trying to escape mate.. 9" << std::endl;
+
+}
 
 void print_flags(flags flags){
 
@@ -30,6 +65,8 @@ void print_flags(flags flags){
   std::cout << "- dense: " << flags.dense << std::endl;
   std::cout << "- exact: " << flags.exact << std::endl;
   std::cout << "- approximation: " << flags.approximation << std::endl;
+  std::cout << "- half-precision: " << flags.half_precision << std::endl;
+  std::cout << "- binary graph: " << flags.binary_graph << std::endl;
   std::cout << "- grid_graph: " << flags.grid_graph << std::endl;
   std::cout << "- gridm: " << flags.gridm << std::endl;
   std::cout << "- gridn: " << flags.gridn << std::endl;
@@ -37,8 +74,9 @@ void print_flags(flags flags){
   std::cout << "- threads: " << flags.threads << std::endl;
   std::cout << "- scale_intervals: " << flags.scale_intervals << std::endl;
   std::cout << "- scale_times: " << flags.scale_times << std::endl;
-  std::string fname = &flags.filename[0];
-  std::cout << "- fname: " << fname << std::endl;
+  //std::string fname(flags.filename);
+  //std::cout << "- fname: " << std::string(flags.filename) << std::endl;
+  //std::cout << "- fname: " << fname << std::endl;
   std::cout << "- type: " << flags.type << std::endl;
   std::cout << "- preprocessing: " << flags.preprocessing << std::endl;
   std::cout << "- gpu_num: " << flags.gpu_num << std::endl;
@@ -46,7 +84,8 @@ void print_flags(flags flags){
   std::cout << "- grid_dim: " << flags.grid_dim << std::endl;
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
-
+  //
+  std::cout << "Will return from flags " << std::endl;
 }
 
 
@@ -59,7 +98,7 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
   int grid_dim = 2048;
   int block_dim = 256;
   
-  if(flags.type == "double"){ //This is possible error because 
+  if(std::string(flags.type) == "double"){ //This is possible error because 
     //flags.type is a char*
     block_dim = 128;
   }
@@ -368,6 +407,7 @@ int main (int argc, char **argv)
   bool generic = true;
   bool dense = true;
   bool approximation = false;
+  bool half_precision = false;
   bool gpu = false;
   bool cpu = false;
   int gpu_num = 2;
@@ -387,9 +427,8 @@ int main (int argc, char **argv)
   // We need to handle this part with a constructor
 
   flags flags;
-  
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:h";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -408,6 +447,7 @@ int main (int argc, char **argv)
     { "grid",  0, NULL, 'i' },
     { "gridm",  1, NULL, 'm' },
     { "gridn",  1, NULL, 'n' },
+    { "halfprec" , 0, NULL, 'h'},
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
   
@@ -419,7 +459,7 @@ int main (int argc, char **argv)
     switch (next_option)
       {
       case 'b':
-        generic = false;
+        flags.binary_graph = true;
         break;
       case 's':
 	flags.dense = 0;
@@ -427,10 +467,10 @@ int main (int argc, char **argv)
         break;
       case 'r':
         if (optarg[0] == '-'){
-          fprintf (stderr, "Option -t requires an argument.\n");
+          fprintf (stderr, "Option -r requires an argument.\n");
           return 1;
         }
-	flags.preprocessing = atoi(optarg);
+	flags.preprocessing = atoi(optarg); //1->sortorder | 2->skiporder
 	break;
       case 't':
         if (optarg[0] == '-'){
@@ -510,6 +550,9 @@ int main (int argc, char **argv)
         }
         flags.gridn = atoi(optarg);
         break;
+      case 'h':
+	flags.half_precision = 1;
+	break;
       case '?':
         return 1;
       case -1:    /* Done with options.  */
@@ -545,114 +588,187 @@ int main (int argc, char **argv)
   int nov, nnz;
   string type;
 
-
-  std::string fname = &flags.filename[0];
+  //std::string fname = &flags.filename[0];
   //This is to have filename in the struct, but ifstream don't like 
   //char*, so.
   //Type also goes same.
   //The reason they are being char* is they are also included in .cu
   //files
-  ifstream inFile(fname);
-  string line;
-  getline(inFile, line);
-  std::cout << "line: " << line << std::endl;
-  istringstream iss(line);
-  iss >> nov >> nnz >> type;
-  flags.type = type.c_str(); 
-
-  if (type == "int") {
-    int* mat = new int[nov*nov];
-    ReadMatrix(mat, inFile, nov, generic);
-    //printMatrix()?
-    
-    int *cvals, *rvals;
-    int *cptrs, *rows, *rptrs, *cols;
-    if (flags.preprocessing == 1) {
-      matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else if (flags.preprocessing == 2) {
-      matrix2compressed_skipOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else {
-      matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    }
-    
-    RunAlgo(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz, flags);
-    
-    delete[] mat;
-    delete[] cptrs;
-    delete[] rows;
-    delete[] cvals;
-    delete[] rptrs;
-    delete[] cols;
-    delete[] rvals;
-    
-  } else if (flags.type == "float") {
-    float* mat = new float[nov*nov];
-    ReadMatrix(mat, inFile, nov, generic);
-    //for (int i = 0; i < nov; i++) {
-    //for(int j = 0; j < nov; j++) {
-    //if (mat[i*nov+j] == 0) {
-    //cout << "0.0 ";
-    //} else {
-    //cout << to_string(mat[i*nov+j]).substr(0,3) << " ";
-    //}
-    //}
-    //cout << endl;
-    //}
-
-    float *cvals, *rvals;
-    int *cptrs, *rows, *rptrs, *cols;
-    if (preprocessing == 1) {
-      matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else if (preprocessing == 2) {
-      matrix2compressed_skipOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else {
-      matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    }
-    RunAlgo(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz, flags);
-
-    delete[] mat;
-    delete[] cptrs;
-    delete[] rows;
-    delete[] cvals;
-    delete[] rptrs;
-    delete[] cols;
-    delete[] rvals;
-
-  } else if (flags.type == "double") {
-    double* mat = new double[nov*nov];
-    ReadMatrix(mat, inFile, nov, generic);
-    //for (int i = 0; i < nov; i++) {
-    //for(int j = 0; j < nov; j++) {
-    //if (mat[i*nov+j] == 0) {
-    //cout << "0.0 ";
-    //} else {
-    //cout << to_string(mat[i*nov+j]).substr(0,3) << " ";
-    //}
-    //}
-    //cout << endl;
-    //}
-
-    double *cvals, *rvals;
-    int *cptrs, *rows, *rptrs, *cols;
-    if (preprocessing == 1) {
-      matrix2compressed_sortOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else if (preprocessing == 2) {
-      matrix2compressed_skipOrder(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    } else {
-      matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
-    }
-
-    RunAlgo(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz, flags);
-
-    delete[] mat;
-    delete[] cptrs;
-    delete[] rows;
-    delete[] cvals;
-    delete[] rptrs;
-    delete[] cols;
-    delete[] rvals;
-
+  
+  FILE* f;
+  int ret_code;
+  MM_typecode matcode;
+  int M, N, nz;
+  int i;
+  int *I, *J;
+  
+  if((f = fopen(flags.filename, "r")) == NULL){
+    printf("Error opening the file, exiting.. \n");
+    exit(1);
   }
+  
+  if(mm_read_banner(f, &matcode) != 0){
+    printf("Could not process Matrix Market Banner, exiting.. \n");
+    exit(1);
+  }
+  
+  if(mm_is_matrix(matcode) != 1){
+    printf("SUPerman only supports matrices, exiting.. \n");
+    exit(1);
+  }
+
+  if(mm_is_coordinate(matcode) != 1){
+    printf("SUPerman only supports mtx format at the moment, exiting.. \n");
+    exit(1);
+  }
+  
+  if((ret_code = mm_read_mtx_crd_size(f, &M, &N, &nz)) != 0){
+    printf("Matrix size cannot be read, exiting.. \n");
+  }
+  
+  if(mm_is_complex(matcode) == 1){
+    printf("SUPerman does not support complex type, exiting.. ");
+    exit(1);
+    //Instead of exit(1), there should be an escape function
+    //which frees the allocated memory
+  }
+
+  bool is_pattern = false;
+  if(mm_is_pattern(matcode) == 1)
+    is_pattern = true;
+  
+  if(flags.binary_graph)
+    is_pattern = true;
+
+  bool is_symmetric = false;
+  if(mm_is_symmetric(matcode) == 1 || mm_is_skew(matcode))
+    is_symmetric = true;
+  
+
+  std::cout << "flags.halfprecision: " << flags.half_precision << std::endl;
+  
+  std::cout << "is real: " << mm_is_real(matcode) << " hp: " << flags.half_precision << std::endl;
+  if(mm_is_real(matcode) == 1 && !flags.half_precision){
+    flags.type = "double";
+    SparseMatrix<double>* sparsemat;
+    DenseMatrix<double>* densemat;
+    sparsemat = new SparseMatrix<double>();
+    densemat = new DenseMatrix<double>(); 
+    densemat->mat = new double[nz];
+    sparsemat->rvals = new double[nz];
+    sparsemat->cvals = new double[nz];
+    sparsemat->cptrs = new int[nov + 1];
+    sparsemat->rptrs = new int[nov + 1];
+    sparsemat->rows = new int[nz];
+    sparsemat->cols = new int[nz];
+    sparsemat->nov = M; 
+    densemat->nov = M; 
+    sparsemat->nnz = nz;
+    densemat->nnz = nz;
+
+    if(!is_symmetric)
+      readDenseMatrix(densemat, flags.filename, is_pattern);
+    else 
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+    
+    
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    if(flags.preprocessing == 0)
+      matrix2compressed_o(densemat, sparsemat); 
+    if(flags.preprocessing == 1)
+      matrix2compressed_sortOrder_o(densemat, sparsemat); 
+    if(flags.preprocessing == 2)
+      matrix2compressed_skipOrder_o(densemat, sparsemat); 
+    std::cout << "Compression..OK!" << std::endl;
+    
+    print_flags(flags);
+    print_sparsematrix(sparsemat);
+
+    //escape(densemat, sparsemat, flags);
+  }
+
+  if(mm_is_real(matcode) == 1 && flags.half_precision){
+    std::cout << "Hey there float mate! " << std::endl;
+    flags.type = "float";
+    SparseMatrix<float>* sparsemat;
+    DenseMatrix<float>* densemat;
+    sparsemat = new SparseMatrix<float>();
+    densemat = new DenseMatrix<float>(); 
+    densemat->mat = new float[nz];
+    sparsemat->rvals = new float[nz];
+    sparsemat->cvals = new float[nz];
+    sparsemat->cptrs = new int[nov + 1];
+    sparsemat->rptrs = new int[nov + 1];
+    sparsemat->rows = new int[nz];
+    sparsemat->cols = new int[nz];
+    sparsemat->nov = M; 
+    densemat->nov = M; 
+    sparsemat->nnz = nz;
+    densemat->nnz = nz;
+    
+    if(!is_symmetric)
+      readDenseMatrix(densemat, flags.filename, is_pattern);
+    else 
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+    
+        
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    if(flags.preprocessing == 0)
+      matrix2compressed_o(densemat, sparsemat); 
+    if(flags.preprocessing == 1)
+      matrix2compressed_sortOrder_o(densemat, sparsemat); 
+    if(flags.preprocessing == 2)
+      matrix2compressed_skipOrder_o(densemat, sparsemat); 
+    std::cout << "Compression..OK!" << std::endl;
+    
+    print_flags(flags);
+    print_sparsematrix(sparsemat);
+
+    //escape(densemat, sparsemat, flags);
+  }
+  
+  if(mm_is_integer(matcode) == 1 || is_pattern){
+    flags.type = "int";
+    SparseMatrix<int>* sparsemat;
+    DenseMatrix<int>* densemat;
+    sparsemat = new SparseMatrix<int>();
+    densemat = new DenseMatrix<int>(); 
+    sparsemat->rvals = new int[nz];
+    sparsemat->cvals = new int[nz];
+    sparsemat->cptrs = new int[nov + 1];
+    sparsemat->rptrs = new int[nov + 1];
+    densemat->mat = new int[nz];
+    sparsemat->rows = new int[nz];
+    sparsemat->cols = new int[nz];
+    sparsemat->nov = M; 
+    densemat->nov = M; 
+    sparsemat->nnz = nz;
+    densemat->nnz = nz;    
+    
+    if(!is_symmetric)
+      readDenseMatrix(densemat, flags.filename, is_pattern);
+    else 
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+    
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    if(flags.preprocessing == 0)
+      matrix2compressed_o(densemat, sparsemat); 
+    if(flags.preprocessing == 1)
+      matrix2compressed_sortOrder_o(densemat, sparsemat); 
+    if(flags.preprocessing == 2)
+      matrix2compressed_skipOrder_o(densemat, sparsemat); 
+    std::cout << "Compression..OK!" << std::endl;
+
+    print_sparsematrix(sparsemat);
+    print_flags(flags);
+    
+    //escape(densemat, sparsemat, flags);
+  }
+  
+  
+  
+  
+  
 
   return 0;
 }

@@ -14,6 +14,9 @@ struct flags {
   bool approximation;
 
   bool grid_graph;
+  bool half_precision;
+  bool binary_graph;
+  
   int gridm;
   int gridn;
   
@@ -45,6 +48,9 @@ struct flags {
     approximation = 0; 
     
     grid_graph = 0; //Assumed it is not a grid graph
+    half_precision = 0; //Assumed double data type
+    binary_graph = 0;
+    
     gridm = -1; //If stay -1, means there is a problem getting the actual value
     gridn = -1; //If stay -1, means there is a problem getting the actual value
 
@@ -56,10 +62,10 @@ struct flags {
     scale_times = 5; //If stay -1, means there is a problem getting the actual value
 
     //filename = "";
-    //type = ""; //If stay empty string, means there is a problem getting the actual value
+    type = ""; //If stay empty string, means there is a problem getting the actual value
     //These are not initialized until data is seen
     
-    preprocessing = -1; //If stay -1, means no preprocessing :)
+    preprocessing = 0; //If stay 0, means no preprocessing. Else 1->sortorder 2->skiporder
 
     gpu_num = 1; //Assumed we will use 1 GPU
     number_of_times = 100000; //Assumed 100K
@@ -69,5 +75,26 @@ struct flags {
   }
   
 };
+
+//These structs should be relocated to "flags.h"
+template <class T>
+struct DenseMatrix{
+  T* mat;
+  int nov;
+  int nnz;
+};
+
+template <class T>
+struct SparseMatrix{
+  int* cptrs;
+  int* rptrs;
+  int* rows;
+  int* cols;
+  T* cvals;
+  T* rvals;
+  int nov;
+  int nnz;
+};
+
 
 #endif
