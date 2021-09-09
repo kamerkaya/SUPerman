@@ -82,6 +82,10 @@ struct DenseMatrix{
   T* mat;
   int nov;
   int nnz;
+
+  ~DenseMatrix(){
+    delete mat;
+  }
 };
 
 template <class T>
@@ -94,6 +98,16 @@ struct SparseMatrix{
   T* rvals;
   int nov;
   int nnz;
+
+  ~SparseMatrix(){
+    delete[] cptrs;
+    delete[] rptrs;
+    delete[] rows;
+    delete[] cols;
+    delete[] cvals;
+    delete[] rvals;
+  }
+  
 };
 
 

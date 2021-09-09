@@ -40,7 +40,7 @@ void print_densematrix(DenseMatrix<T>* densemat){
 
   for(int i = 0; i < no_row; i++){
     for(int j = 0; j < no_col; j++){
-      std::cout << mat[i*j+j] << " ";
+      std::cout << mat[i*no_row+j] << " ";
     }
     std::cout << std::endl;
   }
@@ -632,6 +632,8 @@ void matrix2compressed(T* mat, int*& cptrs, int*& rows, T*& cvals, int*& rptrs, 
 template <class T>
 void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
 
+  std::cout << "matrix2compressed_o is called " << std::endl; 
+  
   int curr_elt_r = 0;
   int curr_elt_c = 0;
   //cptrs = new int[nov + 1];
@@ -675,6 +677,9 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   }
   rptrs[nov] = curr_elt_r;
   cptrs[nov] = curr_elt_c;
+
+  std::cout << "curr_elt_r: " << curr_elt_r << std::endl;
+  std::cout << "curr_elt_c: " << curr_elt_c << std::endl;
 }
 
 template <class T>
@@ -912,10 +917,23 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   int nov = sparsemat->nov;
   int nnz = sparsemat->nnz;
 
+  //std::cout << "skipOrder compress -- nov: " << nov << std::endl;
+  //std::cout << "skipOrder compress -- nnz: " << nnz << std::endl;
+
   int rowPerm[nov];
   int colPerm[nov];
   bool rowVisited[nov];
   int degs[nov];
+  
+  //Definitely need to ask this to Kamer Hoca
+  //But first, get a deeper understanding of SkipOrder
+  //But now it looks like it solved the problem
+  //Another to do is to look at matrix before and after ordering
+  for(int i = 0; i < nov; i++){
+    rowPerm[i] = 0;
+    colPerm[i] = 0;
+  }
+  
   for (int j = 0; j < nov; j++) {
     degs[j] = 0;
     rowVisited[j] = false;
@@ -965,9 +983,20 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
       matPrev[r*nov + c] = mat[r*nov + c];
     }
   }
+  
   for (int r = 0; r < nov; r++) {
     for(int c = 0; c < nov; c++) {
-      mat[r*nov + c] = matPrev[rowPerm[r]*nov + colPerm[c]];
+      //std::cout << "r: " << r << " c : " << c << " r*nov+c: " << r*nov+c << std::endl;
+      //std::cout << "mat[r*nov+c]: " << mat[r*nov+c] << std::endl;
+      //std::cout << "&mat[r*nov+c]: " << &mat[r*nov+c] << std::endl;
+      //std::cout << "&colPerm[c]: " << &colPerm[c] << std::endl;
+      //std::cout << "&matPrev[rowPerm[r]*nov + colPerm[c]]: " << &matPrev[rowPerm[r]*nov + colPerm[c]] << std::endl;
+      //std::cout << "Trying to access: " << rowPerm[r]*nov + colPerm[c] << "/"<< nov*nov <<std::endl;
+      //std::cout << "rowPerm[r]: " << rowPerm[r] << std::endl;
+      //std::cout << "colPerm[c]: " << colPerm[c] << std::endl;
+      mat[r*nov + c] = matPrev[rowPerm[r]*nov + colPerm[c]]; //This is the erroneous line!!1!
+      //Caused by rowPerm[r]
+      //std::cout << "mat[r*nov+c]: " << mat[r*nov+c] << std::endl;
     }
   }
   delete[] matPrev;

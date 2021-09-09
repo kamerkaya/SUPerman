@@ -10,6 +10,10 @@
 
 template <class T>
 void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern){
+
+#ifdef DEBUG
+  std::cout << "In function: readDenseMatrix()" << std::endl;
+#endif
   
   std::ifstream file(filename);
   
@@ -33,25 +37,43 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
   T cast;
   int x, y;
   for(int i = 0; i < no_lines; i++){
-    file >> x >> y >> cast;
+    
     if(is_pattern)
-      mat->mat[x*y+y] = (int)1;
+      file >> x >> y;
     else
-      mat->mat[x*y+y] = cast;
+      file >> x >> y >> cast;
+    
+    x -= 1; //Convert from 1-based to 0-based
+    y -= 1;
+
+#ifdef HARDDEBUG
+    std::cout << "x: " << x << " y: " << y << " x*no_row+y: " << x*no_row+y << std::endl;
+#endif
+    
+    if(is_pattern)
+      mat->mat[x*no_row+y] = (int)1;
+    else
+      mat->mat[x*no_row+y] = cast;
   }
   
   std::cout << "I've read something like that: " << std::endl;
   for(int i = 0; i < no_row; i++){
     for(int j = 0; j < no_row; j++){
-      std::cout << mat->mat[i*j+j] << " ";
+      std::cout << mat->mat[i*no_row+j] << " ";
     }
     std::cout << std::endl;
   }
 
+  file.close();
+  
 }
 
 template <class T>
 void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern){
+
+#ifdef DEBUG
+  std::cout << "In function: readSymmetricDenseMatrix()" << std::endl;
+#endif
   
   std::ifstream file(filename);
   
@@ -71,11 +93,21 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
     mat->mat[i] = (T)0;
   }
   
-  
   T cast;
   int x, y;
   for(int i = 0; i < no_lines; i++){
-    file >> x >> y >> cast;
+    if(is_pattern)
+      file >> x >> y;
+    else
+      file >> x >> y >> cast;
+
+    x -= 1; //Convert from 1-based to 0-based
+    y -= 1;
+
+#ifdef HARDDEBUG
+    std::cout << "x: " << x << " y: " << y << " x*no_row+y: " << x*no_row+y << std::endl;
+#endif
+        
     if(is_pattern)
       mat->mat[x*no_row+y] = (int)1;
     else
@@ -92,13 +124,16 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
   std::cout << "I've read something symmetric like that: " << std::endl;
   for(int i = 0; i < no_row; i++){
     for(int j = 0; j < no_col; j++){
-      std::cout << mat->mat[i*j+j] << " ";
+      std::cout << mat->mat[i*no_row+j] << " ";
     }
     std::cout << std::endl;
   }
+  
+#ifdef DEBUG
+  std::cout << "Returning from readSymmetricDenseMatrix()" << std::endl;
+#endif
 
-
-
+  file.close();
 }
 
 #endif

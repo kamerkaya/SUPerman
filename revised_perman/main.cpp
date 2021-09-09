@@ -27,35 +27,6 @@
 
 using namespace std;
 
-template<class T>
-void escape(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags){
-
-
-  print_densematrix(densemat);
-
-  std::cout << "Trying to escape mate.. 0" << std::endl;
-  delete[] densemat->mat;
-  std::cout << "Trying to escape mate.. 1" << std::endl;
-  delete densemat;
-  std::cout << "Trying to escape mate.. 2" << std::endl;
-  
-  delete[] sparsemat->cptrs;
-  std::cout << "Trying to escape mate.. 3" << std::endl;
-  delete[] sparsemat->rptrs;
-  std::cout << "Trying to escape mate.. 4" << std::endl;
-  delete[] sparsemat->rows;
-  std::cout << "Trying to escape mate.. 5" << std::endl;
-  delete[] sparsemat->cols;
-  std::cout << "Trying to escape mate.. 6" << std::endl;
-  delete[] sparsemat->cvals;
-  std::cout << "Trying to escape mate.. 7" << std::endl;
-  delete[] sparsemat->rvals;
-  std::cout << "Trying to escape mate.. 8" << std::endl;
-  delete sparsemat;
-  std::cout << "Trying to escape mate.. 9" << std::endl;
-
-}
-
 void print_flags(flags flags){
 
   std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
@@ -74,9 +45,8 @@ void print_flags(flags flags){
   std::cout << "- threads: " << flags.threads << std::endl;
   std::cout << "- scale_intervals: " << flags.scale_intervals << std::endl;
   std::cout << "- scale_times: " << flags.scale_times << std::endl;
-  //std::string fname(flags.filename);
-  //std::cout << "- fname: " << std::string(flags.filename) << std::endl;
   //std::cout << "- fname: " << fname << std::endl;
+  printf("- fname: %s \n", flags.filename);
   std::cout << "- type: " << flags.type << std::endl;
   std::cout << "- preprocessing: " << flags.preprocessing << std::endl;
   std::cout << "- gpu_num: " << flags.gpu_num << std::endl;
@@ -625,6 +595,17 @@ int main (int argc, char **argv)
   if((ret_code = mm_read_mtx_crd_size(f, &M, &N, &nz)) != 0){
     printf("Matrix size cannot be read, exiting.. \n");
   }
+
+#ifdef DEBUG
+  std::cout << "M: " << M << " N: " << N << " nz: " << nz << std::endl;
+#endif
+  nov = M;
+  nnz = nz;
+
+  if(M != N){
+    printf("SUPerman only works with nxn matrices, exiting.. ");
+    exit(1);
+  }
   
   if(mm_is_complex(matcode) == 1){
     printf("SUPerman does not support complex type, exiting.. ");
@@ -643,18 +624,19 @@ int main (int argc, char **argv)
   bool is_symmetric = false;
   if(mm_is_symmetric(matcode) == 1 || mm_is_skew(matcode))
     is_symmetric = true;
-  
 
-  std::cout << "flags.halfprecision: " << flags.half_precision << std::endl;
-  
-  std::cout << "is real: " << mm_is_real(matcode) << " hp: " << flags.half_precision << std::endl;
+ 
+
   if(mm_is_real(matcode) == 1 && !flags.half_precision){
+#ifdef DEBUG
+    std::cout << "Read Case: 0" << std::endl;
+#endif
     flags.type = "double";
     SparseMatrix<double>* sparsemat;
     DenseMatrix<double>* densemat;
     sparsemat = new SparseMatrix<double>();
     densemat = new DenseMatrix<double>(); 
-    densemat->mat = new double[nz];
+    densemat->mat = new double[M*N];
     sparsemat->rvals = new double[nz];
     sparsemat->cvals = new double[nz];
     sparsemat->cptrs = new int[nov + 1];
@@ -680,21 +662,24 @@ int main (int argc, char **argv)
     if(flags.preprocessing == 2)
       matrix2compressed_skipOrder_o(densemat, sparsemat); 
     std::cout << "Compression..OK!" << std::endl;
-    
-    print_flags(flags);
+
     print_sparsematrix(sparsemat);
+    print_flags(flags);
+    
 
     //escape(densemat, sparsemat, flags);
   }
 
-  if(mm_is_real(matcode) == 1 && flags.half_precision){
-    std::cout << "Hey there float mate! " << std::endl;
+  else if(mm_is_real(matcode) == 1 && flags.half_precision){
+#ifdef DEBUG
+    std::cout << "Read Case: 1" << std::endl;
+#endif
     flags.type = "float";
     SparseMatrix<float>* sparsemat;
     DenseMatrix<float>* densemat;
     sparsemat = new SparseMatrix<float>();
     densemat = new DenseMatrix<float>(); 
-    densemat->mat = new float[nz];
+    densemat->mat = new float[M*N];
     sparsemat->rvals = new float[nz];
     sparsemat->cvals = new float[nz];
     sparsemat->cptrs = new int[nov + 1];
@@ -720,20 +705,21 @@ int main (int argc, char **argv)
     if(flags.preprocessing == 2)
       matrix2compressed_skipOrder_o(densemat, sparsemat); 
     std::cout << "Compression..OK!" << std::endl;
-    
-    print_flags(flags);
-    print_sparsematrix(sparsemat);
 
-    //escape(densemat, sparsemat, flags);
+    print_sparsematrix(sparsemat);
+    print_flags(flags);
   }
   
-  if(mm_is_integer(matcode) == 1 || is_pattern){
+  else if(mm_is_integer(matcode) == 1 || is_pattern){
+#ifdef DEBUG
+    std::cout << "Read Case: 2" << std::endl;
+#endif
     flags.type = "int";
     SparseMatrix<int>* sparsemat;
     DenseMatrix<int>* densemat;
     sparsemat = new SparseMatrix<int>();
     densemat = new DenseMatrix<int>(); 
-    sparsemat->rvals = new int[nz];
+    sparsemat->rvals = new int[M*N];
     sparsemat->cvals = new int[nz];
     sparsemat->cptrs = new int[nov + 1];
     sparsemat->rptrs = new int[nov + 1];
@@ -749,6 +735,9 @@ int main (int argc, char **argv)
       readDenseMatrix(densemat, flags.filename, is_pattern);
     else 
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+
+    std::cout << std::flush;
+    std::cout << "What is going on mate.. " << std::endl;
     
     std::cout << "Read.. OK! -- Compressing.. " << std::endl;
     if(flags.preprocessing == 0)
@@ -761,8 +750,12 @@ int main (int argc, char **argv)
 
     print_sparsematrix(sparsemat);
     print_flags(flags);
-    
-    //escape(densemat, sparsemat, flags);
+  }
+  
+  else{
+    std::cout << "Matrix or flags have overlapping features.. " <<std::endl;
+    print_flags(flags);
+    exit(1);
   }
   
   
