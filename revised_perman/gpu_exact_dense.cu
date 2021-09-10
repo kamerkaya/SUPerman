@@ -516,10 +516,15 @@ extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
 }
 
 template <class T>
-extern double gpu_perman64_xlocal(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xlocal(DenseMatrix<T>* densemat, flags flags) {
 
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
   
 
   double x[nov]; 
@@ -580,10 +585,15 @@ extern double gpu_perman64_xlocal(T* mat, int nov, flags flags) {
 }
 
 template <class T>
-extern double gpu_perman64_xshared(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared(DenseMatrix<T>* densemat, flags flags) {
   
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
 
   double x[nov]; 
   double rs; //row sum
@@ -643,10 +653,15 @@ extern double gpu_perman64_xshared(T* mat, int nov, flags flags) {
 }
 
 template <class T>
-extern double gpu_perman64_xshared_coalescing(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared_coalescing(DenseMatrix<T>* densemat, flags flags) {
   
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
   
   double x[nov]; 
   double rs; //row sum
@@ -706,10 +721,15 @@ extern double gpu_perman64_xshared_coalescing(T* mat, int nov, flags flags) {
 }
 
 template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, flags flags) {
   
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
 
   double x[nov]; 
   double rs; //row sum
@@ -772,11 +792,16 @@ extern double gpu_perman64_xshared_coalescing_mshared(T* mat, int nov, flags fla
 } 
 
 template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared_multigpu(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpu(DenseMatrix<T>* densemat, flags flags) {
   
   int gpu_num = flags.gpu_num;
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
   
   double x[nov]; 
   double rs; //row sum
@@ -853,7 +878,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu(T* mat, int nov, 
 }
 
 template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags) {
 
   
   int gpu_num = flags.gpu_num;
@@ -861,6 +886,11 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat,
   int threads = flags.threads;
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
   
   double x[nov]; 
   double rs; //row sum
@@ -994,11 +1024,16 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(T* mat,
 
 
 template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(DenseMatrix<T>* densemat, flags flags) {
 
   int gpu_num = flags.gpu_num;
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
   
   double x[nov]; 
   double rs; //row sum
@@ -1080,49 +1115,46 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distributi
 
 
 
-//Explicit instantiations required for separated compilation
+//Explicit instantiations required for separate compilation
 template extern double gpu_perman64_xglobal<int>(DenseMatrix<int>* densemat, flags flags);
 template extern double gpu_perman64_xglobal<float>(DenseMatrix<float>* densemat, flags flags);
 template extern double gpu_perman64_xglobal<double>(DenseMatrix<double>* densemat, flags flags);
 
-//template extern double gpu_perman64_xglobal<int>(int* mat, int nov, flags flags);
-//template extern double gpu_perman64_xglobal<float>(float* mat, int nov, flags flags);
-//template extern double gpu_perman64_xglobal<double>(double* mat, int nov, flags flags);
-
-template extern double gpu_perman64_xlocal<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xlocal<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xlocal<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xlocal<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<double>(DenseMatrix<double>* densemat, flags flags);
 
 
-template extern double gpu_perman64_xshared<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared<double>(DenseMatrix<double>* densemat, flags flags);
 
 
-template extern double gpu_perman64_xshared_coalescing<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing<double>(DenseMatrix<double>* densemat, flags flags);
 
 
-template extern double gpu_perman64_xshared_coalescing_mshared<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared<double>(DenseMatrix<double>* densemat,flags flags);
 
 
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu<double>(DenseMatrix<double>* densemat, flags flags);
 
 
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
 
+//These functions looks like they are here in the generated docs but not here, requires further investigation
 //template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<int>(int* mat, int nov, flags flags);
 //template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<float>(float* mat, int nov, flags flags);
 //template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<double>(double* mat, int nov, flags flags);
 
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<int>(int* mat, int nov,  flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<double>(DenseMatrix<double>* densemat, flags flags);
 //Explicit instantiations required for separated compilation

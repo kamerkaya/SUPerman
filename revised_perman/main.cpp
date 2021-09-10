@@ -9,8 +9,7 @@
 #include "util.h" //evaluate_data_return_parameters() --> To be implemented
 #include "gpu_wrappers.h" //All GPU wrappers will be stored there to simplify things
 
-//Excluding GPU algos for a minimal start
-//#include "gpu_exact_dense.cu" // Can't include now due to cuda f.
+//Functions from following files are called from this file
 //#include "gpu_exact_sparse.cu"
 //#include "gpu_approximation_dense.cu"
 //#include "gpu_approximation_sparse.cu"
@@ -22,7 +21,7 @@
 //
 #include "read_matrix.hpp"
 //
-#include "mmio.c"
+#include "mmio.c" //This is erroneous but works for now
 
 
 using namespace std;
@@ -45,7 +44,6 @@ void print_flags(flags flags){
   std::cout << "- threads: " << flags.threads << std::endl;
   std::cout << "- scale_intervals: " << flags.scale_intervals << std::endl;
   std::cout << "- scale_times: " << flags.scale_times << std::endl;
-  //std::cout << "- fname: " << fname << std::endl;
   printf("- fname: %s \n", flags.filename);
   std::cout << "- type: " << flags.type << std::endl;
   std::cout << "- preprocessing: " << flags.preprocessing << std::endl;
@@ -759,6 +757,8 @@ int main (int argc, char **argv)
     print_densematrix(densemat);
     print_flags(flags);
 
+
+    //Just for trying
     double perman = gpu_perman64_xglobal(densemat, flags);
     std::cout << "Perman calculated: " << perman << std::endl;
   }
