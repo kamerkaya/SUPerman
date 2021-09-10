@@ -70,6 +70,7 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
   
   if(std::string(flags.type) == "double"){ //This is possible error because 
     //flags.type is a char*
+    std::cout << "Resetted block_dim as 128 due to double entries.. " << std::endl;
     block_dim = 128;
   }
 
@@ -664,10 +665,12 @@ int main (int argc, char **argv)
     std::cout << "Compression..OK!" << std::endl;
 
     print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
     print_flags(flags);
-    
 
-    //escape(densemat, sparsemat, flags);
+    double perman = gpu_perman64_xglobal(densemat, flags);
+    std::cout << "Perman calculated: " << perman << std::endl;
+
   }
 
   else if(mm_is_real(matcode) == 1 && flags.half_precision){
@@ -707,7 +710,11 @@ int main (int argc, char **argv)
     std::cout << "Compression..OK!" << std::endl;
 
     print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
     print_flags(flags);
+
+    double perman = gpu_perman64_xglobal(densemat, flags);
+    std::cout << "Perman calculated: " << perman << std::endl;
   }
   
   else if(mm_is_integer(matcode) == 1 || is_pattern){
@@ -749,7 +756,11 @@ int main (int argc, char **argv)
     std::cout << "Compression..OK!" << std::endl;
 
     print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
     print_flags(flags);
+
+    double perman = gpu_perman64_xglobal(densemat, flags);
+    std::cout << "Perman calculated: " << perman << std::endl;
   }
   
   else{

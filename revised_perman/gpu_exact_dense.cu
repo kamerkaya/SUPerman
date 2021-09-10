@@ -1,6 +1,43 @@
 #include <omp.h>
 #include <stdio.h>
 #include "flags.h"
+#include "gpu_wrappers.h"
+
+template <class T>
+void print_helper(DenseMatrix<T>* densemat, flags flags){
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
+
+  printf("Type: %s \n", flags.type);
+  printf("int? : %d \n", flags.type == "int");
+  printf("double? : %d \n", flags.type == "double");
+  
+  if(flags.type == "double" || flags.type == "float"){
+    printf("Type: Double or Float");
+    printf("#####~~Driver mat~~#####\n");
+    for(int i = 0; i < nov; i++){
+      for(int j = 0; j < nov; j++){
+	printf("%f ", mat[i*nov + j]);
+      }
+      printf("\n");
+    }
+    printf("#####~~Driver mat~~#####\n");
+  }
+  
+  else if(flags.type == "int"){
+    printf("#####~~Driver mat~~#####\n");
+    for(int i = 0; i < nov; i++){
+      for(int j = 0; j < nov; j++){
+	printf("%d ", mat[i*nov + j]);
+      }
+      printf("\n");
+    }
+    printf("#####~~Driver mat~~#####\n");
+  }
+}
 
 //This is a CPU helper kernel for hybrid setting
 template <class T>
@@ -400,7 +437,15 @@ __global__ void kernel_xshared_coalescing_mshared(T* mat_t, double* x, double* p
 }
 
 template <class T>
-extern double gpu_perman64_xglobal(T* mat, int nov, flags flags) {
+extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters
+
+  printf("Is compiled?? \n");
+  print_helper(densemat, flags);
   
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
@@ -466,6 +511,7 @@ extern double gpu_perman64_xglobal(T* mat, int nov, flags flags) {
   delete [] h_x;
   delete[] h_p;
 
+  printf("before returning, perman: %f \n", (4*(nov&1)-2) * p);
   return((4*(nov&1)-2) * p);
 }
 
@@ -1035,10 +1081,13 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distributi
 
 
 //Explicit instantiations required for separated compilation
-template extern double gpu_perman64_xglobal<int>(int* mat, int nov, flags flags);
-template extern double gpu_perman64_xglobal<float>(float* mat, int nov, flags flags);
-template extern double gpu_perman64_xglobal<double>(double* mat, int nov, flags flags);
+template extern double gpu_perman64_xglobal<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<double>(DenseMatrix<double>* densemat, flags flags);
 
+//template extern double gpu_perman64_xglobal<int>(int* mat, int nov, flags flags);
+//template extern double gpu_perman64_xglobal<float>(float* mat, int nov, flags flags);
+//template extern double gpu_perman64_xglobal<double>(double* mat, int nov, flags flags);
 
 template extern double gpu_perman64_xlocal<int>(int* mat, int nov, flags flags);
 template extern double gpu_perman64_xlocal<float>(float* mat, int nov, flags flags);

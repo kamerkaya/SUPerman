@@ -986,22 +986,11 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   
   for (int r = 0; r < nov; r++) {
     for(int c = 0; c < nov; c++) {
-      //std::cout << "r: " << r << " c : " << c << " r*nov+c: " << r*nov+c << std::endl;
-      //std::cout << "mat[r*nov+c]: " << mat[r*nov+c] << std::endl;
-      //std::cout << "&mat[r*nov+c]: " << &mat[r*nov+c] << std::endl;
-      //std::cout << "&colPerm[c]: " << &colPerm[c] << std::endl;
-      //std::cout << "&matPrev[rowPerm[r]*nov + colPerm[c]]: " << &matPrev[rowPerm[r]*nov + colPerm[c]] << std::endl;
-      //std::cout << "Trying to access: " << rowPerm[r]*nov + colPerm[c] << "/"<< nov*nov <<std::endl;
-      //std::cout << "rowPerm[r]: " << rowPerm[r] << std::endl;
-      //std::cout << "colPerm[c]: " << colPerm[c] << std::endl;
       mat[r*nov + c] = matPrev[rowPerm[r]*nov + colPerm[c]]; //This is the erroneous line!!1!
-      //Caused by rowPerm[r]
-      //std::cout << "mat[r*nov+c]: " << mat[r*nov+c] << std::endl;
     }
   }
   delete[] matPrev;
   
-  //matrix2compressed(mat, cptrs, rows, cvals, rptrs, cols, rvals, nov, nnz);
   matrix2compressed_o(densemat, sparsemat);
 }
 

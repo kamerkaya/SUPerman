@@ -7,9 +7,12 @@
 
 #include "flags.h"
 //#include "gpu_exact_dense.cu"
+//#include <stdio.h>
+//#include <cuda_runtime.h>
 
 template <class T>
-extern double gpu_perman64_xglobal(T* mat, int nov, flags flags);
+extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags);
+//extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_xlocal(T* mat, int nov, flags flags);
