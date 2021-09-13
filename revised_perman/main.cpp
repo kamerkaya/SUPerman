@@ -667,8 +667,9 @@ int main (int argc, char **argv)
     print_flags(flags);
 
     double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Perman calculated: " << perman << std::endl;
-
+    std::cout << "Dense perman calculated: " << perman << std::endl;
+    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
 
   else if(mm_is_real(matcode) == 1 && flags.half_precision){
@@ -712,7 +713,9 @@ int main (int argc, char **argv)
     print_flags(flags);
 
     double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Perman calculated: " << perman << std::endl;
+    std::cout << "Dense perman calculated: " << perman << std::endl;
+    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
   
   else if(mm_is_integer(matcode) == 1 || is_pattern){
@@ -760,7 +763,9 @@ int main (int argc, char **argv)
 
     //Just for trying
     double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Perman calculated: " << perman << std::endl;
+    std::cout << "Dense perman calculated: " << perman << std::endl;
+    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
   
   else{

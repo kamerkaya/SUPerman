@@ -79,5 +79,45 @@ template <class T>
 double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
 //##############~~#####//FUNCTIONS FROM: gpu_exact_sparse.cu//#####~~##############//
 
+//##############~~#####//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//#####~~##############//
+//##############~~#####//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//#####~~##############//
+
+//##############~~#####//FUNCTIONS FROM: gpu_approximation_dense.cu//#####~~##############//
+
+template <class T>
+double gpu_perman64_rasmussen(DenseMatrix<T>* densemat, flags flags);
+
+template <class T>
+double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags);
+
+template <class T>
+double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags);
+
+template <class T>
+double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags);
+
+//##############~~#####//FUNCTIONS FROM: gpu_approximation_dense.cu//#####~~##############//
+
+//##############~~#####//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//#####~~##############//
+//##############~~#####//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//#####~~##############//
+
+//##############~~#####//FUNCTIONS FROM: gpu_approximation_sparse.cu//#####~~##############//
+
+template <class T>
+double gpu_perman64_rasmussen_sparse(SparseMatrix<T>* sparsemat, flags flags);
+
+template <class T>
+double gpu_perman64_rasmussen_multigpucpu_chunks_sparse(SparseMatrix<T>* sparsemat, flags flags);
+
+template <class T>
+double gpu_perman64_approximation_sparse(SparseMatrix<T>* sparsemat, flags flags);
+
+template <class T>
+double gpu_perman64_approximation_multigpucpu_chunks_sparse(SparseMatrix<T>* sparsemat, flags flags);
+
+//##############~~#####//FUNCTIONS FROM: gpu_approximation_sparse.cu//#####~~##############//
+
+
+
 
 #endif

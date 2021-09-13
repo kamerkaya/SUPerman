@@ -2,9 +2,51 @@
 #include <stdio.h>
 #include <curand.h>
 #include <curand_kernel.h>
-#include "util.h"
+//#include "util.h"
+#include "flags.h"
+#include "gpu_wrappers.h"
 using namespace std;
 
+
+//Utilities run on CPU//
+template <class T>
+bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d_r[], double d_c[], int scale_times) {
+  
+  for (int k = 0; k < scale_times; k++) {
+    
+    for (int j = 0; j < nov; j++) {
+      if (!((col_extracted >> j) & 1L)) {
+	double col_sum = 0;
+	for (int i = 0; i < nov; i++) {
+	  if (!((row_extracted >> i) & 1L)) {
+	    col_sum += d_r[i] * M[i*nov + j];
+	  }
+	}
+	if (col_sum == 0) {
+	  return false;
+	}
+	d_c[j] = 1 / col_sum;
+      }
+    }
+    for (int i = 0; i < nov; i++) {
+      if (!((row_extracted >> i) & 1L)) {
+	double row_sum = 0;
+	for (int j = 0; j < nov; j++) {
+	  if (!((col_extracted >> j) & 1L)) {
+	    row_sum += M[i*nov + j] * d_c[j];
+	  }
+	}
+	if (row_sum == 0) {
+	  return false;
+	}
+	d_r[i] = 1 / row_sum;
+      }
+    }
+  }
+  
+  return true;
+}
+//
 
 template <class T>
 double cpu_rasmussen(T* mat, T* mat_t, int nov, int random, int number_of_times, int threads) {
@@ -371,7 +413,17 @@ __global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, 
 
 
 template <class T>
-double gpu_perman64_rasmussen(T* mat, int nov, int number_of_times) {
+extern double gpu_perman64_rasmussen(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
+
+  //Pack flags//
+  int number_of_times = flags.number_of_times;
+  //Pack flags//
+  
   int block_size = 1024;
   int grid_size = number_of_times / block_size + 1;
 
@@ -390,7 +442,8 @@ double gpu_perman64_rasmussen(T* mat, int nov, int number_of_times) {
   kernel_rasmussen<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, nov, rand());
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
-  cout << "kernel" << " in " << (enn - stt) << endl;
+  //cout << "kernel" << " in " << (enn - stt) << endl;
+  printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
 
@@ -409,7 +462,20 @@ double gpu_perman64_rasmussen(T* mat, int nov, int number_of_times) {
 }
 
 template <class T>
-double gpu_perman64_rasmussen_multigpucpu_chunks(T* mat, int nov, int number_of_times, int gpu_num, bool cpu, int threads) {
+extern double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
+
+  //Pack flags//
+  int number_of_times = flags.number_of_times;
+  int gpu_num = flags.gpu_num;
+  bool cpu = flags.cpu;
+  int threads = flags.threads;
+  //Pack flags//
+  
   int block_size = 1024;
   int grid_size = 1024;
   int cpu_chunk = 50000;
@@ -452,7 +518,8 @@ double gpu_perman64_rasmussen_multigpucpu_chunks(T* mat, int nov, int number_of_
             p_partial[id] += cpu_rasmussen(mat, mat_t, nov, rand(), cpu_chunk, threads);
             double enn = omp_get_wtime();
             p_partial_times[id] += cpu_chunk;
-            cout << "cpu" << " in " << (enn - stt) << endl;
+            //cout << "cpu" << " in " << (enn - astt) << endl;
+	    printf("cpu in %f \n", enn - stt);
             #pragma omp critical 
             {
               if (num_of_times_so_far < number_of_times) {
@@ -489,7 +556,8 @@ double gpu_perman64_rasmussen_multigpucpu_chunks(T* mat, int nov, int number_of_
           kernel_rasmussen<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, nov, rand());
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
-          cout << "kernel" << id << " in " << (enn - stt) << endl;
+          //cout << "kernel" << id << " in " << (enn - stt) << endl;
+	  printf("kernel %d in %f \n", id, enn - stt);
 
           cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
 
@@ -525,7 +593,19 @@ double gpu_perman64_rasmussen_multigpucpu_chunks(T* mat, int nov, int number_of_
 }
 
 template <class T>
-double gpu_perman64_approximation(T* mat, int nov, int number_of_times, int scale_intervals, int scale_times) {
+extern double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
+
+  //Pack flags//
+  int scale_intervals = flags.scale_intervals;
+  int scale_times = flags.scale_times;
+  int number_of_times = flags.number_of_times;
+  //Pack flags//
+  
   int block_size = 1024;
   int grid_size = number_of_times / block_size + 1;
 
@@ -551,7 +631,8 @@ double gpu_perman64_approximation(T* mat, int nov, int number_of_times, int scal
   kernel_approximation<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
-  cout << "kernel" << " in " << (enn - stt) << endl;
+  //cout << "kernel" << " in " << (enn - stt) << endl;
+  printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
 
@@ -571,7 +652,22 @@ double gpu_perman64_approximation(T* mat, int nov, int number_of_times, int scal
 }
 
 template <class T>
-double gpu_perman64_approximation_multigpucpu_chunks(T* mat, int nov, int number_of_times, int gpu_num, bool cpu, int scale_intervals, int scale_times, int threads) {
+extern double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
+
+  //Pack flags//
+  int number_of_times = flags.number_of_times;
+  int gpu_num = flags.gpu_num;
+  bool cpu = flags.cpu;
+  int scale_intervals = flags.scale_intervals;
+  int scale_times = flags.scale_times;
+  int threads = flags.threads;
+  //Pack flags//
+  
   int block_size = 1024;
   int grid_size = 1024;
   int cpu_chunk = 50000;
@@ -614,7 +710,8 @@ double gpu_perman64_approximation_multigpucpu_chunks(T* mat, int nov, int number
             p_partial[id] += cpu_approximation_perman64(mat, nov, rand(), cpu_chunk, scale_intervals, scale_times, threads);
             double enn = omp_get_wtime();
             p_partial_times[id] += cpu_chunk;
-            cout << "cpu" << " in " << (enn - stt) << endl;
+            //cout << "cpu" << " in " << (enn - stt) << endl;
+	    printf("cpu in %f \n", enn - stt);
             #pragma omp critical 
             {
               if (num_of_times_so_far < number_of_times) {
@@ -658,7 +755,8 @@ double gpu_perman64_approximation_multigpucpu_chunks(T* mat, int nov, int number
           kernel_approximation<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
-          cout << "kernel" << id << " in " << (enn - stt) << endl;
+          //cout << "kernel" << id << " in " << (enn - stt) << endl;
+	  printf("kernel %d in %f \n", id, enn - stt);
 
           cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
 
@@ -695,3 +793,27 @@ double gpu_perman64_approximation_multigpucpu_chunks(T* mat, int nov, int number
 
   return p / times;
 }
+
+
+//Explicit instantiations required for separate compilation
+template extern double gpu_perman64_rasmussen<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<double>(DenseMatrix<double>* densemat, flags flags);
+
+template extern double gpu_perman64_rasmussen_multigpucpu_chunks<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
+
+template extern double gpu_perman64_approximation<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_approximation<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_approximation<double>(DenseMatrix<double>* densemat, flags flags);
+
+template extern double gpu_perman64_approximation_multigpucpu_chunks<int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_approximation_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_approximation_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
+//Explicit instantiations required for separate compilation
+
+
+
+
+
