@@ -53,12 +53,15 @@ void print_flags(flags flags){
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
-  std::cout << "Will return from flags " << std::endl;
+}
+
+void zflag(){
+  
 }
 
 
 template <class T>
-void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *rvals, int nov, int nnz, flags flags) 
+void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) 
 {
   
   print_flags(flags);
@@ -66,13 +69,13 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
   int grid_dim = 2048;
   int block_dim = 256;
   
-  if(std::string(flags.type) == "double"){ //This is possible error because 
+  if(std::string(flags.type) == std::string("double")){ //This is possible error because 
     //flags.type is a char*
-    std::cout << "Resetted block_dim as 128 due to double entries.. " << std::endl;
+    std::cout << "==SC== Resetted block_dim as 128 due to double entries.. " << std::endl;
     block_dim = 128;
   }
 
-  //This is just for a more readable code
+  //Pack flags
   bool cpu = flags.cpu;
   bool gpu = flags.gpu;
 
@@ -89,7 +92,7 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
   int number_of_times = flags.number_of_times;
   int scale_intervals = flags.scale_intervals;
   int scale_times = flags.scale_times;
-  //This is just for a more readable code
+  //Pack flags
   
   double start, end, perman;
   
@@ -97,7 +100,7 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     
     if(perman_algo == 0){
       start = omp_get_wtime();
-      perman = parallel_perman64(mat, nov, flags);
+      perman = parallel_perman64(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: parallel_perman64 " << perman << " in " << (end - start) << endl;
     }
@@ -113,17 +116,17 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     
     if (perman_algo == 1) {
       start = omp_get_wtime();
-      perman = parallel_perman64_sparse(mat, cptrs, rows, cvals, nov, flags);
+      perman = parallel_perman64_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: parallel_perman64_sparse " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 2) {
       start = omp_get_wtime();
-      perman = parallel_skip_perman64_w(rptrs, cols, rvals, cptrs, rows, cvals, nov, flags);
+      perman = parallel_skip_perman64_w(sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: parallel_skip_perman64_w " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 3) {
       start = omp_get_wtime();
-      perman = parallel_skip_perman64_w_balanced(rptrs, cols, rvals, cptrs, rows, cvals, nov, flags);
+      perman = parallel_skip_perman64_w_balanced(sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: parallel_skip_perman64_w_balanced " << perman << " in " << (end - start) << endl;
     }
@@ -139,16 +142,16 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     
     if (perman_algo == 1) { // rasmussen
       start = omp_get_wtime();
-      perman = rasmussen(mat, nov, flags);
+      perman = rasmussen(densemat, flags);
       end = omp_get_wtime();
       printf("Result: rasmussen %2lf in %lf\n", perman, end-start);
-      cout << "Result: rasmussen " << perman << " in " << (end - start) << endl;
+      //cout << "Result: rasmussen " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 2) { // approximation_with_scaling
       start = omp_get_wtime();
-      perman = approximation_perman64(mat, nov, flags);
+      perman = approximation_perman64(densemat, flags);
       end = omp_get_wtime();
       printf("Result: approximation_perman64 %2lf in %lf\n", perman, end-start);
-      cout << "Result: approximation_perman64 " << perman << " in " << (end - start) << endl;
+      //cout << "Result: approximation_perman64 " << perman << " in " << (end - start) << endl;
     }
     
     else{
@@ -163,16 +166,16 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     
     if (perman_algo == 1) { // rasmussen
       start = omp_get_wtime();
-      perman = rasmussen_sparse(mat, rptrs, cols, nov, flags);
+      perman = rasmussen_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
       printf("Result: rasmussen_sparse %2lf in %lf\n", perman, end-start);
-      cout << "Result: rasmussen_sparse " << perman << " in " << (end - start) << endl;
+      //cout << "Result: rasmussen_sparse " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 2) { // approximation_with_scaling
       start = omp_get_wtime();
-      perman = approximation_perman64_sparse(cptrs, rows, rptrs, cols, nov, flags);
+      perman = approximation_perman64_sparse(sparsemat, flags);
       end = omp_get_wtime();
       printf("Result: approximation_perman64_sparse %2lf in %lf\n", perman, end-start);
-      cout << "Result: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
+      //cout << "Result: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
     }
     
     else{
@@ -187,43 +190,104 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     
     if (perman_algo == 0) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xglobal(mat, nov, flags);
+      perman = gpu_perman64_xglobal(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xlocal " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 1) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xlocal(mat, nov, flags);
+      perman = gpu_perman64_xlocal(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xlocal " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 2) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared(mat, nov, flags);
+      perman = gpu_perman64_xshared(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 3) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing(mat, nov, flags);
+      perman = gpu_perman64_xshared_coalescing(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 4) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing_mshared(mat, nov, flags);
+      perman = gpu_perman64_xshared_coalescing_mshared(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 5) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing_mshared_multigpu(mat, nov, flags);
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpu " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 6) {
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(mat, nov, flags);
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 66) {
       flags.gpu_num = 4;
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(mat, nov, flags);
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(densemat, flags);
+      end = omp_get_wtime();
+      printf("Result: gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution %2lf in %lf\n", perman, end-start);
+      
+    }else{
+      std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
+      exit(1);
+    }
+  }
+
+  if(gpu && sparse && exact){
+    
+    if (perman_algo == 0) {
+      cout << "Perman algo 0 is not works with sparse setting, exiting.. " << endl;
+      exit(1);
+    } else if (perman_algo == 1) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xlocal_sparse " << perman << " in " << (end - start) << endl;
+    } else if (perman_algo == 2) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_sparse " << perman << " in " << (end - start) << endl;
+    } else if (perman_algo == 3) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_sparse " << perman << " in " << (end - start) << endl;
+    } else if (perman_algo == 4) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_mshared_sparse " << perman << " in " << (end - start) << endl;
+    } else if (perman_algo == 5) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpu_sparse " << perman << " in " << (end - start) << endl;
+    } else if (perman_algo == 6) {
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
+    }
+    else if (perman_algo == 7){
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_skipper(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_mshared_skipper " << perman << " in " << end - start << endl;
+    }
+    else if (perman_algo == 8 ){
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
+      end = omp_get_wtime();
+      cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper " << perman << " in " << end - start << endl;
+    }
+    else if (perman_algo == 66) {
+      flags.gpu_num = 4;
+      start = omp_get_wtime();
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution(densemat, sparsemat, flags);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution %2lf in %lf\n", perman, end-start);
       
@@ -233,75 +297,77 @@ void RunAlgo(T *mat, int *cptrs, int *rows, T *cvals, int *rptrs, int *cols, T *
     }
   }
   
-  /*
+  
   if(gpu && dense && approximation){
       
     if (perman_algo == 1) { // rasmussen
       start = omp_get_wtime();
-      perman = gpu_perman64_rasmussen(mat, nov, number_of_times);
+      perman = gpu_perman64_rasmussen(densemat, flags);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_rasmussen %2lf in %lf\n", perman, end-start);
-      cout << "Result: gpu_perman64_rasmussen " << perman << " in " << (end - start) << endl;
+      //cout << "Result: gpu_perman64_rasmussen " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 2) { // approximation_with_scaling
       start = omp_get_wtime();
-      perman = gpu_perman64_approximation(mat, nov, number_of_times, scale_intervals, scale_times);
+      perman = gpu_perman64_approximation(densemat, flags);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_approximation %2lf in %lf\n", perman, end-start);
-      cout << "Result: gpu_perman64_approximation " << perman << " in " << (end - start) << endl;
+      //cout << "Result: gpu_perman64_approximation " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 3) { // rasmussen
       start = omp_get_wtime();
-      perman = gpu_perman64_rasmussen_multigpucpu_chunks(mat, nov, number_of_times, gpu_num, cpu, threads);
+      perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks %2lf in %lf\n", perman, end-start);
-      cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
+      //cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
     } else if (perman_algo == 4) { // approximation_with_scaling
       start = omp_get_wtime();
-      perman = gpu_perman64_approximation_multigpucpu_chunks(mat, nov, number_of_times, gpu_num, cpu, scale_intervals, scale_times, threads);
+      perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_approximation_multigpucpu_chunks %2lf in %lf\n", perman, end-start);
-      cout << "Result: gpu_perman64_approximation_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
+      //cout << "Result: gpu_perman64_approximation_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
     } else {
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
     } 
   }
   
-  */
+  
 
-  /*
+  
   if(gpu && sparse && approximation){
     
     if (perman_algo == 1) { // rasmussen
 	start = omp_get_wtime();
-          perman = gpu_perman64_rasmussen_sparse(rptrs, cols, nov, nnz, number_of_times, false);
+	perman = gpu_perman64_rasmussen_sparse(sparsemat, flags);
           end = omp_get_wtime();
           printf("Result: gpu_perman64_rasmussen_sparse %2lf in %lf\n", perman, end-start);
-          cout << "Result: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
+          //cout << "Result: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
         } else if (perman_algo == 2) { // approximation_with_scaling
           start = omp_get_wtime();
-          perman = gpu_perman64_approximation_sparse(cptrs, rows, rptrs, cols, nov, nnz, number_of_times, scale_intervals, scale_times, false);
+          perman = gpu_perman64_approximation_sparse(sparsemat, flags);
           end = omp_get_wtime();
           printf("Result: gpu_perman64_approximation_sparse %2lf in %lf\n", perman, end-start);
-          cout << "Result: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
+          //cout << "Result: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
         } else if (perman_algo == 3) { // rasmussen
           start = omp_get_wtime();
-          perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(cptrs, rows, rptrs, cols, nov, nnz, number_of_times, gpu_num, cpu, threads, false);
+          perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
           end = omp_get_wtime();
           printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse %2lf in %lf\n", perman, end-start);
-          cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
+          //cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
         } else if (perman_algo == 4) { // approximation_with_scaling
           start = omp_get_wtime();
-          perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(cptrs, rows, rptrs, cols, nov, nnz, number_of_times, gpu_num, cpu, scale_intervals, scale_times, threads, false);
+          perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
           end = omp_get_wtime();
           printf("Result: gpu_perman64_approximation_multigpucpu_chunks_sparse %2lf in %lf\n", perman, end-start);
-          cout << "Result: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
+          //cout << "Result: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
     } 
     else {
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
     } 
   }
-  */
-}//RunAlgo2()
+}
+
+
+//RunAlgo2()
   
 
 /*
@@ -472,7 +538,7 @@ int main (int argc, char **argv)
         break;
       case 'c':
         flags.cpu = 1;
-	flags.gpu = 0;
+	//flags.gpu = 0; //Prevents hybrid execution
         break;
       case 'p':
         if (optarg[0] == '-'){
@@ -653,23 +719,25 @@ int main (int argc, char **argv)
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
     
     
-    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
       matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    std::cout << "Compression..OK!" << std::endl;
+    //std::cout << "Compression..OK!" << std::endl;
 
-    print_sparsematrix(sparsemat);
-    print_densematrix(densemat);
-    print_flags(flags);
+    RunAlgo(densemat, sparsemat, flags);
 
-    double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Dense perman calculated: " << perman << std::endl;
-    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
+    //print_sparsematrix(sparsemat);
+    //print_densematrix(densemat);
+    //print_flags(flags);
+
+    //double perman = gpu_perman64_xglobal(densemat, flags);
+    //std::cout << "Dense perman calculated: " << perman << std::endl;
+    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
 
   else if(mm_is_real(matcode) == 1 && flags.half_precision){
@@ -699,23 +767,25 @@ int main (int argc, char **argv)
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
     
         
-    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
       matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    std::cout << "Compression..OK!" << std::endl;
+    //std::cout << "Compression..OK!" << std::endl;
 
-    print_sparsematrix(sparsemat);
-    print_densematrix(densemat);
-    print_flags(flags);
+    RunAlgo(densemat, sparsemat, flags);
 
-    double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Dense perman calculated: " << perman << std::endl;
-    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
+    //print_sparsematrix(sparsemat);
+    //print_densematrix(densemat);
+    //print_flags(flags);
+
+    //double perman = gpu_perman64_xglobal(densemat, flags);
+    //std::cout << "Dense perman calculated: " << perman << std::endl;
+    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
   
   else if(mm_is_integer(matcode) == 1 || is_pattern){
@@ -744,28 +814,26 @@ int main (int argc, char **argv)
     else 
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
 
-    std::cout << std::flush;
-    std::cout << "What is going on mate.. " << std::endl;
-    
-    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+            
+    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
       matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    std::cout << "Compression..OK!" << std::endl;
+    //std::cout << "Compression..OK!" << std::endl;
 
-    print_sparsematrix(sparsemat);
-    print_densematrix(densemat);
-    print_flags(flags);
+    RunAlgo(densemat, sparsemat, flags);
 
+    //print_sparsematrix(sparsemat);
+    //print_densematrix(densemat);
+    //print_flags(flags);
 
-    //Just for trying
-    double perman = gpu_perman64_xglobal(densemat, flags);
-    std::cout << "Dense perman calculated: " << perman << std::endl;
-    double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    std::cout << "Sparse perman calculated: " << permansparse << std::endl;
+    //double perman = gpu_perman64_xglobal(densemat, flags);
+    //std::cout << "Dense perman calculated: " << perman << std::endl;
+    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
+    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
   
   else{

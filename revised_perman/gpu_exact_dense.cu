@@ -511,7 +511,7 @@ extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
   delete [] h_x;
   delete[] h_p;
 
-  printf("before returning, perman: %f \n", (4*(nov&1)-2) * p);
+  printf("perman: %f \n", (4*(nov&1)-2) * p);
   return((4*(nov&1)-2) * p);
 }
 
@@ -1149,10 +1149,6 @@ template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunk
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
 
-//These functions looks like they are here in the generated docs but not here, requires further investigation
-//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<int>(int* mat, int nov, flags flags);
-//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<float>(float* mat, int nov, flags flags);
-//template extern double gpu_perman64_xshared_coalescing_mshared_manual_distribution<double>(double* mat, int nov, flags flags);
 
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<int>(DenseMatrix<int>* densemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution<float>(DenseMatrix<float>* densemat, flags flags);

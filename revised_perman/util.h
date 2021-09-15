@@ -55,7 +55,7 @@ void print_densematrix(DenseMatrix<T>* densemat){
 template<class T>
 void print_sparsematrix(SparseMatrix<T>* sparsemat){
 
-  std::cout << "Here is your sparse matrix: " << std::endl;
+  std::cout << "Printing sparse matrix: " << std::endl;
   std::cout << "____________________________" << std::endl;
 
   int nov = sparsemat->nov;
@@ -419,6 +419,7 @@ void dulmage_mendehlson(T *mat, int *xadj, int *adj, int hnov, int nov) {
 	}
 */
 
+/*
 template <class T>
 void ReadMatrix(T* & mat, ifstream & inFile, int nov, bool generic) {
   int i, j;
@@ -435,6 +436,7 @@ void ReadMatrix(T* & mat, ifstream & inFile, int nov, bool generic) {
     }
   }
 }
+*/
 
 
 template <class T>
@@ -632,7 +634,7 @@ void matrix2compressed(T* mat, int*& cptrs, int*& rows, T*& cvals, int*& rptrs, 
 template <class T>
 void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
 
-  std::cout << "matrix2compressed_o is called " << std::endl; 
+  //std::cout << "matrix2compressed_o is called " << std::endl; 
   
   int curr_elt_r = 0;
   int curr_elt_c = 0;
@@ -656,7 +658,7 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   int nov = sparsemat->nov;
   int nnz = sparsemat->nnz;
 
-  std::cout << "nov: " << nov << " nnz: " << nnz << std::endl;
+  //std::cout << "nov: " << nov << " nnz: " << nnz << std::endl;
    
 
   for (int i = 0; i < nov; i++) {
@@ -678,8 +680,8 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   rptrs[nov] = curr_elt_r;
   cptrs[nov] = curr_elt_c;
 
-  std::cout << "curr_elt_r: " << curr_elt_r << std::endl;
-  std::cout << "curr_elt_c: " << curr_elt_c << std::endl;
+  //std::cout << "curr_elt_r: " << curr_elt_r << std::endl;
+  //std::cout << "curr_elt_c: " << curr_elt_c << std::endl;
 }
 
 template <class T>
@@ -928,7 +930,7 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   //Definitely need to ask this to Kamer Hoca
   //But first, get a deeper understanding of SkipOrder
   //But now it looks like it solved the problem
-  //Another to do is to look at matrix before and after ordering
+  //Another to do is to look at matrix before and after ordering OK
   for(int i = 0; i < nov; i++){
     rowPerm[i] = 0;
     colPerm[i] = 0;
@@ -987,7 +989,7 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   for (int r = 0; r < nov; r++) {
     for(int c = 0; c < nov; c++) {
       mat[r*nov + c] = matPrev[rowPerm[r]*nov + colPerm[c]]; //This is the erroneous line!!1!
-    }
+    } //It is not erroneous anymore, but in case of error, still the first line to check
   }
   delete[] matPrev;
   

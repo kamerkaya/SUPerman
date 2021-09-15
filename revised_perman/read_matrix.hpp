@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <bits/stdc++.h> 
-#define DEBUG 
+//#define DEBUG 
 
 template <class T>
 void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern){
@@ -55,7 +55,8 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
     else
       mat->mat[x*no_row+y] = cast;
   }
-  
+
+#ifdef HARDDEBUG
   std::cout << "I've read something like that: " << std::endl;
   for(int i = 0; i < no_row; i++){
     for(int j = 0; j < no_row; j++){
@@ -63,7 +64,8 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
     }
     std::cout << std::endl;
   }
-
+#endif
+  
   file.close();
   
 }
@@ -120,7 +122,8 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
       mat->mat[y*no_row+x] = cast;
     }
   }
-  
+
+#ifdef HARDDEBUG
   std::cout << "I've read something symmetric like that: " << std::endl;
   for(int i = 0; i < no_row; i++){
     for(int j = 0; j < no_col; j++){
@@ -128,6 +131,7 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
     }
     std::cout << std::endl;
   }
+#endif
   
 #ifdef DEBUG
   std::cout << "Returning from readSymmetricDenseMatrix()" << std::endl;

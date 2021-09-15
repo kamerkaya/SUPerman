@@ -5,6 +5,7 @@
 #include <bitset>
 #include <omp.h>
 #include <string.h>
+#include "flags.h"
 #include "util.h"
 using namespace std;
 
@@ -169,11 +170,19 @@ double greedy(T* mat, int nov, int number_of_times) {
 }
 
 template <class T>
-double rasmussen_sparse(T *mat, int *rptrs, int *cols, int nov, flags flags) {
+double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
 
+  //Pack parameters
+  T* mat = densemat->mat;
+  int* rptrs = sparsemat->rptrs;
+  int* cols = sparsemat->cols;
+  int nov = sparsemat->nov;
+  //Pack parameters
+
+  //Pack flags//
   int number_of_times = flags.number_of_times;
   int threads = flags.threads;
-
+  //Pack flags//
 
   T* mat_t = new T[nov * nov];
   
@@ -272,10 +281,17 @@ double rasmussen_sparse(T *mat, int *rptrs, int *cols, int nov, flags flags) {
 }
 
 template <class T>
-double rasmussen(T* mat, int nov, flags flags) {
-  
+double rasmussen(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
+
+  //Pack flags//
   int threads = flags.threads;
   int number_of_times = flags.number_of_times;
+  //Pack flags//
 
   T* mat_t = new T[nov * nov];
   
@@ -372,12 +388,23 @@ double rasmussen(T* mat, int nov, flags flags) {
   return (sum_perm / number_of_times);
 }
 
-double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, flags flags) {
+template <class T>
+double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
 
+  //Pack parameters//
+  int* cptrs = sparsemat->cptrs;
+  int* rows = sparsemat->rows;
+  int* rptrs = sparsemat->rptrs;
+  int* cols = sparsemat->cols;
+  int nov = sparsemat->nov;
+  //Pack parameters//
+  
+  //Pack flags//
   int number_of_times = flags.number_of_times;
   int scale_intervals = flags.scale_intervals;
   int scale_times = flags.scale_times;
   int threads = flags.threads;
+  //Pack flags//
 
   srand(time(0));
 
@@ -386,8 +413,8 @@ double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *col
     
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
     for (int time = 0; time < number_of_times; time++) {
-      int col_extracted[21];
-      int row_extracted[21];
+      int col_extracted[21]; //??
+      int row_extracted[21]; //??
       for (int i = 0; i < 21; i++) {
         col_extracted[i]=0;
         row_extracted[i]=0;
@@ -483,12 +510,19 @@ double approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *col
 }
 
 template <class T>
-double approximation_perman64(T* mat, int nov, flags flags) {
+double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
   
+  //Pack flags//
   int number_of_times = flags.number_of_times;
   int scale_intervals  = flags.scale_intervals;
   int scale_times = flags.scale_times;
   int threads = flags.threads;
+  //Pack flags//
 
   srand(time(0));
 
@@ -586,9 +620,19 @@ double approximation_perman64(T* mat, int nov, flags flags) {
 }
 
 template <class T>
-double parallel_perman64_sparse(T* mat, int* cptrs, int* rows, T* cvals, int nov, flags flags) {
+double parallel_perman64_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int* cptrs = sparsemat->cptrs;
+  int* rows = sparsemat->rows;
+  T* cvals = sparsemat->cvals;
+  int nov = sparsemat->nov;
+  //Pack parameters//
   
+  //Pack flags//
   int threads = flags.threads;
+  //Pack flags//
   
   float x[nov];   
   float rs; //row sum
@@ -683,9 +727,16 @@ double parallel_perman64_sparse(T* mat, int* cptrs, int* rows, T* cvals, int nov
 }
 
 template <class T>
-double parallel_perman64(T* mat, int nov, flags flags) {
+double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
+
+  //Pack parameters//
+  T* mat = densemat->mat;
+  int nov = densemat->nov;
+  //Pack parameters//
   
+  //Pack flags//
   int threads = flags.threads;
+  //Pack flags//
   
   float x[nov];   
   float rs; //row sum
@@ -772,10 +823,21 @@ double parallel_perman64(T* mat, int nov, flags flags) {
 }
 
 template <class T>
-double parallel_skip_perman64_w(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, flags flags) {
+double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
 
-  int threads = flags.threads;
+  //Pack parameters//
+  int* rptrs = sparsemat->rptrs;
+  int* cols = sparsemat->cols;
+  T* rvals = sparsemat->rvals;
+  int* cptrs = sparsemat->cptrs;
+  int* rows = sparsemat->rows;
+  T* cvals = sparsemat->cvals;
+  int nov = sparsemat->nov;
+  //Pack parameters//
   
+  //Pack flags//
+  int threads = flags.threads;
+  //Pack flags//
 
   //first initialize the vector then we will copy it to ourselves
   std::cout << "I'm here " << std::endl;
@@ -913,9 +975,21 @@ double parallel_skip_perman64_w(int *rptrs, int *cols, T *rvals, int *cptrs, int
 
 
 template <class T>
-double parallel_skip_perman64_w_balanced(int *rptrs, int *cols, T *rvals, int *cptrs, int *rows, T *cvals, int nov, flags flags) {
+double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags) {
+
+  //Pack parameters//
+  int* rptrs = sparsemat->rptrs;
+  int* cols = sparsemat->cols;
+  T* rvals = sparsemat->rvals;
+  int* cptrs = sparsemat->cptrs;
+  int* rows = sparsemat->rows;
+  T* cvals = sparsemat->cvals;
+  int nov = sparsemat->nov;
+  //Pack parameters//
   
+  //Pack flags//
   int threads = flags.threads;
+  //Pack flags//
   
   //first initialize the vector then we will copy it to ourselves
   double rs, x[nov], p;

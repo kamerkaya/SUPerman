@@ -1072,7 +1072,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(DenseMatri
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
 
   //Pack parameters
   T* mat = densemat->mat;
@@ -1220,7 +1220,7 @@ double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(DenseMa
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
 
   //Pack parameters
   T* mat = densemat->mat;
@@ -1306,7 +1306,7 @@ double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* densemat,
 }
 
 template <class T>
-double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
 
   //Pack parameters
   T* mat = densemat->mat;
@@ -1563,13 +1563,7 @@ double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distributi
 }
 
 
-
-
-//To do -> 1) Write template instantiations here
-//      -> 2) Write declarations of functions here to "gpu_wrappers.h"
-//      -> 3) Change all function calls in "main.cpp"
-
-
+//Explicit instantiations required for separate compilation//
 template extern double gpu_perman64_xlocal_sparse<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
 template extern double gpu_perman64_xlocal_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
 template extern double gpu_perman64_xlocal_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
@@ -1586,6 +1580,24 @@ template extern double gpu_perman64_xshared_coalescing_mshared_sparse<int>(Dense
 template extern double gpu_perman64_xshared_coalescing_mshared_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
 
+template extern double gpu_perman64_xshared_coalescing_mshared_skipper<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_skipper<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_skipper<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+//Explicit instantiations required for separate compilation//
