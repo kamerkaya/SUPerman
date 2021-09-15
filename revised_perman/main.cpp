@@ -23,8 +23,11 @@
 //
 #include "mmio.c" //This is erroneous but works for now
 
+//#define DEBUG
 
 using namespace std;
+
+
 
 void print_flags(flags flags){
 
@@ -678,7 +681,7 @@ int main (int argc, char **argv)
     //Instead of exit(1), there should be an escape function
     //which frees the allocated memory
   }
-
+  
   bool is_pattern = false;
   if(mm_is_pattern(matcode) == 1)
     is_pattern = true;
@@ -718,28 +721,26 @@ int main (int argc, char **argv)
     else 
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
     
-    
-    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+#ifdef DEBUG
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+#endif
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
-      matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    //std::cout << "Compression..OK!" << std::endl;
+      matrix2compressed_skipOrder_o(densemat, sparsemat);
+    
+#ifdef DEBUG
+    std::cout << "Compression..OK!" << std::endl;
+
+    print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
+#endif
 
     RunAlgo(densemat, sparsemat, flags);
-
-    //print_sparsematrix(sparsemat);
-    //print_densematrix(densemat);
-    //print_flags(flags);
-
-    //double perman = gpu_perman64_xglobal(densemat, flags);
-    //std::cout << "Dense perman calculated: " << perman << std::endl;
-    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
-
+  
   else if(mm_is_real(matcode) == 1 && flags.half_precision){
 #ifdef DEBUG
     std::cout << "Read Case: 1" << std::endl;
@@ -766,26 +767,23 @@ int main (int argc, char **argv)
     else 
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
     
-        
-    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+#ifdef DEBUG
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+#endif
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
-      matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    //std::cout << "Compression..OK!" << std::endl;
+      matrix2compressed_skipOrder_o(densemat, sparsemat);
+#ifdef DEBUG
+    std::cout << "Compression..OK!" << std::endl;
 
-    RunAlgo(densemat, sparsemat, flags);
-
-    //print_sparsematrix(sparsemat);
-    //print_densematrix(densemat);
-    //print_flags(flags);
-
-    //double perman = gpu_perman64_xglobal(densemat, flags);
-    //std::cout << "Dense perman calculated: " << perman << std::endl;
-    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
+    print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
+#endif
+    
+    RunAlgo(densemat, sparsemat, flags);    
   }
   
   else if(mm_is_integer(matcode) == 1 || is_pattern){
@@ -814,26 +812,24 @@ int main (int argc, char **argv)
     else 
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
 
-            
-    //std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+
+#ifdef DEBUG
+    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+#endif
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
     if(flags.preprocessing == 1)
       matrix2compressed_sortOrder_o(densemat, sparsemat); 
     if(flags.preprocessing == 2)
-      matrix2compressed_skipOrder_o(densemat, sparsemat); 
-    //std::cout << "Compression..OK!" << std::endl;
+      matrix2compressed_skipOrder_o(densemat, sparsemat);
+#ifdef DEBUG
+    std::cout << "Compression..OK!" << std::endl;
 
+    print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
+#endif
+    
     RunAlgo(densemat, sparsemat, flags);
-
-    //print_sparsematrix(sparsemat);
-    //print_densematrix(densemat);
-    //print_flags(flags);
-
-    //double perman = gpu_perman64_xglobal(densemat, flags);
-    //std::cout << "Dense perman calculated: " << perman << std::endl;
-    //double permansparse = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
-    //std::cout << "Sparse perman calculated: " << permansparse << std::endl;
   }
   
   else{
