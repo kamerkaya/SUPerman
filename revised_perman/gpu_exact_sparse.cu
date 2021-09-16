@@ -1188,7 +1188,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
           //cout << "ChunkID " << curr_chunk_id << "is DONE by kernel" << id << " in " << (enn - stt) << endl;
-	  printf("ChunkID %d is DONE by kernel %d in %f \n", curr_chunk_id, id, enn-stt);
+	  //printf("ChunkID %d is DONE by kernel %d in %f \n", curr_chunk_id, id, enn-stt);
                 
           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
               
@@ -1427,7 +1427,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
           //cout << "ChunkID " << curr_chunk_id << "is DONE by kernel" << id << " in " << (enn - stt) << endl;
-	  printf("ChunkID is DONR by kernel %d in %d \n", curr_chunk_id, id, enn-stt);
+	  printf("ChunkID %d is DONE by kernel %d in %f \n", curr_chunk_id, id, enn-stt);
                 
           cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
               
@@ -1591,7 +1591,6 @@ template extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<d
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
-
 
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);

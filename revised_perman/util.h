@@ -21,6 +21,8 @@ using namespace std;
 #define etype int
 #define vtype int
 
+#define HEAVYDEBUG
+
 string seperator = "************************************************************************";
 
 template<class T>
@@ -659,20 +661,46 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   int nnz = sparsemat->nnz;
 
   //std::cout << "nov: " << nov << " nnz: " << nnz << std::endl;
-   
 
+#ifdef HEAVYDEBUG
+  printf("----------------------------------\n");
+  printf("Some of my addresses: \n");
+  printf("mat: %p \n", &mat);
+  printf("rptrs: %p \n", &rptrs);
+  printf("cptrs: %p \n", &cptrs);
+  printf("rows: %p \n", &rows);
+  printf("cols: %p \n", &cols);
+  printf("cvals: %p \n", &cvals);
+  printf("rvals: %p \n", &rvals);
+  printf("----------------------------------\n");
+  printf("Some of the addresses I point to: \n");
+  printf("*mat: %p \n", &*mat);
+  printf("*rptrs: %p \n", &*rptrs);
+  printf("*cptrs: %p \n", &*cptrs);
+  printf("*rows: %p \n", &*rows);
+  printf("*cols: %p \n", &*cols);
+  printf("*cvals: %p \n", &*cvals);
+  printf("*rvals: %p \n", &*rvals);
+  printf("----------------------------------\n");
+#endif
+  
   for (int i = 0; i < nov; i++) {
     rptrs[i] = curr_elt_r;
     cptrs[i] = curr_elt_c;
     for(int j = 0; j < nov; j++) {
       if (mat[i*nov + j] > 0) {
-	cols[curr_elt_r] = j;
+	printf("--Address is 0 bytes when curr_elt_r is: %d --\n", curr_elt_r);
+	cols[curr_elt_r] = j; //Address is 0 bytes
+	printf("--Address is 0 bytes when curr_elt_r is: %d --\n", curr_elt_r);
 	rvals[curr_elt_r] = mat[i*nov + j];
-	curr_elt_r++;        
+	curr_elt_r++;
       }
       if (mat[j*nov + i] > 0) {
-	rows[curr_elt_c] = j;
-	cvals[curr_elt_c] = mat[j*nov + i];
+	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
+	rows[curr_elt_c] = j; //Address is 0 bytes
+	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
+	cvals[curr_elt_c] = mat[j*nov + i]; //Address is 0 bytes
+	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
 	curr_elt_c++;
       }
     }
@@ -680,8 +708,10 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   rptrs[nov] = curr_elt_r;
   cptrs[nov] = curr_elt_c;
 
-  //std::cout << "curr_elt_r: " << curr_elt_r << std::endl;
-  //std::cout << "curr_elt_c: " << curr_elt_c << std::endl;
+#ifdef HEAVYDEBUG
+  std::cout << "sparse_compress -- curr_elt_r: " << curr_elt_r << std::endl;
+  std::cout << "sparse_compress -- curr_elt_c: " << curr_elt_c << std::endl;
+#endif
 }
 
 template <class T>

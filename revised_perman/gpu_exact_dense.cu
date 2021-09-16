@@ -722,37 +722,55 @@ extern double gpu_perman64_xshared_coalescing(DenseMatrix<T>* densemat, flags fl
 
 template <class T>
 extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, flags flags) {
-  
-  int grid_dim = flags.grid_dim;
-  int block_dim = flags.block_dim;
 
+  printf("Very beginning of: gpu_exact_dense_algo4 \n");
+  
   //Pack parameters
   T* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters
 
+  //Pack flags//
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  //Pack flags
+
+  printf("Will start: gpu_exact_dense_algo4 \n");
+  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
-  
+
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
     rs = .0f;
     for (int k = 0; k < nov; k++) {
       rs += mat[(j * nov) + k];  // sum of row j
+      //printf("j: %d -- k: %d \n", j, k);
     }
     x[j] = mat[(j * nov) + (nov-1)] - rs/2;  // see Nijenhuis and Wilf - x vector entry
     p *= x[j];   // product of the elements in vector 'x'
   }
 
+  
+  printf("nov: %d \n", nov);
+  printf("nov * nov: %d \n", nov*nov);
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  
+  //T* mat_t = new T[(nov * nov)];
+  printf("It is calloc now !! \n");
+  printf("It should be eight: %d \n", sizeof(T));
+  int novsquare = nov*nov;
+  T* mat_t = (T*)calloc(novsquare, sizeof(T));
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
+      //printf("transpose i: %d -- j: %d \n", i, j);
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
     }
   }
 
+  printf("Created some arrays for: gpu_exact_dense_algo4 \n");
+  
   cudaSetDevice(1);
   T *d_mat_t;
   double *d_x, *d_p;
@@ -768,6 +786,8 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
   long long start = 1;
   long long end = (1LL << (nov-1));
 
+  printf("CUDA host functions finished: gpu_exact_dense_algo4 \n");
+  
   double stt = omp_get_wtime();
   kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
   cudaDeviceSynchronize();
@@ -785,7 +805,8 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
     p += h_p[i];
   }
 
-  delete [] mat_t;
+  //delete [] mat_t;
+  free(mat_t);
   delete[] h_p;
 
   return((4*(nov&1)-2) * p);
