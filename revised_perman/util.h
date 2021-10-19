@@ -21,7 +21,7 @@ using namespace std;
 #define etype int
 #define vtype int
 
-#define HEAVYDEBUG
+//#define HEAVYDEBUG
 
 string seperator = "************************************************************************";
 
@@ -689,18 +689,13 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
     cptrs[i] = curr_elt_c;
     for(int j = 0; j < nov; j++) {
       if (mat[i*nov + j] > 0) {
-	printf("--Address is 0 bytes when curr_elt_r is: %d --\n", curr_elt_r);
-	cols[curr_elt_r] = j; //Address is 0 bytes
-	printf("--Address is 0 bytes when curr_elt_r is: %d --\n", curr_elt_r);
+	cols[curr_elt_r] = j; 
 	rvals[curr_elt_r] = mat[i*nov + j];
 	curr_elt_r++;
       }
       if (mat[j*nov + i] > 0) {
-	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
-	rows[curr_elt_c] = j; //Address is 0 bytes
-	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
-	cvals[curr_elt_c] = mat[j*nov + i]; //Address is 0 bytes
-	printf("--Address is 0 bytes when curr_elt_c is: %d --\n", curr_elt_c);
+	rows[curr_elt_c] = j; 
+	cvals[curr_elt_c] = mat[j*nov + i]; 
 	curr_elt_c++;
       }
     }

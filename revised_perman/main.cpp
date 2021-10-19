@@ -28,7 +28,6 @@
 using namespace std;
 
 
-
 void print_flags(flags flags){
 
   std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
@@ -56,10 +55,6 @@ void print_flags(flags flags){
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
-}
-
-void zflag(){
-  
 }
 
 
@@ -104,6 +99,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       cout << "Calling, parallel_perman64()" << endl;
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = parallel_perman64(densemat, flags);
       end = omp_get_wtime();
@@ -123,6 +121,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       cout << "Calling, parallel_perman64_sparse()" << endl;
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = parallel_perman64_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -130,6 +131,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     } else if (perman_algo == 2) {
 #ifdef DEBUG
       cout << "Calling, parallel_skip_perman64_w()" << endl;
+#endif
+#ifdef STRUCTURAL
+      exit(1);
 #endif
       start = omp_get_wtime();
       perman = parallel_skip_perman64_w(sparsemat, flags);
@@ -139,6 +143,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       cout << "Calling, parallel_skip_perman64_w_balanced()" << endl;
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = parallel_skip_perman64_w_balanced(sparsemat, flags);
       end = omp_get_wtime();
@@ -158,6 +165,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, rasmussen() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = rasmussen(densemat, flags);
       end = omp_get_wtime();
@@ -166,6 +176,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     } else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("Calling, approximation_perman64() \n");
+#endif
+#ifdef STRUCTURAL
+      exit(1);
 #endif
       start = omp_get_wtime();
       perman = approximation_perman64(densemat, flags);
@@ -188,6 +201,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, rasmussen_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = rasmussen_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -197,6 +213,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, approximation_perman64_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = approximation_perman64_sparse(sparsemat, flags);
       end = omp_get_wtime();
@@ -218,6 +237,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xglobal() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xglobal(densemat, flags);
       end = omp_get_wtime();
@@ -226,6 +248,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xlocal() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xlocal(densemat, flags);
       end = omp_get_wtime();
@@ -234,6 +259,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared(densemat, flags);
       end = omp_get_wtime();
@@ -242,6 +270,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing(densemat, flags);
       end = omp_get_wtime();
@@ -250,6 +281,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared(densemat, flags);
       end = omp_get_wtime();
@@ -258,6 +292,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpu(densemat, flags);
       end = omp_get_wtime();
@@ -266,6 +303,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
@@ -273,6 +313,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     } else if (perman_algo == 66) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution() \n");
+#endif
+#ifdef STRUCTURAL
+      exit(1);
 #endif
       flags.gpu_num = 4;
       start = omp_get_wtime();
@@ -295,6 +338,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xlocal_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xlocal_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -303,6 +349,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -311,6 +360,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -319,6 +371,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -327,6 +382,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -335,6 +393,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -344,6 +405,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_skipper() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_skipper(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -353,6 +417,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_chunks_skipper() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
       end = omp_get_wtime();
@@ -362,6 +429,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       flags.gpu_num = 4; //This is a manual setting specialized for GPUs we have, so recommend not to use it. 
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution(densemat, sparsemat, flags);
@@ -381,6 +451,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_rasmussen() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = gpu_perman64_rasmussen(densemat, flags);
       end = omp_get_wtime();
@@ -389,6 +462,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     } else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("Calling, gpu_perman64_approximation() \n");
+#endif
+#ifdef STRUCTURAL
+      exit(1);
 #endif
       start = omp_get_wtime();
       perman = gpu_perman64_approximation(densemat, flags);
@@ -399,6 +475,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("Calling, gpu_perman64_rasmussen_multigpucpu_chunks() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
@@ -408,6 +487,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
       end = omp_get_wtime();
@@ -428,6 +510,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("gpu_perman64_rasmussen_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif
       start = omp_get_wtime();
       perman = gpu_perman64_rasmussen_sparse(sparsemat, flags);
       end = omp_get_wtime();
@@ -437,6 +522,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("gpu_perman64_approximation_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_approximation_sparse(sparsemat, flags);
       end = omp_get_wtime();
@@ -446,6 +534,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("gpu_perman64_rasmussen_multigpucpu_chunks_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
       end = omp_get_wtime();
@@ -455,6 +546,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks_sparse() \n");
 #endif
+#ifdef STRUCTURAL
+      exit(1);
+#endif      
       start = omp_get_wtime();
       perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
       end = omp_get_wtime();
@@ -587,8 +681,7 @@ int main (int argc, char **argv)
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
 
-  std::cout << "Well hello there " << std::endl;
-  
+    
   std::string holder;
   int next_option;
   do {
