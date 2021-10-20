@@ -284,7 +284,7 @@ void RunPermanForGridGraphs(int m, int n, int perman_algo, bool gpu, bool cpu, i
       perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(cptrs, rows, rptrs, cols, nov, nnz, number_of_times, gpu_num, cpu, scale_intervals, scale_times, threads, true);
       end = omp_get_wtime();
       printf("Result: gpu_perman64_approximation_multigpucpu_chunks_sparse %2lf in %lf\n", perman, end-start);
-      cout << "Try: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
+      ;      cout << "Try: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
     } else {
       cout << "Unknown Algorithm ID" << endl;
     }
@@ -305,6 +305,16 @@ void RunPermanForGridGraphs(int m, int n, int perman_algo, bool gpu, bool cpu, i
       cout << "Unknown Algorithm ID" << endl;
     } 
   }
+
+  cout << "------------GRID--------------" << endl;
+  for(int i = 0; i < m; i++){
+    for(int j = 0; j < n; j++){      
+      cout << mat[i*n+j] << " ";
+    }
+    cout << endl;
+  }
+  cout << "------------GRID--------------" << endl;
+  
   delete[] mat;
   delete[] cptrs;
   delete[] rows;

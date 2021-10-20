@@ -32,6 +32,7 @@ void print_densematrix(DenseMatrix<T>* densemat){
   int no_row = densemat->nov;
   int no_col = densemat->nov;
 
+  std::cout << "Type of T: " << typeid(T).name() << std::endl;
   std::cout << "Printing dense matrix: " << std::endl;
 
   for(int i = 0; i < no_row; i++){
@@ -93,14 +94,14 @@ void print_sparsematrix(SparseMatrix<T>* sparsemat){
     std::cout << sparsemat->rptrs[i] << " ";
   }
   std::cout << "\n\n";
-  
 
+  
   std::cout << "#####~~##### |rvals| #####~~#####" << std::endl;
   for(int i = 0; i < nnz; i++){
     std::cout << sparsemat->rvals[i] << " ";
   }
   std::cout << "\n\n";
-  
+
 }
 
 
@@ -635,7 +636,7 @@ void matrix2compressed(T* mat, int*& cptrs, int*& rows, T*& cvals, int*& rptrs, 
 
 template <class T>
 void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
-
+  //Note that there is a known bug about generated dense grid graph to sparse matrix
   //std::cout << "matrix2compressed_o is called " << std::endl; 
   
   int curr_elt_r = 0;
@@ -653,7 +654,6 @@ void matrix2compressed_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
   int* rptrs = sparsemat->rptrs;
   int* rows = sparsemat->rows;
   int* cols = sparsemat->cols;
-
   T* cvals = sparsemat->cvals;
   T* rvals = sparsemat->rvals;
 

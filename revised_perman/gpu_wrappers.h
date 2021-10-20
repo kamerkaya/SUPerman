@@ -7,7 +7,6 @@
 
 #include "flags.h"
 
-
 //##############~~#####//FUNCTIONS FROM: gpu_exact_dense.cu//#####~~##############//
 template <class T>
 extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags);
