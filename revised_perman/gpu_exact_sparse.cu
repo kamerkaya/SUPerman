@@ -997,7 +997,14 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   long long end = (1LL << (nov-1));
 
   size_t size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T) + 1;
-  //printf("I want: %lu \n", size);
+  printf("I wanted: %lu \n", size);
+
+  if(size > 48000){
+    block_dim /= 2;
+  }
+
+  size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T) + 1;
+  printf("Now I want: %lu \n", size);
   
   double stt = omp_get_wtime();
   kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);

@@ -386,11 +386,13 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
 #ifdef STRUCTURAL
       exit(1);
-#endif      
+#endif
+      for(int i = 0; i < 3; i++){
       start = omp_get_wtime();
       perman = gpu_perman64_xshared_coalescing_mshared_sparse(densemat, sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared_sparse " << perman << " in " << (end - start) << endl;
+      }
     } else if (perman_algo == 5) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_sparse() \n");
