@@ -37,6 +37,7 @@ struct flags {
   int block_dim;
 
   int device_id;
+  int rep;
   
   flags(){
     
@@ -76,6 +77,7 @@ struct flags {
     block_dim = 256; // desired otherwise
 
     device_id = 0; //Assumed one and only GPU
+    rep = 1; //Assume one repetition
   }
   
 };
