@@ -456,27 +456,6 @@ template <class T>
 __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, T* cvals, double* x, double* p, int nov, int total, long long start, long long end) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
 
-  /*
-  if(tid == 0)
-    printf("Until now \n");
-
-  __syncthreads();
-
-  if(tid == 0)
-    printf("Is it for real ? \n");
-
-  if(tid == 0)
-    printf("Total: %d \n", total);
-
-  if(tid == 0)
-    printf("Size of T: %lu \n", sizeof(T));
-
-  if(tid == 0)
-    printf("Size of cvals[0]: %lu \n", sizeof(cvals[0]));
-
-  __syncthreads();
-  */
-
   int thread_id = threadIdx.x;
   int block_dim = blockDim.x;
   //int block_dim = 2;
@@ -485,24 +464,38 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
   extern __shared__ float shared_mem[]; 
   float *my_x = shared_mem; // size = nov * BLOCK_SIZE
   int *shared_cptrs = (int*) &my_x[nov * block_dim]; // size = nov + 1
-  int *shared_rows = (int*) &shared_cptrs[nov + 1]; // size = total num of elts
-
+  int *shared_rows = (int*) &shared_cptrs[nov + 1];  // size = total num of elts
+  
   T *shared_cvals;
-  if(nov * block_dim + nov + 1 + total % 2 == 0) {
+
+  
+  if((nov * block_dim + nov + 1 + total % 2) == 0 && sizeof(T) == 4) {
     shared_cvals = (T*) &shared_rows[total]; // size = total num of elts -- Misaligned address
-  } else {
+  } else if(sizeof(T) == 4){
     shared_cvals = (T*) (&shared_rows[total+1]); // size = total num of elts -- Misaligned address
   }
-
-  //if((((nov * block_dim) + (nov+1))) % 4 != 0){
-  //printf("A problem! -- %d \n ", (((nov * block_dim) + (nov+1)) % 4);
-  //shared_cvals += ((((nov * block_dim) + (nov+1))) % 4);
-  //}
-
+  
+  if((nov * block_dim + nov + 1 + total % 8) == 0 && sizeof(T) == 8) {
+    shared_cvals = (T*) &shared_rows[total]; // size = total num of elts -- Misaligned address
+  } else if(sizeof(T) == 8) {
+    unsigned int offset = 8 - ((nov * block_dim + nov + 1 + total) % 8);
+    shared_cvals = (T*) (&shared_rows[total+offset]); // size = total num of elts -- Misaligned address
+  }
+  
+  /*
+  if(tid == 0){
+    printf("size of T: %d \n" , sizeof(T));
     
-  //if(tid == 0)
-  //printf("Until now \n");
-
+    printf("%2: %ul \n", nov * block_dim + nov + 1 + total % 2);
+    printf("%4: %ul \n", nov * block_dim + nov + 1 + total % 4);
+    printf("%8: %ul \n", nov * block_dim + nov + 1 + total % 8);
+    
+    printf("%2: %ul \n", (nov * block_dim + nov + 1 + total) % 2);
+    printf("%4: %ul \n", (nov * block_dim + nov + 1 + total) % 4);
+    printf("%8: %ul \n", (nov * block_dim + nov + 1 + total) % 8);
+  }
+  */
+  
   __syncthreads();
 
   for (int k = 0; k < nov; k++) {
@@ -727,6 +720,7 @@ extern double gpu_perman64_xlocal_sparse(DenseMatrix<T>* densemat, SparseMatrix<
   //Pack flags
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
   //Pack flags
   
   
@@ -748,7 +742,7 @@ extern double gpu_perman64_xlocal_sparse(DenseMatrix<T>* densemat, SparseMatrix<
     p *= x[j];   // product of the elements in vector 'x'
   }
 
-  cudaSetDevice(1);
+  cudaSetDevice(device_id);
   T *d_cvals;
   int *d_cptrs, *d_rows;
   double *d_x, *d_p;
@@ -804,6 +798,7 @@ extern double gpu_perman64_xshared_sparse(DenseMatrix<T>* densemat, SparseMatrix
   //Pack flags
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
   //Pack flags
   
   
@@ -825,7 +820,7 @@ extern double gpu_perman64_xshared_sparse(DenseMatrix<T>* densemat, SparseMatrix
     p *= x[j];   // product of the elements in vector 'x'
   }
 
-  cudaSetDevice(1);
+  cudaSetDevice(device_id);
   T *d_cvals;
   int *d_cptrs, *d_rows;
   double *d_x, *d_p;
@@ -882,6 +877,7 @@ extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, S
   //Pack flags
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
   //Pack flags
   
   double x[nov]; 
@@ -902,7 +898,7 @@ extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, S
     p *= x[j];   // product of the elements in vector 'x'
   }
 
-  cudaSetDevice(1);
+  cudaSetDevice(device_id);
   T *d_cvals;
   int *d_cptrs, *d_rows;
   double *d_x, *d_p;
@@ -919,7 +915,7 @@ extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, S
   cudaMemcpy( d_rows, rows, (total) * sizeof(int), cudaMemcpyHostToDevice);
   cudaMemcpy( d_cvals, cvals, (total) * sizeof(T), cudaMemcpyHostToDevice);
 
-  printf("I want: %lu \n", nov*block_dim*sizeof(float));
+  //printf("I want: %lu \n", nov*block_dim*sizeof(float));
   
   double stt = omp_get_wtime();
   kernel_xshared_coalescing_sparse<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov);
@@ -959,6 +955,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   //Pack flags
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
   //Pack flags
   
   double x[nov]; 
@@ -979,7 +976,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
     p *= x[j];   // product of the elements in vector 'x'
   }
 
-  cudaSetDevice(1);
+  cudaSetDevice(device_id);
   T *d_cvals;
   int *d_cptrs, *d_rows;
   double *d_x, *d_p;
@@ -1000,7 +997,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   long long end = (1LL << (nov-1));
 
   size_t size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T) + 1;
-  printf("I want: %lu \n", size);
+  //printf("I want: %lu \n", size);
   
   double stt = omp_get_wtime();
   kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
@@ -1287,6 +1284,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* de
   //Pack flags
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
   //Pack flags
   
   double x[nov]; 
@@ -1307,7 +1305,7 @@ extern double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* de
     p *= x[j];   // product of the elements in vector 'x'
   }
 
-  cudaSetDevice(1);
+  cudaSetDevice(device_id);
   T *d_cvals;
   int *d_rptrs, *d_cols, *d_cptrs, *d_rows;
   double *d_x, *d_p;

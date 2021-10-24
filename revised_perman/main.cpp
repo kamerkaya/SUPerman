@@ -32,7 +32,7 @@
 #include "mmio.h"
 #endif
 
-#define DEBUG
+//#define DEBUG
 
 using namespace std;
 
@@ -62,6 +62,7 @@ void print_flags(flags flags){
   std::cout << "- number_of_times: " << flags.number_of_times << std::endl;
   std::cout << "- grid_dim: " << flags.grid_dim << std::endl;
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
+  std::cout << "- device_id: " << flags.device_id << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
 }
@@ -839,7 +840,7 @@ int main (int argc, char **argv)
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:h";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hq:";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -859,6 +860,7 @@ int main (int argc, char **argv)
     { "gridm",  1, NULL, 'm' },
     { "gridn",  1, NULL, 'n' },
     { "halfprec" , 0, NULL, 'h'},
+    { "deviceid", 0, NULL, 'q'},
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
 
@@ -963,6 +965,12 @@ int main (int argc, char **argv)
         break;
       case 'h':
 	flags.half_precision = 1;
+	break;
+      case 'q':
+	if(optarg[0] == '-'){
+	  fprintf(stderr, "Option -q requires an argument. \n");
+	}
+	flags.device_id = atoi(optarg);
 	break;
       case '?':
         return 1;

@@ -35,6 +35,8 @@ struct flags {
 
   int grid_dim;
   int block_dim;
+
+  int device_id;
   
   flags(){
     
@@ -72,6 +74,8 @@ struct flags {
 
     grid_dim = 2048; // Assumed 2048 / 256, will override if 
     block_dim = 256; // desired otherwise
+
+    device_id = 0; //Assumed one and only GPU
   }
   
 };
