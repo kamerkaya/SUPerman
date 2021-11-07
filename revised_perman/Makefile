@@ -20,7 +20,7 @@ debug:
 	echo "DEBUG Gpu Dense Approximation object.. OK"
 	nvcc -c gpu_approximation_sparse.cu -g -G
 	echo "DEBUG Gpu Sparse Approximation object.. OK"
-	g++ -c main.cpp mmio.c -fopenmp -O3 -std=c++11 -lcudart -g
+	g++ -c main.cpp mmio.c -fopenmp -O3 -std=c++11 -lcudart -g -DDEBUG
 	echo "DEBUG Main cpp object.. OK"
 	nvcc -o debug_perman main.o gpu_exact_dense.o gpu_exact_sparse.o gpu_approximation_dense.o gpu_approximation_sparse.o -Xcompiler -fopenmp -O3 -g -G
 

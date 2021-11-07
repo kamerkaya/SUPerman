@@ -124,6 +124,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     else{
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
+      //return 1;
     }
     
   }
