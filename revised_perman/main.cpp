@@ -64,6 +64,7 @@ void print_flags(flags flags){
   std::cout << "- grid_dim: " << flags.grid_dim << std::endl;
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
   std::cout << "- device_id: " << flags.device_id << std::endl;
+  std::cout << "- grid_multip: " << flags.grid_multip << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
 }
@@ -72,16 +73,16 @@ void print_flags(flags flags){
 template <class T>
 void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) 
 {
-
+  
   print_flags(flags);
 
   int grid_dim = 2048;
   int block_dim = 256;
   
-  if(std::string(flags.type) == std::string("double")){
-    std::cout << "==SC== Resetted block_dim to 128 due to double entries.. " << std::endl;
-    block_dim = 128;
-  }
+  //if(std::string(flags.type) == std::string("double")){
+  //std::cout << "==SC== Resetted block_dim to 128 due to double entries.. " << std::endl;
+  //block_dim = 128;
+  //}
 
   //Pack flags
   bool cpu = flags.cpu;
@@ -753,7 +754,6 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 
 //void RunPermanForGridGraphs(int m, int n, int perman_algo, bool gpu, bool cpu, int gpu_num, int threads, int number_of_times, int scale_intervals, int scale_times) {
 void RunPermanForGridGraphs(flags flags) {
-
   
   print_flags(flags);
   
@@ -930,7 +930,7 @@ int main (int argc, char **argv)
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hq:k:";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hq:k:e:";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -952,6 +952,7 @@ int main (int argc, char **argv)
     { "halfprec" , 0, NULL, 'h'},
     { "deviceid", 0, NULL, 'q'},
     { "norep", 1, NULL, 'k'},
+    { "gridmultip", 1, NULL, 'e'},
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
 
@@ -1066,9 +1067,15 @@ int main (int argc, char **argv)
 	break;
       case 'k':
 	if(optarg[0] == '-'){
-	  fprintf(stderr, "Option -k requires and argument \n");
+	  fprintf(stderr, "Option -k requires an argument \n");
 	}
 	flags.rep = atoi(optarg);
+	break;
+      case 'e':
+	if(optarg[0] == '-'){
+	  fprintf(stderr, "Option -e requires an argument \n");
+	}
+	flags.grid_multip = atoi(optarg);
 	break;
       case '?':
         return 1;

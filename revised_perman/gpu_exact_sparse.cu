@@ -3,6 +3,10 @@
 #include "flags.h"
 #include "gpu_wrappers.h"
 
+int glob_nov;
+int glob_total;
+int glob_sizeof_t;
+
 template <class T>
 double cpu_perman64_sparse(int* cptrs, int* rows, T* cvals, double x[], int nov, long long start, long long end, int threads) {
   double p = 0; //product of the elements in vector 'x'
@@ -18,8 +22,8 @@ double cpu_perman64_sparse(int* cptrs, int* rows, T* cvals, double x[], int nov,
     }
     int tid = omp_get_thread_num();
     long long my_start = start + tid * chunk_size;
-    long long my_end = min(start + ((tid+1) * chunk_size), end);
-    
+    long long my_end = min(start + ((tid+1) * chunk_size), end); 
+       
     int s;  //+1 or -1 
     double prod; //product of the elements in vector 'x'
     double my_p = 0;
@@ -188,6 +192,14 @@ double cpu_perman64_skipper(int *rptrs, int *cols, int* cptrs, int* rows, T* cva
   }
     
   return p;
+}
+
+//Unary functions for cudaOccupancyMaxPotentialBlockSizeVariableSmem
+
+int xshared_coalescing_mshared_sparse_sharedmem(int b){
+  
+  return b*glob_nov*sizeof(double) + (glob_nov + 1) * sizeof(int) + glob_total*sizeof(int) + glob_total * glob_sizeof_t;
+  
 }
 
 template <class T>
@@ -462,12 +474,10 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
 
   //(nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) 
   extern __shared__ float shared_mem[]; 
-  float *my_x = shared_mem; // size = nov * BLOCK_SIZE
+  double *my_x = (double*)shared_mem; // size = nov * BLOCK_SIZE
   int *shared_cptrs = (int*) &my_x[nov * block_dim]; // size = nov + 1
   int *shared_rows = (int*) &shared_cptrs[nov + 1];  // size = total num of elts
-  
   T *shared_cvals;
-
   
   if((nov * block_dim + nov + 1 + total % 2) == 0 && sizeof(T) == 4) {
     shared_cvals = (T*) &shared_rows[total]; // size = total num of elts -- Misaligned address
@@ -484,7 +494,7 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
   
   /*
   if(tid == 0){
-    printf("size of T: %d \n" , sizeof(T));
+  printf("size of T: %d \n" , sizeof(T));
     
     printf("%2: %ul \n", nov * block_dim + nov + 1 + total % 2);
     printf("%4: %ul \n", nov * block_dim + nov + 1 + total % 4);
@@ -956,8 +966,12 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
   int device_id = flags.device_id;
+  int max_shared_mem = flags.grid_multip;
   //Pack flags
-  
+
+  cudaDeviceProp prop;
+  cudaGetDeviceProperties(&prop, device_id);
+   
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -976,6 +990,59 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
     p *= x[j];   // product of the elements in vector 'x'
   }
 
+  //size_t size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T);
+  //size_t max_shared_size = prop.sharedMemPerBlock;
+
+  //if(size > max_shared_size){
+  //fprintf(stderr, "Chosen algorithm requires more than maximum shared memory available on device, exiting.. \n");
+  //exit(1);
+  //}
+
+  //cudaOccupancyMaxPotentialBlockSize(&grid_dim,
+  //				     &block_dim,
+  //				     &kernel_xshared_coalescing_mshared_sparse<T>,
+  //				     size,
+  //				     0);
+  
+  
+  glob_nov = nov;
+  glob_total = total;
+  glob_sizeof_t = sizeof(T);
+  
+  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
+						 &block_dim,
+						 &kernel_xshared_coalescing_mshared_sparse<T>,
+						 xshared_coalescing_mshared_sparse_sharedmem,
+						 0);
+  
+  size_t size = nov*block_dim*sizeof(double) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T);
+  
+  printf("==SC== Shared memory per block is set to : %zu \n", size);
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+
+  if(max_shared_mem != 1){
+    grid_dim*=max_shared_mem;
+    //int pow2 = 1;
+    //while(pow2 < grid_dim){
+    //pow2 *= 2;
+    //}
+    //grid_dim=pow2;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
+  
+  
+  //cudaOccupancyMaxPotentialBlockSize(&grid_dim
+  //				     &block_dim,
+  //				     &kernel_xshared_coalescing_mshared_sparse<T>,
+  //				     size,
+  //				     0);
+
+
+    
+  //printf("==SC== Block dim is set to : %d \n", block_dim);
+  //printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  
   cudaSetDevice(device_id);
   T *d_cvals;
   int *d_cptrs, *d_rows;
@@ -995,19 +1062,9 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
 
   long long start = 1;
   long long end = (1LL << (nov-1));
-
-  size_t size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T) + 1;
-  printf("I wanted: %lu \n", size);
-
-  if(size > 48000){
-    block_dim /= 2;
-  }
-
-  size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T) + 1;
-  printf("Now I want: %lu \n", size);
   
   double stt = omp_get_wtime();
-  kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
+  kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
   //kernel_xshared_coalescing_mshared_sparse<<< 1 , 1 , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();

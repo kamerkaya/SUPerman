@@ -38,6 +38,8 @@ struct flags {
 
   int device_id;
   int rep;
+
+  int grid_multip;
   
   flags(){
     
@@ -78,6 +80,8 @@ struct flags {
 
     device_id = 0; //Assumed one and only GPU
     rep = 1; //Assume one repetition
+
+    grid_multip = 1; //Assume maximum possible shared memory
   }
   
 };
