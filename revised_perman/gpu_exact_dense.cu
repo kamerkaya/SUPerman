@@ -3,6 +3,7 @@
 #include "flags.h"
 #include "gpu_wrappers.h"
 
+/*
 template <class T>
 void print_helper(DenseMatrix<T>* densemat, flags flags){
 
@@ -38,6 +39,7 @@ void print_helper(DenseMatrix<T>* densemat, flags flags){
     printf("#####~~Driver mat~~#####\n");
   }
 }
+*/
 
 //This is a CPU helper kernel for hybrid setting
 template <class T>
@@ -166,7 +168,8 @@ __global__ void kernel_xglobal(T* mat_t, float* x, double* p, int nov) {
 
 template <class T>
 __global__ void kernel_xlocal(T* mat_t, double* x, double* p, int nov) {
-  float my_x[40];
+
+  T my_x[40];
   for (int k = 0; k < nov; k++) {
     my_x[k] = x[k];
   }
@@ -444,8 +447,8 @@ extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
   int nov = densemat->nov;
   //Pack parameters
 
-  printf("Is compiled?? \n");
-  print_helper(densemat, flags);
+  //printf("Is compiled?? \n");
+  //print_helper(densemat, flags);
   
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;

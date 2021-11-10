@@ -10,6 +10,7 @@ main:
 	g++ -c main.cpp mmio.c -fopenmp -O3 -std=c++11 -lcudart
 	echo "Main cpp object.. OK"
 	nvcc -o gpu_perman main.o gpu_exact_dense.o gpu_exact_sparse.o gpu_approximation_dense.o gpu_approximation_sparse.o -Xcompiler -fopenmp -O3
+	rm *.o
 
 debug:
 	nvcc -c gpu_exact_dense.cu -g -G
@@ -23,6 +24,7 @@ debug:
 	g++ -c main.cpp mmio.c -fopenmp -O3 -std=c++11 -lcudart -g -DDEBUG
 	echo "DEBUG Main cpp object.. OK"
 	nvcc -o debug_perman main.o gpu_exact_dense.o gpu_exact_sparse.o gpu_approximation_dense.o gpu_approximation_sparse.o -Xcompiler -fopenmp -O3 -g -G
+	rm *.o
 
 cpu:
 	g++ -o cpu_perman main.cpp mmio.c -fopenmp -O3 -std=c++11 -DONLYCPU
