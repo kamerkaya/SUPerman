@@ -6,6 +6,7 @@ struct flags {
   
   bool cpu;
   bool gpu;
+  bool gpu_stated;
   
   bool sparse;
   bool dense;
@@ -45,6 +46,7 @@ struct flags {
     
     cpu = 0;
     gpu = 1; //Assumed gpu
+    gpu_stated = 0; //This is to enable hybrid execution and prevent running multiple algos
 
     sparse = 0;
     dense = 1; //Assumed dense

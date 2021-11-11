@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <bits/stdc++.h> 
-//#define DEBUG 
+//#define HARDDEBUG 
 
 template <class T>
-void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern){
+void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern, bool is_binary){
 
 #ifdef DEBUG
   std::cout << "In function: readDenseMatrix()" << std::endl;
@@ -38,10 +38,16 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
   int x, y;
   for(int i = 0; i < no_lines; i++){
     
-    if(is_pattern)
+    if(is_pattern && !is_binary){
       file >> x >> y;
-    else
+    }
+    else if(!is_pattern && is_binary){
       file >> x >> y >> cast;
+      cast = (int)1; //Just for safety
+    }
+    else{
+      file >> x >> y >> cast;
+    }
     
     x -= 1; //Convert from 1-based to 0-based
     y -= 1;
@@ -50,7 +56,7 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
     std::cout << "x: " << x << " y: " << y << " x*no_row+y: " << x*no_row+y << std::endl;
 #endif
     
-    if(is_pattern)
+    if(is_pattern || is_binary)
       mat->mat[x*no_row+y] = (int)1;
     else
       mat->mat[x*no_row+y] = cast;
@@ -71,7 +77,7 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern)
 }
 
 template <class T>
-void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern){
+void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern, bool is_binary){
 
 #ifdef DEBUG
   std::cout << "In function: readSymmetricDenseMatrix()" << std::endl;
@@ -98,8 +104,13 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
   T cast;
   int x, y;
   for(int i = 0; i < no_lines; i++){
-    if(is_pattern)
+    if(is_pattern && !is_binary){
       file >> x >> y;
+    }
+    else if(!is_pattern && is_binary){
+      file >> x >> y >> cast;
+      cast = int(1); //Just for safety
+    }
     else
       file >> x >> y >> cast;
 
@@ -110,7 +121,7 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
     std::cout << "x: " << x << " y: " << y << " x*no_row+y: " << x*no_row+y << std::endl;
 #endif
         
-    if(is_pattern)
+    if(is_pattern || is_binary)
       mat->mat[x*no_row+y] = (int)1;
     else
       mat->mat[x*no_row+y] = cast;

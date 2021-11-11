@@ -466,6 +466,7 @@ __global__ void kernel_xshared_coalescing_sparse(int* cptrs, int* rows, T* cvals
 
 template <class T>
 __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, T* cvals, T* x, T* p, int nov, int total, long long start, long long end) {
+  
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
 
   int thread_id = threadIdx.x;
@@ -890,9 +891,9 @@ extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, S
   int device_id = flags.device_id;
   //Pack flags
   
-  T x[nov]; 
-  T rs; //row sum
-  T p = 1; //product of the elements in vector 'x'
+  double x[nov]; 
+  double rs; //row sum
+  double p = 1; //product of the elements in vector 'x'
   int total = 0;
   
   //create the x vector and initiate the permanent
@@ -966,12 +967,14 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
   int device_id = flags.device_id;
-  int max_shared_mem = flags.grid_multip;
+  int grid_dim_multip = flags.grid_multip;
   //Pack flags
   
   cudaDeviceProp prop;
   cudaGetDeviceProperties(&prop, device_id);
-   
+
+  //These guys are gonna be double or float
+  //They also need to be double or float in the __kernel__
   T x[nov]; 
   T rs; //row sum
   T p = 1; //product of the elements in vector 'x'
@@ -989,25 +992,18 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
     x[j] = mat[(j * nov) + (nov-1)] - rs/2;  // see Nijenhuis and Wilf - x vector entry
     p *= x[j];   // product of the elements in vector 'x'
   }
+  printf("initial x: \n");
+  for(int i = 0; i < nov; i++)
+    printf("%d ", x[i]);
+  printf("\n");
+    
+  printf("p after init: %d \n", p);
 
-  //size_t size = nov*block_dim*sizeof(float) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T);
-  //size_t max_shared_size = prop.sharedMemPerBlock;
-
-  //if(size > max_shared_size){
-  //fprintf(stderr, "Chosen algorithm requires more than maximum shared memory available on device, exiting.. \n");
-  //exit(1);
-  //}
-
-  //cudaOccupancyMaxPotentialBlockSize(&grid_dim,
-  //				     &block_dim,
-  //				     &kernel_xshared_coalescing_mshared_sparse<T>,
-  //				     size,
-  //				     0);
-  
-  
+  //For variable smem
   glob_nov = nov;
   glob_total = total;
   glob_sizeof_t = sizeof(T);
+  //For variable smem
   
   cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
 						 &block_dim,
@@ -1021,27 +1017,10 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
   printf("==SC== Block dim is set to : %d \n", block_dim);
 
-  if(max_shared_mem != 1){
-    grid_dim*=max_shared_mem;
-    //int pow2 = 1;
-    //while(pow2 < grid_dim){
-    //pow2 *= 2;
-    //}
-    //grid_dim=pow2;
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
     printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
   }
-  
-  
-  //cudaOccupancyMaxPotentialBlockSize(&grid_dim
-  //				     &block_dim,
-  //				     &kernel_xshared_coalescing_mshared_sparse<T>,
-  //				     size,
-  //				     0);
-
-
-    
-  //printf("==SC== Block dim is set to : %d \n", block_dim);
-  //printf("==SC== Grid dim is set to : %d \n", grid_dim);
   
   cudaSetDevice(device_id);
   T *d_cvals;
@@ -1078,17 +1057,20 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   cudaFree(d_cptrs);
   cudaFree(d_rows);
   cudaFree(d_cvals);
-  
+
+  //for (int i = 0; i < grid_dim * block_dim; i++) {
+  //printf("h_p[i]: %d \n", h_p[i]);
+  //}
   
   for (int i = 0; i < grid_dim * block_dim; i++) {
-    p += h_p[i];
-    printf("p is: %d \n", p);
+    p += (double)h_p[i];
+    //printf("p is: %d \n", p);
   }
 
   delete[] h_p;
 
-  
-  printf("In function report: **%d** \n", (int)((4*(nov&1)-2) *p) );
+  printf("Before return p: %f \n", p);
+  printf("In function report: **%f** \n", (double)((4*(nov&1)-2) *p) );
   return((4*(nov&1)-2) * p);
 }
 

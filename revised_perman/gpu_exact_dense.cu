@@ -726,8 +726,6 @@ extern double gpu_perman64_xshared_coalescing(DenseMatrix<T>* densemat, flags fl
 template <class T>
 extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, flags flags) {
 
-  printf("Very beginning of: gpu_exact_dense_algo4 \n");
-  
   //Pack parameters
   T* mat = densemat->mat;
   int nov = densemat->nov;
@@ -738,8 +736,6 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
   int block_dim = flags.block_dim;
   //Pack flags
 
-  printf("Will start: gpu_exact_dense_algo4 \n");
-  
   double x[nov]; 
   double rs; //row sum
   double p = 1; //product of the elements in vector 'x'
@@ -756,13 +752,6 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
   }
 
   
-  printf("nov: %d \n", nov);
-  printf("nov * nov: %d \n", nov*nov);
-  //create the transpose of the matrix
-  
-  //T* mat_t = new T[(nov * nov)];
-  printf("It is calloc now !! \n");
-  printf("It should be eight: %d \n", sizeof(T));
   int novsquare = nov*nov;
   T* mat_t = (T*)calloc(novsquare, sizeof(T));
   for (int i = 0; i < nov; i++) {
@@ -772,14 +761,12 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
     }
   }
 
-  printf("Created some arrays for: gpu_exact_dense_algo4 \n");
-  
   cudaSetDevice(1);
   T *d_mat_t;
   double *d_x, *d_p;
   double *h_p = new double[grid_dim * block_dim];
 
-  cudaMalloc( &d_x, (nov) * sizeof(double));
+  cudaMalloc( &d_x, (nov) * sizeof(double)); //Don't know why it is here, will remove
   cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
   cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
 
@@ -789,10 +776,8 @@ extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, 
   long long start = 1;
   long long end = (1LL << (nov-1));
 
-  printf("CUDA host functions finished: gpu_exact_dense_algo4 \n");
-  
   double stt = omp_get_wtime();
-  kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
+  kernel_xshared_coalescing_mshared<<< grid_dim , block_dim , (nov*block_dim*sizeof(double) + nov*nov*sizeof(T)) >>> (d_mat_t, d_x, d_p, nov, start, end);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   printf("Kernel in %f \n", enn - stt);

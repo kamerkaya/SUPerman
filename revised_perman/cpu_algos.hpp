@@ -969,7 +969,7 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
 #pragma omp critical
     {
       p += my_p;
-      printf("tid is: %d -- p is: %f\n", tid, p);
+      //printf("tid is: %d -- p is: %f\n", tid, p);
     }
   }
   return ((4*(nov&1)-2) * p);

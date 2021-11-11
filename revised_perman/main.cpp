@@ -106,7 +106,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
   
   double start, end, perman;
   
-  if(cpu && dense && exact){    
+  if(cpu && dense && exact && !gpu){    
     
     if(perman_algo == 1){
 #ifdef DEBUG
@@ -130,7 +130,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     
   }
   
-  if(cpu && sparse && exact){
+  if(cpu && sparse && exact && !gpu){
     
     if (perman_algo == 1) {
 #ifdef DEBUG
@@ -180,7 +180,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     
   }
   
-  if(cpu && dense && approximation){
+  if(cpu && dense && approximation && !gpu){
     
     if (perman_algo == 1) { // rasmussen
 #ifdef DEBUG
@@ -216,7 +216,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       exit(1);
     }  
   }
-  if(cpu && sparse && approximation){
+  if(cpu && sparse && approximation && !gpu){
     
     if (perman_algo == 1) { // rasmussen
 #ifdef DEBUG
@@ -255,7 +255,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
   
   
 #ifndef ONLYCPU
-  if(gpu && dense && exact){
+  if(gpu && dense && exact && !cpu){
     
     if (perman_algo == 21) {
 #ifdef DEBUG
@@ -372,7 +372,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     }
   }
   
-  if(gpu && sparse && exact){
+  if(gpu && sparse && exact && !cpu){
     
     if (perman_algo == 1) {
 #ifdef DEBUG
@@ -502,7 +502,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
   }
   
   
-  if(gpu && dense && approximation){
+  if(gpu && dense && approximation && !cpu){
     
     if (perman_algo == 1) { // rasmussen
 #ifdef DEBUG
@@ -567,7 +567,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
   }
   
   
-  if(gpu && sparse && approximation){
+  if(gpu && sparse && approximation && !cpu){
     
     if (perman_algo == 1) { // rasmussen
 #ifdef DEBUG
@@ -632,7 +632,8 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
   }
   
   if(gpu && cpu && dense && exact){
-    if (perman_algo == 6) {
+    std::cout << "I should be printed and I am .. " << std::endl;
+    if (perman_algo == 7) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks() \n");
 #endif
@@ -997,7 +998,12 @@ int main (int argc, char **argv)
         break;
       case 'g':
 	flags.gpu = 1;
-	flags.cpu = 0;
+	flags.gpu_stated = 1;
+        break;
+      case 'c':
+        flags.cpu = 1;
+	if(!flags.gpu_stated)
+	  flags.gpu = 0; //Prevents multiple execution in case of sole -c
         break;
       case 'd':
         if (optarg[0] == '-'){
@@ -1005,10 +1011,6 @@ int main (int argc, char **argv)
           return 1;
         }
         flags.gpu_num = atoi(optarg);
-        break;
-      case 'c':
-        flags.cpu = 1;
-	//flags.gpu = 0; //Prevents hybrid execution
         break;
       case 'p':
         if (optarg[0] == '-'){
@@ -1171,9 +1173,10 @@ int main (int argc, char **argv)
   bool is_pattern = false;
   if(mm_is_pattern(matcode) == 1)
     is_pattern = true;
-  
+
+  bool is_binary = false;
   if(flags.binary_graph)
-    is_pattern = true;
+    is_binary = true;
 
   bool is_symmetric = false;
   if(mm_is_symmetric(matcode) == 1 || mm_is_skew(matcode))
@@ -1182,6 +1185,9 @@ int main (int argc, char **argv)
   if(is_symmetric)
   nz *= 2;
 
+#ifdef DEBUG
+  std::cout << "Matrix is pattern: " << is_pattern << std::endl;
+#endif
  
 
   if(mm_is_real(matcode) == 1 && !flags.half_precision && !is_pattern){
@@ -1206,9 +1212,9 @@ int main (int argc, char **argv)
     densemat->nnz = nz;
 
     if(!is_symmetric)
-      readDenseMatrix(densemat, flags.filename, is_pattern);
+      readDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     else 
-      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     
 #ifdef DEBUG
     std::cout << "Read.. OK! -- Compressing.. " << std::endl;
@@ -1252,9 +1258,9 @@ int main (int argc, char **argv)
     densemat->nnz = nz;
     
     if(!is_symmetric)
-      readDenseMatrix(densemat, flags.filename, is_pattern);
+      readDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     else 
-      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     
 #ifdef DEBUG
     std::cout << "Read.. OK! -- Compressing.. " << std::endl;
@@ -1297,9 +1303,9 @@ int main (int argc, char **argv)
     densemat->nnz = nz;    
     
     if(!is_symmetric)
-      readDenseMatrix(densemat, flags.filename, is_pattern);
+      readDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     else 
-      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern);
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
 
 
 #ifdef DEBUG
