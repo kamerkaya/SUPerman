@@ -5,7 +5,8 @@
 
 int glob_nov;
 int glob_total;
-int glob_sizeof_t;
+int glob_sizeof_c; //Size of type used for calculation
+int glob_sizeof_s; //Size of type used for storage
 
 template <class T>
 double cpu_perman64_sparse(int* cptrs, int* rows, T* cvals, T x[], int nov, long long start, long long end, int threads) {
@@ -198,8 +199,10 @@ double cpu_perman64_skipper(int *rptrs, int *cols, int* cptrs, int* rows, T* cva
 
 int xshared_coalescing_mshared_sparse_sharedmem(int b){
   
-  return b*glob_nov*glob_sizeof_t + (glob_nov + 1) * sizeof(int) + glob_total*sizeof(int) + glob_total * glob_sizeof_t;
-  
+  //return b*glob_nov*glob_sizeof_t + (glob_nov + 1) * sizeof(int) + glob_total*sizeof(int) + glob_total * glob_sizeof_t;
+  return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s;
+  //////////////for d_p////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
+  //Note that d_x is not resides at the shared memory, in contrary, we copy it to d_p at the very beginning
 }
 
 template <class T>
@@ -464,8 +467,8 @@ __global__ void kernel_xshared_coalescing_sparse(int* cptrs, int* rows, T* cvals
   p[tid] = my_p;
 }
 
-template <class T>
-__global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, T* cvals, T* x, T* p, int nov, int total, long long start, long long end) {
+template <class C, class S>
+  __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, S* cvals, C* x, C* p, int nov, int total, long long start, long long end) {
   
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
 
@@ -475,22 +478,22 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
 
   //(nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) 
   extern __shared__ double shared_mem[]; 
-  T *my_x = (T*)shared_mem; // size = nov * BLOCK_SIZE
+  C *my_x = (C*)shared_mem; // size = nov * BLOCK_SIZE
   int *shared_cptrs = (int*) &my_x[nov * block_dim]; // size = nov + 1
   int *shared_rows = (int*) &shared_cptrs[nov + 1];  // size = total num of elts
-  T *shared_cvals;
+  S *shared_cvals;
   
-  if((nov * block_dim + nov + 1 + total % 2) == 0 && sizeof(T) == 4) {
-    shared_cvals = (T*) &shared_rows[total]; // size = total num of elts -- Misaligned address
-  } else if(sizeof(T) == 4){
-    shared_cvals = (T*) (&shared_rows[total+1]); // size = total num of elts -- Misaligned address
+  if((nov * block_dim + nov + 1 + total % 2) == 0 && sizeof(S) == 4) {
+    shared_cvals = (S*) &shared_rows[total]; // size = total num of elts -- Misaligned address
+  } else if(sizeof(S) == 4){
+    shared_cvals = (S*) (&shared_rows[total+1]); // size = total num of elts -- Misaligned address
   }
   
-  if((nov * block_dim + nov + 1 + total % 8) == 0 && sizeof(T) == 8) {
-    shared_cvals = (T*) &shared_rows[total]; // size = total num of elts -- Misaligned address
-  } else if(sizeof(T) == 8) {
+  if((nov * block_dim + nov + 1 + total % 8) == 0 && sizeof(S) == 8) {
+    shared_cvals = (S*) &shared_rows[total]; // size = total num of elts -- Misaligned address
+  } else if(sizeof(S) == 8) {
     unsigned int offset = 8 - ((nov * block_dim + nov + 1 + total) % 8);
-    shared_cvals = (T*) (&shared_rows[total+offset]); // size = total num of elts -- Misaligned address
+    shared_cvals = (S*) (&shared_rows[total+offset]); // size = total num of elts -- Misaligned address
   }
   
   /*
@@ -532,9 +535,9 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
   long long my_start = start + tid * chunk_size;
   long long my_end = min(start + ((tid+1) * chunk_size), end);
   
-  int s;  //+1 or -1 
-  double prod; //product of the elements in vector 'x'
-  double my_p = 0;
+  C s;  //+1 or -1 
+  C prod; //product of the elements in vector 'x'
+  C my_p = 0;
   long long i = my_start;
   long long gray = (i-1) ^ ((i-1) >> 1);
 
@@ -570,7 +573,7 @@ __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, 
     gray ^= (one << k); // Gray-code order: 1,3,2,6,7,5,4,12,13,15,...
     //decide if subtract of not - if the kth bit of gray is one then 1, otherwise -1
     s = ((one << k) & gray) ? 1 : -1;
-      
+    
     for (int j = shared_cptrs[k]; j < shared_cptrs[k+1]; j++) {
       if (my_x[block_dim*shared_rows[j] + thread_id] == 0) {
         zero_num--;
@@ -952,14 +955,14 @@ extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, S
   return((4*(nov&1)-2) * p);
 }
 
-template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+  extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int* cptrs = sparsemat->cptrs;
   int* rows = sparsemat->rows;
-  T* cvals = sparsemat->cvals;
+  S* cvals = sparsemat->cvals;
   int nov = sparsemat->nov;
   //Pack parameters
 
@@ -975,9 +978,9 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
 
   //These guys are gonna be double or float
   //They also need to be double or float in the __kernel__
-  T x[nov]; 
-  T rs; //row sum
-  T p = 1; //product of the elements in vector 'x'
+  C x[nov]; 
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
   int total = 0;
   
   //create the x vector and initiate the permanent
@@ -994,24 +997,25 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   }
   printf("initial x: \n");
   for(int i = 0; i < nov; i++)
-    printf("%d ", x[i]);
+    printf("%f ", x[i]);
   printf("\n");
     
-  printf("p after init: %d \n", p);
+  printf("p after init: %f \n", p);
 
   //For variable smem
   glob_nov = nov;
   glob_total = total;
-  glob_sizeof_t = sizeof(T);
+  glob_sizeof_c = sizeof(C);
+  glob_sizeof_s = sizeof(S);
   //For variable smem
   
   cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
 						 &block_dim,
-						 &kernel_xshared_coalescing_mshared_sparse<T>,
+						 &kernel_xshared_coalescing_mshared_sparse<C,S>,
 						 xshared_coalescing_mshared_sparse_sharedmem,
 						 0);
-  
-  size_t size = nov*block_dim*sizeof(T) +(nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T);
+
+  size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(C) + total*sizeof(S);
   
   printf("==SC== Shared memory per block is set to : %zu \n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
@@ -1023,34 +1027,37 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   }
   
   cudaSetDevice(device_id);
-  T *d_cvals;
+  S *d_cvals;
   int *d_cptrs, *d_rows;
-  T *d_x, *d_p;
-  T *h_p = new T[grid_dim * block_dim];
+  C *d_x, *d_p;
+  C *h_p = new C[grid_dim * block_dim];
 
-  cudaMalloc( &d_x, (nov) * sizeof(T));
-  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(T));
+  cudaMalloc( &d_x, (nov) * sizeof(C));
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C)); //Why it should be grid_dim * block_dim? Changed it..
   cudaMalloc( &d_cptrs, (nov + 1) * sizeof(int));
   cudaMalloc( &d_rows, (total) * sizeof(int));
-  cudaMalloc( &d_cvals, (total) * sizeof(T));
+  cudaMalloc( &d_cvals, (total) * sizeof(S));
 
-  cudaMemcpy( d_x, x, (nov) * sizeof(T), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_x, x, (nov) * sizeof(C), cudaMemcpyHostToDevice);
   cudaMemcpy( d_cptrs, cptrs, (nov + 1) * sizeof(int), cudaMemcpyHostToDevice);
   cudaMemcpy( d_rows, rows, (total) * sizeof(int), cudaMemcpyHostToDevice);
-  cudaMemcpy( d_cvals, cvals, (total) * sizeof(T), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_cvals, cvals, (total) * sizeof(S), cudaMemcpyHostToDevice);
 
+  //size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(C) + total*sizeof(S);
+  //////////////for d_p////////////////////for d_cptrs//////////for d_rows//////////for d_x///////////for d_cvals/////
+  
   long long start = 1;
   long long end = (1LL << (nov-1));
   
   double stt = omp_get_wtime();
-  kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
+  kernel_xshared_coalescing_mshared_sparse<C,S><<<grid_dim , block_dim , size>>>(d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
   //kernel_xshared_coalescing_mshared_sparse<<< 1 , 1 , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
   printf("kernel in %f \n", enn - stt);
   
-  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(T), cudaMemcpyDeviceToHost);
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
   cudaFree(d_x);
   cudaFree(d_p);
@@ -1059,18 +1066,19 @@ extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<T>* den
   cudaFree(d_cvals);
 
   //for (int i = 0; i < grid_dim * block_dim; i++) {
-  //printf("h_p[i]: %d \n", h_p[i]);
+  //printf("h_p[%d]: %f \n ", i, h_p[i]);
   //}
+  //printf("\n");
   
   for (int i = 0; i < grid_dim * block_dim; i++) {
-    p += (double)h_p[i];
-    //printf("p is: %d \n", p);
+    p += h_p[i];
+    //printf("p along the way %d: %f \n", i, p);
   }
 
   delete[] h_p;
 
   printf("Before return p: %f \n", p);
-  printf("In function report: **%f** \n", (double)((4*(nov&1)-2) *p) );
+  printf("In function report: **%f** \n", ((4*(nov&1)-2) *p) );
   return((4*(nov&1)-2) * p);
 }
 
@@ -1138,11 +1146,14 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(DenseMatri
 
       size_t size = nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T);
 
+      int x;
       double stt = omp_get_wtime();
       if (gpu_id == gpu_num-1) {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + gpu_id*offset), end);
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + gpu_id*offset), end);
+	x = 1;
       } else {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + gpu_id*offset), (start + (gpu_id+1)*offset));
+	x = 2;
       }
       cudaDeviceSynchronize();
       double enn = omp_get_wtime();
@@ -1282,12 +1293,16 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(
           curr_chunk_id = chunk_id;
           chunk_id++;
         }
+	
+	int x;
         while (curr_chunk_id < number_of_chunks) {
           double stt = omp_get_wtime();
           if (curr_chunk_id == number_of_chunks - 1) {
-            kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + curr_chunk_id*offset), end);
+            //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + curr_chunk_id*offset), end);
+	    x = 1;
           } else {
-            kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+            //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, (start + curr_chunk_id*offset), (start + (curr_chunk_id+1)*offset));
+	    x = 2;
           }
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
@@ -1631,15 +1646,20 @@ double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distributi
       cudaMemcpy( d_rows, rows, (total) * sizeof(int), cudaMemcpyHostToDevice);
       cudaMemcpy( d_cvals, cvals, (total) * sizeof(T), cudaMemcpyHostToDevice);
 
+      int x;
       double stt = omp_get_wtime();
       if (gpu_id == 0) {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, start + 3*offset);
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, start + 3*offset);
+	x = 1;
       } else if (gpu_id == 1) {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 3*offset, start + 6*offset);
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 3*offset, start + 6*offset);
+	x = 2;
       } else if (gpu_id == 2) {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 6*offset, start + 7*offset);
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 6*offset, start + 7*offset);
+	x = 3;
       } else if (gpu_id == 3) {
-        kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 7*offset, end);
+        //kernel_xshared_coalescing_mshared_sparse<<< grid_dim , block_dim , (nov*block_dim*sizeof(T) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(T)) >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start + 7*offset, end);
+	x = 4;
       }
       cudaDeviceSynchronize();
       double enn = omp_get_wtime();
@@ -1683,9 +1703,12 @@ template extern double gpu_perman64_xshared_coalescing_sparse<int>(DenseMatrix<i
 template extern double gpu_perman64_xshared_coalescing_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
 
-template extern double gpu_perman64_xshared_coalescing_mshared_sparse<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_sparse<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
-template extern double gpu_perman64_xshared_coalescing_mshared_sparse<double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<float, int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<double, int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<float, float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<double, float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<float, double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
+template extern double gpu_perman64_xshared_coalescing_mshared_sparse<double, double>(DenseMatrix<double>* densemat, SparseMatrix<double>* sparsemat, flags flags);
 
 template extern double gpu_perman64_xshared_coalescing_mshared_skipper<int>(DenseMatrix<int>* densemat, SparseMatrix<int>* sparsemat, flags flags);
 template extern double gpu_perman64_xshared_coalescing_mshared_skipper<float>(DenseMatrix<float>* densemat, SparseMatrix<float>* sparsemat, flags flags);

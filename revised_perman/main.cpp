@@ -38,7 +38,7 @@ using namespace std;
 
 
 void print_flags(flags flags){
-
+  
   std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
   std::cout << "- cpu: " << flags.cpu << std::endl;
   std::cout << "- gpu: " << flags.gpu << std::endl;
@@ -46,7 +46,8 @@ void print_flags(flags flags){
   std::cout << "- dense: " << flags.dense << std::endl;
   std::cout << "- exact: " << flags.exact << std::endl;
   std::cout << "- approximation: " << flags.approximation << std::endl;
-  std::cout << "- half-precision: " << flags.half_precision << std::endl;
+  std::cout << "- calculation half-precision: " << flags.calculation_half_precision << std::endl;
+  std::cout << "- storage half-precision: " << flags.storage_half_precision << std::endl;
   std::cout << "- binary graph: " << flags.binary_graph << std::endl;
   std::cout << "- grid_graph: " << flags.grid_graph << std::endl;
   std::cout << "- gridm: " << flags.gridm << std::endl;
@@ -422,7 +423,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
       start = omp_get_wtime();
-      perman = gpu_perman64_xshared_coalescing_mshared_sparse(densemat, sparsemat, flags);
+      if(flags.calculation_half_precision)
+	perman = gpu_perman64_xshared_coalescing_mshared_sparse<float, T>(densemat, sparsemat, flags);
+      else
+	perman = gpu_perman64_xshared_coalescing_mshared_sparse<double, T>(densemat, sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -910,7 +914,8 @@ int main (int argc, char **argv)
   bool generic = true;
   bool dense = true;
   bool approximation = false;
-  bool half_precision = false;
+  bool calculation_half_precision = false;
+  bool storage_half_precision = false;
   bool gpu = false;
   bool cpu = false;
   int gpu_num = 2;
@@ -931,7 +936,7 @@ int main (int argc, char **argv)
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hq:k:e:";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwq:k:e:";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -950,7 +955,8 @@ int main (int argc, char **argv)
     { "grid",  0, NULL, 'i' },
     { "gridm",  1, NULL, 'm' },
     { "gridn",  1, NULL, 'n' },
-    { "halfprec" , 0, NULL, 'h'},
+    { "calchalfprec" , 0, NULL, 'h'},
+    { "storchalfprec" , 0, NULL, 'w'},
     { "deviceid", 0, NULL, 'q'},
     { "norep", 1, NULL, 'k'},
     { "gridmultip", 1, NULL, 'e'},
@@ -1058,7 +1064,10 @@ int main (int argc, char **argv)
         flags.gridn = atoi(optarg);
         break;
       case 'h':
-	flags.half_precision = 1;
+	flags.calculation_half_precision = 1;
+	break;
+      case 'w':
+	flags.storage_half_precision = 1;
 	break;
       case 'q':
 	if(optarg[0] == '-'){
@@ -1190,7 +1199,7 @@ int main (int argc, char **argv)
 #endif
  
 
-  if(mm_is_real(matcode) == 1 && !flags.half_precision && !is_pattern){
+  if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern){
 #ifdef DEBUG
     std::cout << "Read Case: 0" << std::endl;
 #endif
@@ -1236,7 +1245,7 @@ int main (int argc, char **argv)
     RunAlgo(densemat, sparsemat, flags);
   }
   
-  else if(mm_is_real(matcode) == 1 && flags.half_precision && !is_pattern){
+  else if(mm_is_real(matcode) == 1 && flags.storage_half_precision && !is_pattern){
 #ifdef DEBUG
     std::cout << "Read Case: 1" << std::endl;
 #endif

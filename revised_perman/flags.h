@@ -15,7 +15,8 @@ struct flags {
   bool approximation;
 
   bool grid_graph;
-  bool half_precision;
+  bool calculation_half_precision;
+  bool storage_half_precision;
   bool binary_graph;
   
   int gridm;
@@ -55,7 +56,8 @@ struct flags {
     approximation = 0; 
     
     grid_graph = 0; //Assumed it is not a grid graph
-    half_precision = 0; //Assumed double data type
+    storage_half_precision = 0; //Assumed double data type
+    calculation_half_precision = 0; //Assumed double data type
     binary_graph = 0;
     
     gridm = -1; //If stay -1, means there is a problem getting the actual value
