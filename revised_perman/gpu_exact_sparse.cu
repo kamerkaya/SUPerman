@@ -201,7 +201,7 @@ int xshared_coalescing_mshared_sparse_sharedmem(int b){
   
   //return b*glob_nov*glob_sizeof_t + (glob_nov + 1) * sizeof(int) + glob_total*sizeof(int) + glob_total * glob_sizeof_t;
   return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s;
-  //////////////for d_p////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
+  //////////////for my_x////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
   //Note that d_x is not resides at the shared memory, in contrary, we copy it to d_p at the very beginning
 }
 
@@ -468,7 +468,15 @@ __global__ void kernel_xshared_coalescing_sparse(int* cptrs, int* rows, T* cvals
 }
 
 template <class C, class S>
-  __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs, int* rows, S* cvals, C* x, C* p, int nov, int total, long long start, long long end) {
+  __global__ void kernel_xshared_coalescing_mshared_sparse(int* cptrs,
+							   int* rows,
+							   S* cvals,
+							   C* x,
+							   C* p,
+							   int nov,
+							   int total,
+							   long long start,
+							   long long end) {
   
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
 
@@ -1015,7 +1023,7 @@ template <class C, class S>
 						 xshared_coalescing_mshared_sparse_sharedmem,
 						 0);
 
-  size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(C) + total*sizeof(S);
+  size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(S);
   
   printf("==SC== Shared memory per block is set to : %zu \n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
@@ -1043,18 +1051,21 @@ template <class C, class S>
   cudaMemcpy( d_rows, rows, (total) * sizeof(int), cudaMemcpyHostToDevice);
   cudaMemcpy( d_cvals, cvals, (total) * sizeof(S), cudaMemcpyHostToDevice);
 
-  //size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(C) + total*sizeof(S);
-  //////////////for d_p////////////////////for d_cptrs//////////for d_rows//////////for d_x///////////for d_cvals/////
-  
   long long start = 1;
   long long end = (1LL << (nov-1));
   
   double stt = omp_get_wtime();
-  kernel_xshared_coalescing_mshared_sparse<C,S><<<grid_dim , block_dim , size>>>(d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
-  //kernel_xshared_coalescing_mshared_sparse<<< 1 , 1 , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov, total, start, end);
+  kernel_xshared_coalescing_mshared_sparse<C,S><<<grid_dim , block_dim , size>>>(d_cptrs,
+										 d_rows,
+										 d_cvals,
+										 d_x,
+										 d_p,
+										 nov,
+										 total,
+										 start,
+										 end);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
-  //cout << "kernel" << " in " << (enn - stt) << endl;
   printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
