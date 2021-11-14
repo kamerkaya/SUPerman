@@ -41,14 +41,14 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distributi
 
 //##############~~#####//FUNCTIONS FROM: gpu_exact_sparse.cu//#####~~##############//
 
-template <class T>
-extern double gpu_perman64_xlocal_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xlocal_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared_coalescing_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags);
 
 template <class C, class S>
 extern double gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags);
@@ -59,8 +59,8 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(DenseMatri
 template <class T>
 extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared_coalescing_mshared_skipper(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags);

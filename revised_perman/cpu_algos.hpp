@@ -617,14 +617,14 @@ double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
   return (sum_perm / number_of_times);
 }
 
-template <class T>
-T parallel_perman64_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
   
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int* cptrs = sparsemat->cptrs;
   int* rows = sparsemat->rows;
-  T* cvals = sparsemat->cvals;
+  S* cvals = sparsemat->cvals;
   int nov = sparsemat->nov;
   //Pack parameters//
   
@@ -632,9 +632,9 @@ T parallel_perman64_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat,
   int threads = flags.threads;
   //Pack flags//
   
-  T x[nov];   
-  T rs; //row sum
-  T p = 1; //product of the elements in vector 'x'
+  S x[nov];   
+  S rs; //row sum
+  S p = 1; //product of the elements in vector 'x'
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -658,9 +658,9 @@ T parallel_perman64_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat,
     long long my_start = start + tid * chunk_size;
     long long my_end = min(start + ((tid+1) * chunk_size), end);
     
-    int s;  //+1 or -1 
-    T prod; //product of the elements in vector 'x'
-    T my_p = 0;
+    C s;  //+1 or -1 
+    C prod; //product of the elements in vector 'x'
+    C my_p = 0;
     long long i = my_start;
     long long gray = (i-1) ^ ((i-1) >> 1);
 
@@ -724,11 +724,11 @@ T parallel_perman64_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat,
   return((4*(nov&1)-2) * p);
 }
 
-template <class T>
-double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
+template <class C, class S>
+double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
   
@@ -736,10 +736,12 @@ double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
   int threads = flags.threads;
   //Pack flags//
 
-  T x[nov];   
-  T rs; //row sum
-  T p = 1; //product of the elements in vector 'x'
-  cout << typeid(p).name() << endl;  
+  C x[nov];   
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
+  cout << "First letter of calculation type" << typeid(p).name() << endl;
+  cout << "First letter of storage type" << typeid(mat[0]).name() << endl;
+  
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
     rs = .0f;
@@ -751,7 +753,7 @@ double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
   }
 
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
@@ -770,16 +772,16 @@ double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
     long long my_start = start + tid * chunk_size;
     long long my_end = min(start + ((tid+1) * chunk_size), end);
     
-    T *xptr; 
-    int s;  //+1 or -1 
-    T prod; //product of the elements in vector 'x'
-    T my_p = 0;
+    C *xptr; 
+    C s;  //+1 or -1 
+    C prod; //product of the elements in vector 'x'
+    C my_p = 0;
     long long i = my_start;
     long long gray = (i-1) ^ ((i-1) >> 1);
 
     for (int k = 0; k < (nov-1); k++) {
       if ((gray >> k) & 1LL) { // whether kth column should be added to x vector or not
-        xptr = (T*)x;
+        xptr = (C*)x;
         for (int j = 0; j < nov; j++) {
           *xptr += mat_t[(k * nov) + j]; // see Nijenhuis and Wilf - update x vector entries
           xptr++;
@@ -800,7 +802,7 @@ double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
       s = ((one << k) & gray) ? 1 : -1;
       
       prod = 1.0;
-      xptr = (T*)x;
+      xptr = (C*)x;
       for (int j = 0; j < nov; j++) {
         *xptr += s * mat_t[(k * nov) + j]; // see Nijenhuis and Wilf - update x vector entries
         prod *= *xptr++;  //product of the elements in vector 'x'
@@ -822,16 +824,16 @@ double parallel_perman64(DenseMatrix<T>* densemat, flags flags) {
   return((4.0*(nov&1)-2) * p);
 }
 
-template <class T>
-double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+double parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* rptrs = sparsemat->rptrs;
   int* cols = sparsemat->cols;
-  T* rvals = sparsemat->rvals;
+  S* rvals = sparsemat->rvals;
   int* cptrs = sparsemat->cptrs;
   int* rows = sparsemat->rows;
-  T* cvals = sparsemat->cvals;
+  S* cvals = sparsemat->cvals;
   int nov = sparsemat->nov;
   //Pack parameters//
   
@@ -840,7 +842,7 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
   //Pack flags//
 
   //first initialize the vector then we will copy it to ourselves
-  double rs, x[64], p;
+  C rs, x[64], p;
   int j, ptr;
   unsigned long long ci, start, end, chunk_size, change_j;
 
@@ -857,7 +859,7 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
   }
 
   //update perman with initial x
-  double prod = 1;
+  C prod = 1;
   for(j = 0; j < nov; j++) {
     prod *= x[j];
   }
@@ -886,15 +888,15 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
 
   #pragma omp parallel num_threads(threads) private(j, ci, change_j) 
   {
-    double my_x[64];
-    memcpy(my_x, x, sizeof(double) * 64);
+    C my_x[64];
+    memcpy(my_x, x, sizeof(C) * 64);
     
     int tid = omp_get_thread_num();
     unsigned long long my_start = start + tid * chunk_size;
     unsigned long long my_end = min(start + ((tid+1) * chunk_size), end);
     
     //update if neccessary
-    double my_p = 0;
+    C my_p = 0;
 
     unsigned long long my_gray;    
     unsigned long long my_prev_gray = 0;
@@ -931,7 +933,7 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
       //counter++;
       my_prev_gray = my_gray;
       last_zero = -1;
-      double my_prod = 1; 
+      C my_prod = 1; 
       for(j = nov - 1; j >= 0; j--) {
         my_prod *= my_x[j];
         if(my_x[j] == 0) {
@@ -972,20 +974,20 @@ double parallel_skip_perman64_w(SparseMatrix<T>* sparsemat, flags flags) {
       //printf("tid is: %d -- p is: %f\n", tid, p);
     }
   }
-  return ((4*(nov&1)-2) * p);
+  return ((4.0*(nov&1)-2) * p);
 }
 
 
-template <class T>
-double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+double parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* rptrs = sparsemat->rptrs;
   int* cols = sparsemat->cols;
-  T* rvals = sparsemat->rvals;
+  S* rvals = sparsemat->rvals;
   int* cptrs = sparsemat->cptrs;
   int* rows = sparsemat->rows;
-  T* cvals = sparsemat->cvals;
+  S* cvals = sparsemat->cvals;
   int nov = sparsemat->nov;
   //Pack parameters//
   
@@ -994,7 +996,7 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
   //Pack flags//
   
   //first initialize the vector then we will copy it to ourselves
-  double rs, x[nov], p;
+  C rs, x[nov], p;
   int j, ptr;
   unsigned long long ci, start, end, chunk_size, change_j;
 
@@ -1011,7 +1013,7 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
   }
 
   //update perman with initial x
-  double prod = 1;
+  C prod = 1;
   for(j = 0; j < nov; j++) {
     prod *= x[j];
   }
@@ -1041,7 +1043,7 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
 
   #pragma omp parallel num_threads(threads) private(j, ci, change_j) 
   {
-    double my_x[nov];
+    C my_x[nov];
     
     #pragma omp for schedule(dynamic, 1)
       for(int cid = 0; cid < no_chunks; cid++) {
@@ -1050,11 +1052,11 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
         unsigned long long my_end = min(start + ((cid+1) * chunk_size), end);
       
         //update if neccessary
-        double my_p = 0;
+        C my_p = 0;
         
         unsigned long long my_gray;    
         unsigned long long my_prev_gray = 0;
-        memcpy(my_x, x, sizeof(double) * nov);
+        memcpy(my_x, x, sizeof(C) * nov);
 
         int ptr, last_zero;
         unsigned long long period, steps, step_start;
@@ -1088,7 +1090,7 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
           //counter++;
           my_prev_gray = my_gray;
           last_zero = -1;
-          double my_prod = 1; 
+          C my_prod = 1; 
           for(j = nov - 1; j >= 0; j--) {
             my_prod *= my_x[j];
             if(my_x[j] == 0) {
@@ -1137,14 +1139,14 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<T>* sparsemat, flags flags
 
 
 
-template <class T>
-double perman64(T* mat, int nov) {
-  double x[64];   
-  double rs; //row sum
-  double s;  //+1 or -1 
-  double prod; //product of the elements in vector 'x'
-  double p = 1; //product of the elements in vector 'x'
-  double *xptr; 
+template <class C, class S>
+double perman64(S* mat, int nov) {
+  C x[64];   
+  C rs; //row sum
+  C s;  //+1 or -1 
+  C prod; //product of the elements in vector 'x'
+  C p = 1; //product of the elements in vector 'x'
+  C *xptr; 
   int j, k;
   unsigned long long i, tn11 = (1ULL << (nov-1)) - 1ULL;
   unsigned long long int gray;
@@ -1159,7 +1161,7 @@ double perman64(T* mat, int nov) {
   }
 
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
@@ -1182,7 +1184,7 @@ double perman64(T* mat, int nov) {
     
     counter++;
     prod = 1.0;
-    xptr = (double*)x;
+    xptr = (C*)x;
     for (j = 0; j < nov; j++) {
       *xptr += s * mat_t[(k * nov) + j]; // see Nijenhuis and Wilf - update x vector entries
       prod *= *xptr++;  //product of the elements in vector 'x'
