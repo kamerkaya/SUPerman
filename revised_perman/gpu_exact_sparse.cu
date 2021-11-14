@@ -984,8 +984,6 @@ template <class C, class S>
   cudaDeviceProp prop;
   cudaGetDeviceProperties(&prop, device_id);
 
-  //These guys are gonna be double or float
-  //They also need to be double or float in the __kernel__
   C x[nov]; 
   C rs; //row sum
   C p = 1; //product of the elements in vector 'x'
@@ -1002,13 +1000,14 @@ template <class C, class S>
     }
     x[j] = mat[(j * nov) + (nov-1)] - rs/2;  // see Nijenhuis and Wilf - x vector entry
     p *= x[j];   // product of the elements in vector 'x'
+    printf("j: %d -- p: %e \n", j, p);
   }
   printf("initial x: \n");
   for(int i = 0; i < nov; i++)
-    printf("%f ", x[i]);
+    printf("%e ", x[i]);
   printf("\n");
     
-  printf("p after init: %f \n", p);
+  printf("p after init: %e \n", p);
 
   //For variable smem
   glob_nov = nov;
@@ -1088,8 +1087,8 @@ template <class C, class S>
 
   delete[] h_p;
 
-  printf("Before return p: %f \n", p);
-  printf("In function report: **%f** \n", ((4*(nov&1)-2) *p) );
+  printf("Before return p: %e \n", p);
+  printf("In function report: **%e** \n", ((4*(nov&1)-2) *p) );
   return((4*(nov&1)-2) * p);
 }
 
