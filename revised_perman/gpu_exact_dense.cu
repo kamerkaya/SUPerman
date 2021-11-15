@@ -3,47 +3,19 @@
 #include "flags.h"
 #include "gpu_wrappers.h"
 
-/*
-template <class T>
-void print_helper(DenseMatrix<T>* densemat, flags flags){
-
-  //Pack parameters
-  T* mat = densemat->mat;
-  int nov = densemat->nov;
-  //Pack parameters
-
-  printf("Type: %s \n", flags.type);
-  printf("int? : %d \n", flags.type == "int");
-  printf("double? : %d \n", flags.type == "double");
-  
-  if(flags.type == "double" || flags.type == "float"){
-    printf("Type: Double or Float");
-    printf("#####~~Driver mat~~#####\n");
-    for(int i = 0; i < nov; i++){
-      for(int j = 0; j < nov; j++){
-	printf("%f ", mat[i*nov + j]);
-      }
-      printf("\n");
-    }
-    printf("#####~~Driver mat~~#####\n");
-  }
-  
-  else if(flags.type == "int"){
-    printf("#####~~Driver mat~~#####\n");
-    for(int i = 0; i < nov; i++){
-      for(int j = 0; j < nov; j++){
-	printf("%d ", mat[i*nov + j]);
-      }
-      printf("\n");
-    }
-    printf("#####~~Driver mat~~#####\n");
-  }
-}
-*/
+int glob_nov;
+int glob_total;
+int glob_sizeof_c;
+int glob_sizeof_t;
 
 //This is a CPU helper kernel for hybrid setting
 template <class T>
-double cpu_perman64(T* mat_t, double x[], int nov, long long start, long long end, int threads) {
+double cpu_perman64(T* mat_t,
+		    double x[],
+		    int nov,
+		    long long start,
+		    long long end,
+		    int threads) {
   double p = 0; //product of the elements in vector 'x'
   long long one = 1;
   long long chunk_size = (end - start) / threads + 1;
@@ -108,8 +80,11 @@ double cpu_perman64(T* mat_t, double x[], int nov, long long start, long long en
 }
 
 
-template <class T>
-__global__ void kernel_xglobal(T* mat_t, float* x, double* p, int nov) {
+template <class C, class S>
+__global__ void kernel_xglobal(S* mat_t,
+			       C* x,
+			       C* p,
+			       int nov) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
   
   long long number_of_threads = blockDim.x * gridDim.x;
@@ -123,9 +98,9 @@ __global__ void kernel_xglobal(T* mat_t, float* x, double* p, int nov) {
   long long my_start = start + tid * chunk_size;
   long long my_end = min(start + ((tid+1) * chunk_size), end);
      
-  int s;  //+1 or -1 
-  double prod; //product of the elements in vector 'x'
-  double my_p = 0;
+  C s;  //+1 or -1 
+  C prod; //product of the elements in vector 'x'
+  C my_p = 0;
   long long i = my_start;
   long long gray = (i-1) ^ ((i-1) >> 1);
 
@@ -166,10 +141,11 @@ __global__ void kernel_xglobal(T* mat_t, float* x, double* p, int nov) {
   p[tid] = my_p;
 }
 
-template <class T>
-__global__ void kernel_xlocal(T* mat_t, double* x, double* p, int nov) {
+template <class C, class S>
+__global__ void kernel_xlocal(S* mat_t, C* x, C* p, int nov) {
 
-  T my_x[40];
+  C my_x[40]; //Again, it is problematic for matrices > 40 but anyways, we will not calculate them with this kernel. Another problem is, this may cause register spilling with different GPUs.
+  
   for (int k = 0; k < nov; k++) {
     my_x[k] = x[k];
   }
@@ -187,16 +163,16 @@ __global__ void kernel_xlocal(T* mat_t, double* x, double* p, int nov) {
   long long my_start = start + tid * chunk_size;
   long long my_end = min(start + ((tid+1) * chunk_size), end);
     
-  float *xptr; 
-  int s;  //+1 or -1 
-  double prod; //product of the elements in vector 'x'
-  double my_p = 0;
+  C *xptr; 
+  C s;  //+1 or -1 
+  C prod; //product of the elements in vector 'x'
+  C my_p = 0;
   long long i = my_start;
   long long gray = (i-1) ^ ((i-1) >> 1);
 
   for (int k = 0; k < (nov-1); k++) {
     if ((gray >> k) & 1LL) { // whether kth column should be added to x vector or not
-      xptr = (float*)my_x;
+      xptr = (C*)my_x;
       for (int j = 0; j < nov; j++) {
         *xptr += mat_t[(k * nov) + j]; // see Nijenhuis and Wilf - update x vector entries
         xptr++;
@@ -220,7 +196,7 @@ __global__ void kernel_xlocal(T* mat_t, double* x, double* p, int nov) {
     s = ((one << k) & gray) ? 1 : -1;
       
     prod = 1.0;
-    xptr = (float*)my_x;
+    xptr = (C*)my_x;
     for (int j = 0; j < nov; j++) {
       *xptr += s * mat_t[(k * nov) + j]; // see Nijenhuis and Wilf - update x vector entries
       prod *= *xptr++;  //product of the elements in vector 'x'
@@ -439,23 +415,42 @@ __global__ void kernel_xshared_coalescing_mshared(T* mat_t, double* x, double* p
   p[tid] = my_p;
 }
 
-template <class T>
-extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
+template <class C, class S>
+extern double gpu_perman64_xglobal(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters
 
-  //printf("Is compiled?? \n");
-  //print_helper(densemat, flags);
-  
+  //Pack flags//
   int grid_dim = flags.grid_dim;
   int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
+  int grid_dim_multip = flags.grid_multip;
+  //Pack flags//
+
+  cudaSetDevice(device_id);
+
+  cudaOccupancyMaxPotentialBlockSize(&grid_dim,
+                                     &block_dim,
+                                     &kernel_xglobal<C,S>,
+                                     0,
+                                     0);
   
-  float x[nov]; 
-  double rs; //row sum
-  double p = 1; //product of the elements in vector 'x'
+  printf("==SC== No Shared memory is used for the kernel..\n");
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
+  
+  
+  C x[nov]; 
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -468,39 +463,38 @@ extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
   }
 
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
     }
   }
 
-  float *h_x = new float[nov*grid_dim*block_dim];
+  C *h_x = new C[nov*grid_dim*block_dim];
   for (int i = 0; i < nov*grid_dim*block_dim; i++) {
     h_x[i] = x[i%nov];
   }
+  
+  S *d_mat_t;
+  C *d_x;
+  C *d_p;
+  C *h_p = new C[grid_dim * block_dim];
 
-  cudaSetDevice(1);
-  T *d_mat_t;
-  float *d_x;
-  double *d_p;
-  double *h_p = new double[grid_dim * block_dim];
+  cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(C));
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(S));
 
-  cudaMalloc( &d_x, (nov*grid_dim*block_dim) * sizeof(float));
-  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
-  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
-
-  cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(float), cudaMemcpyHostToDevice);
-  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_x, h_x, (nov*grid_dim*block_dim) * sizeof(C), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(S), cudaMemcpyHostToDevice);
 
   double stt = omp_get_wtime();
-  kernel_xglobal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+  kernel_xglobal<C,S><<<grid_dim , block_dim>>>(d_mat_t, d_x, d_p, nov);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   printf("Kernel in %f \n", enn - stt);
   //cout << "kernel" << " in " << (enn - stt) << endl;
   
-  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
   cudaFree(d_mat_t);
   cudaFree(d_x);
@@ -512,27 +506,46 @@ extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags) {
 
   delete [] mat_t;
   delete [] h_x;
-  delete[] h_p;
+  delete [] h_p;
 
-  printf("perman: %f \n", (4*(nov&1)-2) * p);
   return((4*(nov&1)-2) * p);
 }
 
-template <class T>
-extern double gpu_perman64_xlocal(DenseMatrix<T>* densemat, flags flags) {
-
-  int grid_dim = flags.grid_dim;
-  int block_dim = flags.block_dim;
-
+template <class C, class S>
+  extern double gpu_perman64_xlocal(DenseMatrix<S>* densemat, flags flags) {
+  
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
   
-
-  double x[nov]; 
-  double rs; //row sum
-  double p = 1; //product of the elements in vector 'x'
+  //Pack flags//
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  int grid_dim_multip = flags.grid_multip;
+  int device_id = flags.device_id;
+  //Pack flags//
+  
+  cudaSetDevice(device_id);
+  
+  cudaOccupancyMaxPotentialBlockSize(&grid_dim,
+                                     &block_dim,
+                                     &kernel_xglobal<C,S>,
+                                     0,
+                                     0);
+  
+  printf("==SC== No Shared memory is used for the kernel..\n");
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+  
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
+  
+  C x[nov]; 
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -543,64 +556,69 @@ extern double gpu_perman64_xlocal(DenseMatrix<T>* densemat, flags flags) {
     x[j] = mat[(j * nov) + (nov-1)] - rs/2;  // see Nijenhuis and Wilf - x vector entry
     p *= x[j];   // product of the elements in vector 'x'
   }
-
+  
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
     }
   }
+  
+  S *d_mat_t;
+  C *d_x, *d_p;
+  C *h_p = new C[grid_dim * block_dim];
+  
+  cudaMalloc( &d_x, (nov) * sizeof(C));
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(S));
 
-  cudaSetDevice(1);
-  T *d_mat_t;
-  double *d_x, *d_p;
-  double *h_p = new double[grid_dim * block_dim];
-
-  cudaMalloc( &d_x, (nov) * sizeof(double));
-  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
-  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
-
-  cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
-  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
-
+  cudaMemcpy( d_x, x, (nov) * sizeof(C), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(S), cudaMemcpyHostToDevice);
+  
   double stt = omp_get_wtime();
-  kernel_xlocal<<< grid_dim , block_dim >>> (d_mat_t, d_x, d_p, nov);
+  kernel_xlocal<C,S><<<grid_dim , block_dim>>> (d_mat_t, d_x, d_p, nov);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   printf("Kernel in %f \n", enn - stt);
   //cout << "kernel" << " in " << (enn - stt) << endl;
   
-  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
-
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
+  
   cudaFree(d_mat_t);
   cudaFree(d_x);
   cudaFree(d_p);
-
+  
   for (int i = 0; i < grid_dim * block_dim; i++) {
     p += h_p[i];
   }
-
-  delete [] mat_t;
+  
+  delete[] mat_t;
   delete[] h_p;
-
+  
   return((4*(nov&1)-2) * p);
 }
 
-template <class T>
-extern double gpu_perman64_xshared(DenseMatrix<T>* densemat, flags flags) {
+template <class C, class S>
+  extern double gpu_perman64_xshared(DenseMatrix<S>* densemat, flags flags) {
   
-  int grid_dim = flags.grid_dim;
-  int block_dim = flags.block_dim;
-
   //Pack parameters
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters
 
-  double x[nov]; 
-  double rs; //row sum
-  double p = 1; //product of the elements in vector 'x'
+  //Pack flags//
+  int grid_dim = flags.grid_dim;
+  int block_dim = flags.block_dim;
+  int device_id = flags.device_id;
+  int grid_dim_multip = flags.grid_multip;
+  //Pack flags//
+
+  cudaSetDevice(device_id);
+
+  C x[nov]; 
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -612,34 +630,56 @@ extern double gpu_perman64_xshared(DenseMatrix<T>* densemat, flags flags) {
     p *= x[j];   // product of the elements in vector 'x'
   }
 
+  //For variable smem
+  glob_nov = nov;
+  glob_total = total;
+  glob_sizeof_c = sizeof(C);
+  glob_sizeof_s = sizeof(S);
+  //For variable smem
+
+  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
+                                                 &block_dim,
+                                                 &kernel_xshared<C,S>,
+                                                 xshared_sharedmem,
+                                                 0);
+
+  printf("==SC== Shared memory per block is set to : %zu \n", size);
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
+
+
   //create the transpose of the matrix
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
       mat_t[(i * nov) + j] = mat[(j * nov) + i];
     }
   }
+  
+  S *d_mat_t;
+  C *d_x, *d_p;
+  C *h_p = new C[grid_dim * block_dim];
 
-  cudaSetDevice(1);
-  T *d_mat_t;
-  double *d_x, *d_p;
-  double *h_p = new double[grid_dim * block_dim];
+  cudaMalloc( &d_x, (nov) * sizeof(C));
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(S));
 
-  cudaMalloc( &d_x, (nov) * sizeof(double));
-  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(double));
-  cudaMalloc( &d_mat_t, (nov * nov) * sizeof(T));
-
-  cudaMemcpy( d_x, x, (nov) * sizeof(double), cudaMemcpyHostToDevice);
-  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_x, x, (nov) * sizeof(C), cudaMemcpyHostToDevice);
+  cudaMemcpy( d_mat_t, mat_t, (nov * nov) * sizeof(S), cudaMemcpyHostToDevice);
 
   double stt = omp_get_wtime();
-  kernel_xshared<<< grid_dim , block_dim , nov*block_dim*sizeof(float) >>> (d_mat_t, d_x, d_p, nov);
+  kernel_xshared<C,S><<<grid_dim , block_dim , nov*block_dim*sizeof(C)>>> (d_mat_t, d_x, d_p, nov);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   printf("Kernel in %f \n", enn - stt);
   //cout << "kernel" << " in " << (enn - stt) << endl;
   
-  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(double), cudaMemcpyDeviceToHost);
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
   cudaFree(d_mat_t);
   cudaFree(d_x);
@@ -1125,14 +1165,24 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distributi
 
 
 //Explicit instantiations required for separate compilation
-template extern double gpu_perman64_xglobal<int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_xglobal<float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_xglobal<double>(DenseMatrix<double>* densemat, flags flags);
 
-template extern double gpu_perman64_xlocal<int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_xlocal<float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_xlocal<double>(DenseMatrix<double>* densemat, flags flags);
+/////
+template extern double gpu_perman64_xglobal<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern double gpu_perman64_xglobal<double, double>(DenseMatrix<double>* densemat, flags flags);
+/////
 
+/////
+template extern double gpu_perman64_xlocal<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern double gpu_perman64_xlocal<double, double>(DenseMatrix<double>* densemat, flags flags);
+/////
 
 template extern double gpu_perman64_xshared<int>(DenseMatrix<int>* densemat, flags flags);
 template extern double gpu_perman64_xshared<float>(DenseMatrix<float>* densemat, flags flags);

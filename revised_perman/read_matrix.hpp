@@ -13,6 +13,8 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern,
 
 #ifdef DEBUG
   std::cout << "In function: readDenseMatrix()" << std::endl;
+  std::cout << "- is_pattern: " << is_pattern << std::endl;
+  std::cout << "- is_binary: " << is_binary << std::endl;
 #endif
   
   std::ifstream file(filename);
@@ -38,7 +40,7 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern,
   int x, y;
   for(int i = 0; i < no_lines; i++){
     
-    if(is_pattern && !is_binary){
+    if((is_pattern && !is_binary) || (is_pattern && is_binary)){
       file >> x >> y;
     }
     else if(!is_pattern && is_binary){
@@ -81,6 +83,8 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
 
 #ifdef DEBUG
   std::cout << "In function: readSymmetricDenseMatrix()" << std::endl;
+  std::cout << "- is_pattern: " << is_pattern << std::endl;
+  std::cout << "- is_binary: " << is_binary << std::endl;
 #endif
   
   std::ifstream file(filename);
@@ -104,7 +108,7 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
   T cast;
   int x, y;
   for(int i = 0; i < no_lines; i++){
-    if(is_pattern && !is_binary){
+    if((is_pattern && !is_binary) || (is_pattern && is_binary)){
       file >> x >> y;
     }
     else if(!is_pattern && is_binary){

@@ -8,11 +8,11 @@
 #include "flags.h"
 
 //##############~~#####//FUNCTIONS FROM: gpu_exact_dense.cu//#####~~##############//
-template <class T>
-extern double gpu_perman64_xglobal(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xglobal(DenseMatrix<S>* densemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xlocal(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xlocal(DenseMatrix<S>* densemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_xshared(DenseMatrix<T>* densemat, flags flags);

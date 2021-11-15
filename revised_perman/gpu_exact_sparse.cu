@@ -1101,8 +1101,9 @@ template <class C, class S>
   int grid_dim_multip = flags.grid_multip;
   //Pack flags
   
-  cudaDeviceProp prop;
-  cudaGetDeviceProperties(&prop, device_id);
+  //cudaDeviceProp prop;
+  //cudaGetDeviceProperties(&prop, device_id);
+  cudaSetDevice(device_id);
 
   C x[nov]; 
   C rs; //row sum
@@ -1120,15 +1121,8 @@ template <class C, class S>
     }
     x[j] = mat[(j * nov) + (nov-1)] - rs/2;  // see Nijenhuis and Wilf - x vector entry
     p *= x[j];   // product of the elements in vector 'x'
-    //printf("j: %d -- p: %e \n", j, p);
   }
-  //printf("initial x: \n");
-  //for(int i = 0; i < nov; i++)
-  //printf("%e ", x[i]);
-  //printf("\n");
-    
-  //printf("p after init: %e \n", p);
-
+  
   //For variable smem
   glob_nov = nov;
   glob_total = total;
@@ -1153,7 +1147,6 @@ template <class C, class S>
     printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
   }
   
-  cudaSetDevice(device_id);
   S *d_cvals;
   int *d_cptrs, *d_rows;
   C *d_x, *d_p;

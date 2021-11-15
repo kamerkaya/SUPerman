@@ -632,9 +632,9 @@ double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
   int threads = flags.threads;
   //Pack flags//
   
-  S x[nov];   
-  S rs; //row sum
-  S p = 1; //product of the elements in vector 'x'
+  C x[nov];   
+  C rs; //row sum
+  C p = 1; //product of the elements in vector 'x'
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -720,8 +720,11 @@ double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
     #pragma omp critical
       p += my_p;
   }
+  std::cout << "Parallel perman64 p before return: " << p << std::endl;
+  std::cout << "What 1: " << (4*(nov&1)-2) << std::endl;
+  std::cout << "Parallel perman64 should return: " << (double)(4*(nov&1)-2) * p << std::endl;
 
-  return((4*(nov&1)-2) * p);
+  return((double)(4*(nov&1)-2) * p);
 }
 
 template <class C, class S>
@@ -739,8 +742,8 @@ double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
   C x[nov];   
   C rs; //row sum
   C p = 1; //product of the elements in vector 'x'
-  cout << "First letter of calculation type" << typeid(p).name() << endl;
-  cout << "First letter of storage type" << typeid(mat[0]).name() << endl;
+  cout << "First letter of calculation type " << typeid(p).name() << endl;
+  cout << "First letter of storage type " << typeid(mat[0]).name() << endl;
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -821,7 +824,7 @@ double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   delete [] mat_t;
 
-  return((4.0*(nov&1)-2) * p);
+  return((4*(nov&1)-2) * p);
 }
 
 template <class C, class S>
@@ -974,7 +977,7 @@ double parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
       //printf("tid is: %d -- p is: %f\n", tid, p);
     }
   }
-  return ((4.0*(nov&1)-2) * p);
+  return ((4*(nov&1)-2) * p);
 }
 
 
