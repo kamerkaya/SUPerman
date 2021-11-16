@@ -311,7 +311,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_xshared(densemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_xshared<float, T>(densemat, flags);
+	else
+	  perman = gpu_perman64_xshared<double, T>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared " << perman << " in " << (end - start) << endl;
       }
@@ -324,7 +327,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing(densemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_xshared_coalescing<float, T>(densemat, flags);
+	else
+	  perman = gpu_perman64_xshared_coalescing<double, T>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing " << perman << " in " << (end - start) << endl;
       }
@@ -337,7 +343,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared(densemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_xshared_coalescing_mshared<float, T>(densemat, flags);
+	else
+	  perman = gpu_perman64_xshared_coalescing_mshared<double, T>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing_mshared " << perman << " in " << (end - start) << endl;
       }

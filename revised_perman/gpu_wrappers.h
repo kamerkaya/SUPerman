@@ -14,14 +14,14 @@ extern double gpu_perman64_xglobal(DenseMatrix<S>* densemat, flags flags);
 template <class C, class S>
 extern double gpu_perman64_xlocal(DenseMatrix<S>* densemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared(DenseMatrix<S>* densemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared_coalescing(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared_coalescing(DenseMatrix<S>* densemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_xshared_coalescing_mshared(DenseMatrix<S>* densemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_xshared_coalescing_mshared_multigpu(DenseMatrix<T>* densemat, flags flags);

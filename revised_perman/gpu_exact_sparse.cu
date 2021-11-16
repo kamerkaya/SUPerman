@@ -252,7 +252,7 @@ __global__ void kernel_xlocal_sparse(int* cptrs,
   long long start = 1;
   long long end = (1LL << (nov-1));
   
-  long long chunk_size = end / number_of_threads + 1;
+  long long chunk_size = (end - start) / number_of_threads + 1;
 
   
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
@@ -347,7 +347,7 @@ __global__ void kernel_xshared_sparse(int* cptrs,
   long long start = 1;
   long long end = (1LL << (nov-1));
   
-  long long chunk_size = end / number_of_threads + 1;
+  long long chunk_size = (end - start) / number_of_threads + 1;
 
   long long my_start = start + tid * chunk_size;
   long long my_end = min(start + ((tid+1) * chunk_size), end);
