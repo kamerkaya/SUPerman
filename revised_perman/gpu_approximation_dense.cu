@@ -476,15 +476,15 @@ template <class C, class S>
   glob_nov = nov;
   glob_sizeof_c = sizeof(C);
   glob_sizeof_s = sizeof(S);
- 
-  
-  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
-                                                 &block_dim,
-                                                 &kernel_rasmussen<C,S>,
-                                                 rasmussen_sharedmem,
-                                                 0);
 
-  size_t size = block_dim*nov*nov*sizeof(S);
+  size_t size = nov*nov*sizeof(S);
+  
+  cudaOccupancyMaxPotentialBlockSize(&grid_dim,
+				     &block_dim,
+				     &kernel_rasmussen<C,S>,
+				     size,
+				     0);
+
   
   printf("==SC== Shared memory per block is set to : %zu \n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
@@ -690,14 +690,16 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
   glob_nov = nov;
   glob_sizeof_c = sizeof(C);
   glob_sizeof_s = sizeof(S);
+
+  size_t size = nov*nov*sizeof(S);
   
-  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
-                                                 &block_dim,
-                                                 &kernel_approximation<C,S>,
-                                                 scaling_sharedmem,
-                                                 0);
+  cudaOccupancyMaxPotentialBlockSize(&grid_dim,
+				     &block_dim,
+				     &kernel_approximation<C,S>,
+				     size,
+				     0);
   
-  printf("==SC== No Shared memory is used for the kernel..\n");
+  printf("==SC== Shared memory per block is set to: %d ..\n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
   printf("==SC== Block dim is set to : %d \n", block_dim);
   
@@ -706,7 +708,7 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
     printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
   }
 
-  size_t size = nov*nov*sizeof(S);
+  
 
   C *h_p = new C[grid_dim * block_dim];
 

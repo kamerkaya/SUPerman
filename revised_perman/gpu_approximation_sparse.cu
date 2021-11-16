@@ -6,7 +6,16 @@
 #include "flags.h"
 #include "gpu_wrappers.h"
 
-bool cpu_ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int row_extracted[], int col_extracted[], double d_r[], double d_c[], int scale_times) {
+bool cpu_ScaleMatrix_sparse(int *cptrs,
+			    int *rows,
+			    int *rptrs,
+			    int *cols,
+			    int nov,
+			    int row_extracted[],
+			    int col_extracted[],
+			    double d_r[],
+			    double d_c[], 
+			    int scale_times) {
   
   for (int k = 0; k < scale_times; k++) {
     
@@ -48,7 +57,14 @@ bool cpu_ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int no
   return true;
 }
 
-double cpu_rasmussen_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int random, int number_of_times, int threads) {
+double cpu_rasmussen_sparse(int *cptrs,
+			    int *rows,
+			    int *rptrs,
+			    int *cols,
+			    int nov,
+			    int random,
+			    int number_of_times,
+			    int threads) {
 
   srand(random);
 
@@ -133,7 +149,16 @@ double cpu_rasmussen_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int no
   return sum_perm;
 }
 
-double cpu_approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int random, int number_of_times, int scale_intervals, int scale_times, int threads) {
+double cpu_approximation_perman64_sparse(int *cptrs,
+					 int *rows,
+					 int *rptrs,
+					 int *cols,
+					 int nov,
+					 int random,
+					 int number_of_times,
+					 int scale_intervals,
+					 int scale_times,
+					 int threads) {
   
   srand(random);
   
@@ -237,23 +262,27 @@ double cpu_approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int 
 }
 
 
-__global__ void kernel_rasmussen_sparse(int* rptrs, int* cols, double* p, int nov, int nnz, int rand) {
+//Looks like this kernel suffers register spilling
+//Maybe, should take row_extracted and col_extracted arrays to shared memory
+
+template<class C>
+__global__ void kernel_rasmussen_sparse(int* rptrs, int* cols, C* p, int nov, int nnz, int rand) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
-  int thread_id = threadIdx.x;
-  int block_dim = blockDim.x;
+  int thread_id = threadIdx.x; 
+  int block_dim = blockDim.x; 
 
-  extern __shared__ float shared_mem[]; 
-  int *shared_rptrs = (int*) shared_mem; // size = nov + 1
-  int *shared_cols = (int*) &shared_rptrs[nov + 1]; // size = nnz
-
+  extern __shared__ double shared_mem[]; 
+  int *shared_rptrs = (int*) shared_mem; // size = nov + 1 
+  int *shared_cols = (int*) &shared_rptrs[nov + 1]; // size = nnz 
   int max;
+  
   if (nnz > nov) {
     max = nnz;
   } else {
     max = nov + 1;
   }
 
-  for (int k = 0; k < (max / block_dim + 1); k++) {
+  for (int k = 0; k < (max / block_dim + 1); k++) { 
     if ((block_dim * k + thread_id) < nnz) {
       shared_cols[block_dim * k + thread_id] = cols[block_dim * k + thread_id];
     }
@@ -263,18 +292,19 @@ __global__ void kernel_rasmussen_sparse(int* rptrs, int* cols, double* p, int no
   }
 
   __syncthreads();
-
-  curandState_t state;
+  
+  curandState_t state; 
   curand_init(rand*tid,0,0,&state);
 
-  int col_extracted[21];
-  int row_extracted[21];
+  int col_extracted[21]; //Yet another 21 and  
+  int row_extracted[21]; //Yet another 21, tihs is bad, but otherwise is worse
+  //In worst case, may move these arrays to shared memory
   for (int i = 0; i < 21; i++) {
     col_extracted[i]=0;
     row_extracted[i]=0;
   }
   
-  double perm = 1;
+  C perm = 1;
   int row;
   
   for (int k = 0; k < nov; k++) {
@@ -304,7 +334,7 @@ __global__ void kernel_rasmussen_sparse(int* rptrs, int* cols, double* p, int no
     perm *= min_nnz;
 
     // choose the column to be extracted randomly
-    int random = curand_uniform(&state) / (1.0 / float(min_nnz));
+    int random = curand_uniform(&state) / (1.0 / C(min_nnz));
     int col;
 
     if (random >= min_nnz) {
@@ -334,7 +364,7 @@ __global__ void kernel_rasmussen_sparse(int* rptrs, int* cols, double* p, int no
 __global__ void kernel_approximation_sparse(int* rptrs, int* cols, int* cptrs, int* rows, double* p, float* d_r, float* d_c, int nov, int nnz, int scale_intervals, int scale_times, int rand) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
 
-  extern __shared__ float shared_mem[]; 
+  extern __shared__ double shared_mem[]; 
   int *shared_rptrs = (int*) shared_mem; // size = nov + 1
   int *shared_cols = (int*) &shared_rptrs[nov + 1]; // size = nnz
   int *shared_cptrs = (int*) &shared_cols[nnz]; // size = nov + 1
@@ -362,9 +392,11 @@ __global__ void kernel_approximation_sparse(int* rptrs, int* cols, int* cptrs, i
 
   curandState_t state;
   curand_init(rand*tid,0,0,&state);
-
-  int col_extracted[21];
-  int row_extracted[21];
+  
+  int col_extracted[21]; //We have another 21 here
+  int row_extracted[21]; //We have yet another 21 here
+  //It is not illogical since they used bit-wise but;
+  //They also may cause kernel to crash or register spilling
   for (int i = 0; i < 21; i++) {
     col_extracted[i]=0;
     row_extracted[i]=0;
