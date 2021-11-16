@@ -167,11 +167,11 @@ double greedy(T* mat, int nov, int number_of_times) {
   return (sum_perm / number_of_times);
 }
 
-template <class T>
-double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+double rasmussen_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int* rptrs = sparsemat->rptrs;
   int* cols = sparsemat->cols;
   int nov = sparsemat->nov;
@@ -182,7 +182,7 @@ double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, fl
   int threads = flags.threads;
   //Pack flags//
 
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
@@ -192,7 +192,7 @@ double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, fl
 
   srand(time(0));
 
-  T sum_perm = 0;
+  C sum_perm = 0;
   long long int sum_zeros = 0;
     
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
@@ -216,7 +216,7 @@ double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, fl
         }
       }
       
-      double perm = 1;
+      C perm = 1;
       
       for (int k = 0; k < nov; k++) {
         // multiply permanent with number of nonzeros in the current row
@@ -278,11 +278,12 @@ double rasmussen_sparse(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, fl
   return (sum_perm / number_of_times);
 }
 
-template <class T>
-double rasmussen(DenseMatrix<T>* densemat, flags flags) {
+//Buradaki C pekala int'de olabilir
+template <class C, class S>
+double rasmussen(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
 
@@ -291,7 +292,7 @@ double rasmussen(DenseMatrix<T>* densemat, flags flags) {
   int number_of_times = flags.number_of_times;
   //Pack flags//
 
-  T* mat_t = new T[nov * nov];
+  S* mat_t = new S[nov * nov];
   
   for (int i = 0; i < nov; i++) {
     for (int j = 0; j < nov; j++) {
@@ -301,8 +302,8 @@ double rasmussen(DenseMatrix<T>* densemat, flags flags) {
 
   srand(time(0));
 
-  double sum_perm = 0;
-  double sum_zeros = 0;
+  C sum_perm = 0;
+  C sum_zeros = 0;
   
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
   for (int time = 0; time < number_of_times; time++) {
@@ -311,7 +312,7 @@ double rasmussen(DenseMatrix<T>* densemat, flags flags) {
       long row_extracted = 0;
       
       int row;
-      int min=nov+1;
+      int min = nov+1;
 
       for (int i = 0; i < nov; i++) {
         row_nnz[i] = 0;
@@ -326,7 +327,7 @@ double rasmussen(DenseMatrix<T>* densemat, flags flags) {
         }
       }
       
-      T perm = 1;
+      C perm = 1;
       
       for (int i = 0; i < nov; i++) {
         // multiply permanent with number of nonzeros in the current row
@@ -386,8 +387,8 @@ double rasmussen(DenseMatrix<T>* densemat, flags flags) {
   return (sum_perm / number_of_times);
 }
 
-template <class T>
-double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
+template <class C, class S>
+double approximation_perman64_sparse(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* cptrs = sparsemat->cptrs;
@@ -406,8 +407,8 @@ double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
 
   srand(time(0));
 
-  double sum_perm = 0;
-  double sum_zeros = 0;
+  C sum_perm = 0;
+  C sum_zeros = 0;
     
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
     for (int time = 0; time < number_of_times; time++) {
@@ -418,9 +419,9 @@ double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
         row_extracted[i]=0;
       }
 
-      double Xa = 1;
-      double d_r[nov];
-      double d_c[nov];
+      C Xa = 1;
+      C d_r[nov];
+      C d_c[nov];
       for (int i = 0; i < nov; i++) {
         d_r[i] = 1;
         d_c[i] = 1;
@@ -459,7 +460,7 @@ double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
         }
 
         // use scaled matrix for pj
-        double sum_row_of_S = 0;
+        C sum_row_of_S = 0;
         for (int i = rptrs[row]; i < rptrs[row+1]; i++) {
           int c = cols[i];
           if (!((col_extracted[c / 32] >> (c % 32)) & 1)) {
@@ -472,9 +473,9 @@ double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
           break;
         }
 
-        double random = (double(rand()) / RAND_MAX) * sum_row_of_S;
-        double temp = 0;
-        double s, pj;
+        C random = (C(rand()) / RAND_MAX) * sum_row_of_S;
+        C temp = 0;
+        C s, pj;
         int col;
         for (int i = rptrs[row]; i < rptrs[row+1]; i++) {
           int c = cols[i];
@@ -507,11 +508,11 @@ double approximation_perman64_sparse(SparseMatrix<T>* sparsemat, flags flags) {
   return (sum_perm / number_of_times);
 }
 
-template <class T>
-double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
+template <class C, class S>
+double approximation_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
   
@@ -524,17 +525,17 @@ double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
 
   srand(time(0));
 
-  double sum_perm = 0;
-  double sum_zeros = 0;
+  C sum_perm = 0;
+  C sum_zeros = 0;
     
   #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
     for (int time = 0; time < number_of_times; time++) {
       long col_extracted = 0;
       long row_extracted = 0;
 
-      double Xa = 1;
-      double d_r[nov];
-      double d_c[nov];
+      C Xa = 1;
+      C d_r[nov];
+      C d_c[nov];
       for (int i = 0; i < nov; i++) {
         d_r[i] = 1;
         d_c[i] = 1;
@@ -571,7 +572,7 @@ double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
         }
         
         // use scaled matrix for pj
-        double sum_row_of_S = 0;
+        C sum_row_of_S = 0;
         for (int j = 0; j < nov; j++) {
           if (!((col_extracted >> j) & 1L) && mat[(row * nov) + j] != 0) {
             sum_row_of_S += d_r[row] * mat[(row * nov) + j] * d_c[j];
@@ -582,10 +583,10 @@ double approximation_perman64(DenseMatrix<T>* densemat, flags flags) {
           sum_zeros++;
           break;
         }
-
-        double random = (double(rand()) / RAND_MAX) * sum_row_of_S;
-        double temp = 0;
-        double s, pj;
+	
+        C random = (C(rand()) / RAND_MAX) * sum_row_of_S;
+        C temp = 0;
+        C s, pj;
         int col;
         for (int j = 0; j < nov; j++) {
           if (!((col_extracted >> j) & 1L) && mat[(row * nov) + j] != 0) {
@@ -720,9 +721,9 @@ double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
     #pragma omp critical
       p += my_p;
   }
-  std::cout << "Parallel perman64 p before return: " << p << std::endl;
-  std::cout << "What 1: " << (4*(nov&1)-2) << std::endl;
-  std::cout << "Parallel perman64 should return: " << (double)(4*(nov&1)-2) * p << std::endl;
+  //std::cout << "Parallel perman64 p before return: " << p << std::endl;
+  //std::cout << "What 1: " << (4*(nov&1)-2) << std::endl;
+  //std::cout << "Parallel perman64 should return: " << (double)(4*(nov&1)-2) * p << std::endl;
 
   return((double)(4*(nov&1)-2) * p);
 }

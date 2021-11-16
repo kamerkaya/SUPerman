@@ -134,26 +134,26 @@ double cpu_rasmussen_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int no
 }
 
 double cpu_approximation_perman64_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int random, int number_of_times, int scale_intervals, int scale_times, int threads) {
-
+  
   srand(random);
-
+  
   double sum_perm = 0;
   double sum_zeros = 0;
+  
+#pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
+  for (int time = 0; time < number_of_times; time++) {
+    int col_extracted[21];
+    int row_extracted[21];
+    for (int i = 0; i < 21; i++) {
+      col_extracted[i]=0;
+      row_extracted[i]=0;
+    }
     
-  #pragma omp parallel for num_threads(threads) reduction(+:sum_perm) reduction(+:sum_zeros)
-    for (int time = 0; time < number_of_times; time++) {
-      int col_extracted[21];
-      int row_extracted[21];
-      for (int i = 0; i < 21; i++) {
-        col_extracted[i]=0;
-        row_extracted[i]=0;
-      }
-
-      double Xa = 1;
-      double d_r[nov];
-      double d_c[nov];
-      for (int i = 0; i < nov; i++) {
-        d_r[i] = 1;
+    double Xa = 1;
+    double d_r[nov];
+    double d_c[nov];
+    for (int i = 0; i < nov; i++) {
+      d_r[i] = 1;
         d_c[i] = 1;
       }
 

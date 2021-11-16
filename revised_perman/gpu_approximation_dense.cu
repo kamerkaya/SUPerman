@@ -7,16 +7,25 @@
 #include "gpu_wrappers.h"
 using namespace std;
 
+static int glob_nov;
+static int glob_sizeof_c;
+static int glob_sizeof_s;
 
 //Utilities run on CPU//
-template <class T>
-bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d_r[], double d_c[], int scale_times) {
+template <class C, class S>
+bool ScaleMatrix(S M,
+		 int nov,
+		 long row_extracted,
+		 long col_extracted,
+		 C d_r[],
+		 C d_c[],
+		 int scale_times) {
   
   for (int k = 0; k < scale_times; k++) {
     
     for (int j = 0; j < nov; j++) {
       if (!((col_extracted >> j) & 1L)) {
-	double col_sum = 0;
+	C col_sum = 0;
 	for (int i = 0; i < nov; i++) {
 	  if (!((row_extracted >> i) & 1L)) {
 	    col_sum += d_r[i] * M[i*nov + j];
@@ -30,7 +39,7 @@ bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d
     }
     for (int i = 0; i < nov; i++) {
       if (!((row_extracted >> i) & 1L)) {
-	double row_sum = 0;
+	C row_sum = 0;
 	for (int j = 0; j < nov; j++) {
 	  if (!((col_extracted >> j) & 1L)) {
 	    row_sum += M[i*nov + j] * d_c[j];
@@ -49,7 +58,12 @@ bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d
 //
 
 template <class T>
-double cpu_rasmussen(T* mat, T* mat_t, int nov, int random, int number_of_times, int threads) {
+double cpu_rasmussen(T* mat,
+		     T* mat_t,
+		     int nov,
+		     int random,
+		     int number_of_times,
+		     int threads) {
 
   srand(random);
 
@@ -120,7 +134,13 @@ double cpu_rasmussen(T* mat, T* mat_t, int nov, int random, int number_of_times,
 }
 
 template <class T>
-double cpu_approximation_perman64(T* mat, int nov, int random, int number_of_times,  int scale_intervals, int scale_times, int threads) {
+double cpu_approximation_perman64(T* mat,
+				  int nov,
+				  int random,
+				  int number_of_times,
+				  int scale_intervals,
+				  int scale_times,
+				  int threads) {
 
   srand(random);
 
@@ -194,14 +214,29 @@ double cpu_approximation_perman64(T* mat, int nov, int random, int number_of_tim
 }
 
 
-template <class T>
-__global__ void kernel_rasmussen(T* mat, double* p, int nov, int rand) {
+int rasmussen_sharedmem(int b){
+  printf("b: %d || glob_nov: %d || glob_sizeof_s: %d \n", b, glob_nov, glob_sizeof_s);
+  printf("--> Will return %d \n", b*glob_nov*glob_nov*glob_sizeof_s);
+  return b*glob_nov*glob_nov*glob_sizeof_s;
+}
+
+//Actually the same but prevents confusion
+int scaling_sharedmem(int b){ 
+  return b*glob_nov*glob_nov*glob_sizeof_s;
+}
+
+template <class C, class S>
+__global__ void kernel_rasmussen(S* mat,
+				 C* p,
+				 int nov,
+				 int rand) {
+  
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
   int thread_id = threadIdx.x;
   int block_dim = blockDim.x;
 
-  extern __shared__ float shared_mem[]; 
-  T *shared_mat = (T*) shared_mem; // size = nov * nov
+  extern __shared__ double shared_mem[]; 
+  S *shared_mat = (S*) shared_mem; // size = nov * nov
 
   for (int k = 0; k < ((nov*nov)/block_dim + 1); k++) {
     if ((block_dim * k + thread_id) < (nov * nov))
@@ -209,14 +244,14 @@ __global__ void kernel_rasmussen(T* mat, double* p, int nov, int rand) {
   }
 
   __syncthreads();
-
+  
   curandState_t state;
   curand_init(rand*tid,0,0,&state);
 
   long col_extracted = 0;
   long row_extracted = 0;
   
-  double perm = 1;
+  C perm = 1;
   int row;
   
   for (int i = 0; i < nov; i++) {
@@ -244,7 +279,7 @@ __global__ void kernel_rasmussen(T* mat, double* p, int nov, int rand) {
     perm *= min_nnz;
 
     // choose the column to be extracted randomly
-    int random = curand_uniform(&state) / (1.0 / float(min_nnz));
+    int random = curand_uniform(&state) / (1.0 / ((C)(min_nnz)));
     int col;
 
     if (random >= min_nnz) {
@@ -270,14 +305,21 @@ __global__ void kernel_rasmussen(T* mat, double* p, int nov, int rand) {
   p[tid] = perm;
 }
 
-template <class T>
-__global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, int nov, int scale_intervals, int scale_times, int rand) {
+template <class C, class S>
+__global__ void kernel_approximation(S* mat,
+				     C* p,
+				     C* d_r,
+				     C* d_c,
+				     int nov,
+				     int scale_intervals,
+				     int scale_times,
+				     int rand) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
   int thread_id = threadIdx.x;
   int block_dim = blockDim.x;
 
-  extern __shared__ float shared_mem[]; 
-  T *shared_mat = (T*) shared_mem; // size = nov * nov
+  extern __shared__ double shared_mem[]; 
+  S *shared_mat = (S*) shared_mem; // size = nov * nov
 
   for (int k = 0; k < ((nov*nov)/block_dim + 1); k++) {
     if ((block_dim * k + thread_id) < (nov * nov))
@@ -297,8 +339,8 @@ __global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, 
     d_c[tid*nov + i] = 1;
   }
   
-  double perm = 1;
-  double col_sum, row_sum;
+  C perm = 1;
+  C col_sum, row_sum;
   int row;
   int min;
   int nnz;
@@ -371,7 +413,7 @@ __global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, 
     }
 
     // use scaled matrix for pj
-    double sum_row_of_S = 0;
+    C sum_row_of_S = 0;
     for (int j = 0; j < nov; j++) {
       if (!((col_extracted >> j) & 1L) && shared_mat[(row * nov) + j] != 0) {
         sum_row_of_S += d_r[tid*nov + row] * d_c[tid*nov + j];
@@ -382,9 +424,9 @@ __global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, 
       break;
     }
 
-    double random = curand_uniform(&state) * sum_row_of_S;
-    double temp = 0;
-    double s, pj;
+    C random = curand_uniform(&state) * sum_row_of_S;
+    C temp = 0;
+    C s, pj;
     int col;
     for (int j = 0; j < nov; j++) {
       if (!((col_extracted >> j) & 1L) && shared_mat[(row * nov) + j] != 0) {
@@ -412,53 +454,83 @@ __global__ void kernel_approximation(T* mat, double* p, float* d_r, float* d_c, 
 
 
 
-template <class T>
-extern double gpu_perman64_rasmussen(DenseMatrix<T>* densemat, flags flags) {
-
+template <class C, class S>
+  extern double gpu_perman64_rasmussen(DenseMatrix<S>* densemat, flags flags) {
+  
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
-
+  
   //Pack flags//
   int number_of_times = flags.number_of_times;
+  int device_id = flags.device_id;
+  int grid_dim_multip = flags.grid_multip;
   //Pack flags//
+
+  cudaSetDevice(device_id);
   
-  int block_size = 1024;
-  int grid_size = number_of_times / block_size + 1;
+  int grid_dim = 1024;
+  int block_dim = number_of_times / grid_dim + 1;
 
-  cudaSetDevice(1);
-  T *d_mat;
-  double *d_p;
-  double *h_p = new double[grid_size * block_size];
+  glob_nov = nov;
+  glob_sizeof_c = sizeof(C);
+  glob_sizeof_s = sizeof(S);
+ 
+  
+  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
+                                                 &block_dim,
+                                                 &kernel_rasmussen<C,S>,
+                                                 rasmussen_sharedmem,
+                                                 0);
 
-  cudaMalloc( &d_p, (grid_size * block_size) * sizeof(double));
-  cudaMalloc( &d_mat, (nov * nov) * sizeof(T));
+  size_t size = block_dim*nov*nov*sizeof(S);
+  
+  printf("==SC== Shared memory per block is set to : %zu \n", size);
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+  
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
 
-  cudaMemcpy( d_mat, mat, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
+  
+  
+  S *d_mat;
+  C *d_p;
+  //Let's use dynamic shared memory and choose grid and block dim according to the matrix size
+  //and type
+  C *h_p = new C[grid_dim * block_dim];
+  
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_mat, (nov * nov) * sizeof(S));
+
+  cudaMemcpy( d_mat, mat, (nov * nov) * sizeof(S), cudaMemcpyHostToDevice);
 
   srand(time(0));
+  
   double stt = omp_get_wtime();
-  kernel_rasmussen<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, nov, rand());
+  kernel_rasmussen<C,S><<<grid_dim , block_dim , size>>> (d_mat, d_p, nov, rand());
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
   printf("kernel in %f \n", enn - stt);
   
-  cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
   cudaFree(d_mat);
   cudaFree(d_p);
 
   double p = 0;
   #pragma omp parallel for num_threads(omp_get_max_threads()) reduction(+:p)
-    for (int i = 0; i < grid_size * block_size; i++) {
-      p += h_p[i];
-    }
-
+  for (int i = 0; i < grid_dim * block_dim; i++) {
+    p += h_p[i];
+  }
+  
   delete[] h_p;
 
-  return (p / (grid_size * block_size));
+  return (p / (grid_dim * block_dim));
 }
 
 template <class T>
@@ -551,9 +623,11 @@ extern double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat
 
         cudaMemcpy( d_mat, mat, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
 
+	int x;
         while (check) {
+	  x = 1;
           double stt = omp_get_wtime();
-          kernel_rasmussen<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, nov, rand());
+          //kernel_rasmussen<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, nov, rand());
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
           //cout << "kernel" << id << " in " << (enn - stt) << endl;
@@ -592,11 +666,11 @@ extern double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat
   return p / times;
 }
 
-template <class T>
-extern double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags) {
+template <class C, class S>
+extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
-  T* mat = densemat->mat;
+  S* mat = densemat->mat;
   int nov = densemat->nov;
   //Pack parameters//
 
@@ -604,37 +678,60 @@ extern double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags) 
   int scale_intervals = flags.scale_intervals;
   int scale_times = flags.scale_times;
   int number_of_times = flags.number_of_times;
+  int device_id = flags.device_id;
+  int grid_dim_multip = flags.grid_multip;
   //Pack flags//
+
+  cudaSetDevice(device_id);
   
-  int block_size = 1024;
-  int grid_size = number_of_times / block_size + 1;
+  int block_dim;// = 1024;
+  int grid_dim;// = number_of_times / block_size + 1;
 
-  cudaSetDevice(1);
+  glob_nov = nov;
+  glob_sizeof_c = sizeof(C);
+  glob_sizeof_s = sizeof(S);
+  
+  cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
+                                                 &block_dim,
+                                                 &kernel_approximation<C,S>,
+                                                 scaling_sharedmem,
+                                                 0);
+  
+  printf("==SC== No Shared memory is used for the kernel..\n");
+  printf("==SC== Grid dim is set to : %d \n", grid_dim);
+  printf("==SC== Block dim is set to : %d \n", block_dim);
+  
+  if(grid_dim_multip != 1){
+    grid_dim*=grid_dim_multip;
+    printf("==SC== Grid dim is re-set to : %d \n", grid_dim);
+  }
 
-  double *h_p = new double[grid_size * block_size];
+  size_t size = nov*nov*sizeof(S);
 
-  T *d_mat;
-  double *d_p;
-  float *d_r, *d_c;
+  C *h_p = new C[grid_dim * block_dim];
 
-  cudaMalloc( &d_p, (grid_size * block_size) * sizeof(double));
-  cudaMalloc( &d_mat, (nov * nov) * sizeof(T));
+  S *d_mat;
+  C *d_p;
+  C *d_r, *d_c;
 
-  cudaMemcpy( d_mat, mat, (nov * nov) * sizeof(T), cudaMemcpyHostToDevice);
-
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_mat, (nov * nov) * sizeof(S));
+  
+  cudaMemcpy( d_mat, mat, (nov * nov) * sizeof(S), cudaMemcpyHostToDevice);
+  
   srand(time(0));
 
-  cudaMalloc( &d_r, (nov * grid_size * block_size) * sizeof(float));
-  cudaMalloc( &d_c, (nov * grid_size * block_size) * sizeof(float));
+  cudaMalloc( &d_r, (nov * grid_dim * block_dim) * sizeof(C));
+  cudaMalloc( &d_c, (nov * grid_dim * block_dim) * sizeof(C));
 
   double stt = omp_get_wtime();
-  kernel_approximation<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
+  kernel_approximation<C,S><<<grid_dim, block_dim, size>>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
   printf("kernel in %f \n", enn - stt);
   
-  cudaMemcpy( h_p, d_p, grid_size * block_size * sizeof(double), cudaMemcpyDeviceToHost);
+  cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
   cudaFree(d_mat);
   cudaFree(d_p);
@@ -642,13 +739,13 @@ extern double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags) 
   cudaFree(d_c);
 
   double p = 0;
-  for (int i = 0; i < grid_size * block_size; i++) {
+  for (int i = 0; i < grid_dim * block_dim; i++) {
     p += h_p[i];
   }
 
   delete[] h_p;
 
-  return (p / (grid_size * block_size));
+  return (p / (grid_dim * block_dim));
 }
 
 template <class T>
@@ -750,9 +847,12 @@ extern double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* dens
         cudaMalloc( &d_r, (nov * grid_size * block_size) * sizeof(float));
         cudaMalloc( &d_c, (nov * grid_size * block_size) * sizeof(float));
 
+	
+	int x;
         while (check) {
           double stt = omp_get_wtime();
-          kernel_approximation<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
+	  x = 1;
+          //kernel_approximation<<< grid_size , block_size , (nov*nov*sizeof(T)) >>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
           cudaDeviceSynchronize();
           double enn = omp_get_wtime();
           //cout << "kernel" << id << " in " << (enn - stt) << endl;
@@ -796,21 +896,39 @@ extern double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* dens
 
 
 //Explicit instantiations required for separate compilation
-template extern double gpu_perman64_rasmussen<int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<double>(DenseMatrix<double>* densemat, flags flags);
 
+/////
+template extern double gpu_perman64_rasmussen<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern double gpu_perman64_rasmussen<double, double>(DenseMatrix<double>* densemat, flags flags);
+/////
+
+/////
 template extern double gpu_perman64_rasmussen_multigpucpu_chunks<int>(DenseMatrix<int>* densemat, flags flags);
 template extern double gpu_perman64_rasmussen_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
 template extern double gpu_perman64_rasmussen_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
 
-template extern double gpu_perman64_approximation<int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_approximation<float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_approximation<double>(DenseMatrix<double>* densemat, flags flags);
+/////
 
+/////
+template extern double gpu_perman64_approximation<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_approximation<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern double gpu_perman64_approximation<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_approximation<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern double gpu_perman64_approximation<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern double gpu_perman64_approximation<double, double>(DenseMatrix<double>* densemat, flags flags);
+/////
+
+//Let's wait for Nebula to become available for multi-gpu optimization
+/////
 template extern double gpu_perman64_approximation_multigpucpu_chunks<int>(DenseMatrix<int>* densemat, flags flags);
 template extern double gpu_perman64_approximation_multigpucpu_chunks<float>(DenseMatrix<float>* densemat, flags flags);
 template extern double gpu_perman64_approximation_multigpucpu_chunks<double>(DenseMatrix<double>* densemat, flags flags);
+/////
+
 //Explicit instantiations required for separate compilation
 
 

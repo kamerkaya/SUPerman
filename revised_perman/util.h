@@ -1021,13 +1021,14 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   matrix2compressed_o(densemat, sparsemat);
 }
 
-bool ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int row_extracted[], int col_extracted[], double d_r[], double d_c[], int scale_times) {
+template <class C>
+bool ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, int row_extracted[], int col_extracted[], C d_r[], C d_c[], int scale_times) {
   
   for (int k = 0; k < scale_times; k++) {
     
     for (int j = 0; j < nov; j++) {
       if (!((col_extracted[j / 32] >> (j % 32)) & 1)) {
-	double col_sum = 0;
+	C col_sum = 0;
 	int r;
 	for (int i = cptrs[j]; i < cptrs[j+1]; i++) {
 	  r = rows[i];
@@ -1043,7 +1044,7 @@ bool ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, i
     }
     for (int i = 0; i < nov; i++) {
       if (!((row_extracted[i / 32] >> (i % 32)) & 1)) {
-	double row_sum = 0;
+	C row_sum = 0;
 	int c;
 	for (int j = rptrs[i]; j < rptrs[i+1]; j++) {
 	  c = cols[j];
@@ -1063,14 +1064,14 @@ bool ScaleMatrix_sparse(int *cptrs, int *rows, int *rptrs, int *cols, int nov, i
   return true;
 }
 
-template <class T>
-bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d_r[], double d_c[], int scale_times) {
+template <class C, class S>
+bool ScaleMatrix(S* M, int nov, long row_extracted, long col_extracted, C d_r[], C d_c[], int scale_times) {
   
   for (int k = 0; k < scale_times; k++) {
     
     for (int j = 0; j < nov; j++) {
       if (!((col_extracted >> j) & 1L)) {
-	double col_sum = 0;
+	C col_sum = 0;
 	for (int i = 0; i < nov; i++) {
 	  if (!((row_extracted >> i) & 1L)) {
 	    col_sum += d_r[i] * M[i*nov + j];
@@ -1084,7 +1085,7 @@ bool ScaleMatrix(T* M, int nov, long row_extracted, long col_extracted, double d
     }
     for (int i = 0; i < nov; i++) {
       if (!((row_extracted >> i) & 1L)) {
-	double row_sum = 0;
+	C row_sum = 0;
 	for (int j = 0; j < nov; j++) {
 	  if (!((col_extracted >> j) & 1L)) {
 	    row_sum += M[i*nov + j] * d_c[j];

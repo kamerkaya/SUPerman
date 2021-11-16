@@ -74,14 +74,14 @@ extern double gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_dis
 
 //##############~~#####//FUNCTIONS FROM: gpu_approximation_dense.cu//#####~~##############//
 
-template <class T>
-extern double gpu_perman64_rasmussen(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_rasmussen(DenseMatrix<S>* densemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags);
 
-template <class T>
-extern double gpu_perman64_approximation(DenseMatrix<T>* densemat, flags flags);
+template <class C, class S>
+extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags);
 
 template <class T>
 extern double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* densemat, flags flags);
