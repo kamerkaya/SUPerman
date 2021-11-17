@@ -639,7 +639,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_sparse(sparsemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_rasmussen_sparse<float, T>(sparsemat, flags);
+	else
+	  perman = gpu_perman64_rasmussen_sparse<double, T>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_rasmussen_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -653,7 +656,10 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
 #endif
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_sparse(sparsemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_approximation_sparse<float, T>(sparsemat, flags);
+	else
+	  perman = gpu_perman64_approximation_sparse<double, T>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_approximation_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
@@ -882,7 +888,10 @@ void RunPermanForGridGraphs(flags flags) {
     if (perman_algo == 1) { // rasmussen
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_sparse(sparsemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_rasmussen_sparse<float, int>(sparsemat, flags);
+	else
+	  perman = gpu_perman64_rasmussen_sparse<double, int>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_rasmussen_sparse %2lf in %lf\n", perman, end-start);
 	cout << "Try: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -890,7 +899,10 @@ void RunPermanForGridGraphs(flags flags) {
     } else if (perman_algo == 2) { // approximation_with_scaling
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_sparse(sparsemat, flags);
+	if(flags.calculation_half_precision)
+	  perman = gpu_perman64_approximation_sparse<float, int>(sparsemat, flags);
+	else
+	  perman = gpu_perman64_approximation_sparse<double, int>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_approximation_sparse %2lf in %lf\n", perman, end-start);
 	cout << "Try: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
