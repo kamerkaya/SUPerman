@@ -42,6 +42,8 @@ struct flags {
   int rep;
 
   int grid_multip;
+
+  bool compression;
   
   flags(){
     
@@ -86,6 +88,7 @@ struct flags {
     rep = 1; //Assume one repetition
 
     grid_multip = 1; //Assume maximum possible shared memory
+    compression = 0; //Assume will not compress unless stated otherwise
   }
   
 };

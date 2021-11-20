@@ -1103,4 +1103,260 @@ bool ScaleMatrix(S* M, int nov, long row_extracted, long col_extracted, C d_r[],
 }
 
 
+/////~~~COMPRESSION FUNCTIONS~~~/////
+template<class S>
+int getRowNnz(int i , S* mat, int nov){
+
+  int nnz = 0;
+  for(int j = 0; j < nov; j++){
+    if(mat[(i * nov) + j] > S(0)){
+      nnz++;
+    }
+  }
+
+  return nnz;
+}
+
+template<class S>
+int getColNnz(int i , S* mat, int nov){
+
+  int nnz = 0;
+  for(int j = 0; j < nov; j++){
+    if(mat[(i * nov) + j] > S(0)){
+      nnz++;
+    }
+  }
+
+  return nnz;
+}
+
+template<class S>
+int getMinNnz(S* mat, int nov){
+
+  int minDeg = nov;
+  for(int i = 0; i < nov; i++){
+    int deg = getRowNnz(i, mat, nov);
+    if(deg < minDeg){
+      minDeg = deg;
+    }
+
+    deg = getColNnz(i, mat, nov);
+    if(deg < minDeg){
+      minDeg = deg;
+    }
+  }
+
+  return minDeg;
+}
+
+template<class S>
+bool d1compress(S* mat, int& nov) {
+  int d1row = -1, d1col = -1;
+  for(int i = 0; i < nov; i++) {
+    if(getRowNnz(i, mat, nov) == 1) {
+      d1row = i;
+    } 
+    if(getColNnz(i, mat, nov) == 1) {
+      d1col = i;
+    }
+  }
+
+  if(d1row == -1 && d1col == -1) {
+    return false;
+  }
+  
+  S val;
+  if(d1row != -1) {
+    for(int j = 0; j < nov; j++) {
+      if(mat[(d1row * nov) + j] > (S)0) {
+	val = mat[(d1row * nov) + j];
+	d1col = j;
+	break;
+      }
+    }
+  } else if(d1col != -1) {
+    for(int j = 0; j < nov; j++) {
+      if(mat[(j * nov) + d1col] > (S)0) {
+	val = mat[(j * nov) + d1col];
+        d1row = j;
+        break;
+      }
+    }
+  }
+
+  //remove d1row and d1col now
+  S* n_mat = new S[nov * nov];
+  for(int i = 0; i < nov; i++) {
+    for(int j = 0; j < nov; j++) {
+      if(i != d1row && j != d1col) {
+	S val = mat[(i * nov) + j];
+	
+	int rloc = i; if(i > d1row) rloc--;
+	int cloc = j; if(j > d1col) cloc--;
+
+	n_mat[rloc * (nov - 1) + cloc] = val;
+      }
+    }
+  }
+  nov = nov - 1;
+  memcpy(mat, n_mat, sizeof(S) * nov * nov);
+ 
+  for(int j = 0; j < nov; j++) {
+    mat[j] *= val; //That's where matrix could go out of 0-1 form
+  }
+ 
+  delete [] n_mat;
+  return true;
+}
+
+template<class S>
+bool d2compress(S* mat, int& nov) {
+  int d2row = -1, d2col = -1;
+
+  for(int i = 0; i < nov; i++) {
+    if(getRowNnz(i, mat, nov) == 2) d2row = i;
+    if(getColNnz(i, mat, nov) == 2) d2col = i;
+    if(d2row != -1 || d2col != -1) break;
+  }
+
+  if(d2row == -1 && d2col == -1) return false;
+
+  int nbr1 = -1, nbr2 = -1;
+  if(d2row != -1) {
+    for(int j = 0; j < nov; j++) {
+      if(mat[(d2row * nov) + j] > (S)0) {
+	if(nbr1 == -1) { nbr1 = j; } 
+	else { nbr2 = j; break; }
+      }
+    }
+  } else if(d2col != -1) {
+    for(int j = 0; j < nov; j++) {
+      if(mat[(j * nov) + d2col] > (S)0) {
+	if(nbr1 == -1) { nbr1 = j; } 
+	else { nbr2 = j; break; }
+      }
+    }
+  }
+
+  S* n_mat = new S[nov * nov];
+  if(d2row != -1) {
+    //deleting d2row and col nbr2
+    for(int i = 0; i < nov; i++) {
+      for(int j = 0; j < nov; j++) {
+	if(i != d2row && j != nbr2) {
+	  int rloc = i; if(i > d2row) rloc--;
+	  int cloc = j; if(j > nbr2) cloc--;
+
+	  S val = mat[(i * nov) + j];
+	  if(j == nbr1) {
+	    val = (mat[(i * nov) + nbr1] * mat[(d2row * nov) + nbr2]) +
+	          (mat[(i * nov) + nbr2] * mat[(d2row * nov) + nbr1]);
+
+	  }
+	  n_mat[(rloc * (nov - 1)) + cloc] = val;
+	}
+      }
+    }
+  } else if(d2col != -1) {
+    //deleting d2col and row nbr2 
+    for(int i = 0; i < nov; i++) {
+      for(int j = 0; j < nov; j++) {
+	if(i != nbr2 && j != d2col) {
+          int rloc = i; if(i > nbr2) rloc--;
+          int cloc = j; if(j > d2col) cloc--;
+
+          S val = mat[(i * nov) + j];
+          if(i == nbr1) {
+            val = (mat[(nbr1 * nov) + j] * mat[(nbr2 * nov) + d2col]) +
+	          (mat[(nbr2 * nov) + j] * mat[(nbr1 * nov) + d2col]);
+          }
+          n_mat[(rloc * (nov - 1)) + cloc] = val;
+        }
+      }
+    }
+  }
+  nov = nov - 1;
+  memcpy(mat, n_mat, sizeof(S) * nov * nov);
+
+  delete [] n_mat;
+  return true;
+}
+
+template<class S>
+bool d34compress(S* mat, int& nov, S*& mat2, int& nov2, int minDeg) {
+  int drow = -1, dcol = -1;
+
+  for(int i = 0; i < nov; i++) {
+    if(getRowNnz(i, mat, nov) == minDeg) drow = i;
+    if(getColNnz(i, mat, nov) == minDeg) dcol = i;
+    if(drow != -1 || dcol != -1) break;
+  }
+  if(drow == -1 && dcol == -1) return false;
+
+  S* t_mat = new S[nov * nov];
+  if(drow == -1) {
+    for(int i = 0; i < nov; i++) {
+      for(int j = 0; j < nov; j++) {
+	t_mat[j * nov + i] = mat[i * nov + j];
+      }
+    }
+    drow = dcol;
+  } else {
+    memcpy(t_mat, mat, sizeof(S) * nov * nov);
+  }
+
+  int nbrs[4] = {-1, -1, -1, -1};
+  int index = 0;
+  int zeroloc = -1;
+  for(int j = 0; j < nov; j++) {
+    if(t_mat[drow * nov + j] != 0) {
+      nbrs[index++] = j;
+    } else {
+      zeroloc = j;
+    }
+  }
+
+  if(nbrs[3] == -1) {
+    nbrs[3] = zeroloc;
+  }
+
+  mat2 = new S[nov * nov];
+  //  cout << "generated " << mat2 << endl;
+  memset(mat, 0, sizeof(S) * nov * nov);
+  memset(mat2, 0, sizeof(S) * nov * nov);
+
+  for(int i = 0; i < nov; i++) {
+    if(i != drow) {
+      int iloc = i; if(i > drow) iloc--;
+
+      for(int j = 0; j < nov; j++) {
+	if(j != nbrs[1]) {
+	  int jloc = j; if(j > nbrs[1]) jloc--;
+	  if(j != nbrs[0]) {
+	    mat[iloc * (nov-1) + jloc] = t_mat[i * nov + j];
+	  } else {
+	    mat[iloc * (nov-1) + jloc] = (t_mat[drow * nov + nbrs[0]] * t_mat[i * nov + nbrs[1]]) + 
+	      (t_mat[drow * nov + nbrs[1]] * t_mat[i * nov + nbrs[0]]);
+	  }
+	}
+
+	if(j != nbrs[3]) {
+          int jloc = j; if(j > nbrs[3]) jloc--;
+          if(j != nbrs[2]) {
+            mat2[iloc * (nov-1) + jloc] = t_mat[i * nov + j];
+          } else {
+	    mat2[iloc * (nov-1) + jloc] = (t_mat[drow * nov + nbrs[2]] * t_mat[i * nov + nbrs[3]]) +
+	                                  (t_mat[drow * nov + nbrs[3]] * t_mat[i * nov + nbrs[2]]);
+          }
+	}
+      }
+    }
+  }
+
+  nov = nov - 1;
+  nov2 = nov;
+  delete [] t_mat;
+  return true;
+}
+
 #endif

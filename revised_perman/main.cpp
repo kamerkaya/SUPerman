@@ -36,6 +36,7 @@
 
 using namespace std;
 
+int recursive_count = 0;
 
 void print_flags(flags flags){
   
@@ -71,8 +72,8 @@ void print_flags(flags flags){
 }
 
 
-template <class T>
-void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags) 
+template <class S>
+double RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) 
 {
   
   print_flags(flags);
@@ -119,9 +120,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = parallel_perman64<float, T>(densemat, flags);
+	  perman = parallel_perman64<float, S>(densemat, flags);
 	else
-	  perman = parallel_perman64<double, T>(densemat, flags);
+	  perman = parallel_perman64<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: parallel_perman64 " << perman << " in " << (end - start) << endl;
       }
@@ -146,9 +147,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();	
 	if(flags.calculation_half_precision)
-	  perman = parallel_perman64_sparse<float, T>(densemat, sparsemat, flags);
+	  perman = parallel_perman64_sparse<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = parallel_perman64_sparse<double, T>(densemat, sparsemat, flags);
+	  perman = parallel_perman64_sparse<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: parallel_perman64_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -162,9 +163,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = parallel_skip_perman64_w<float, T>(sparsemat, flags);
+	  perman = parallel_skip_perman64_w<float, S>(sparsemat, flags);
 	else
-	  perman = parallel_skip_perman64_w<double, T>(sparsemat, flags);
+	  perman = parallel_skip_perman64_w<double, S>(sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: parallel_skip_perman64_w " << perman << " in " << (end - start) << endl;
       }
@@ -178,9 +179,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = parallel_skip_perman64_w_balanced<float, T>(sparsemat, flags);
+	  perman = parallel_skip_perman64_w_balanced<float, S>(sparsemat, flags);
 	else
-	  perman = parallel_skip_perman64_w_balanced<double, T>(sparsemat, flags);
+	  perman = parallel_skip_perman64_w_balanced<double, S>(sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: parallel_skip_perman64_w_balanced " << perman << " in " << (end - start) << endl;
       }
@@ -205,9 +206,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = rasmussen<float, T>(densemat, flags);
+	  perman = rasmussen<float, S>(densemat, flags);
 	else
-	  perman = rasmussen<double, T>(densemat, flags);
+	  perman = rasmussen<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	printf("Result: rasmussen %e in %lf\n", perman, end-start);
 	//cout << "Result: rasmussen " << perman << " in " << (end - start) << endl;
@@ -222,9 +223,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = approximation_perman64<float, T>(densemat, flags);
+	  perman = approximation_perman64<float, S>(densemat, flags);
 	else
-	  perman = approximation_perman64<double, T>(densemat, flags);
+	  perman = approximation_perman64<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	printf("Result: approximation_perman64 %e in %lf\n", perman, end-start);
 	//cout << "Result: approximation_perman64 " << perman << " in " << (end - start) << endl;
@@ -247,9 +248,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = rasmussen_sparse<float, T>(densemat, sparsemat, flags);
+	  perman = rasmussen_sparse<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = rasmussen_sparse<double, T>(densemat, sparsemat, flags);
+	  perman = rasmussen_sparse<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: rasmussen_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -264,9 +265,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = approximation_perman64_sparse<float, T>(sparsemat, flags);
+	  perman = approximation_perman64_sparse<float, S>(sparsemat, flags);
 	else
-	  perman = approximation_perman64_sparse<double, T>(sparsemat, flags);
+	  perman = approximation_perman64_sparse<double, S>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: approximation_perman64_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
@@ -292,9 +293,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xglobal<float, T>(densemat, flags);
+	  perman = gpu_perman64_xglobal<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_xglobal<double, T>(densemat, flags);
+	  perman = gpu_perman64_xglobal<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xglobal " << perman << " in " << (end - start) << endl;
       }
@@ -308,9 +309,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();	
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xlocal<float, T>(densemat, flags);
+	  perman = gpu_perman64_xlocal<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_xlocal<double, T>(densemat, flags);
+	  perman = gpu_perman64_xlocal<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xlocal " << perman << " in " << (end - start) << endl;
       }
@@ -324,9 +325,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared<float, T>(densemat, flags);
+	  perman = gpu_perman64_xshared<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_xshared<double, T>(densemat, flags);
+	  perman = gpu_perman64_xshared<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared " << perman << " in " << (end - start) << endl;
       }
@@ -340,9 +341,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared_coalescing<float, T>(densemat, flags);
+	  perman = gpu_perman64_xshared_coalescing<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_xshared_coalescing<double, T>(densemat, flags);
+	  perman = gpu_perman64_xshared_coalescing<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing " << perman << " in " << (end - start) << endl;
       }
@@ -356,9 +357,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared_coalescing_mshared<float, T>(densemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_mshared<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_xshared_coalescing_mshared<double, T>(densemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_mshared<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing_mshared " << perman << " in " << (end - start) << endl;
       }
@@ -424,9 +425,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xlocal_sparse<float, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xlocal_sparse<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = gpu_perman64_xlocal_sparse<double, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xlocal_sparse<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xlocal_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -440,9 +441,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared_sparse<float, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_sparse<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = gpu_perman64_xshared_sparse<double, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_sparse<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -456,9 +457,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared_coalescing_sparse<float, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_sparse<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = gpu_perman64_xshared_coalescing_sparse<double, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_sparse<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -472,9 +473,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
       start = omp_get_wtime();
       if(flags.calculation_half_precision)
-	perman = gpu_perman64_xshared_coalescing_mshared_sparse<float, T>(densemat, sparsemat, flags);
+	perman = gpu_perman64_xshared_coalescing_mshared_sparse<float, S>(densemat, sparsemat, flags);
       else
-	perman = gpu_perman64_xshared_coalescing_mshared_sparse<double, T>(densemat, sparsemat, flags);
+	perman = gpu_perman64_xshared_coalescing_mshared_sparse<double, S>(densemat, sparsemat, flags);
       end = omp_get_wtime();
       cout << "Result: gpu_perman64_xshared_coalescing_mshared_sparse " << perman << " in " << (end - start) << endl;
       }
@@ -515,9 +516,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_xshared_coalescing_mshared_skipper<float, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_mshared_skipper<float, S>(densemat, sparsemat, flags);
 	else
-	  perman = gpu_perman64_xshared_coalescing_mshared_skipper<double, T>(densemat, sparsemat, flags);
+	  perman = gpu_perman64_xshared_coalescing_mshared_skipper<double, S>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	cout << "Result: gpu_perman64_xshared_coalescing_mshared_skipper " << perman << " in " << end - start << endl;
       }
@@ -569,9 +570,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_rasmussen<float, T>(densemat, flags);
+	  perman = gpu_perman64_rasmussen<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_rasmussen<double, T>(densemat, flags);
+	  perman = gpu_perman64_rasmussen<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_rasmussen %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_rasmussen " << perman << " in " << (end - start) << endl;
@@ -586,9 +587,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_approximation<float, T>(densemat, flags);
+	  perman = gpu_perman64_approximation<float, S>(densemat, flags);
 	else
-	  perman = gpu_perman64_approximation<double, T>(densemat, flags);
+	  perman = gpu_perman64_approximation<double, S>(densemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_approximation %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_approximation " << perman << " in " << (end - start) << endl;
@@ -640,9 +641,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_rasmussen_sparse<float, T>(sparsemat, flags);
+	  perman = gpu_perman64_rasmussen_sparse<float, S>(sparsemat, flags);
 	else
-	  perman = gpu_perman64_rasmussen_sparse<double, T>(sparsemat, flags);
+	  perman = gpu_perman64_rasmussen_sparse<double, S>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_rasmussen_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -657,9 +658,9 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = gpu_perman64_approximation_sparse<float, T>(sparsemat, flags);
+	  perman = gpu_perman64_approximation_sparse<float, S>(sparsemat, flags);
 	else
-	  perman = gpu_perman64_approximation_sparse<double, T>(sparsemat, flags);
+	  perman = gpu_perman64_approximation_sparse<double, S>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: gpu_perman64_approximation_sparse %e in %lf\n", perman, end-start);
 	//cout << "Result: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
@@ -812,6 +813,7 @@ void RunAlgo(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat, flags flags)
     } 
   }
 #endif
+  return perman;
 }
 
 
@@ -989,6 +991,113 @@ void RunPermanForGridGraphs(flags flags) {
   
 }
 
+//Looks like we need them:
+//crate_densematrix_from_mat2()
+//crate_sparsematrix_from_mat2()
+
+template<class S>
+int getNnz(S* mat2, int nov2){
+  int nnz2 = 0;
+
+  for(int i = 0; i < nov2*nov2; i++){
+    if(mat2[i] > (S)0)
+      nnz2++;
+  }
+  
+  return nnz2;
+}
+
+template<class S>
+DenseMatrix<S>* create_densematrix_from_mat2(S* mat2, int nov2){
+  
+  DenseMatrix<S>* densemat2 = new DenseMatrix<S>();
+  densemat2->mat = mat2;
+  densemat2->nov = nov2;
+  densemat2->nnz = getNnz(mat2, nov2);
+  
+  return densemat2;
+}
+
+template<class S>
+SparseMatrix<S>* create_sparsematrix_from_densemat2(DenseMatrix<S>* densemat2, flags flags){
+
+  int nnz = densemat2->nnz;
+  int nov = densemat2->nov;
+  
+  SparseMatrix<S>* sparsemat2 = new SparseMatrix<S>();
+  sparsemat2->rvals = new S[nnz];
+  sparsemat2->cvals = new S[nnz];
+  sparsemat2->cptrs = new int[nov + 1];
+  sparsemat2->rptrs = new int[nov + 1];
+  sparsemat2->rows = new int[nnz];
+  sparsemat2->cols = new int[nnz];
+  sparsemat2->nov = nov;
+  sparsemat2->nnz = nnz;
+
+  if(flags.preprocessing == 0)
+    matrix2compressed_o(densemat2, sparsemat2);
+  if(flags.preprocessing == 1)
+    matrix2compressed_sortOrder_o(densemat2, sparsemat2);
+  if(flags.preprocessing == 2)
+    matrix2compressed_skipOrder_o(densemat2, sparsemat2);
+
+  return sparsemat2;
+}
+
+template<class S>
+double compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags){
+
+  cout << "In, compress_and_calculate_recursive-> " << recursive_count++ << endl;
+  print_densematrix(densemat);
+  cout << "densemat->nov: " << densemat->nov << endl;
+  cout << "densemat->nnz: " << densemat->nnz << endl;
+  
+  
+  
+  double final_perman = 0;
+  int minDeg = getMinNnz(densemat->mat, densemat->nov);
+
+  if(minDeg < 5 && densemat->nov > 30){
+
+    if(minDeg == 1){
+      d1compress(densemat->mat, densemat->nov);
+      densemat->nnz = getNnz(densemat->mat, densemat->nov);
+      delete sparsemat;
+      sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
+      return compress_and_calculate_recursive(densemat, sparsemat, flags);
+    }
+    
+    else if(minDeg == 2){
+      d2compress(densemat->mat, densemat->nov);
+      densemat->nnz = getNnz(densemat->mat, densemat->nov);
+      delete sparsemat;
+      sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
+      return compress_and_calculate_recursive(densemat, sparsemat, flags);
+    }
+    
+    else if(minDeg == 3 || minDeg == 4){
+      S* mat2 = nullptr;
+      int nov2;
+      d34compress(densemat->mat, densemat->nov, mat2, nov2, minDeg);
+      DenseMatrix<S>* densemat2 = create_densematrix_from_mat2(mat2, nov2);
+      SparseMatrix<S>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
+      
+      final_perman = compress_and_calculate_recursive(densemat, sparsemat, flags) +
+	compress_and_calculate_recursive(densemat2, sparsemat2, flags);
+      
+      if(mat2 != nullptr){
+	delete[] mat2;
+	mat2 = nullptr;
+      }
+    }
+  }
+  else{
+    cout << "Calling RunAlgo: " << endl;
+    final_perman = RunAlgo(densemat, sparsemat, flags);
+  }
+  return final_perman;
+}
+
 
 int main (int argc, char **argv)
 { 
@@ -1013,11 +1122,13 @@ int main (int argc, char **argv)
   int gridm = 36;
   int gridn = 36;
 
+  bool compression = false;
+  
   // We need to handle this part with a constructor
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwq:k:e:";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwq:k:e:o";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -1041,6 +1152,7 @@ int main (int argc, char **argv)
     { "deviceid", 0, NULL, 'q'},
     { "norep", 1, NULL, 'k'},
     { "gridmultip", 1, NULL, 'e'},
+    { "compression", 0, },
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
 
@@ -1170,6 +1282,9 @@ int main (int argc, char **argv)
 	}
 	flags.grid_multip = atoi(optarg);
 	break;
+      case 'o':
+	flags.compression = 1;
+	break;
       case '?':
         return 1;
       case -1:    /* Done with options.  */
@@ -1279,9 +1394,14 @@ int main (int argc, char **argv)
 #ifdef DEBUG
   std::cout << "Matrix is pattern: " << is_pattern << std::endl;
 #endif
- 
 
-  if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern){
+  double final_perman;
+
+#ifdef DEBUG
+  cout << "matcode - stor_half - !is_pattern - !is_binary: " << mm_is_real(matcode) << " " <<!flags.storage_half_precision << " " <<!is_pattern << " " <<!is_binary << endl;
+#endif
+  
+  if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern && !is_binary){
 #ifdef DEBUG
     std::cout << "Read Case: 0" << std::endl;
 #endif
@@ -1308,7 +1428,7 @@ int main (int argc, char **argv)
       readSymmetricDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
     
 #ifdef DEBUG
-    std::cout << "Read.. OK! -- Compressing.. " << std::endl;
+    std::cout << "Read.. OK! -- Sparse Representation Compressing.. " << std::endl;
 #endif
     if(flags.preprocessing == 0)
       matrix2compressed_o(densemat, sparsemat); 
@@ -1318,16 +1438,21 @@ int main (int argc, char **argv)
       matrix2compressed_skipOrder_o(densemat, sparsemat);
     
 #ifdef DEBUG
-    std::cout << "Compression..OK!" << std::endl;
+    std::cout << "Sparse Compression..OK!" << std::endl;
 
     print_sparsematrix(sparsemat);
     print_densematrix(densemat);
 #endif
 
-    RunAlgo(densemat, sparsemat, flags);
+    if(flags.compression)
+      final_perman = compress_and_calculate_recursive(densemat, sparsemat, flags);
+    else
+      final_perman = RunAlgo(densemat, sparsemat, flags);
+    
+    printf("Final perman is: %e \n", final_perman);
   }
   
-  else if(mm_is_real(matcode) == 1 && flags.storage_half_precision && !is_pattern){
+  else if(mm_is_real(matcode) == 1 && flags.storage_half_precision && !is_pattern && !is_binary){
 #ifdef DEBUG
     std::cout << "Read Case: 1" << std::endl;
 #endif
@@ -1368,11 +1493,16 @@ int main (int argc, char **argv)
     print_sparsematrix(sparsemat);
     print_densematrix(densemat);
 #endif
+
+    if(flags.compression)
+      final_perman = compress_and_calculate_recursive(densemat, sparsemat, flags);
+    else
+      final_perman = RunAlgo(densemat, sparsemat, flags);
     
-    RunAlgo(densemat, sparsemat, flags);    
+    printf("Final perman is: %e \n", final_perman);
   }
   
-  else if(mm_is_integer(matcode) == 1 || is_pattern){
+  else if(mm_is_integer(matcode) == 1 || is_pattern || is_binary){
 #ifdef DEBUG
     std::cout << "Read Case: 2" << std::endl;
 #endif
@@ -1414,8 +1544,12 @@ int main (int argc, char **argv)
     print_sparsematrix(sparsemat);
     print_densematrix(densemat);
 #endif
-
-    RunAlgo(densemat, sparsemat, flags);
+    
+    if(flags.compression)
+      final_perman = compress_and_calculate_recursive(densemat, sparsemat, flags);
+    else
+      final_perman = RunAlgo(densemat, sparsemat, flags);
+      printf("Final perman is: %e \n", final_perman);
   }
   
   else{

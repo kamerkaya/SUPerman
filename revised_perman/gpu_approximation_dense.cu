@@ -699,7 +699,7 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
 				     size,
 				     0);
   
-  printf("==SC== Shared memory per block is set to: %d ..\n", size);
+  printf("==SC== Shared memory per block is set to: %zu ..\n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
   printf("==SC== Block dim is set to : %d \n", block_dim);
   

@@ -35,13 +35,14 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern,
     mat->mat[i] = (T)0;
   }
   
-  
-  T cast;
+  double cast;
   int x, y;
+  
   for(int i = 0; i < no_lines; i++){
     
-    if((is_pattern && !is_binary) || (is_pattern && is_binary)){
+    if(is_pattern){
       file >> x >> y;
+      cast = (int)1; //Just for safety
     }
     else if(!is_pattern && is_binary){
       file >> x >> y >> cast;
@@ -61,7 +62,7 @@ void readDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is_pattern,
     if(is_pattern || is_binary)
       mat->mat[x*no_row+y] = (int)1;
     else
-      mat->mat[x*no_row+y] = cast;
+      mat->mat[x*no_row+y] = (T)cast;
   }
 
 #ifdef HARDDEBUG
@@ -105,7 +106,7 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
     mat->mat[i] = (T)0;
   }
   
-  T cast;
+  double cast;
   int x, y;
   for(int i = 0; i < no_lines; i++){
     if((is_pattern && !is_binary) || (is_pattern && is_binary)){
@@ -128,13 +129,13 @@ void readSymmetricDenseMatrix(DenseMatrix<T>* mat, const char* filename, bool is
     if(is_pattern || is_binary)
       mat->mat[x*no_row+y] = (int)1;
     else
-      mat->mat[x*no_row+y] = cast;
+      mat->mat[x*no_row+y] = (T)cast;
 
     if(x != y){
-      if(is_pattern)
+      if(is_pattern || is_binary)
       mat->mat[y*no_row+x] = (int)1;
     else
-      mat->mat[y*no_row+x] = cast;
+      mat->mat[y*no_row+x] = (T)cast;
     }
   }
 

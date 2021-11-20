@@ -112,8 +112,9 @@ double cpu_perman64_skipper(int *rptrs,
   //first initialize the vector then we will copy it to ourselves
   double p;
   int j, ptr;
-  unsigned long long ci, chunk_size, change_j;
-
+  unsigned long long ci, chunk_size;
+  double change_j;
+  
   p = 0;
 
   int no_chunks = 512;
@@ -333,7 +334,7 @@ __global__ void kernel_xshared_sparse(int* cptrs,
 				      int nov) {
   int tid = threadIdx.x + (blockIdx.x * blockDim.x);
   int thread_id = threadIdx.x;
-
+  
   extern __shared__ double shared_mem[]; 
   C *my_x = (C*)shared_mem; // size = nov * BLOCK_SIZE
   
@@ -718,7 +719,8 @@ __global__ void kernel_xshared_coalescing_mshared_skipper(int* rptrs,
   }
     
   long long gray_diff;
-  unsigned long long change_j, ci, period, steps, step_start;
+  unsigned long long ci, period, steps, step_start;
+  double change_j;
   int j = 0;
   while (i < my_end) {
     gray = i ^ (i >> 1);
@@ -958,7 +960,7 @@ extern double gpu_perman64_xshared_sparse(DenseMatrix<S>* densemat, SparseMatrix
   
   
   double stt = omp_get_wtime();
-  kernel_xshared_sparse<C,S><<< grid_dim , block_dim , size >>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov);
+  kernel_xshared_sparse<C,S><<< grid_dim , block_dim , size>>> (d_cptrs, d_rows, d_cvals, d_x, d_p, nov);
   cudaDeviceSynchronize();
   double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
