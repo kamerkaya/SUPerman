@@ -1122,7 +1122,7 @@ int getColNnz(int i , S* mat, int nov){
 
   int nnz = 0;
   for(int j = 0; j < nov; j++){
-    if(mat[(i * nov) + j] > S(0)){
+    if(mat[(j * nov) + i] > S(0)){
       nnz++;
     }
   }

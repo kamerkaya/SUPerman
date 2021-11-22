@@ -528,7 +528,7 @@ __global__ void kernel_approximation_sparse(int* rptrs, int* cols, int* cptrs, i
 
 
 template<class C, class S>
-extern double gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags flags) {
+extern Result gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* rptrs = sparsemat->rptrs;
@@ -545,6 +545,9 @@ extern double gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags fl
   //Pack flags//
 
   cudaSetDevice(device_id);
+  cudaDeviceSynchronize();
+
+  double starttime = omp_get_wtime();
   
   int block_dim;
   int grid_dim;
@@ -580,12 +583,12 @@ extern double gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags fl
   cudaMemcpy( d_cols, cols, (nnz) * sizeof(int), cudaMemcpyHostToDevice);
 
   srand(time(0));
-  double stt = omp_get_wtime();
+  //double stt = omp_get_wtime();
   kernel_rasmussen_sparse<C><<<grid_dim ,block_dim ,size>>>(d_rptrs, d_cols, d_p, nov, nnz, rand());
   cudaDeviceSynchronize();
-  double enn = omp_get_wtime();
+  //double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
-  printf("kernel in %f \n", enn - stt);
+  //printf("kernel in %f \n", enn - stt);
   
   
   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
@@ -595,6 +598,7 @@ extern double gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags fl
   cudaFree(d_p);
 
   double p = 0;
+  
   #pragma omp parallel for num_threads(omp_get_max_threads()) reduction(+:p)
     for (int i = 0; i < grid_dim * block_dim; i++) {
       p += h_p[i];
@@ -602,7 +606,13 @@ extern double gpu_perman64_rasmussen_sparse(SparseMatrix<S>* sparsemat, flags fl
 
   delete[] h_p;
 
-  return (p / (grid_dim * block_dim));
+  double perman = p / (grid_dim * block_dim);
+  double duration = omp_get_wtime() - starttime;
+  Result result(perman, duration);
+  return result;
+
+
+  //return (p / (grid_dim * block_dim));
 }
 
 template<class T>
@@ -664,7 +674,7 @@ extern double gpu_perman64_rasmussen_multigpucpu_chunks_sparse(SparseMatrix<T>* 
             p_partial_times[id] += cpu_chunk;
             //cout << "cpu" << " in " << (enn - stt) << endl;
 	    printf("cpu in %f \n", enn - stt);
-            #pragma omp critical 
+#pragma omp critical 
             {
               if (num_of_times_so_far < number_of_times) {
                 num_of_times_so_far += cpu_chunk;
@@ -741,7 +751,7 @@ extern double gpu_perman64_rasmussen_multigpucpu_chunks_sparse(SparseMatrix<T>* 
 }
 
 template <class C, class S>
-extern double gpu_perman64_approximation_sparse(SparseMatrix<S>* sparsemat, flags flags) {
+extern Result gpu_perman64_approximation_sparse(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* cptrs = sparsemat->cptrs;
@@ -762,6 +772,9 @@ extern double gpu_perman64_approximation_sparse(SparseMatrix<S>* sparsemat, flag
   //Pack flags//
 
   cudaSetDevice(device_id);
+  cudaDeviceSynchronize();
+
+  double starttime = omp_get_wtime();
   
   int block_dim;
   int grid_dim;
@@ -807,12 +820,12 @@ extern double gpu_perman64_approximation_sparse(SparseMatrix<S>* sparsemat, flag
   cudaMalloc( &d_r, (nov * grid_dim * block_dim) * sizeof(C));
   cudaMalloc( &d_c, (nov * grid_dim * block_dim) * sizeof(C));
 
-  double stt = omp_get_wtime();
+  //double stt = omp_get_wtime();
   kernel_approximation_sparse<C><<<grid_dim ,block_dim, size>>> (d_rptrs, d_cols, d_cptrs, d_rows, d_p, d_r, d_c, nov, nnz, scale_intervals, scale_times, rand());
   cudaDeviceSynchronize();
-  double enn = omp_get_wtime();
+  //double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
-  printf("kernel in %f \n", enn - stt);
+  //printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
@@ -831,7 +844,12 @@ extern double gpu_perman64_approximation_sparse(SparseMatrix<S>* sparsemat, flag
 
   delete[] h_p;
 
-  return (p / (grid_dim * block_dim));
+  
+  double perman = p / (grid_dim * block_dim);
+  double duration = omp_get_wtime() - starttime;
+  Result result(perman, duration);
+  return result;
+  //return (p / (grid_dim * block_dim));
 }
 
 
@@ -992,12 +1010,12 @@ extern double gpu_perman64_approximation_multigpucpu_chunks_sparse(SparseMatrix<
 //Explicit instantiations required for separate compilation
 
 /////
-template extern double gpu_perman64_rasmussen_sparse<float, int>(SparseMatrix<int>* sparsemat, flags flags);
-template extern double gpu_perman64_rasmussen_sparse<double, int>(SparseMatrix<int>* sparsemat, flags flags);
-template extern double gpu_perman64_rasmussen_sparse<float, float>(SparseMatrix<float>* sparsemat, flags flags);
-template extern double gpu_perman64_rasmussen_sparse<double, float>(SparseMatrix<float>* sparsemat, flags flags);
-template extern double gpu_perman64_rasmussen_sparse<float, double>(SparseMatrix<double>* sparsemat, flags flags);
-template extern double gpu_perman64_rasmussen_sparse<double, double>(SparseMatrix<double>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<float, int>(SparseMatrix<int>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<double, int>(SparseMatrix<int>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<float, float>(SparseMatrix<float>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<double, float>(SparseMatrix<float>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<float, double>(SparseMatrix<double>* sparsemat, flags flags);
+template extern Result gpu_perman64_rasmussen_sparse<double, double>(SparseMatrix<double>* sparsemat, flags flags);
 /////
 
 /////
@@ -1008,14 +1026,14 @@ template extern double gpu_perman64_rasmussen_multigpucpu_chunks_sparse<double>(
 
 
 /////
-template extern double gpu_perman64_approximation_sparse<float, int>(SparseMatrix<int>* sparsemat, flags flags);
-template extern double gpu_perman64_approximation_sparse<double, int>(SparseMatrix<int>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<float, int>(SparseMatrix<int>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<double, int>(SparseMatrix<int>* sparsemat, flags flags);
 
-template extern double gpu_perman64_approximation_sparse<float, float>(SparseMatrix<float>* sparsemat, flags flags);
-template extern double gpu_perman64_approximation_sparse<double, float>(SparseMatrix<float>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<float, float>(SparseMatrix<float>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<double, float>(SparseMatrix<float>* sparsemat, flags flags);
 
-template extern double gpu_perman64_approximation_sparse<float, double>(SparseMatrix<double>* sparsemat, flags flags);
-template extern double gpu_perman64_approximation_sparse<double, double>(SparseMatrix<double>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<float, double>(SparseMatrix<double>* sparsemat, flags flags);
+template extern Result gpu_perman64_approximation_sparse<double, double>(SparseMatrix<double>* sparsemat, flags flags);
 /////
 
 template extern double gpu_perman64_approximation_multigpucpu_chunks_sparse<int>(SparseMatrix<int>* sparsemat, flags flags);

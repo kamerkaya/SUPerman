@@ -1,6 +1,25 @@
 #ifndef FLAGS_H
 #define FLAGS_H
 
+struct Result{
+
+  double permanent;
+  double time;
+
+  Result(){
+    permanent = 0;
+    time = 0;
+  }
+
+  Result(double p, double t):
+    permanent(p), time(t) {}
+
+  Result operator +(Result const &r2){
+    return Result(permanent + r2.permanent, time + r2.time);
+  }
+  
+};
+
 //Parameters struct 
 struct flags {
   

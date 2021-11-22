@@ -455,7 +455,7 @@ __global__ void kernel_approximation(S* mat,
 
 
 template <class C, class S>
-  extern double gpu_perman64_rasmussen(DenseMatrix<S>* densemat, flags flags) {
+  extern Result gpu_perman64_rasmussen(DenseMatrix<S>* densemat, flags flags) {
   
   //Pack parameters//
   S* mat = densemat->mat;
@@ -469,6 +469,9 @@ template <class C, class S>
   //Pack flags//
 
   cudaSetDevice(device_id);
+  cudaDeviceSynchronize();
+
+  double starttime = omp_get_wtime();
   
   int grid_dim = 1024;
   int block_dim = number_of_times / grid_dim + 1;
@@ -510,12 +513,12 @@ template <class C, class S>
 
   srand(time(0));
   
-  double stt = omp_get_wtime();
+  //double stt = omp_get_wtime();
   kernel_rasmussen<C,S><<<grid_dim , block_dim , size>>> (d_mat, d_p, nov, rand());
   cudaDeviceSynchronize();
-  double enn = omp_get_wtime();
+  //double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
-  printf("kernel in %f \n", enn - stt);
+  //printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
@@ -530,7 +533,12 @@ template <class C, class S>
   
   delete[] h_p;
 
-  return (p / (grid_dim * block_dim));
+  double perman = p / (grid_dim * block_dim);
+  double duration = omp_get_wtime() - starttime;
+  Result result(perman, duration);
+  return result;
+
+  //return (p / (grid_dim * block_dim));
 }
 
 template <class T>
@@ -667,7 +675,7 @@ extern double gpu_perman64_rasmussen_multigpucpu_chunks(DenseMatrix<T>* densemat
 }
 
 template <class C, class S>
-extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) {
+extern Result gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
   S* mat = densemat->mat;
@@ -683,6 +691,9 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
   //Pack flags//
 
   cudaSetDevice(device_id);
+  cudaDeviceSynchronize();
+
+  double starttime = omp_get_wtime();
   
   int block_dim;// = 1024;
   int grid_dim;// = number_of_times / block_size + 1;
@@ -726,12 +737,12 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
   cudaMalloc( &d_r, (nov * grid_dim * block_dim) * sizeof(C));
   cudaMalloc( &d_c, (nov * grid_dim * block_dim) * sizeof(C));
 
-  double stt = omp_get_wtime();
+  //double stt = omp_get_wtime();
   kernel_approximation<C,S><<<grid_dim, block_dim, size>>> (d_mat, d_p, d_r, d_c, nov, scale_intervals, scale_times, rand());
   cudaDeviceSynchronize();
-  double enn = omp_get_wtime();
+  //double enn = omp_get_wtime();
   //cout << "kernel" << " in " << (enn - stt) << endl;
-  printf("kernel in %f \n", enn - stt);
+  //printf("kernel in %f \n", enn - stt);
   
   cudaMemcpy( h_p, d_p, grid_dim * block_dim * sizeof(C), cudaMemcpyDeviceToHost);
 
@@ -747,7 +758,12 @@ extern double gpu_perman64_approximation(DenseMatrix<S>* densemat, flags flags) 
 
   delete[] h_p;
 
-  return (p / (grid_dim * block_dim));
+  double perman = p / (grid_dim * block_dim);
+  double duration = omp_get_wtime() - starttime;
+  Result result(perman, duration);
+  return result;
+
+  //return (p / (grid_dim * block_dim));
 }
 
 template <class T>
@@ -900,12 +916,12 @@ extern double gpu_perman64_approximation_multigpucpu_chunks(DenseMatrix<T>* dens
 //Explicit instantiations required for separate compilation
 
 /////
-template extern double gpu_perman64_rasmussen<float, int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<double, int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<float, float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<double, float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<float, double>(DenseMatrix<double>* densemat, flags flags);
-template extern double gpu_perman64_rasmussen<double, double>(DenseMatrix<double>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern Result gpu_perman64_rasmussen<double, double>(DenseMatrix<double>* densemat, flags flags);
 /////
 
 /////
@@ -916,12 +932,12 @@ template extern double gpu_perman64_rasmussen_multigpucpu_chunks<double>(DenseMa
 /////
 
 /////
-template extern double gpu_perman64_approximation<float, int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_approximation<double, int>(DenseMatrix<int>* densemat, flags flags);
-template extern double gpu_perman64_approximation<float, float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_approximation<double, float>(DenseMatrix<float>* densemat, flags flags);
-template extern double gpu_perman64_approximation<float, double>(DenseMatrix<double>* densemat, flags flags);
-template extern double gpu_perman64_approximation<double, double>(DenseMatrix<double>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<float, int>(DenseMatrix<int>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<double, int>(DenseMatrix<int>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<float, float>(DenseMatrix<float>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<double, float>(DenseMatrix<float>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<float, double>(DenseMatrix<double>* densemat, flags flags);
+template extern Result gpu_perman64_approximation<double, double>(DenseMatrix<double>* densemat, flags flags);
 /////
 
 //Let's wait for Nebula to become available for multi-gpu optimization
