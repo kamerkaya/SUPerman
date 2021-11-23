@@ -1,0 +1,10 @@
+38c38
+< Algo is 3
+---
+> Algo is 10
+5182479,5182480c5182479,5182480
+<  [vidi] 3 0 mat2c.txt_0 30 2.73252e+19 10.6757
+< Overall perman is: 2.73252e+19 in 10.6758
+---
+>  [vidi] 10 0 mat2c.txt_0 30 2.73819e+19 10.5379
+> Overall perman is: 2.73819e+19 in 10.5383

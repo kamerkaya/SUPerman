@@ -1,0 +1,476 @@
+Number of rows/cols is 62
+Number of nnz is    342
+#d1 vertices: 0
+#d2 vertices: 8
+min degree: 2
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 0
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_0 32 34682521691040632 7.1143
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_1 32 27583613558905024 8.85737
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.01557 - percent 0.0980213
+	5 of 21 in 5.10541 - percent 0.0978215
+	12 of 21 in 12.2608 - percent 0.0975569
+	16 of 21 in 16.4634 - percent 0.097995
+	17 of 21 in 17.5305 - percent 0.098165
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_2 32 495958908964175872 22.1725
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.63646 - percent 0.0791773
+	17 of 21 in 10.9606 - percent 0.0615118
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_3 32 22781880927518720 13.8463
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_4 32 38022713161963904 9.01771
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.26408 - percent 0.0569158
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_5 32 17113475006296848 11.2194
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.01711 - percent 0.0979171
+	5 of 21 in 5.11685 - percent 0.097824
+	12 of 21 in 12.2853 - percent 0.0975542
+	16 of 21 in 16.4942 - percent 0.0979951
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_6 32 10445360463872000 22.2127
+Perman: [veni] running with 32 rows:
+	17 of 21 in 13.2683 - percent 0.0742061
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_7 32 23336034787917824 16.6676
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_8 32 6496388802902368 6.33419
+Perman: [veni] running with 32 rows:
+	16 of 21 in 4.78068 - percent 0.0260337
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_9 32 7561610885663758 6.02642
+Perman: [veni] running with 32 rows:
+	16 of 21 in 12.0196 - percent 0.0726227
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_10 32 3179108857020416 16.1275
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.19056 - percent 0.119582
+	2 of 21 in 2.20929 - percent 0.109833
+	3 of 21 in 3.19502 - percent 0.105332
+	4 of 21 in 3.692 - percent 0.0910418
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_11 32 6213750499753984 21.5343
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_12 32 7403115990021188 4.97265
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_13 32 5099868168434358 4.69636
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_14 32 12671000304586668 6.53366
+Perman: [veni] running with 32 rows:
+	16 of 21 in 4.91437 - percent 0.0261926
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_15 32 14748682189806364 6.19377
+Perman: [veni] running with 32 rows:
+	9 of 21 in 5.01809 - percent 0.0492358
+	12 of 21 in 6.94528 - percent 0.0510264
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_16 32 9126443653005312 12.6095
+Perman: [veni] running with 32 rows:
+	16 of 21 in 7.07873 - percent 0.0394158
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_17 32 12547732046413824 8.91587
+Perman: [veni] running with 32 rows:
+	18 of 21 in 8.23983 - percent 0.0430252
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_18 32 6097775657746432 9.76714
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.738244 - percent 0.0718296
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_19 32 8383772564406272 7.00111
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_20 32 11413900103778304 10.5993
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.975163 - percent 0.097082
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_21 32 7862821837078528 9.20652
+Perman: [veni] running with 32 rows:
+	12 of 21 in 7.45894 - percent 0.0528193
+	20 of 21 in 12.6517 - percent 0.0534482
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_22 32 17799576056496128 13.5141
+Perman: [veni] running with 32 rows:
+	16 of 21 in 7.50401 - percent 0.0406803
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_23 32 24473953282424832 9.44624
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.96988 - percent 0.0951555
+	6 of 21 in 4.63048 - percent 0.0740033
+	11 of 21 in 8.78802 - percent 0.0761074
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_24 32 30917296863001448 17.2731
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.791774 - percent 0.039664
+	8 of 21 in 4.58644 - percent 0.0548771
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_25 32 10641603717278212 12.2314
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.662435 - percent 0.0600445
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_26 32 10465151673171968 18.1672
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.02816 - percent 0.0953812
+	2 of 21 in 1.47854 - percent 0.0680299
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_27 32 9962942220992512 12.6385
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.659645 - percent 0.0600445
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_28 32 21712746466246656 18.115
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.36628 - percent 0.1273
+	2 of 21 in 2.55289 - percent 0.117716
+	4 of 21 in 5.18488 - percent 0.118604
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_29 32 7382764447989760 28.7924
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.40202 - percent 0.0678898
+	8 of 21 in 6.77658 - percent 0.0799519
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_30 32 9922451282031668 17.5048
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_31 32 5620553004209656 5.0865
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.600308 - percent 0.0545092
+	16 of 21 in 8.01662 - percent 0.0445742
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_32 32 8992033738758292 10.0508
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.985604 - percent 0.0908618
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_33 32 3416036645961789 9.82464
+Perman: [veni] running with 32 rows:
+	2 of 21 in 2.52499 - percent 0.120281
+	8 of 21 in 9.60509 - percent 0.112561
+	12 of 21 in 14.4452 - percent 0.112533
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_34 32 2841542846840832 26.0193
+Perman: [veni] running with 32 rows:
+	6 of 21 in 6.94305 - percent 0.109661
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_35 32 2275884379668480 25.8393
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.96774 - percent 0.0950508
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_36 32 17280684463226880 17.269
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.38977 - percent 0.0679443
+	6 of 21 in 4.48046 - percent 0.0716871
+	8 of 21 in 6.70361 - percent 0.079765
+	14 of 21 in 11.0031 - percent 0.0744176
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_37 32 6718430688624640 17.3512
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.20172 - percent 0.107357
+	5 of 21 in 4.50984 - percent 0.0802765
+	16 of 21 in 15.5296 - percent 0.085435
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_38 32 8893660293903496 20.7979
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.862598 - percent 0.0396353
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_39 32 3105897464867520 8.29908
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.99479 - percent 0.0954795
+	12 of 21 in 12.5372 - percent 0.0988175
+	17 of 21 in 17.8853 - percent 0.0993921
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_40 32 10445360463872000 22.3687
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.06448 - percent 0.103562
+	2 of 21 in 1.98638 - percent 0.0957004
+	6 of 21 in 6.03913 - percent 0.0961289
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_41 32 17104999314096128 22.227
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_42 32 5549964425451616 10.6799
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.6205 - percent 0.060235
+	13 of 21 in 10.2956 - percent 0.0714206
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_43 32 7656107338852998 16.3145
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_44 32 29948581261026552 13.8524
+Perman: [veni] running with 32 rows:
+	13 of 21 in 6.87461 - percent 0.0495402
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_45 32 30159345740831116 11.3017
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.05589 - percent 0.103562
+	2 of 21 in 1.96952 - percent 0.0957004
+	6 of 21 in 5.98899 - percent 0.0961289
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_46 32 11474503347470336 22.0431
+Perman: [veni] running with 32 rows:
+	2 of 21 in 2.10812 - percent 0.103669
+	4 of 21 in 3.91854 - percent 0.0954693
+	6 of 21 in 6.07088 - percent 0.0981585
+	8 of 21 in 7.91454 - percent 0.0958407
+	17 of 21 in 17.2727 - percent 0.0979211
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_47 32 17179794022072320 21.933
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.48404 - percent 0.0716018
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_48 32 12985294565408768 12.994
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.04812 - percent 0.0511435
+	8 of 21 in 5.06202 - percent 0.0601711
+	14 of 21 in 8.29835 - percent 0.0560616
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_49 32 4857094980108288 13.0547
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_50 32 4768984405277795 7.34392
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.84339 - percent 0.0646638
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_51 32 2929676332108392 14.0779
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.21665 - percent 0.118826
+	2 of 21 in 1.96274 - percent 0.0951225
+	6 of 21 in 4.61304 - percent 0.0739337
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_52 32 7819812506435584 17.2337
+Perman: [veni] running with 32 rows:
+	2 of 21 in 2.44198 - percent 0.11895
+	4 of 21 in 4.58066 - percent 0.110397
+	6 of 21 in 7.0901 - percent 0.113249
+	8 of 21 in 9.26046 - percent 0.11081
+	14 of 21 in 16.2862 - percent 0.110846
+	17 of 21 in 20.1466 - percent 0.112732
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_53 32 3028800723976192 25.4684
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_54 32 12544741888257904 16.4492
+Perman: [veni] running with 32 rows:
+	13 of 21 in 11.4858 - percent 0.0818088
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_55 32 6443085166483874 18.879
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.19234 - percent 0.0499033
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_56 32 23211877644631008 10.8817
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.09617 - percent 0.0606387
+	14 of 21 in 8.85259 - percent 0.0597075
+	16 of 21 in 10.2407 - percent 0.0604101
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_57 32 7232575866368068 13.0741
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.660757 - percent 0.0600445
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_58 32 4673377067335680 18.1568
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.02632 - percent 0.0953812
+	2 of 21 in 1.47583 - percent 0.0680299
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_59 32 7475631384166400 12.6273
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.597861 - percent 0.0545092
+	16 of 21 in 7.98569 - percent 0.0445742
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_60 32 8452606833793762 10.0114
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.9819 - percent 0.0908618
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_61 32 3714661378034243 9.78704
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.05902 - percent 0.0511624
+	8 of 21 in 4.37858 - percent 0.0511182
+	14 of 21 in 7.55885 - percent 0.0502518
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_62 32 3841820945532928 11.6949
+Perman: [veni] running with 32 rows:
+	11 of 21 in 4.5384 - percent 0.0387721
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_63 32 2523166222942208 8.79591
+Perman: [veni] running with 32 rows:
+	8 of 21 in 1.2656 - percent 0.0161168
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_64 32 7951349650559712 2.9699
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_65 32 3457417646379604 3.1877
+Perman: [veni] running with 32 rows:
+	8 of 21 in 1.33047 - percent 0.0161557
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_66 32 7209368663921412 3.22205
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_67 32 4303797514804686 3.32755
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_68 32 15952474701200616 7.25484
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_69 32 6793508247369961 5.80771
+Perman: [veni] running with 32 rows:
+	6 of 21 in 7.00493 - percent 0.106684
+	8 of 21 in 8.72862 - percent 0.0992781
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_70 32 33738599457644544 23.5522
+Perman: [veni] running with 32 rows:
+	4 of 21 in 7.37092 - percent 0.176841
+	6 of 21 in 10.1083 - percent 0.160303
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_71 32 14256344303403008 37.4033
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.595664 - percent 0.0545092
+	16 of 21 in 7.96165 - percent 0.0445742
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_72 32 10709939469042228 9.98212
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.979223 - percent 0.0908618
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_73 32 4262849276813935 9.75937
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.81992 - percent 0.0906933
+	16 of 21 in 14.5485 - percent 0.0848046
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_74 32 3977498983399424 19.5405
+Perman: [veni] running with 32 rows:
+	8 of 21 in 7.67722 - percent 0.0905758
+	15 of 21 in 13.4776 - percent 0.0839846
+	16 of 21 in 14.4454 - percent 0.0842282
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_75 32 3041820762177536 19.5262
+Perman: [veni] running with 32 rows:
+	16 of 21 in 6.6793 - percent 0.0351858
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_76 32 3634282410721168 8.37567
+Perman: [veni] running with 32 rows:
+	10 of 21 in 3.80711 - percent 0.0345151
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_77 32 3667538853763876 8.86615
+Perman: [veni] running with 32 rows:
+	10 of 21 in 5.7708 - percent 0.0517667
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_78 32 8193650788681736 13.2467
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_79 32 14340968487002452 13.3153
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.666687 - percent 0.0598605
+	12 of 21 in 10.366 - percent 0.0770992
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_80 32 20917942430466048 18.3187
+Perman: [veni] running with 32 rows:
+	18 of 21 in 9.58615 - percent 0.0477827
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_81 32 9232575864242176 11.3403
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.23418 - percent 0.118952
+	2 of 21 in 2.32121 - percent 0.110662
+	4 of 21 in 4.6923 - percent 0.111045
+	17 of 21 in 20.5426 - percent 0.113272
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_82 32 15990030476978946048 25.8424
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.23175 - percent 0.118826
+	2 of 21 in 1.98711 - percent 0.0951225
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_83 32 15362777858441216 17.4428
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_84 32 32131445448811352 9.16018
+Perman: [veni] running with 32 rows:
+	8 of 21 in 3.31579 - percent 0.039768
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_85 32 6616678001097892 8.14039
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_86 32 17139632830691168 9.62465
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.6223 - percent 0.0740539
+	4 of 21 in 3.30952 - percent 0.0749599
+	12 of 21 in 10.3377 - percent 0.0771821
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_87 32 11929913762250752 18.4226
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.55042 - percent 0.0511132
+	12 of 21 in 6.29051 - percent 0.047036
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_88 32 6506164586020864 11.5204
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.22601 - percent 0.118952
+	2 of 21 in 2.30574 - percent 0.110662
+	4 of 21 in 4.65987 - percent 0.111045
+	17 of 21 in 20.3952 - percent 0.113272
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_89 32 8069315836248064 25.6617
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.22253 - percent 0.118826
+	2 of 21 in 1.97181 - percent 0.0951225
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_90 32 8570254429847552 17.3
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.347 - percent 0.0630636
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_91 32 10132214413393920 11.7204
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.32896 - percent 0.0613476
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_92 32 9149230994231552 12.736
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_93 32 7409047313240100 9.52711
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.34796 - percent 0.12701
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_94 32 13919216613556224 9.92253
+Perman: [veni] running with 32 rows:
+	7 of 21 in 4.03755 - percent 0.0554229
+	11 of 21 in 6.36614 - percent 0.0553654
+	17 of 21 in 10.9885 - percent 0.0617491
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_95 32 20158796456587264 12.4953
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.50751 - percent 0.0735871
+	10 of 21 in 7.86092 - percent 0.0757508
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_96 32 6387265120158656 16.9105
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.3246 - percent 0.0634272
+	17 of 21 in 10.4928 - percent 0.0573465
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_97 32 5317422618163984 13.3503
+Perman: [veni] running with 32 rows:
+	17 of 21 in 8.84525 - percent 0.0500313
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_98 32 14269155785368560 11.4521
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_99 32 6105161119290418 8.09183
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_100 32 3888879997919876 7.92735
+Perman: [veni] running with 32 rows:
+	11 of 21 in 3.29151 - percent 0.0298024
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_101 32 6157226453968008 6.37283
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_102 32 11712447475718704 11.0942
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.03944 - percent 0.0487788
+	10 of 21 in 4.89299 - percent 0.0461464
+	12 of 21 in 6.05013 - percent 0.0474165
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_103 32 13512205919666816 10.7202
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.37422 - percent 0.0812246
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_104 32 9212935939975424 16.0122
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_105 32 2327295428724914 15.1387
+Perman: [veni] running with 32 rows:
+	14 of 21 in 6.37683 - percent 0.0438008
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_106 32 8471630706092396 10.108
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.17787 - percent 0.0528647
+	8 of 21 in 3.994 - percent 0.0479625
+	16 of 21 in 8.10629 - percent 0.0481625
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_107 32 5608037298755422 10.6543
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.96192 - percent 0.0942524
+	4 of 21 in 3.69161 - percent 0.0876098
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_108 32 4227554987445600 18.4819
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.30785 - percent 0.0797313
+	16 of 21 in 11.5454 - percent 0.0682332
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_109 32 2004014756910542 14.7665
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_110 32 8055733813921182 7.10991
+Perman: [veni] running with 32 rows:
+	6 of 21 in 3.13486 - percent 0.0500235
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_111 32 8060364624945530 13.8926
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_112 32 4982377183226900 7.08907
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_113 32 1077602239382853 6.28638
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_114 32 4711161846091925 8.90449
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.82925 - percent 0.0658001
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_115 32 2993005801692408 13.7004
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.847887 - percent 0.078346
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_116 32 1946692825941797 8.90257
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_117 32 1134423542132913 9.40925
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.00477 - percent 0.072459
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_118 32 5436071505848204 13.0379
+Perman: [veni] running with 32 rows:
+	8 of 21 in 2.99118 - percent 0.0363686
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_119 32 1440057069261419 7.63887
+Perman: [veni] running with 32 rows:
+	19 of 21 in 10.5056 - percent 0.0511976
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_120 32 2275355250968064 11.5633
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_121 32 882607548443599 12.4927
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_122 32 5386509312258224 11.8068
+Perman: [veni] running with 32 rows:
+	16 of 21 in 6.10026 - percent 0.0371281
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_123 32 5702906346075072 8.35239
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_124 32 1882362099921022 5.80197
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_125 32 3344446810778340 6.14109
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_126 32 4118668350014240 17.3583
+Perman: [veni] running with 32 rows:
+	20 of 21 in 10.4954 - percent 0.05017
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_127 32 2918161883097947 11.5264
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_128 32 1591246791117134 17.3255
+Perman: [veni] running with 32 rows:
+	20 of 21 in 9.99705 - percent 0.0476334
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_129 32 1202008351572083 11.0578
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_130 32 37945366102261800 7.11761
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_131 32 29338315463200652 8.86102
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.01584 - percent 0.0980213
+	5 of 21 in 5.10761 - percent 0.0978215
+	12 of 21 in 12.2652 - percent 0.0975569
+	16 of 21 in 16.4689 - percent 0.097995
+	17 of 21 in 17.5365 - percent 0.098165
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_132 32 17917571117493518336 22.18
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.63695 - percent 0.0791773
+	17 of 21 in 10.9651 - percent 0.0615118
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_133 32 35351497856253952 13.8529
+Perman: [veni] running with 32 rows:
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_134 32 38756133501429504 9.02052
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.26455 - percent 0.0569158
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_135 32 17771801113059836 11.2196
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.01723 - percent 0.0979171
+	5 of 21 in 5.11737 - percent 0.097824
+	12 of 21 in 12.2864 - percent 0.0975542
+	16 of 21 in 16.4957 - percent 0.0979951
+ [vidi] 3 0 /home/kaya/sparyser/matrices/bfwb62.mtx_136 32 14183699998310400 22.2132
+Perman: [veni] running with 32 rows:
+	17 of 21 in 13.2657 - percent 0.0742061

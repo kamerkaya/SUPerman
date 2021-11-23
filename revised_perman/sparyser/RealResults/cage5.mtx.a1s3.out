@@ -1,0 +1,243 @@
+Number of rows/cols is 37
+Number of nnz is    233
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 3
+************************************************************************
+Algo is 1
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 3
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31631 - percent 1
+	2 of 21 in 10.6309 - percent 1
+	3 of 21 in 15.9454 - percent 1
+	4 of 21 in 21.2597 - percent 1
+	5 of 21 in 26.5742 - percent 1
+	6 of 21 in 31.8885 - percent 1
+	7 of 21 in 37.203 - percent 1
+	8 of 21 in 42.5171 - percent 1
+	9 of 21 in 47.8317 - percent 1
+	10 of 21 in 53.1464 - percent 1
+	11 of 21 in 58.4606 - percent 1
+	12 of 21 in 63.7751 - percent 1
+	13 of 21 in 69.0901 - percent 1
+	14 of 21 in 74.4048 - percent 1
+	15 of 21 in 79.7192 - percent 1
+	16 of 21 in 85.0336 - percent 1
+	17 of 21 in 90.3482 - percent 1
+	18 of 21 in 95.6627 - percent 1
+	19 of 21 in 100.977 - percent 1
+	20 of 21 in 106.292 - percent 1
+	21 of 21 in 111.607 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_0 32 652201381971997 114.13
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31529 - percent 1
+	2 of 21 in 10.63 - percent 1
+	3 of 21 in 15.9453 - percent 1
+	4 of 21 in 21.2605 - percent 1
+	5 of 21 in 26.5758 - percent 1
+	6 of 21 in 31.8907 - percent 1
+	7 of 21 in 37.2058 - percent 1
+	8 of 21 in 42.5208 - percent 1
+	9 of 21 in 47.8355 - percent 1
+	10 of 21 in 53.1505 - percent 1
+	11 of 21 in 58.4657 - percent 1
+	12 of 21 in 63.7807 - percent 1
+	13 of 21 in 69.0954 - percent 1
+	14 of 21 in 74.4106 - percent 1
+	15 of 21 in 79.7258 - percent 1
+	16 of 21 in 85.0406 - percent 1
+	17 of 21 in 90.3552 - percent 1
+	18 of 21 in 95.6701 - percent 1
+	19 of 21 in 100.985 - percent 1
+	20 of 21 in 106.3 - percent 1
+	21 of 21 in 111.615 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_1 32 184661652931001 114.139
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31489 - percent 1
+	2 of 21 in 10.6299 - percent 1
+	3 of 21 in 15.9447 - percent 1
+	4 of 21 in 21.2598 - percent 1
+	5 of 21 in 26.5749 - percent 1
+	6 of 21 in 31.8898 - percent 1
+	7 of 21 in 37.2044 - percent 1
+	8 of 21 in 42.5192 - percent 1
+	9 of 21 in 47.8343 - percent 1
+	10 of 21 in 53.1493 - percent 1
+	11 of 21 in 58.4642 - percent 1
+	12 of 21 in 63.7789 - percent 1
+	13 of 21 in 69.0938 - percent 1
+	14 of 21 in 74.4088 - percent 1
+	15 of 21 in 79.7239 - percent 1
+	16 of 21 in 85.0389 - percent 1
+	17 of 21 in 90.3538 - percent 1
+	18 of 21 in 95.6687 - percent 1
+	19 of 21 in 100.984 - percent 1
+	20 of 21 in 106.298 - percent 1
+	21 of 21 in 111.613 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_2 32 205106300136410 114.137
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31509 - percent 1
+	2 of 21 in 10.6302 - percent 1
+	3 of 21 in 15.9454 - percent 1
+	4 of 21 in 21.2603 - percent 1
+	5 of 21 in 26.5754 - percent 1
+	6 of 21 in 31.8905 - percent 1
+	7 of 21 in 37.2055 - percent 1
+	8 of 21 in 42.5205 - percent 1
+	9 of 21 in 47.8356 - percent 1
+	10 of 21 in 53.1507 - percent 1
+	11 of 21 in 58.466 - percent 1
+	12 of 21 in 63.7809 - percent 1
+	13 of 21 in 69.0961 - percent 1
+	14 of 21 in 74.4111 - percent 1
+	15 of 21 in 79.726 - percent 1
+	16 of 21 in 85.0411 - percent 1
+	17 of 21 in 90.3563 - percent 1
+	18 of 21 in 95.6712 - percent 1
+	19 of 21 in 100.986 - percent 1
+	20 of 21 in 106.301 - percent 1
+	21 of 21 in 111.617 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_3 32 293820238907627 114.14
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31819 - percent 1
+	2 of 21 in 10.6365 - percent 1
+	3 of 21 in 15.9551 - percent 1
+	4 of 21 in 21.2735 - percent 1
+	5 of 21 in 26.5917 - percent 1
+	6 of 21 in 31.9099 - percent 1
+	7 of 21 in 37.2282 - percent 1
+	8 of 21 in 42.5466 - percent 1
+	9 of 21 in 47.8652 - percent 1
+	10 of 21 in 53.1836 - percent 1
+	11 of 21 in 58.502 - percent 1
+	12 of 21 in 63.8202 - percent 1
+	13 of 21 in 69.1383 - percent 1
+	14 of 21 in 74.4565 - percent 1
+	15 of 21 in 79.7746 - percent 1
+	16 of 21 in 85.093 - percent 1
+	17 of 21 in 90.4112 - percent 1
+	18 of 21 in 95.7295 - percent 1
+	19 of 21 in 101.048 - percent 1
+	20 of 21 in 106.366 - percent 1
+	21 of 21 in 111.684 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_4 32 261166328874640 114.209
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.31453 - percent 1
+	2 of 21 in 10.6292 - percent 1
+	3 of 21 in 15.9437 - percent 1
+	4 of 21 in 21.2583 - percent 1
+	5 of 21 in 26.5729 - percent 1
+	6 of 21 in 31.8873 - percent 1
+	7 of 21 in 37.2021 - percent 1
+	8 of 21 in 42.5164 - percent 1
+	9 of 21 in 47.8311 - percent 1
+	10 of 21 in 53.1458 - percent 1
+	11 of 21 in 58.4603 - percent 1
+	12 of 21 in 63.7746 - percent 1
+	13 of 21 in 69.0889 - percent 1
+	14 of 21 in 74.4031 - percent 1
+	15 of 21 in 79.7178 - percent 1
+	16 of 21 in 85.0325 - percent 1
+	17 of 21 in 90.3469 - percent 1
+	18 of 21 in 95.6612 - percent 1
+	19 of 21 in 100.976 - percent 1
+	20 of 21 in 106.29 - percent 1
+	21 of 21 in 111.605 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_5 32 88219717835529 114.128
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.30855 - percent 1
+	2 of 21 in 10.6171 - percent 1
+	3 of 21 in 15.9255 - percent 1
+	4 of 21 in 21.2337 - percent 1
+	5 of 21 in 26.5426 - percent 1
+	6 of 21 in 31.8512 - percent 1
+	7 of 21 in 37.1599 - percent 1
+	8 of 21 in 42.4684 - percent 1
+	9 of 21 in 47.7774 - percent 1
+	10 of 21 in 53.0863 - percent 1
+	11 of 21 in 58.3949 - percent 1
+	12 of 21 in 63.7038 - percent 1
+	13 of 21 in 69.0125 - percent 1
+	14 of 21 in 74.3208 - percent 1
+	15 of 21 in 79.6292 - percent 1
+	16 of 21 in 84.9376 - percent 1
+	17 of 21 in 90.2461 - percent 1
+	18 of 21 in 95.5548 - percent 1
+	19 of 21 in 100.863 - percent 1
+	20 of 21 in 106.172 - percent 1
+	21 of 21 in 111.481 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_6 32 262496211330218 114.002
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.27552 - percent 1
+	2 of 21 in 10.5512 - percent 1
+	3 of 21 in 15.827 - percent 1
+	4 of 21 in 21.1025 - percent 1
+	5 of 21 in 26.3777 - percent 1
+	6 of 21 in 31.653 - percent 1
+	7 of 21 in 36.9284 - percent 1
+	8 of 21 in 42.204 - percent 1
+	9 of 21 in 47.4792 - percent 1
+	10 of 21 in 52.7545 - percent 1
+	11 of 21 in 58.0298 - percent 1
+	12 of 21 in 63.3047 - percent 1
+	13 of 21 in 68.5804 - percent 1
+	14 of 21 in 73.8563 - percent 1
+	15 of 21 in 79.1318 - percent 1
+	16 of 21 in 84.4077 - percent 1
+	17 of 21 in 89.6834 - percent 1
+	18 of 21 in 94.9588 - percent 1
+	19 of 21 in 100.234 - percent 1
+	20 of 21 in 105.509 - percent 1
+	21 of 21 in 110.785 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_7 32 68609384511808 113.289
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.35079 - percent 1
+	2 of 21 in 10.7007 - percent 1
+	3 of 21 in 16.0508 - percent 1
+	4 of 21 in 21.4013 - percent 1
+	5 of 21 in 26.7525 - percent 1
+	6 of 21 in 32.1033 - percent 1
+	7 of 21 in 37.4539 - percent 1
+	8 of 21 in 42.8037 - percent 1
+	9 of 21 in 48.1541 - percent 1
+	10 of 21 in 53.5036 - percent 1
+	11 of 21 in 58.8545 - percent 1
+	12 of 21 in 64.205 - percent 1
+	13 of 21 in 69.5548 - percent 1
+	14 of 21 in 74.9053 - percent 1
+	15 of 21 in 80.2559 - percent 1
+	16 of 21 in 85.6063 - percent 1
+	17 of 21 in 90.9569 - percent 1
+	18 of 21 in 96.3074 - percent 1
+	19 of 21 in 101.658 - percent 1
+	20 of 21 in 107.008 - percent 1
+	21 of 21 in 112.358 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_8 32 88297320094770 114.898
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.34609 - percent 1
+	2 of 21 in 10.6917 - percent 1
+	3 of 21 in 16.0374 - percent 1
+	4 of 21 in 21.3835 - percent 1
+	5 of 21 in 26.7294 - percent 1
+	6 of 21 in 32.0757 - percent 1
+	7 of 21 in 37.422 - percent 1
+	8 of 21 in 42.7683 - percent 1
+	9 of 21 in 48.1139 - percent 1
+	10 of 21 in 53.4599 - percent 1
+	11 of 21 in 58.8062 - percent 1
+	12 of 21 in 64.1513 - percent 1
+	13 of 21 in 69.4974 - percent 1
+	14 of 21 in 74.8434 - percent 1
+	15 of 21 in 80.1893 - percent 1
+	16 of 21 in 85.5351 - percent 1
+	17 of 21 in 90.8812 - percent 1
+	18 of 21 in 96.2276 - percent 1
+	19 of 21 in 101.573 - percent 1
+	20 of 21 in 106.919 - percent 1
+	21 of 21 in 112.266 - percent 1
+ [vidi] 1 3 /home/kaya/sparyser/matrices/cage5.mtx_9 32 23079021180160 114.804
+Overall perman is: 2127657557774160 in 1141.88

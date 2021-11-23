@@ -1125,6 +1125,7 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
   return result;
 }
 
+template<class S>
 Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags){
 
   bool comp = true;
@@ -1135,8 +1136,30 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
       densemat->nnz = getNnz(densemat->mat, densemat->nov);
       delete sparsemat;
       sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
-    
+    }
+    else{
+      comp = d2compress(densemat->mat, densemat->nov);
+      if(comp){
+	cout << "Removing singleton -- d2: matrix is reduced to: " << densemat->nov << " rows" << endl;
+	densemat->nnz = getNnz(densemat->mat, densemat->nov);
+	delete sparsemat;
+	sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
+      }
+    }
+
+    if(comp){
+      if(checkEmpty(densemat->mat, densemat->nov)){
+	cout << "Matrix is rank deficient!" << endl;
+	cout << "Perman is 0" << endl;
+	exit(1);
+      }
+    }
+  }
   
+  cout << "Singleton compressing is done" << endl;
+  return compress_and_calculate_recursive(densemat, sparsemat, flags);
+  
+}
   
 
 int main (int argc, char **argv)
@@ -1487,7 +1510,7 @@ int main (int argc, char **argv)
     Result result;
     
     if(flags.compression)
-      result = compress_and_calculate_recursive(densemat, sparsemat, flags);
+      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
     else
       result = RunAlgo(densemat, sparsemat, flags, false);
     
@@ -1540,7 +1563,7 @@ int main (int argc, char **argv)
     Result result;
     
     if(flags.compression)
-      result = compress_and_calculate_recursive(densemat, sparsemat, flags);
+      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
     else
       result = RunAlgo(densemat, sparsemat, flags, false);
     
@@ -1594,7 +1617,7 @@ int main (int argc, char **argv)
     Result result;
     
     if(flags.compression)
-      result = compress_and_calculate_recursive(densemat, sparsemat, flags);
+      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
     else
       result = RunAlgo(densemat, sparsemat, flags, false);
     //printf("Final perman is: %e \n", final_perman);

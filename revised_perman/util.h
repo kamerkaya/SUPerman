@@ -1131,6 +1131,22 @@ int getColNnz(int i , S* mat, int nov){
 }
 
 template<class S>
+bool checkEmpty(S* mat, int nov){
+
+  for(int i = 0; i < nov; i++){
+    
+    if(getRowNnz(i, mat, nov) == (S)0)
+      return true;
+
+    if(getColNnz(i, mat, nov) == (S)0)
+      return true;
+  }
+
+  return false;
+  
+}
+
+template<class S>
 int getMinNnz(S* mat, int nov){
 
   int minDeg = nov;

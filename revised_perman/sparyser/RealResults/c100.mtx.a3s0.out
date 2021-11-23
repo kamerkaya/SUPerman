@@ -1,0 +1,346 @@
+Number of rows/cols is 100
+Number of nnz is    300
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 3
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 0
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.3985 - percent 0.328359
+	3 of 21 in 7.51576 - percent 0.345648
+	4 of 21 in 9.91365 - percent 0.341035
+	5 of 21 in 12.3467 - percent 0.339417
+	7 of 21 in 17.438 - percent 0.343124
+	13 of 21 in 32.5058 - percent 0.343134
+	15 of 21 in 37.4789 - percent 0.341881
+	17 of 21 in 42.6839 - percent 0.343212
+	19 of 21 in 47.6816 - percent 0.342444
+	20 of 21 in 50.3201 - percent 0.343288
+	21 of 21 in 52.8742 - percent 0.343361
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_0 32 29785127 54.0478
+Perman: [veni] running with 32 rows:
+	3 of 21 in 7.43555 - percent 0.339736
+	4 of 21 in 10.0387 - percent 0.34462
+	5 of 21 in 12.6385 - percent 0.347482
+	7 of 21 in 17.4857 - percent 0.342519
+	9 of 21 in 22.6692 - percent 0.345858
+	13 of 21 in 32.6967 - percent 0.345125
+	15 of 21 in 37.591 - percent 0.343607
+	17 of 21 in 42.726 - percent 0.344735
+	19 of 21 in 47.6455 - percent 0.343807
+	20 of 21 in 50.25 - percent 0.344582
+	21 of 21 in 52.7669 - percent 0.344593
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_1 32 39257134 53.9211
+Perman: [veni] running with 32 rows:
+	2 of 21 in 9.17009 - percent 0.616717
+	4 of 21 in 17.8271 - percent 0.59208
+	8 of 21 in 35.678 - percent 0.58455
+	11 of 21 in 49.4194 - percent 0.588356
+	14 of 21 in 63.0203 - percent 0.587745
+	16 of 21 in 71.6651 - percent 0.583281
+	18 of 21 in 81.0812 - percent 0.587529
+	19 of 21 in 85.176 - percent 0.583118
+	20 of 21 in 89.6723 - percent 0.582653
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_2 32 6606746 96.4854
+Perman: [veni] running with 32 rows:
+	2 of 21 in 6.54595 - percent 0.471924
+	6 of 21 in 19.6404 - percent 0.471923
+	8 of 21 in 26.1874 - percent 0.471925
+	10 of 21 in 32.7346 - percent 0.471925
+	14 of 21 in 45.8324 - percent 0.471923
+	16 of 21 in 52.382 - percent 0.471925
+	18 of 21 in 58.9325 - percent 0.471925
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_3 32 31815500 70.3097
+Perman: [veni] running with 32 rows:
+	3 of 21 in 4.93407 - percent 0.240612
+	4 of 21 in 6.68677 - percent 0.24483
+	5 of 21 in 8.43655 - percent 0.247311
+	7 of 21 in 11.6383 - percent 0.243201
+	9 of 21 in 15.1137 - percent 0.245882
+	16 of 21 in 26.7966 - percent 0.245003
+	19 of 21 in 31.7399 - percent 0.244301
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_4 32 4255630 35.9325
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.47172 - percent 0.199695
+	3 of 21 in 4.59818 - percent 0.209632
+	4 of 21 in 6.07429 - percent 0.207118
+	5 of 21 in 7.57287 - percent 0.206344
+	7 of 21 in 10.6816 - percent 0.207098
+	9 of 21 in 13.8868 - percent 0.209193
+	16 of 21 in 24.8005 - percent 0.208974
+	19 of 21 in 29.4663 - percent 0.209002
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_5 32 4209238 33.2591
+Perman: [veni] running with 32 rows:
+	1 of 21 in 1.60763 - percent 0.207083
+	7 of 21 in 4.66353 - percent 0.0840369
+	9 of 21 in 7.99521 - percent 0.110509
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_6 32 4024428 17.3488
+Perman: [veni] running with 32 rows:
+	3 of 21 in 13.5314 - percent 0.572188
+	4 of 21 in 18.338 - percent 0.581183
+	5 of 21 in 23.0995 - percent 0.585523
+	7 of 21 in 32.48 - percent 0.578604
+	8 of 21 in 36.8529 - percent 0.573575
+	16 of 21 in 74.035 - percent 0.571925
+	17 of 21 in 79.1058 - percent 0.573963
+	18 of 21 in 83.7797 - percent 0.573035
+	19 of 21 in 88.6067 - percent 0.57286
+	21 of 21 in 98.7019 - percent 0.575203
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_7 32 1233349 100.902
+Perman: [veni] running with 32 rows:
+	1 of 21 in 3.00876 - percent 0.421691
+	4 of 21 in 12.0489 - percent 0.422146
+	6 of 21 in 18.0763 - percent 0.422234
+	7 of 21 in 21.091 - percent 0.422318
+	8 of 21 in 24.1051 - percent 0.422368
+	9 of 21 in 27.1134 - percent 0.422295
+	11 of 21 in 33.1416 - percent 0.422341
+	12 of 21 in 36.1487 - percent 0.422295
+	13 of 21 in 39.1562 - percent 0.422248
+	20 of 21 in 60.245 - percent 0.422293
+	21 of 21 in 63.2585 - percent 0.422295
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_8 32 1590164 64.6833
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.97483 - percent 0.421444
+	2 of 21 in 5.94937 - percent 0.421435
+	3 of 21 in 8.9372 - percent 0.419619
+	11 of 21 in 25.5651 - percent 0.312469
+	12 of 21 in 29.0177 - percent 0.320218
+	14 of 21 in 35.6486 - percent 0.333102
+	16 of 21 in 41.6056 - percent 0.344273
+	17 of 21 in 43.3034 - percent 0.337515
+	19 of 21 in 46.3868 - percent 0.323834
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_9 32 4846244 49.9818
+Perman: [veni] running with 32 rows:
+	9 of 21 in 4.80164 - percent 0.0690903
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_10 32 422746 17.5578
+Perman: [veni] running with 32 rows:
+	5 of 21 in 13.2684 - percent 0.391223
+	7 of 21 in 18.5694 - percent 0.390961
+	9 of 21 in 23.8686 - percent 0.390811
+	12 of 21 in 31.9006 - percent 0.391804
+	15 of 21 in 39.8211 - percent 0.391143
+	17 of 21 in 45.132 - percent 0.391115
+	19 of 21 in 50.4337 - percent 0.391029
+	21 of 21 in 55.7365 - percent 0.390959
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_11 32 15545562 57.0566
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.62577 - percent 0.388451
+	3 of 21 in 7.8833 - percent 0.388441
+	4 of 21 in 10.4826 - percent 0.387216
+	5 of 21 in 13.1405 - percent 0.388407
+	7 of 21 in 18.464 - percent 0.388363
+	9 of 21 in 23.8311 - percent 0.388791
+	12 of 21 in 31.9544 - percent 0.390288
+	15 of 21 in 39.9689 - percent 0.389931
+	20 of 21 in 53.2885 - percent 0.389524
+	21 of 21 in 56.0294 - percent 0.390124
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_12 32 10536297 57.2507
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.87028 - percent 0.890625
+	2 of 21 in 11.7394 - percent 0.890625
+	3 of 21 in 17.61 - percent 0.890625
+	4 of 21 in 23.4771 - percent 0.890625
+	5 of 21 in 29.3494 - percent 0.890625
+	6 of 21 in 35.2162 - percent 0.890625
+	7 of 21 in 41.0925 - percent 0.890625
+	8 of 21 in 46.9669 - percent 0.890625
+	9 of 21 in 52.8395 - percent 0.890625
+	10 of 21 in 58.7146 - percent 0.890625
+	11 of 21 in 64.5835 - percent 0.890625
+	12 of 21 in 70.4567 - percent 0.890625
+	13 of 21 in 76.3298 - percent 0.890625
+	14 of 21 in 82.2034 - percent 0.890625
+	15 of 21 in 88.0769 - percent 0.890625
+	16 of 21 in 93.947 - percent 0.890625
+	17 of 21 in 99.8157 - percent 0.890625
+	18 of 21 in 105.691 - percent 0.890625
+	19 of 21 in 111.561 - percent 0.890625
+	20 of 21 in 117.437 - percent 0.890625
+	21 of 21 in 123.304 - percent 0.890625
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_13 32 714900 126.093
+Perman: [veni] running with 32 rows:
+	6 of 21 in 22.1231 - percent 0.42927
+	8 of 21 in 29.6818 - percent 0.427288
+	11 of 21 in 41.1062 - percent 0.427934
+	13 of 21 in 48.3572 - percent 0.426552
+	14 of 21 in 52.0919 - percent 0.426423
+	15 of 21 in 55.7145 - percent 0.426396
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_14 32 2924439 80.6769
+Perman: [veni] running with 32 rows:
+	11 of 21 in 24.0745 - percent 0.263304
+	16 of 21 in 34.5552 - percent 0.26151
+	17 of 21 in 36.7182 - percent 0.261498
+	21 of 21 in 44.9864 - percent 0.260245
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_15 32 174420 46.1551
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.62553 - percent 0.369934
+	3 of 21 in 8.16698 - percent 0.383784
+	4 of 21 in 11.058 - percent 0.390712
+	5 of 21 in 13.6665 - percent 0.386552
+	7 of 21 in 19.468 - percent 0.384685
+	9 of 21 in 25.5358 - percent 0.38813
+	11 of 21 in 31.256 - percent 0.386043
+	13 of 21 in 36.7398 - percent 0.384969
+	14 of 21 in 39.3123 - percent 0.383946
+	15 of 21 in 42.2036 - percent 0.384745
+	16 of 21 in 44.7977 - percent 0.383427
+	18 of 21 in 50.7574 - percent 0.383479
+	19 of 21 in 53.9152 - percent 0.383736
+	20 of 21 in 57.1116 - percent 0.384952
+	21 of 21 in 59.9865 - percent 0.384281
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_16 32 3377572 61.5439
+Perman: [veni] running with 32 rows:
+	3 of 21 in 8.44005 - percent 0.372726
+	4 of 21 in 11.3962 - percent 0.379663
+	7 of 21 in 19.9278 - percent 0.378189
+	9 of 21 in 25.8763 - percent 0.377994
+	11 of 21 in 31.6385 - percent 0.381202
+	12 of 21 in 34.4563 - percent 0.37939
+	14 of 21 in 40.3659 - percent 0.378806
+	15 of 21 in 43.1508 - percent 0.378804
+	18 of 21 in 51.7086 - percent 0.379666
+	20 of 21 in 57.6861 - percent 0.379692
+	21 of 21 in 60.5971 - percent 0.379096
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_17 32 7130140 61.9182
+Perman: [veni] running with 32 rows:
+	1 of 21 in 3.65894 - percent 0.560441
+	3 of 21 in 11.7222 - percent 0.547318
+	4 of 21 in 15.3792 - percent 0.550591
+	5 of 21 in 19.7464 - percent 0.546849
+	7 of 21 in 28.3092 - percent 0.543574
+	9 of 21 in 36.3215 - percent 0.544237
+	10 of 21 in 40.2697 - percent 0.544695
+	11 of 21 in 44.0431 - percent 0.546124
+	12 of 21 in 48.1496 - percent 0.547317
+	13 of 21 in 51.9794 - percent 0.546451
+	14 of 21 in 55.6988 - percent 0.546652
+	15 of 21 in 59.3897 - percent 0.547154
+	17 of 21 in 67.0007 - percent 0.545595
+	18 of 21 in 70.7258 - percent 0.54576
+	19 of 21 in 74.4151 - percent 0.546241
+	21 of 21 in 82.2877 - percent 0.546164
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_18 32 474654 84.237
+Perman: [veni] running with 32 rows:
+	2 of 21 in 4.94023 - percent 0.342303
+	7 of 21 in 17.4697 - percent 0.342405
+	9 of 21 in 22.7134 - percent 0.347284
+	12 of 21 in 30.0909 - percent 0.344582
+	14 of 21 in 35.3216 - percent 0.346253
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_19 32 12863940 54.0846
+Perman: [veni] running with 32 rows:
+	2 of 21 in 5.28143 - percent 0.389509
+	5 of 21 in 13.1077 - percent 0.385821
+	9 of 21 in 24.1125 - percent 0.392643
+	10 of 21 in 26.6986 - percent 0.390572
+	14 of 21 in 37.5031 - percent 0.39086
+	21 of 21 in 56.2637 - percent 0.390416
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_20 32 8894198 57.5957
+Perman: [veni] running with 32 rows:
+	4 of 21 in 19.5691 - percent 0.6736
+	6 of 21 in 29.466 - percent 0.674474
+	8 of 21 in 39.3408 - percent 0.674256
+	9 of 21 in 44.3044 - percent 0.674793
+	10 of 21 in 49.2187 - percent 0.674125
+	11 of 21 in 54.2844 - percent 0.676579
+	12 of 21 in 59.0172 - percent 0.672609
+	13 of 21 in 64.0465 - percent 0.674255
+	15 of 21 in 74.033 - percent 0.675785
+	16 of 21 in 78.7321 - percent 0.67239
+	20 of 21 in 98.6201 - percent 0.674125
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_21 32 1877887 105.877
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.73955 - percent 0.407976
+	2 of 21 in 5.06197 - percent 0.371066
+	3 of 21 in 7.82521 - percent 0.383361
+	6 of 21 in 15.8347 - percent 0.384971
+	8 of 21 in 21.4855 - percent 0.39193
+	10 of 21 in 26.6311 - percent 0.387754
+	11 of 21 in 29.5185 - percent 0.391391
+	12 of 21 in 32.1899 - percent 0.391122
+	18 of 21 in 48.5787 - percent 0.39318
+	21 of 21 in 56.2447 - percent 0.389539
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_22 32 7567788 57.6813
+Perman: [veni] running with 32 rows:
+	1 of 21 in 3.64906 - percent 0.560441
+	2 of 21 in 7.29735 - percent 0.56044
+	3 of 21 in 10.9438 - percent 0.56044
+	4 of 21 in 14.5926 - percent 0.560433
+	5 of 21 in 18.2363 - percent 0.560429
+	6 of 21 in 21.8818 - percent 0.560426
+	7 of 21 in 25.5292 - percent 0.560423
+	9 of 21 in 32.8246 - percent 0.56042
+	11 of 21 in 40.1206 - percent 0.560422
+	12 of 21 in 43.7704 - percent 0.560424
+	13 of 21 in 47.4197 - percent 0.560425
+	14 of 21 in 51.0677 - percent 0.560426
+	15 of 21 in 54.7159 - percent 0.560427
+	16 of 21 in 58.3625 - percent 0.560428
+	17 of 21 in 62.011 - percent 0.560427
+	19 of 21 in 69.3107 - percent 0.560425
+	20 of 21 in 72.9594 - percent 0.560424
+	21 of 21 in 76.6087 - percent 0.560423
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_23 32 18007786 78.342
+Perman: [veni] running with 32 rows:
+	1 of 21 in 3.65046 - percent 0.560441
+	2 of 21 in 7.30028 - percent 0.56044
+	3 of 21 in 10.9478 - percent 0.56044
+	4 of 21 in 14.5962 - percent 0.560433
+	5 of 21 in 18.2452 - percent 0.560429
+	6 of 21 in 21.892 - percent 0.560426
+	7 of 21 in 25.5373 - percent 0.560423
+	9 of 21 in 32.8325 - percent 0.56042
+	11 of 21 in 40.129 - percent 0.560422
+	12 of 21 in 43.7795 - percent 0.560424
+	13 of 21 in 47.4288 - percent 0.560425
+	14 of 21 in 51.0803 - percent 0.560426
+	15 of 21 in 54.7292 - percent 0.560427
+	16 of 21 in 58.3785 - percent 0.560428
+	17 of 21 in 62.0273 - percent 0.560427
+	19 of 21 in 69.3236 - percent 0.560425
+	20 of 21 in 72.9736 - percent 0.560424
+	21 of 21 in 76.6232 - percent 0.560423
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_24 32 4147708 78.3564
+Perman: [veni] running with 32 rows:
+	1 of 21 in 5.8775 - percent 0.890625
+	2 of 21 in 11.7485 - percent 0.890625
+	3 of 21 in 17.6152 - percent 0.890625
+	4 of 21 in 23.4836 - percent 0.890625
+	5 of 21 in 29.357 - percent 0.890625
+	6 of 21 in 35.2176 - percent 0.890625
+	7 of 21 in 41.0784 - percent 0.890625
+	8 of 21 in 46.9273 - percent 0.890625
+	9 of 21 in 52.7814 - percent 0.890625
+	10 of 21 in 58.638 - percent 0.890625
+	11 of 21 in 64.4905 - percent 0.890625
+	12 of 21 in 70.3447 - percent 0.890625
+	13 of 21 in 76.2087 - percent 0.890625
+	14 of 21 in 82.0651 - percent 0.890625
+	15 of 21 in 87.9205 - percent 0.890625
+	16 of 21 in 93.7707 - percent 0.890625
+	17 of 21 in 99.6254 - percent 0.890625
+	18 of 21 in 105.481 - percent 0.890625
+	19 of 21 in 111.341 - percent 0.890625
+	20 of 21 in 117.192 - percent 0.890625
+	21 of 21 in 123.043 - percent 0.890625
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_25 32 2859149 125.823
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.51097 - percent 0.344244
+	2 of 21 in 5.06488 - percent 0.345141
+	5 of 21 in 12.6681 - percent 0.344224
+	6 of 21 in 15.1918 - percent 0.343987
+	8 of 21 in 20.2784 - percent 0.34414
+	14 of 21 in 35.5126 - percent 0.344129
+	16 of 21 in 40.6063 - percent 0.344255
+	19 of 21 in 48.2308 - percent 0.344299
+ [vidi] 3 0 /home/kaya/sparyser/matrices/c100.mtx_26 32 10900558 54.532
+Perman: [veni] running with 32 rows:
+	1 of 21 in 2.51165 - percent 0.344244
+	2 of 21 in 5.06523 - percent 0.345141
+	5 of 21 in 12.6703 - percent 0.344224
+	6 of 21 in 15.197 - percent 0.343987

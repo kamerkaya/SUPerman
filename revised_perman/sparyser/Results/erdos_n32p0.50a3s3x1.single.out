@@ -1,0 +1,28 @@
+Number of rows/cols is 32
+Number of nnz is    492
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 9
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 3
+Single run 1
+************************************************************************
+Perman: [veni] running with 32 rows:
+	1 of 21 in 3.02972 - percent 0.182822
+	2 of 21 in 5.6293 - percent 0.168023
+	4 of 21 in 11.2954 - percent 0.163046
+	5 of 21 in 13.9674 - percent 0.158932
+	6 of 21 in 16.7514 - percent 0.157631
+	8 of 21 in 23.3758 - percent 0.165917
+	9 of 21 in 26.1951 - percent 0.16413
+	10 of 21 in 28.9498 - percent 0.162146
+	15 of 21 in 46.1605 - percent 0.173223
+	16 of 21 in 50.0344 - percent 0.17663
+	17 of 21 in 52.8848 - percent 0.174976
+	19 of 21 in 59.5744 - percent 0.176281
+	20 of 21 in 62.5032 - percent 0.175074
+ [vidi] 3 3 /home/kaya/sparyser/ErdosRenyi/erdos_32.0.50.1.mtx_0 32 0 66.687
+Overall perman is: 0 in 66.6871

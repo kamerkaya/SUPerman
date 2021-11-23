@@ -1,0 +1,28 @@
+reader = open("mat.txt", "r")
+lines = reader.readlines()
+#print(lines)
+
+lines2 = []
+for item in lines:
+    lines2.append(item.strip("\n"))
+
+#print(lines2)
+
+writer = open("mat2.txt", "w")
+writer.write("%%MatrixMarket matrix coordinate integer general\n")
+writer.write("%-------------------------------------------------------------------------------\n")
+
+nnzs = 0
+int_nnzs = []
+
+for i in range(len(lines2)):
+    str_nnzs = lines2[i].split(' ')
+
+    for j in range(len(str_nnzs)):
+        nnz = int(lines2[j])
+        int_nnzs.append(nnz, [i+1, j+1])
+
+
+    
+for item in int_nnzs:
+    print(item)

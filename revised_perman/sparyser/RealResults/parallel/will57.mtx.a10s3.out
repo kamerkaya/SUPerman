@@ -1,0 +1,2419 @@
+Number of rows/cols is 57
+Number of nnz is    281
+#d1 vertices: 0
+#d2 vertices: 8
+min degree: 2
+************************************************************************
+Algo is 10
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 3
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_0 32 13318596711763136 0.113754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1 32 14031682200723852 0.091213
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_2 32 13188277217525760 0.421416
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_3 32 6594395075772416 0.325699
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_4 32 9553667808034816 0.325401
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_5 32 9499771531952128 0.323968
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_6 32 9553667954049024 0.324082
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_7 32 7852114414403584 0.323815
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_8 32 9224106984865792 0.32417
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_9 32 7801928352268288 0.440895
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_10 32 18435361929338814464 0.321504
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_11 32 5553461433204736 0.403434
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_12 32 21603204462542848 0.448705
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_13 32 3716864697958400 0.403
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_14 32 6597069766656 0.420565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_15 32 7306003642843136 0.442514
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_16 32 1489851981224448 0.205298
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_17 32 1480804191590400 0.255223
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_18 32 1489851762955008 0.284864
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_19 32 1224453005760512 0.255634
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_20 32 1438581698230272 0.266517
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_21 32 2352398059995136 0.431695
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_22 32 387542331555840 0.18696
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_23 32 389050537952000 0.181009
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_24 32 319684811218944 0.180766
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_25 32 375478803014464 0.180878
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_26 32 6394507767578624 0.395764
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_27 32 10235865917816832 0.312784
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_28 32 3395715665494016 0.308044
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_29 32 3372749938491392 0.308412
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_30 32 3396837255938048 0.308631
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_31 32 2789758661033984 0.307784
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_32 32 3280209834934272 0.307815
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_33 32 6373611141070848 0.31231
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_34 32 1200113972150272 0.253171
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_35 32 1195814575669248 0.302671
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_36 32 1199789651787776 0.335921
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_37 32 985982505582592 0.302523
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_38 32 1158032134242304 0.315669
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_39 32 12126877984348512 0.113544
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_40 32 12776158152512784 0.0906515
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_41 32 12008587899437056 0.726605
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_42 32 6004100891148288 0.729177
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_43 32 8698975585435648 0.805735
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_44 32 8650097504550912 0.805724
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_45 32 8698975585435648 0.805776
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_46 32 7149062985940992 0.805836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_47 32 8398759686635520 0.806217
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_48 32 5567926883057664 0.761313
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_49 32 1607365740724224 1.29123
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_50 32 1522591139364864 1.60646
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_51 32 1492370675728384 1.80072
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_52 32 1248248761155584 1.61355
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_53 32 1482402861940736 1.67587
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_54 32 7305998708698112 0.966943
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_55 32 1489852401280128 0.703122
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_56 32 1480804889750144 0.877107
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_57 32 1489850444735360 0.972351
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_58 32 1224452866454976 0.875002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_59 32 1438581690875136 0.910754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_60 32 2352396695810048 0.943635
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_61 32 387542519246432 0.620434
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_62 32 389050464438144 0.618952
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_63 32 319684901630352 0.618623
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_64 32 375478957272448 0.617689
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_65 32 13605993879437312 0.669872
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_66 32 2774766882652160 1.43241
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_67 32 2755486417944576 1.79924
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_68 32 2774435073359872 2.00137
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_69 32 2280407504519168 1.79289
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_70 32 2679443130679296 1.86689
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_71 32 3095752766745554 0.26503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_72 32 3467444689567744 0.649812
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_73 32 498551214833664 1.09091
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_74 32 409689638567936 1.11049
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_75 32 481235504726016 0.987071
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_76 32 3587328484311040 0.661108
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_77 32 593255477542912 0.948277
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_78 32 595506566791168 0.948373
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_79 32 489332432437248 0.94905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_80 32 574758298058752 0.952321
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_81 32 12677638723346432 1.10108
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_82 32 8955152841048064 0.953919
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_83 32 4428465886471502 0.222428
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_84 32 4403586864669872 0.221257
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_85 32 4428465886487588 0.220536
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_86 32 3639445479746182 0.221834
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_87 32 4275637609564097 0.221973
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_88 32 4381891650461184 0.234061
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_89 32 734365508798208 0.335008
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_90 32 738514465614464 0.334302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_91 32 606933238542912 0.33443
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_92 32 713028013224000 0.334607
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_93 32 0 0.467977
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_94 32 17122404308285915136 0.184454
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_95 32 9671339462289784832 0.195596
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_96 32 6508123674015432704 0.159226
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_97 32 433189989157699584 0.11858
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_98 32 17436248907318296576 0.252954
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_99 32 18414304082643648512 0.16815
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_100 32 511609346398720 0.190458
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_101 32 55956238110361 0.302765
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_102 32 65348419990685 0.219175
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_103 32 150671763627520 0.111
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_104 32 17064668506197 0.372365
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_105 32 8232556017471104 0.429668
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_106 32 1607136362628026 0.289253
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_107 32 1566957953374876 0.287953
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_108 32 1255575283168632 0.336903
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_109 32 1466511930758334 0.336339
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_110 32 1600181864327410 0.339033
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_111 32 2089757010568624 0.428924
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_112 32 224519348531241 0.835867
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_113 32 262108560749619 0.552944
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_114 32 2173747173250048 0.366409
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_115 32 336863683314482 0.506624
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_116 32 269735050277470 0.582794
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_117 32 314894313086944 0.436077
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_118 32 6293665036337152 0.436843
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_119 32 1275729270319488 0.131197
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_120 32 1268562249848832 0.164978
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_121 32 1275729270530432 0.183708
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_122 32 1048432403098432 0.163629
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_123 32 1231703301899264 0.170634
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_124 32 9383069176233920 0.13411
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_125 32 1817917237554112 0.107045
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_126 32 1770959971046400 0.106792
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_127 32 1418780432541088 0.106894
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_128 32 1656920882908416 0.106785
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_129 32 1850625810983552 0.365522
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_130 32 1752259326113216 0.136432
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_131 32 188259266231751 0.838864
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_132 32 219777785961769 0.556736
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_133 32 1814111605259856 0.11737
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_134 32 281131275955888 0.158374
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_135 32 225108739464464 0.181147
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_136 32 262796627794544 0.136084
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_137 32 6872532189902272 0.12038
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_138 32 1341636344663168 0.102411
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_139 32 1308095432638352 0.102439
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_140 32 1048153391384160 0.119605
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_141 32 1224243160722816 0.119669
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_142 32 1360168390583757 0.339559
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_143 32 1752259324815360 0.134624
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_144 32 188259266258508 0.838057
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_145 32 219777785947356 0.555109
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_146 32 1814111605263232 0.113981
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_147 32 281131276143968 0.156775
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_148 32 225108739433160 0.180242
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_149 32 262796627786604 0.13537
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_150 32 2047599834629738 0.233661
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_151 32 2157229532078968 0.215119
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_152 32 2027560094603584 0.228638
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_153 32 1013779988760320 0.324609
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_154 32 1468802187223552 0.327167
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_155 32 1460550495959552 0.326383
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_156 32 1468802187223552 0.32692
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_157 32 1207105489410240 0.326244
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_158 32 1418113176034944 0.326518
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_159 32 1095473003395557 0.0947515
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_160 32 183591377141747 0.141113
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_161 32 184628616560639 0.140947
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_162 32 151733309276144 0.140655
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_163 32 178257002987501 0.140789
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_164 32 4609152743636992 0.466874
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_165 32 272958056562688 0.184473
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_166 32 18446682213295587328 0.195109
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_167 32 18446567864086298624 0.159209
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_168 32 93991064305664 0.118924
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_169 32 50288698327040 0.253732
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_170 32 12765179674624 0.168028
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_171 32 852709587025697 0.0769277
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_172 32 123085744373784 0.0616997
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_173 32 101155539517447 0.0622414
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_174 32 118838001991615 0.0556837
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_175 32 764099705179888 0.15067
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_176 32 83571861736582 0.238552
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_177 32 97599290075946 0.172911
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_178 32 225031561547704 0.0875757
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_179 32 25486454289685 0.293234
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_180 32 2179700944797696 0.258034
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_181 32 449105432131904 0.190142
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_182 32 446029492306048 0.23648
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_183 32 449105443042240 0.264822
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_184 32 369127859159040 0.236788
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_185 32 433725054484480 0.245775
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_186 32 490040715340796 0.186429
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_187 32 565299993640960 0.276648
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_188 32 80268265447936 0.156376
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_189 32 65956870145280 0.161096
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_190 32 77468242660672 0.141672
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_191 32 583085835681792 0.254341
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_192 32 96059668760688 0.155422
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_193 32 96433415785792 0.155125
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_194 32 79239862728032 0.155714
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_195 32 93069467711296 0.155114
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_196 32 3777050984839803 0.865237
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_197 32 2731928631836672 0.532366
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_198 32 1319373570710136 0.235446
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_199 32 1311961360357008 0.23493
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_200 32 1319373571002768 0.234768
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_201 32 1084300591135896 0.234969
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_202 32 1273841418112144 0.234574
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_203 32 1148938745610336 0.112738
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_204 32 165845421342720 0.147639
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_205 32 136296718663703 0.150064
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_206 32 160122023976924 0.13459
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_207 32 1022632786919424 0.486483
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_208 32 112985959825408 0.428785
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_209 32 134141324558336 0.309883
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_210 32 304479425527808 0.15741
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_211 32 34407196917760 0.528248
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_212 32 876522777968776 0.101687
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_213 32 90864479109120 0.0865607
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_214 32 106748015984654 0.0651987
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_215 32 761433686323616 0.153539
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_216 32 87670024670442 0.319165
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_217 32 225031561568940 0.0828379
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_218 32 1307440399859712 0.203498
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_219 32 144271775506432 0.225753
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_220 32 364787947012096 0.244175
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_221 32 243307184807936 0.0867962
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_222 32 2373772061683072 0.307408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_223 32 402757976176928 0.234334
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_224 32 405535604229568 0.234309
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_225 32 333316935044414 0.234431
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_226 32 391647402550848 0.234492
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_227 32 419763558489581 0.186618
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_228 32 444949185806080 0.709958
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_229 32 45459868448848 0.410886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_230 32 53393906523136 0.309063
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_231 32 728216727412736 0.321717
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_232 32 103401170010418 0.181927
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_233 32 84965298402230 0.187095
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_234 32 99794150338232 0.164333
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_235 32 490040715340797 0.186457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_236 32 176701728153600 0.13574
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_237 32 4432879039471943680 0.35738
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_238 32 15550366563356901376 0.443502
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_239 32 17744182531839754240 0.298687
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_240 32 18446744073709551494 0.132608
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_241 32 44 0.147118
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_242 32 9223372036854775808 0.222873
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_243 32 18446743914334388224 0.0942368
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_244 32 18445708333756186624 2.84736
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_245 32 1293354239262720 0.959212
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_246 32 979802299301888 1.10015
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_247 32 936751224848384 1.10799
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_248 32 885889869807616 0.960598
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_249 32 989972244987904 1.00778
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_250 32 901517178469887 0.0962562
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_251 32 130696841134087 0.0789916
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_252 32 107414812753924 0.0819586
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_253 32 126199176560600 0.0718123
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_254 32 760494021410816 0.790515
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_255 32 83008329613312 0.88563
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_256 32 96198610386944 1.18956
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_257 32 301695414304768 0.534222
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_258 32 34136433623040 1.79352
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_259 32 1147304292249441 0.127133
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_260 32 162908369510451 0.099833
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_261 32 133862691225518 0.102191
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_262 32 157225519411165 0.0904352
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_263 32 480720972349558 0.0988474
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_264 32 68258674114552 0.0780543
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_265 32 56088522915845 0.079878
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_266 32 65877557575688 0.0707744
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_267 32 0 0.475636
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_268 32 0 0.33531
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_269 32 0 0.335311
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_270 32 0 0.335549
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_271 32 9223372036854775808 0.335225
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_272 32 881801950134272 0.265596
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_273 32 136633846857728 0.361619
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_274 32 109405478060032 0.413343
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_275 32 127629711638528 0.313621
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_276 32 2799897770196992 0.934686
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_277 32 465604058284032 2.13399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_278 32 453514690035712 2.13458
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_279 32 362621886791680 2.13308
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_280 32 421537727381504 2.13399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_281 32 958636163596288 0.828709
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_282 32 151426988892160 0.697545
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_283 32 121390768848896 0.78146
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_284 32 141802764500992 0.608893
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_285 32 736034214510592 1.88174
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_286 32 79078500278272 4.03533
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_287 32 92308089675776 2.67897
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_288 32 4955737279002997 0.113586
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_289 32 5221070363113498 0.0915204
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_290 32 4907237791358976 0.422062
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_291 32 2453617360519168 0.326463
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_292 32 3554892747816960 0.327825
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_293 32 3534921039941632 0.327291
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_294 32 3554892747882496 0.327779
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_295 32 2921517035880448 0.327267
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_296 32 3432211983376384 0.327029
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_297 32 2774844521316352 0.440988
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_298 32 512008638169088 0.323941
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_299 32 509286677479424 0.403848
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_300 32 511773354491904 0.449768
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_301 32 420548484005888 0.400595
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_302 32 494352723869696 0.419174
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_303 32 2657514673209344 0.282618
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_304 32 541924402232768 0.205292
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_305 32 538633360557760 0.25624
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_306 32 541924381594368 0.285865
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_307 32 445387283530592 0.255494
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_308 32 523275161426808 0.266044
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_309 32 855670144155648 0.27493
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_310 32 140966173159972 0.182288
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_311 32 141514676221320 0.181274
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_312 32 116283369419908 0.181104
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_313 32 136578108546604 0.181713
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_314 32 5577538181005312 0.41079
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_315 32 1148841115254784 0.317116
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_316 32 1140976126918656 0.393728
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_317 32 1148845239566336 0.437232
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_318 32 944250651279360 0.393478
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_319 32 1109499158069248 0.411126
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_320 32 1281902591923227 0.265815
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_321 32 1453693467623424 0.406461
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_322 32 206460507521024 0.322041
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_323 32 169651960643584 0.327382
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_324 32 199259479343104 0.290888
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_325 32 1491101420617728 0.404519
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_326 32 245640019623936 0.27965
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_327 32 246592821526528 0.279805
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_328 32 202626505392128 0.279942
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_329 32 237992554250240 0.279879
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_330 32 8023877855773724 0.577343
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_331 32 5803645157244928 0.636533
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_332 32 2802846015060480 0.236917
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_333 32 2787099686615552 0.23695
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_334 32 2802846049633792 0.236624
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_335 32 2303462548710912 0.237029
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_336 32 2706118599129088 0.236821
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_337 32 2717933084082176 0.453493
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_338 32 456304196845568 0.362984
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_339 32 458873777029120 0.362492
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_340 32 377120161660928 0.362902
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_341 32 443039019958272 0.362836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_342 32 2867348173365248 0.337983
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_343 32 482725170056140 0.260049
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_344 32 485674610334476 0.259024
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_345 32 399157674821548 0.258643
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_346 32 468961109733536 0.258763
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_347 32 893189032847440 0.354738
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_348 32 126825960964782 0.221936
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_349 32 104213580604148 0.225788
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_350 32 122401799225221 0.200615
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_351 32 2840291413250048 0.620415
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_352 32 313416924039808 0.686267
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_353 32 516337940037632 0.836135
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_354 32 689173906704384 0.313787
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_355 32 5349061322342400 0.389003
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_356 32 907574754811904 0.432643
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_357 32 913833994928128 0.433167
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_358 32 751096396630016 0.431885
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_359 32 882538202363904 0.432658
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_360 32 969102388799931 0.265004
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_361 32 1012455657996288 0.733727
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_362 32 103434691907584 1.13154
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_363 32 121486940899328 0.837713
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_364 32 1638416076136448 0.406359
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_365 32 232644062779904 0.372168
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_366 32 191164870712320 0.378609
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_367 32 224528565263360 0.336284
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_368 32 1131911590118422 0.265189
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_369 32 408151257292800 0.193552
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_370 32 4656887767022592 1.10059
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_371 32 3489781187084288 0.95263
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_372 32 1626712069559668 0.119276
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_373 32 1617573237711869 0.119237
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_374 32 1626712069536712 0.119387
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_375 32 1336880545151318 0.118447
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_376 32 1570573531054962 0.118371
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_377 32 1460630671038624 0.234366
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_378 32 244788502737691 0.179359
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_379 32 246171488737380 0.178587
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_380 32 202311079028017 0.178642
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_381 32 237676004004247 0.1795
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_382 32 28217866415243264 0.467732
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_383 32 2097730746843136 0.184295
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_384 32 1995407445983232 0.195119
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_385 32 327310867693568 0.159319
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_386 32 1024195081273344 0.118576
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_387 32 18446736248279138304 0.253397
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_388 32 418999829528576 0.16809
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_389 32 255804672698848 0.190003
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_390 32 27978119369246 0.302642
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_391 32 32674210250347 0.219126
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_392 32 75335881531486 0.111098
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_393 32 8532334253410 0.372097
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_394 32 2991236050640170 0.213329
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_395 32 616314512160140 0.157388
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_396 32 612093179899971 0.19686
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_397 32 616314512201211 0.219515
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_398 32 506559873026966 0.196368
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_399 32 595207850800901 0.204401
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_400 32 1317055669913600 0.214473
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_401 32 216976478931901 0.140119
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_402 32 217820745389401 0.139296
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_403 32 178984488473842 0.139332
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_404 32 210222347325560 0.139404
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_405 32 2097888659259392 0.284035
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_406 32 425243090405767 0.200704
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_407 32 422854084459002 0.252439
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_408 32 425243090623522 0.280564
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_409 32 349477467948872 0.251211
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_410 32 410567766906288 0.26251
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_411 32 3296355115410944 0.281629
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_412 32 672197905743307 0.205511
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_413 32 668115732225259 0.255982
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_414 32 672197905779039 0.28561
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_415 32 552454149283531 0.25589
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_416 32 649065589181912 0.266501
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_417 32 1061365114364976 0.274412
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_418 32 174853098962783 0.182156
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_419 32 175533461217889 0.181205
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_420 32 144236797592934 0.180881
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_421 32 169410200947010 0.18103
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_422 32 2410523462107136 0.282987
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_423 32 496664444561924 0.205855
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_424 32 493262633262261 0.256952
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_425 32 496664444536011 0.286103
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_426 32 408217351684350 0.256799
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_427 32 479655388237663 0.266797
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_428 32 1061365114504000 0.274185
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_429 32 174853098957921 0.181386
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_430 32 175533461207269 0.181042
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_431 32 144236797598161 0.181686
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_432 32 169410200944480 0.181111
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_433 32 1023799917314869 0.233287
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_434 32 1078614766039497 0.214551
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_435 32 1013779996180480 0.228246
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_436 32 506890000297720 0.176
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_437 32 734401091527996 0.174794
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_438 32 730275244873364 0.174543
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_439 32 734401091530752 0.174074
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_440 32 603552741314560 0.174128
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_441 32 709056594209640 0.174193
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_442 32 547736501697778 0.0945834
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_443 32 91795688570879 0.0748474
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_444 32 92314308280311 0.0745824
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_445 32 75866654638069 0.0748986
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_446 32 89128501493748 0.0744205
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_447 32 504913331404931 0.169802
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_448 32 73199467560916 0.130654
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_449 32 60159886294991 0.134862
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_450 32 70680457543606 0.118756
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_451 32 153733699583810 0.201485
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_452 32 15706768343039 0.133202
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_453 32 18448043950084 0.0989072
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_454 32 426354793512848 0.0765798
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_455 32 61542872186899 0.061193
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_456 32 50577769758719 0.0619392
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_457 32 59419000995832 0.0553478
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_458 32 385408532643534 0.193847
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_459 32 40106590863378 0.159053
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_460 32 47120305029101 0.118765
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_461 32 112960311951293 0.17464
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_462 32 12298695966722 0.149544
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_463 32 461273533509264 0.213582
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_464 32 752009759214512 0.177972
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_465 32 249985001240892 0.165751
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_466 32 248272772501696 0.16745
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_467 32 249985006811792 0.167655
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_468 32 205467120356688 0.167731
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_469 32 241423869318976 0.167918
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_470 32 445863721669016 0.168435
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_471 32 88350862402668 0.130878
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_472 32 88008416860845 0.15636
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_473 32 88350865339480 0.170999
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_474 32 72598386967108 0.156383
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_475 32 85268858882528 0.163739
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_476 32 1023799917311779 0.233411
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_477 32 1078614766058423 0.211861
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_478 32 1013779999508188 0.341074
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_479 32 506889999351542 0.261061
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_480 32 734401092120496 0.261156
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_481 32 730275243529028 0.261132
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_482 32 734401092120496 0.260517
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_483 32 603552743594360 0.261522
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_484 32 709056592335170 0.261446
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_485 32 547736501698667 0.141885
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_486 32 91795688570882 0.111868
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_487 32 92314308280300 0.112263
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_488 32 75866654638101 0.111672
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_489 32 89128501493743 0.111884
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_490 32 504913331405534 0.254886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_491 32 73199467560911 0.195937
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_492 32 60159886294984 0.201522
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_493 32 70680457543587 0.178423
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_494 32 153733699583903 0.302605
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_495 32 15706768343039 0.200648
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_496 32 18448043950080 0.148514
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_497 32 426354793513056 0.114984
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_498 32 61542872186883 0.0913704
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_499 32 50577769758721 0.0926893
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_500 32 59419000995885 0.0830477
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_501 32 385408532644123 0.29109
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_502 32 40106590863387 0.238952
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_503 32 47120305029142 0.177969
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_504 32 112960311951436 0.260757
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_505 32 12298695966722 0.22439
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_506 32 461273688818240 0.319931
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_507 32 752009682912560 0.26655
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_508 32 249985002253258 0.248397
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_509 32 248272777403316 0.248487
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_510 32 249985003553313 0.248718
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_511 32 205467125761887 0.248422
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_512 32 241423873078393 0.248484
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_513 32 445863658397104 0.252696
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_514 32 88350863843685 0.196068
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_515 32 88008418972006 0.234781
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_516 32 88350864027302 0.256498
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_517 32 72598384481269 0.234839
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_518 32 85268857245969 0.245252
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_519 32 18446744073709551008 0.150216
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_520 32 18446744073709551464 0.131556
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_521 32 18446744073709551527 0.0988052
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_522 32 18446744073709551555 0.132057
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_523 32 22 0.14694
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_524 32 9223372036854775808 0.22331
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_525 32 399273984 0.0933857
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_526 32 2418350435021328 0.0863607
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_527 32 493153814200407 0.0655302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_528 32 490158952980485 0.0825271
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_529 32 493153814200327 0.0886395
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_530 32 405304551751688 0.0815586
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_531 32 476182933954547 0.0851566
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_532 32 450758589234943 0.0962886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_533 32 65348420567043 0.0788265
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_534 32 53707406376962 0.0818669
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_535 32 63099588280300 0.0717946
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_536 32 375532350865408 0.789554
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_537 32 41339788460032 0.884858
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_538 32 48284022079488 1.18828
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_539 32 150677044592640 0.533485
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_540 32 17066211147776 1.78991
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_541 32 573652146124720 0.126649
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_542 32 81454184755225 0.0997797
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_543 32 66931345612759 0.101837
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_544 32 78612759705582 0.0900789
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_545 32 240360486174779 0.0990567
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_546 32 34129337057276 0.0778491
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_547 32 28044261457922 0.0790765
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_548 32 32938778787844 0.0707093
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_549 32 2307344112229701 0.148377
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_550 32 388447097241632 0.121025
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_551 32 390820501094331 0.120748
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_552 32 321200654745516 0.121058
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_553 32 377371212595156 0.120954
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_554 32 449508082360643 0.149713
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_555 32 63826684231671 0.117575
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_556 32 52446732779514 0.120229
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_557 32 61600171991031 0.106452
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_558 32 1250123811470173 0.118602
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_559 32 210461440573438 0.0682404
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_560 32 211747355689010 0.0687729
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_561 32 174027178967067 0.0682506
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_562 32 204460503367700 0.0682316
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_563 32 407387618975744 0.579839
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_564 32 44843471663817 2.11001
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_565 32 52377175240695 2.84381
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_566 32 163445608289548 1.27002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_567 32 18511418260823 4.30044
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_568 32 371236578048121 0.105754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_569 32 37928749178890 0.0896921
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_570 32 44548389365771 0.0665779
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_571 32 9947920504990170 0.49025
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_572 32 7195325680386048 0.87777
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_573 32 3474939431371264 0.742869
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_574 32 3455417296872960 0.742195
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_575 32 3474939409120256 0.73894
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_576 32 2855808966225408 0.74024
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_577 32 3355017762411776 0.744249
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_578 32 8605974357882544 0.319891
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_579 32 1744435342541045 0.231525
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_580 32 1734635143987623 0.284765
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_581 32 1744435342541404 0.311215
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_582 32 1433629045554486 0.284392
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_583 32 1684234122853904 0.292817
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_584 32 2399 0.30256
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_585 32 18446744073709551614 0.282318
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_586 32 0 0.212854
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_587 32 0 0.623198
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_588 32 0 0.67193
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_589 32 265 0.104188
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_590 32 7967330399682560 0.572833
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_591 32 1624716579847680 0.968918
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_592 32 1614849899049984 1.20801
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_593 32 1624716598649344 1.3531
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_594 32 1335293362713088 1.20853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_595 32 1568805293059328 1.25649
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_596 32 2565344967065600 0.558073
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_597 32 422623637106560 0.850567
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_598 32 424268091859712 0.847404
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_599 32 348623399887488 0.847373
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_600 32 409468049286880 0.848784
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_601 32 448 0.400494
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_602 32 5 0.37351
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_603 32 2 0.277028
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_604 32 789 0.411796
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_605 32 18446744073709551613 0.326055
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_606 32 18446744073709551613 0.331758
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_607 32 1 0.295873
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_608 32 18446744073709550646 0.475882
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_609 32 0 0.563962
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_610 32 0 0.134041
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_611 32 8079123698155520 0.430489
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_612 32 1664654896365568 0.78776
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_613 32 1653253386788864 0.985124
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_614 32 1664655023804416 1.09472
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_615 32 1368209649061888 0.984077
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_616 32 1607646068764672 1.02443
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_617 32 1857451660047213 0.264112
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_618 32 2106884918607872 0.391437
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_619 32 299158815032320 0.667771
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_620 32 245820403889152 0.680621
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_621 32 288722996411392 0.60397
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_622 32 2160501926164320 0.423975
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_623 32 355925506052096 0.689453
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_624 32 357310403780608 0.688769
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_625 32 293603912373760 0.688982
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_626 32 344846104028160 0.690305
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_627 32 1828 0.308565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_628 32 111 0.244267
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_629 32 18446744073709551378 0.243881
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_630 32 162 0.244221
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_631 32 77 0.24322
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_632 32 2040016090679840 0.250374
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_633 32 341888264067171 0.197224
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_634 32 343819836190420 0.197298
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_635 32 282561406303275 0.197342
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_636 32 331954464635752 0.197449
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_637 32 1281283577393783 0.273312
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_638 32 184948950124300 0.216987
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_639 32 151996568963441 0.221004
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_640 32 178566281697356 0.197668
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_641 32 874477739781330 0.250455
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_642 32 146554567777864 0.197592
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_643 32 147382559686505 0.19778
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_644 32 121123387735543 0.197508
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_645 32 142296323678139 0.197552
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_646 32 513844949095259 0.210048
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_647 32 74171780185650 0.167779
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_648 32 60956583395115 0.170016
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_649 32 71612079906555 0.152617
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_650 32 395 0.452119
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_651 32 18446744073709551487 0.342745
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_652 32 18446744073709551553 0.342894
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_653 32 52 0.342931
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_654 32 83 0.343127
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_655 32 419 0.472706
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_656 32 3 0.255859
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_657 32 9 0.259988
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_658 32 18446744073709551582 0.231252
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_659 32 772 0.488476
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_660 32 18446744073709551615 0.372202
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_661 32 18446744073709551610 0.382091
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_662 32 18446744073709551515 0.338951
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_663 32 73 0.526461
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_664 32 15 0.39692
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_665 32 26 0.295099
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_666 32 1053553234090912 0.286831
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_667 32 178756399411134 0.21915
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_668 32 179989202167423 0.218968
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_669 32 147936330547447 0.218852
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_670 32 173825188395702 0.218623
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_671 32 448000521022443 0.299444
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_672 32 63612622134744 0.169935
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_673 32 52270836793507 0.174538
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_674 32 61393577177714 0.153506
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_675 32 2837362977990080 0.475248
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_676 32 2989277046314816 0.487671
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_677 32 2809593738063768 0.387303
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_678 32 1404796868997052 0.0998957
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_679 32 2035321975314430 0.102725
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_680 32 2023887582195252 0.102059
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_681 32 2035321975314430 0.102218
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_682 32 1672688364945260 0.102139
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_683 32 1965082131864802 0.102185
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_684 32 1864746356313224 0.161137
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_685 32 193308390745272 0.137135
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_686 32 227099604114432 0.103008
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_687 32 6049727718735952 0.427788
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_688 32 877055170421499 0.329487
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_689 32 720818621810692 0.338401
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_690 32 846873109851845 0.299442
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_691 32 1841993399370356 0.50683
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_692 32 188194024413752 0.33608
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_693 32 221039207927103 0.24959
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_694 32 1244544171705251 0.329423
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_695 32 921319807618942 0.552657
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_696 32 102024271208473 0.600212
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_697 32 271209173778384 0.197759
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_698 32 146617532559355 0.168685
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_699 32 5214772641829596 0.246593
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_700 32 1074452167250145 0.259322
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_701 32 1067092905830379 0.323775
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_702 32 1074452167250121 0.363181
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_703 32 883111370342444 0.324507
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_704 32 1037655860152211 0.336473
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_705 32 1022810911145984 0.209554
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_706 32 113951046711296 0.230109
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_707 32 1041814177972224 0.259538
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_708 32 147863042606848 0.339837
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_709 32 121499841180864 0.346801
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_710 32 142705158103008 0.307396
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_711 32 1654179404274812 0.213116
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_712 32 272515453138919 0.227572
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_713 32 273575824551939 0.227089
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_714 32 224798739554328 0.227045
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_715 32 264032481835012 0.226933
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_716 32 1194585091342336 0.209589
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_717 32 133088247193600 0.229957
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_718 32 478740307820546 0.458811
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_719 32 18446744073701643452 0.737313
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_720 32 23386 1.34842
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_721 32 11664 1.37842
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_722 32 37895 1.22255
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_723 32 1118387 0.572859
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_724 32 18446744073709537018 0.634988
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_725 32 267164 0.706348
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_726 32 18446744073709528049 0.58882
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_727 32 18446744073709545201 0.439465
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_728 32 2176 0.634857
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_729 32 14038 0.579645
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_730 32 42870 0.2778
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_731 32 18446744073709469976 0.572017
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_732 32 10757 0.636115
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_733 32 344458 0.705894
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_734 32 18446744073709532249 0.589484
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_735 32 754 0.439275
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_736 32 18446744073709309596 0.63463
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_737 32 16291 0.580307
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_738 32 18446744073709498016 0.274581
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_739 32 1355850772986400 0.315993
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_740 32 274831635457208 0.236026
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_741 32 273287637504608 0.288917
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_742 32 274831635456698 0.318129
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_743 32 225864843262606 0.288891
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_744 32 265347076606354 0.298507
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_745 32 255812876105912 0.53287
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_746 32 36925723313152 0.286542
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_747 32 30346661855474 0.289545
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_748 32 35651400597051 0.259939
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_749 32 386077222534460 0.482875
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_750 32 40176176430619 0.396877
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_751 32 47202059500736 0.294536
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_752 32 113156299876327 0.433771
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_753 32 12320034398292 0.372814
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_754 32 18446744073709551610 0.390543
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_755 32 18446744073709551605 0.421265
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_756 32 704 0.277596
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_757 32 604448642102304 0.468215
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_758 32 102556813822466 0.354862
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_759 32 103264102195725 0.355117
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_760 32 84874604543924 0.354889
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_761 32 99727660340344 0.354961
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_762 32 257028594087814 0.445559
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_763 32 36496079954143 0.31413
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_764 32 29989026938656 0.319137
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_765 32 35222960885580 0.283522
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_766 32 4131712 0.572166
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_767 32 980 0.634387
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_768 32 153008 0.703457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_769 32 167 0.589561
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_770 32 2611 0.439251
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_771 32 55586 0.575157
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_772 32 153 0.634309
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_773 32 2158 0.897035
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_774 32 18446744073709480224 0.573582
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_775 32 18446744073709551438 0.634503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_776 32 5922 0.379399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_777 32 18446744073709551380 0.247952
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_778 32 96 0.859789
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_779 32 46518 0.601927
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_780 32 178 0.656719
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_781 32 1321 0.887277
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_782 32 18446744073709538172 0.57183
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_783 32 18446744073709551518 0.634554
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_784 32 29081 0.424136
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_785 32 311 0.248272
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_786 32 122 0.850656
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_787 32 293528565393440 0.259027
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_788 32 32389916000203 0.461116
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_789 32 319519102203720 0.227451
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_790 32 33122854895690 0.193694
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_791 32 38912885194936 0.145853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_792 32 1902 0.148891
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_793 32 21 0.119138
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_794 32 7 0.121108
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_795 32 18446744073709551604 0.108582
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_796 32 27271 0.22218
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_797 32 18446744073709551610 0.395666
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_798 32 592 0.297869
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_799 32 172504006959321 0.379607
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_800 32 45717437545640 0.393342
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_801 32 186582764665029 0.39615
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_802 32 20661631746239 0.427935
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_803 32 54924421533235 0.277189
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_804 32 85134486037981 0.255766
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_805 32 126786568691923 0.371213
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_806 32 45717437549928 0.120968
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_807 32 75173226720886 0.419987
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_808 32 27106398831613 0.138676
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_809 32 137051159003957 0.394033
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_810 32 15268815912642 0.428734
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_811 32 54924421497007 0.372878
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_812 32 41 0.420431
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_813 32 18446744073709551605 0.348158
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_814 32 3 0.259801
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_815 32 26 0.327549
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_816 32 18446744073709551612 0.326674
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_817 32 18446744073709551614 0.205321
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_818 32 924 0.264226
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_819 32 11 0.556603
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_820 32 3528191259491362 0.547863
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_821 32 1376545209045097 0.422937
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_822 32 643799600523817 0.254886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_823 32 4523539344752640 0.254248
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_824 32 2485190484033536 0.757349
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_825 32 2371899870452480 2.04319
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_826 32 1242595376234496 0.757642
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_827 32 1185949077402496 2.04275
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_828 32 1841040977190746 0.287113
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_829 32 1677267395512320 0.254068
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_830 32 1824098882163722 0.286952
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_831 32 1674443715770112 0.253824
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_832 32 1841040977190746 0.286814
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_833 32 1677267395511389 0.253961
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_834 32 1513493809432373 0.286874
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_835 32 1377957053423777 0.253631
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_836 32 1778919962433810 0.286585
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_837 32 1617970058475414 0.253895
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_838 32 824520497586176 0.195608
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_839 32 868665810129552 0.200511
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_840 32 816450925345856 0.306682
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_841 32 408225462673632 0.283763
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_842 32 591452240102094 0.285061
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_843 32 588129474721632 0.285191
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_844 32 591452240102090 0.284843
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_845 32 486073109044562 0.285587
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_846 32 571040966968400 0.285862
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_847 32 1894221103497216 0.491119
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_848 32 318132656799744 0.184503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_849 32 256220971663360 0.19518
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_850 32 292013350060032 0.159323
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_851 32 643645141155840 0.118925
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_852 32 61055074041856 0.253106
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_853 32 78104517148672 0.16808
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_854 32 504190769607588 0.198634
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_855 32 58051565035331 0.412181
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_856 32 149006850268977 0.106787
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_857 32 920896821363112 0.190501
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_858 32 100721229603683 0.302002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_859 32 117627157020166 0.218754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_860 32 271209173790832 0.110582
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_861 32 30716403352136 0.372106
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_862 32 256248493729792 0.344287
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_863 32 28026661801582 0.218273
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_864 32 32730900528890 0.158131
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_865 32 75466590592392 0.080178
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_866 32 8547137990749 0.267975
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_867 32 256248498016640 0.143153
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_868 32 28026661827987 0.227926
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_869 32 32730900569965 0.164905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_870 32 75466590530663 0.0834244
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_871 32 8547137995492 0.280234
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_872 32 2435462283188620 0.217032
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_873 32 2343250948915200 0.256946
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_874 32 1626088764801024 0.785312
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_875 32 1319886760394357 0.220139
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_876 32 1310846440077011 0.220005
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_877 32 1319886760394359 0.219941
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_878 32 1084838433123764 0.220161
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_879 32 1274685158958933 0.220019
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_880 32 1377744824508416 0.255674
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_881 32 976354589868192 0.343959
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_882 32 466480526259625 0.222089
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_883 32 464672462202927 0.222178
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_884 32 466480526258532 0.220086
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_885 32 383309579728685 0.221771
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_886 32 450207949742004 0.223156
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_887 32 3609133996626678 0.425486
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_888 32 2610475388650971 0.480499
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_889 32 1260717959310928 0.741972
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_890 32 1253635274140512 0.743505
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_891 32 1260717959188384 0.73769
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_892 32 1036095658449960 0.742309
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_893 32 1217210035803984 0.742692
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_894 32 2782791701856256 0.499085
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_895 32 722012548194304 0.135536
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_896 32 676052162795520 0.155733
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_897 32 658261816046592 0.156729
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_898 32 527301453543424 0.13545
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_899 32 615761451163392 0.142256
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_900 32 1200 0.302002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_901 32 18446744073709551615 0.282359
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_902 32 0 0.212249
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_903 32 18446744073709546647 0.259714
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_904 32 280 0.53908
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_905 32 154 0.138551
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_906 32 1464530879948475 0.23547
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_907 32 1059290628063310 0.15209
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_908 32 511579892576616 0.737823
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_909 32 508705848106628 0.737017
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_910 32 511579892390652 0.735541
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_911 32 420431629024402 0.736416
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_912 32 493925048719060 0.736925
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_913 32 1014784099090432 0.56769
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_914 32 205698000079424 0.399995
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_915 32 204542394248192 0.499929
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_916 32 205698000848896 0.556801
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_917 32 169048758726656 0.498286
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_918 32 198599273125120 0.519457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_919 32 1811595980177408 0.374293
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_920 32 307373427825920 0.779638
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_921 32 309493245062592 0.778892
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_922 32 254378009013424 0.777606
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_923 32 298894160279136 0.778485
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_924 32 1794086617626852 0.463349
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_925 32 369653708770448 0.786781
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_926 32 367121835611264 0.982175
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_927 32 369653709319552 1.09585
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_928 32 303824966118728 0.981994
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_929 32 356994336187584 1.02168
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_930 32 940588540887040 0.425126
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_931 32 154955759836688 0.711087
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_932 32 155558701443648 0.709213
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_933 32 127823428850320 0.710926
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_934 32 150132234307736 0.709149
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_935 32 594881400635789 0.392754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_936 32 84468579299564 0.664436
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_937 32 69408289616328 0.677298
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_938 32 81522001033328 0.600539
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_939 32 2197434368 0.476174
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_940 32 88834048 0.185185
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_941 32 85082112 0.185381
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_942 32 18446744073364717568 0.185458
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_943 32 18446744073396035584 0.185246
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_944 32 52575 0.168475
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_945 32 22003 0.172997
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_946 32 18446744073709540637 0.17302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_947 32 14373 0.172867
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_948 32 20068 0.173017
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_949 32 26278 0.141241
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_950 32 355 0.137162
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_951 32 18446744073709551466 0.141741
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_952 32 466 0.118556
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_953 32 18446744073709551268 0.117193
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_954 32 2 0.123635
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_955 32 85 0.164049
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_956 32 978479244877528 0.188565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_957 32 188742189367404 0.133342
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_958 32 183775289647081 0.133332
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_959 32 147213388929172 0.133384
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_960 32 171909918093085 0.133406
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_961 32 627876451857395 0.256955
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_962 32 98857143484434 0.218905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_963 32 79189618692202 0.246783
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_964 32 92474475061421 0.190251
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_965 32 419437043859905 0.181178
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_966 32 80906637901763 0.128106
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_967 32 78777515851763 0.128466
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_968 32 63104811872248 0.128301
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_969 32 73691279843336 0.128531
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_970 32 256922474544922 0.249855
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_971 32 37085890092981 0.199739
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_972 32 30478291697637 0.210542
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_973 32 35806039953497 0.181288
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_974 32 526776617045640 0.341839
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_975 32 89378199705780 0.261477
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_976 32 89994601087403 0.261231
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_977 32 73968165272841 0.260942
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_978 32 86912594197381 0.260762
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_979 32 224000260500912 0.357204
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_980 32 31806311068585 0.202947
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_981 32 26135418396749 0.208523
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_982 32 30696788586978 0.182768
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_983 32 1079886340947968 1.15914
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_984 32 781022195287264 1.04197
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_985 32 377191339434976 0.156011
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_986 32 375072286966376 0.155992
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_987 32 377191339435042 0.155917
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_988 32 309987103997966 0.156023
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_989 32 364174302841448 0.156092
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_990 32 628531530168256 0.185184
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_991 32 662183481711728 0.19263
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_992 32 622380100247118 0.387746
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_993 32 311190050119682 0.1002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_994 32 450863723778024 0.100138
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_995 32 448330781509650 0.10004
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_996 32 450863723778024 0.100029
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_997 32 370533268979719 0.0999094
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_998 32 435304221272063 0.0997619
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_999 32 1163813053399040 0.675275
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1000 32 127291610188912 3.48853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1001 32 148657398772312 2.51145
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1002 32 342754514543184 1.26742
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1003 32 38819427363587 4.29248
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1004 32 1200286107919056 0.34388
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1005 32 189774236808035 0.339065
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1006 32 152035042009303 0.359849
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1007 32 177553926426829 0.292785
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1008 32 369664398923832 0.218281
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1009 32 39716009828528 1.29216
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1010 32 46365296542604 0.854732
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1011 32 287943197458432 0.378181
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1012 32 68567390523392 0.241978
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1013 32 278769594345455 0.51762
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1014 32 32097000261088 1.07747
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1015 32 82386632229016 0.27807
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1016 32 1072543271012342 0.246679
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1017 32 220986900311130 0.258751
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1018 32 219473291404799 0.323992
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1019 32 220986900311028 0.361095
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1020 32 181633068748797 0.323903
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1021 32 213418855779861 0.336876
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1022 32 472245978788608 0.213179
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1023 32 77799497780735 0.226786
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1024 32 78102219561980 0.226635
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1025 32 64177017624577 0.227269
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1026 32 75377723530735 0.227266
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1027 32 837164240823506 0.247629
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1028 32 172489386332153 0.258262
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1029 32 171307952179202 0.323394
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1030 32 172489386332181 0.361874
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1031 32 141772098355140 0.324365
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1032 32 166582215567421 0.337651
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1033 32 536526703286880 0.238989
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1034 32 91032497049614 0.247353
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1035 32 91660307374090 0.247202
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1036 32 75337238937617 0.247078
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1037 32 88521255751675 0.247057
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1038 32 306071769621121 0.218356
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1039 32 43459833000954 0.211408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1040 32 35711180605443 0.21545
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1041 32 41943792314877 0.191328
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1042 32 301703891361248 0.212239
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1043 32 49703782104579 0.227277
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1044 32 49897182034945 0.226998
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1045 32 41000785238022 0.226995
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1046 32 48156582661628 0.227418
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1047 32 93104 0.751911
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1048 32 18446744073709551149 1.37013
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1049 32 18446744073709551579 1.39741
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1050 32 450 1.24373
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1051 32 18446744073709537472 0.719979
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1052 32 664 0.62369
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1053 32 18446744073709550796 0.463908
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1054 32 155148288 0.632288
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1055 32 1054501 0.968758
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1056 32 0 0.122495
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1057 32 4824 0.644757
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1058 32 3 0.56172
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1059 32 18446744073709551432 0.719597
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1060 32 601 0.623422
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1061 32 187 0.464296
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1062 32 25464832 0.631889
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1063 32 1491583 0.968893
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1064 32 0 0.136482
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1065 32 4167 0.64468
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1066 32 18446744073709551545 0.51455
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1067 32 677925386413357 0.373722
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1068 32 137415817730056 0.280793
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1069 32 136643818753865 0.34453
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1070 32 137415817728360 0.378412
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1071 32 112932421629473 0.343529
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1072 32 132673538303444 0.355456
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1073 32 127906438013643 0.636242
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1074 32 18462861656788 0.339478
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1075 32 15173330928302 0.343669
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1076 32 17825700298812 0.310583
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1077 32 191356357570560 0.176033
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1078 32 20929215062015 0.279457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1079 32 24442156597248 0.202573
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1080 32 56355498713088 0.102558
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1081 32 6382668423168 0.343879
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1082 32 0 0.339153
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1083 32 0 0.707233
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1084 32 0 0.181808
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1085 32 302224321018983 0.556585
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1086 32 51278406911992 0.422115
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1087 32 51632051097326 0.421663
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1088 32 42437302270991 0.421491
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1089 32 49863830169354 0.421829
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1090 32 128514297044015 0.529252
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1091 32 18248039977701 0.373832
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1092 32 14994513469714 0.380244
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1093 32 17611480442795 0.337525
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1094 32 18446744073709516476 0.716957
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1095 32 18446744073709551613 0.578144
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1096 32 6 0.418588
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1097 32 224133120 0.632815
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1098 32 18446744073709519008 0.918829
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1099 32 16959 0.378886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1100 32 18446744073709549103 0.577537
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1101 32 0 0.63882
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1102 32 45696 0.278349
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1103 32 0 0.247231
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1104 32 29827072 0.632088
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1105 32 18446744073709481197 0.968633
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1106 32 0 0.1837
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1107 32 18446744073709550464 0.436696
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1108 32 18446744073709549714 0.552435
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1109 32 2 0.635944
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1110 32 18446744073709463168 0.274612
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1111 32 18446744073709551550 0.247353
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1112 32 18446744073683951616 0.659237
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1113 32 48568 1.00536
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1114 32 0 0.180788
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1115 32 396218365820928 0.832289
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1116 32 43335584097907 1.29658
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1117 32 50609405589150 0.872011
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1118 32 73266026969462 0.257827
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1119 32 7976930789629 0.287153
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1120 32 239318658570272 0.209866
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1121 32 27554694635475 0.239466
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1122 32 44233376514048 0.162052
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1123 32 723968 0.444252
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1124 32 2351 0.501958
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1125 32 682 0.383304
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1126 32 3279232 0.390539
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1127 32 0 0.661477
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1128 32 18446744073709551156 0.349221
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1129 32 5 0.186791
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1130 32 18446744073709551609 0.188826
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1131 32 0 0.170199
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1132 32 0 0.31836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1133 32 0 0.103851
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1134 32 18446744073709551604 0.258221
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1135 32 18446744073709551611 0.289143
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1136 32 1311740631176240 0.550214
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1137 32 511783559520944 0.431618
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1138 32 239357234016859 0.340934
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1139 32 1681799453507584 0.333738
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1140 32 1151188674281472 0.449854
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1141 32 643159921211973 0.253378
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1142 32 409846893510656 0.31081
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1143 32 492965556571662 0.232431
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1144 32 684477706156032 0.382896
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1145 32 623588583387096 0.33776
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1146 32 678178823538142 0.382361
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1147 32 622538770880656 0.3382
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1148 32 684477706156032 0.381823
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1149 32 623588583387096 0.338242
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1150 32 562699464279321 0.382521
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1151 32 512308465740273 0.337867
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1152 32 661381834131135 0.382314
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1153 32 601542522346482 0.337392
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1154 32 309306828189387 0.108881
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1155 32 325867297274264 0.109772
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1156 32 306279645511392 0.306971
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1157 32 153139822754658 0.283629
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1158 32 221874673431999 0.284602
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1159 32 220628186516369 0.284354
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1160 32 221874673431998 0.284706
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1161 32 182343230815706 0.285311
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1162 32 214217682303585 0.285407
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1163 32 660936897593344 0.194913
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1164 32 104498253004800 0.192384
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1165 32 83716299214848 0.203467
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1166 32 97769321377792 0.165778
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1167 32 203551804489728 0.123757
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1168 32 21868838387712 0.263935
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1169 32 25530795846656 0.175053
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1170 32 168063590333607 0.264616
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1171 32 19350521739952 0.547712
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1172 32 49668950295922 0.1414
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1173 32 306965607173384 0.253181
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1174 32 33573743194497 0.402858
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1175 32 39209052341313 0.291453
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1176 32 90403057926244 0.147386
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1177 32 10238801118447 0.495987
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1178 32 128124249133020 0.150538
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1179 32 14013330926740 0.237938
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1180 32 16365450246951 0.164846
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1181 32 37733295249280 0.0834704
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1182 32 4273569014400 0.280317
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1183 32 128124249008335 0.143382
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1184 32 14013330913990 0.228452
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1185 32 16365450284982 0.164915
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1186 32 37733295265328 0.083344
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1187 32 4273568997746 0.280344
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1188 32 916481966701001 0.216226
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1189 32 881782199451648 0.34115
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1190 32 612348752803349 0.523826
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1191 32 496682877264890 0.221085
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1192 32 493280939749615 0.220679
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1193 32 496682877264894 0.221026
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1194 32 408232501889844 0.220707
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1195 32 479673189708867 0.220357
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1196 32 402169715492032 0.739261
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1197 32 483694813550065 0.838565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1198 32 175539975801170 0.219618
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1199 32 174859588308724 0.222169
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1200 32 175539975803038 0.221737
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1201 32 144242150658153 0.221899
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/will57.mtx_1202 32 169416488256316 0.221622
+Overall perman is: 6948776102897940138 in 471.987

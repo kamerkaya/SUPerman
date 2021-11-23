@@ -1,0 +1,1233 @@
+Number of rows/cols is 48
+Number of nnz is    306
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 4
+************************************************************************
+Algo is 10
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 3
+Single run 0
+************************************************************************
+Perman: [veni] running with 45 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_0 45 0 466.754
+Perman: [veni] running with 42 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_1 42 8527204566523707392 93.669
+Perman: [veni] running with 42 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_2 42 7892763068900614144 81.097
+Perman: [veni] running with 43 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_3 43 0 193.923
+Perman: [veni] running with 39 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_4 39 920133808711488384 17.516
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_5 32 1716021481621399 0.406069
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_6 32 3492613149524810 0.290719
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_7 32 4765621623455744 0.436062
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_8 32 5738896284975104 0.943746
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_9 32 2231312725396802 0.303237
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_10 32 1950440147263875 0.36632
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_11 32 1953265226874880 0.427524
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_12 32 2836724582187008 0.718377
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_13 33 6217859516827648 1.55973
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_14 32 3067987633150476 0.400026
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_15 32 4706132833811660 0.446251
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_16 32 4629943332516288 0.536884
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_17 32 4600244364030220 0.644201
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_18 32 3685584856376742 0.532997
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_19 32 4528780750021434 0.625227
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_20 32 3197163789644406 0.437099
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_21 32 4546896522077360 0.413064
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_22 32 4178997265759328 0.29042
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_23 32 2437654790254129 0.733265
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_24 32 4858394057837064 0.266087
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_25 32 3241990390095146 0.324965
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_26 32 2277104446677749 0.618223
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_27 32 3077961896627006 0.427311
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_28 32 3394347877876680 0.373632
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_29 32 4262161715376002 0.428722
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_30 32 4111454502681916 0.338629
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_31 32 2985580498832828 0.737631
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_32 32 2512682880898012 1.29409
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_33 32 1868101725932832 0.667648
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_34 32 3750952392929888 0.738276
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_35 32 3262128145827152 1.07554
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_36 32 3317004405132100 0.283881
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_37 32 4346544573713440 0.33402
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_38 32 1849155083462144 0.705304
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_39 32 1921771310055872 1.19746
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_40 32 3831822949548032 0.868056
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_41 32 5956743733106976 0.792564
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_42 32 4719501500778752 0.558934
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_43 32 3429292315365100 1.08789
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_44 32 6827650859362396 0.371469
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_45 32 4728669821883046 0.433782
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_46 32 3247517590870080 0.343235
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_47 32 4808931378080000 0.317576
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_48 32 7551942580190320 0.380099
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_49 32 7866598522183696 0.244033
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_50 32 4003950046019532 0.316931
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_51 32 7010057279057132 0.422775
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_52 33 6217197041074176 1.89284
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_53 32 2902169084253506 0.504378
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_54 32 4863818352791944 0.512131
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_55 32 4548170448454054 0.787461
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_56 32 4576538045266488 0.518414
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_57 32 3531948831019336 0.665162
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_58 32 4638039343735034 0.48844
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_59 32 4331702577232484 0.493686
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_60 32 3709782313539586 0.503733
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_61 32 4329348807131136 1.24946
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_62 32 1953554807752054 0.783155
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_63 32 2711264871491489 0.514443
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_64 32 2511679962836769 0.581138
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_65 32 1533091745159319 0.545201
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_66 32 2564315023499098 0.928442
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_67 32 1022360392040448 1.24035
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_68 32 1586695932882944 0.807323
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_69 32 643549552048397 0.51764
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_70 32 934069054314093 0.364906
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_71 32 1585687219598169 0.507458
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_72 32 1894401045339159 0.391417
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_73 32 1878189745478352 0.284963
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_74 32 1202317325812370 0.726253
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_75 32 1862919045119480 0.438276
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_76 32 2503112940479242 0.413191
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_77 32 2228429373302614 0.290586
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_78 32 1420298511657569 0.734602
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_79 32 330484047898484 0.652402
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_80 32 762947172072012 0.545327
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_81 32 746339140130008 0.380666
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_82 32 718001330826063 0.553503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_83 32 1514457209503744 1.17168
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_84 32 1451349036560384 0.58999
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_85 32 2169718501669376 0.95363
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_86 32 702857888538936 1.14678
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_87 32 2148096155847920 0.493239
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_88 32 1577479661369170 0.550729
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_89 32 2866674889071808 0.573267
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_90 32 1762463981506870 0.942968
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_91 32 2064045271875584 1.04979
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_92 32 1255021641286466 0.500588
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_93 32 1078446458455517 0.504754
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_94 32 1651149482024080 0.785695
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_95 32 1534456925741424 0.523976
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_96 32 800412623275380 0.523139
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_97 32 704112393558410 0.593936
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_98 32 712189374368541 0.842836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_99 32 841849777525982 0.999045
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_100 32 911894681691680 0.710996
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_101 32 765623171948579 0.647875
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_102 32 904692229621808 0.795466
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_103 32 1346093821674704 0.898255
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_104 32 772910785405390 0.621085
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_105 32 704704627620121 0.71891
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_106 32 307150691515578 1.3915
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_107 32 678158693630640 0.549701
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_108 32 686479770849280 0.471173
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_109 32 611766256299231 0.435218
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_110 32 593662887099406 0.753296
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_111 32 805236455509991 0.93131
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_112 32 423618131072146 0.424015
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_113 32 418249597327698 0.555902
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_114 32 1450143504138240 1.45733
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_115 32 1751972631630784 0.759233
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_116 32 1699079280009907 0.592707
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_117 32 1967985395296038 0.456664
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_118 32 775912838731085 0.749456
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_119 32 1784730469642217 0.60079
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_120 33 3433246814248576 0.628905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_121 32 1946812787183616 1.21105
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_122 32 1665313934424973 0.729024
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_123 32 2199758865361360 0.48454
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_124 32 2560479384662102 0.547507
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_125 32 1464982296655440 1.05578
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_126 32 385242662005893 0.921395
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_127 33 3026300811832750 0.836754
+Perman: [veni] running with 40 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_128 40 2155622911077097472 44.3745
+Perman: [veni] running with 40 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_129 40 1625673671399467264 43.8428
+Perman: [veni] running with 40 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_130 40 1863032627456637952 54.0761
+Perman: [veni] running with 39 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_131 39 579188472428427264 26.9031
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_132 33 4484165151381408 0.776006
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_133 32 1022987827454688 0.968012
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_134 32 4493696538738688 1.31141
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_135 32 807983451451991 0.495299
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_136 32 523336144633565 0.254459
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_137 32 1818674941902848 0.980056
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_138 32 3134926408035886 1.22749
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_139 32 682946575511436 0.540469
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_140 32 583966234125963 0.474198
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_141 32 2392922706649216 0.956157
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_142 32 2056500232716192 0.923204
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_143 32 878904110986496 1.36628
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_144 32 3641131964599808 0.979554
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_145 32 3169294812568064 1.05782
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_146 32 1479554776487816 1.14738
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_147 32 1142001468403271 0.493154
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_148 32 948693838439690 0.545302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_149 32 1301917486524273 0.82444
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_150 32 444633991985630 0.269761
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_151 32 2563078564771840 0.538578
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_152 32 2461463908703680 0.740286
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_153 32 3771917483286528 0.955212
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_154 32 3558658544196364 0.557428
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_155 32 1354925894966648 1.04572
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_156 32 4261673520939008 0.866625
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_157 32 2956574985169768 1.14402
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_158 32 1436938407755776 0.863947
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_159 32 1384885703223360 1.36408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_160 32 4086543775506840 0.978875
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_161 32 1829567078236160 0.781289
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_162 32 357879303141361 1.21152
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_163 34 10544569233787520 2.38034
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_164 34 10211413713504952 1.09111
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_165 32 4523055583845916 1.0176
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_166 32 3960340740309826 0.449665
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_167 32 4561492409380224 0.549749
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_168 32 3691315007656072 0.76146
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_169 33 10033324849589984 0.889801
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_170 32 4480045212848848 0.665083
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_171 32 1997024190425668 0.805717
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_172 32 2258902980792320 1.06484
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_173 32 1674777980833152 0.799551
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_174 32 3106492359844480 0.641406
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_175 32 1489581439214086 0.412134
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_176 32 126703321938395136 0.801255
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_177 32 830771819875944 0.563321
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_178 32 1615498261299200 0.556231
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_179 32 711648418579300 0.504904
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_180 33 10355530085149952 1.9763
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_181 33 9714118282708160 0.871823
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_182 32 8817812605472384 1.18144
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_183 32 7889562940485920 0.658602
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_184 32 9544308592419792 0.574689
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_185 32 5973350084569552 0.815331
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_186 32 2793805160351824 0.81563
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_187 32 1158352467075728 0.546029
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_188 32 2362474291708500 0.509334
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_189 32 2935347440723456 0.674405
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_190 32 4724209620421960 1.16128
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_191 32 2149977606511008 0.942088
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_192 32 3145303536374061 1.26397
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_193 32 2643788132643702 0.983077
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_194 32 3410835548803080 0.606886
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_195 32 1286557495905965 0.3402
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_196 33 4355122739536640 1.18786
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_197 32 1491276029462186 0.80822
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_198 32 749118407236558 0.219647
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_199 32 4653635558259216 0.591955
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_200 32 3741379946866318 0.76514
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_201 32 6812471337125248 1.4274
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_202 32 9777940784225204 0.649579
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_203 32 5799057427665437 1.09679
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_204 32 1506095553821750 0.852174
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_205 33 12198338284005824 1.16868
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_206 32 3040895115369396 0.82628
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_207 32 11840557952235316 1.17162
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_208 32 2762947550818944 2.35685
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_209 32 4011132126906336 1.12495
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_210 32 2615512864295810 1.21893
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_211 32 607285281015965 0.85499
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_212 32 2196108497510070 0.920979
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_213 32 2203370811597642 0.605578
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_214 32 1273662134875306 0.578921
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_215 32 3710924494627329 0.655778
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_216 32 735057083030838 0.528232
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_217 32 582454719482102 0.487433
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_218 32 2751617396377292 0.915989
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_219 32 2066171437982000 0.6311
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_220 32 1831827646666512 0.715521
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_221 32 1933076907881548 0.480421
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_222 32 1788595844177060 0.554186
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_223 32 1017732808779500 1.46983
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_224 32 1942822117427656 0.67256
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_225 32 1467385181604809 0.547239
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_226 33 2594653181856878 0.994043
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_227 32 812215371022614 1.39602
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_228 32 426625859829514 0.564529
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_229 32 3370155601007421 1.13204
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_230 32 2195783059544230 0.729954
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_231 34 14726064400793664 1.6889
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_232 32 2746188067435272 0.805518
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_233 32 1351303014542256 0.482592
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_234 33 13951769763569552 1.88561
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_235 34 9319697365800920 1.48295
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_236 32 1966527606126051 0.618017
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_237 32 920918159839569 0.240488
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_238 33 7700454412807524 1.94076
+Perman: [veni] running with 40 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_239 40 1386577591386652672 55.1988
+Perman: [veni] running with 39 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_240 39 623784704494943744 19.1274
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_241 38 238162861166478976 19.0858
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_242 38 221480756010566656 17.1868
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_243 32 3275144622808244 0.52063
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_244 32 5803915554994853 0.572203
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_245 32 4946643987580544 0.690255
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_246 32 4865832739296964 0.565769
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_247 32 3846273273675776 0.27267
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_248 32 3667843412324518 0.689169
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_249 32 2552042917121064 0.650005
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_250 32 3294939988655941 0.680788
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_251 35 48184386531499520 4.55884
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_252 35 47970625675812608 6.63888
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_253 33 6397571842857260 1.01392
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_254 32 3218729088711152 0.536796
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_255 32 3659174201231082 0.37059
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_256 34 13970188765962592 2.33211
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_257 35 27583254195335616 4.38725
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_258 35 22742867858745016 2.99596
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_259 35 34754552157722608 5.11102
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_260 33 5492117843702984 0.577424
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_261 32 2616904693454960 0.633114
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_262 32 2801577560147083 0.378646
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_263 32 1531181727185400 0.762089
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_264 32 2362953494071912 0.911972
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_265 32 1116880604626516 0.620218
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_266 32 1412323941781238 0.377271
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_267 32 2440577169749888 0.324573
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_268 32 3146935432190720 0.163825
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_269 32 1637485717071232 0.239028
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_270 32 1918997434679040 0.163779
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_271 32 1960130670137022 0.549124
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_272 32 3481302723499236 1.43757
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_273 32 3677023275417600 0.827709
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_274 32 2203458713106432 0.658285
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_275 32 2669718947233792 0.177399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_276 32 1206180726084440 0.231991
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_277 32 3390271215309568 0.254668
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_278 32 2780401303647040 0.16705
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_279 32 1233725756385098 0.32365
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_280 32 2594543845027364 0.297483
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_281 32 2806689511192008 1.11002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_282 32 1703304464855831 0.915717
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_283 32 2527291668869088 0.311805
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_284 32 2538692263739776 0.71038
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_285 32 1676033651213184 1.19544
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_286 32 1576407355741951 0.819962
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_287 33 3503633767877602 1.04337
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_288 32 5858971755020288 1.32625
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_289 32 4181566530910288 1.00266
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_290 33 3618140797457790 0.882302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_291 32 5560085861892096 0.808838
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_292 32 4834838060088448 0.960458
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_293 32 936613919906721 0.523161
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_294 32 2919937866586784 1.0684
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_295 32 1168076092467535 0.428214
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_296 32 3050192110928912 0.862175
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_297 34 4285568497895522 1.11434
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_298 32 1993247934276096 1.12395
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_299 32 4137241950089736 0.565064
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_300 32 1331268621252174 1.16149
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_301 32 4295425943463656 0.8
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_302 34 4882514327740156 0.825105
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_303 33 6342925397557248 0.7864
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_304 32 1893647064337984 1.11726
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_305 32 3215110600566998 0.350095
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_306 34 7253528521134864 1.11414
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_307 33 9338433916764160 1.0661
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_308 32 2346488743066963 0.654166
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_309 32 6576323542850464 0.707758
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_310 32 1131698623127172 0.447994
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_311 32 985921564546681 0.717214
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_312 32 2399634663784448 1.13792
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_313 32 3338141194867248 0.543874
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_314 32 1500222717908992 0.589566
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_315 32 951075673294069 0.628444
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_316 32 687619814785533 0.673483
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_317 32 1064013172045924 0.491188
+Perman: [veni] running with 39 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_318 39 916012454484981248 20.7888
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_319 37 161740800734916160 8.15265
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_320 32 833502744953997 0.570914
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_321 32 1559592606848533 0.858057
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_322 32 2405826304147456 0.689836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_323 32 3523862072836744 0.613362
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_324 32 2766428092634796 0.402051
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_325 32 2810410399732638 0.265507
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_326 32 4428887407431680 0.816541
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_327 32 1530669182895536 1.31475
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_328 32 2205372416786432 0.594651
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_329 32 3304448181542016 0.651842
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_330 32 3587175254792718 0.470822
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_331 32 4742022687259756 0.486465
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_332 32 2203071022628864 0.467084
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_333 32 2322911564796480 1.02227
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_334 32 3697442188042944 0.772081
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_335 32 1454678126799303 0.695739
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_336 32 958180318724096 1.48717
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_337 32 710637499954688 1.02802
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_338 32 1178971444318051 0.977911
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_339 32 1447669686643141 0.352396
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_340 32 1184142415937364 0.57003
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_341 32 1617521042788313 0.335774
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_342 32 438138680145048 0.60486
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_343 32 596059687944390 0.335389
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_344 32 1233883183691368 0.798971
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_345 32 1083681702128737 0.493315
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_346 32 1419422668051647 0.501016
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_347 32 1690540020978716 0.526608
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_348 32 713999772407100 0.543565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_349 32 762202063080086 0.983441
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_350 32 1263807869710326 0.772434
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_351 32 507277157921352 0.620685
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_352 38 372850607712942592 10.8417
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_353 32 990820702355456 1.3652
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_354 32 1068816207807952 1.54038
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_355 32 1377748521377700 0.530475
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_356 32 518841284404074 0.553555
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_357 32 1226471503032083 0.829457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_358 32 926790857033935 0.76237
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_359 33 3574719453590144 3.79162
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_360 32 458179561390080 0.659763
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_361 32 571434798847360 0.707568
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_362 32 519132292886208 0.848695
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_363 32 189516586581513 1.00846
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_364 32 263055694904864 0.731689
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_365 32 269205482865756 0.707477
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_366 32 216885296440597 0.848126
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_367 32 94159743196031 0.919144
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_368 32 1170604262794472 1.23828
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_369 32 1753824879959230 0.482215
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_370 32 1905789006552576 1.33594
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_371 32 2738546755627936 0.836679
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_372 32 1564082199742875 0.529911
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_373 32 1294892606466927 0.529816
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_374 33 4454305080323584 1.91705
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_375 32 1606064039795030 0.668545
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_376 32 1032664269697115 0.484658
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_377 33 4834727292299520 3.82289
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_378 34 6698150125702728 1.77277
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_379 32 384589280895579 0.424444
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_380 32 1060699061437969 0.474122
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_381 32 377043916877059 0.42418
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_382 32 1295755921602246 0.599059
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_383 32 879527810725400 0.683455
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_384 32 849862320158228 0.788149
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_385 32 814086220677120 0.581253
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_386 32 809091660852352 0.39907
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_387 32 838268314857398 0.334296
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_388 32 656147795846428 0.402584
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_389 32 1061008904216656 0.424805
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_390 32 1308695246636900 0.499326
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_391 32 833020676619998 0.505194
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_392 32 1191794755496724 0.561772
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_393 32 1318416135740406 0.538962
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_394 32 1776993877001936 0.513564
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_395 32 1024847237433409 0.706996
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_396 32 476114884707284 0.430482
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_397 32 1401910148056186 1.09154
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_398 32 1037372528703620 0.68292
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_399 32 740394337595318 0.324468
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_400 32 748058472138225 0.419116
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_401 32 964028384536768 0.403059
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_402 32 818250715023832 0.317224
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_403 32 1304352008004698 0.215335
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_404 32 796937692322299 0.43585
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_405 32 1417419465687040 0.544589
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_406 32 1528366896739328 0.632055
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_407 32 1104387851466544 0.635734
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_408 32 1605036677946448 0.445841
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_409 32 1430365447390582 0.36818
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_410 32 2008017804511724 0.407181
+Perman: [veni] running with 36 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_411 36 63747223023778720 3.83866
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_412 32 1608303459980074 0.262471
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_413 32 2445653022015599 0.265249
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_414 32 2839934650023936 1.10101
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_415 32 1162950652163536 0.655445
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_416 32 2083103697081767 0.745974
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_417 32 3092486428377224 0.884372
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_418 32 1513909893988352 0.639627
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_419 32 1943327822930688 0.497371
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_420 32 698674544892334 0.918498
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_421 32 877688351168000 0.530495
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_422 32 948067559948288 1.02231
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_423 32 421030784873016 1.01614
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_424 32 745395466095481 0.342118
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_425 32 1099268321257632 0.486248
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_426 32 604683149588076 0.679491
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_427 32 735766678476018 0.571168
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_428 37 143547334585784320 10.8264
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_429 38 284533833625592576 18.7302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_430 32 874336696022872 1.23852
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_431 32 1310104546363529 0.482487
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_432 32 1399883476598612 1.3368
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_433 32 2077693660135904 0.855133
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_434 32 1174593374139667 0.530328
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_435 32 969765172763320 0.530063
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_436 33 3341067004396928 2.04863
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_437 32 1206852618629670 0.668844
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_438 32 773160677958266 0.490683
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_439 33 3768910141581760 2.90441
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_440 34 5350199608340856 1.61616
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_441 32 764850288865782 0.49751
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_442 32 881652588481581 0.610533
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_443 32 918844499244695 0.702421
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_444 32 862776616275043 0.562034
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_445 32 805091063772169 0.668431
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_446 32 1269303958675678 0.794735
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_447 32 1054215095245073 0.633519
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_448 32 1617912187591788 0.693648
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_449 32 799036486223360 0.91408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_450 32 1252050568058011 0.865962
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_451 32 778231660496029 2.10363
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_452 32 937286175318946 1.09535
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_453 32 1089582861488066 0.811618
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_454 32 1553834009496727 0.739121
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_455 32 1419165830488247 0.398817
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_456 32 1764220115966264 0.588131
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_457 37 108737398591568704 10.2452
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_458 38 328858063602314752 18.798
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_459 37 122909673066742720 12.9836
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_460 32 1546205367102464 1.22516
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_461 32 1653834905385792 0.966576
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_462 32 2080737319330429 0.494676
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_463 32 2017667618728438 0.410003
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_464 32 1189012100590854 0.729779
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_465 32 2097252593051296 0.44025
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_466 32 1411432058978304 1.69165
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_467 32 1746725322997144 2.13842
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_468 32 1270887961832956 0.566829
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_469 32 1313130637599616 0.811266
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_470 32 1554638606577380 0.543047
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_471 32 1813302713126816 0.816609
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_472 32 1071013512144538 0.963401
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_473 32 1674520515553164 1.35003
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_474 33 3413910394162329 1.01002
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_475 32 2359160463769842 1.28869
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_476 32 903793949227001 0.689644
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_477 32 2965350527484893 0.665107
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_478 32 3812284742503510 0.459541
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_479 32 741845095557440 0.503668
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_480 32 1460874497900909 0.688136
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_481 32 1312868851112995 0.705116
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_482 32 1102101864724043 0.592274
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_483 32 2003718713225472 0.720172
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_484 32 2771809045292712 0.890777
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_485 32 1726054731124045 1.29503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_486 32 3183480661844586 1.22896
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_487 32 451507539891584 1.71013
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_488 32 372233677973024 1.1506
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_489 32 2582084789122573 1.37714
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_490 32 5019499172886316 1.02739
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_491 37 104087978444574592 9.24161
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_492 37 45917968413884544 6.19846
+Perman: [veni] running with 38 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_493 38 270508358986961152 17.169
+Perman: [veni] running with 36 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_494 36 39646422047011392 6.6301
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_495 34 3630280052684036 1.10753
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_496 34 3889889662152832 0.755669
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_497 34 5669072513667060 1.25646
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_498 32 615509003611396 0.485777
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_499 32 1174165589040606 0.642573
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_500 33 2065442097188058 1.0832
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_501 37 102203966835021216 6.77397
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_502 32 964483570403520 0.656325
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_503 32 1202684050407296 0.746565
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_504 32 1002081645658112 0.707454
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_505 32 1497517212645150 0.713882
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_506 32 1569169389081954 1.19276
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_507 32 1225893919871136 0.974529
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_508 32 706911748135621 0.521054
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_509 32 1380217981973392 0.801707
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_510 32 1423492164415403 0.965477
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_511 32 1057538375290880 0.739198
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_512 32 2355485983517728 0.656694
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_513 32 1614447466190404 0.698855
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_514 32 1025855290892947 0.608882
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_515 32 1269627391475712 0.828928
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_516 32 1475347557671936 0.861906
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_517 32 1927442113495040 0.666992
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_518 32 949152554250752 1.07408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_519 32 1381593010413108 1.01104
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_520 32 809145977673624 0.575577
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_521 32 954452125164382 0.456033
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_522 32 489029466741864 2.04559
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_523 32 566445062748460 1.01051
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_524 32 640649346565678 0.446088
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_525 32 495527088075000 0.388563
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_526 35 12803657478218728 2.95392
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_527 32 1132191201128743 0.347346
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_528 32 884354625411692 0.193604
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_529 32 557120700272640 0.42926
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_530 32 502909166313002 0.763417
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_531 32 700252626988996 0.51665
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_532 32 1257805154141851 1.00792
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_533 32 1000579123928776 0.373788
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_534 32 1268676377759904 0.883325
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_535 32 1202140078592242 0.777645
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_536 32 1519706931079580 0.915457
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_537 32 1292878307467063 0.780616
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_538 32 947918530214715 0.841293
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_539 32 1071782220803865 0.296022
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_540 32 1810013858451664 0.53905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_541 32 1755790389252751 0.367418
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_542 32 2478290587990784 0.907331
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_543 32 968188122478374 1.1023
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_544 32 976177978008824 0.740549
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_545 33 3645019305605819 1.7288
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_546 32 429069600900070 0.395755
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_547 32 420149186336355 0.465715
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_548 32 750427614753426 0.567548
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_549 32 516955858325334 0.51412
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_550 32 1973234521037630 0.879929
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_551 32 2819672530881092 1.06767
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_552 32 1158202226670268 1.10708
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_553 32 985774985495623 0.78901
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_554 34 6986293040964348 2.60713
+Perman: [veni] running with 37 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_555 37 107830923671147392 5.82075
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_556 32 1084525553254400 0.985123
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_557 32 1899367860351660 0.926427
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_558 32 1820458908050782 0.521084
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_559 32 785396440252530 0.386647
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_560 34 6630082251604402 1.2999
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_561 32 802228012089768 0.892356
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_562 32 886430041494569 0.664574
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_563 32 1135002396760270 0.39595
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_564 32 1180377865152188 0.699584
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_565 32 914726519536498 0.601833
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_566 32 757941315020927 0.654853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_567 32 1181537366522162 0.706904
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_568 32 1365526472474779 0.636641
+Perman: [veni] running with 36 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_569 36 40465424045058560 6.15284
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_570 32 1176927009854902 0.926787
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_571 32 1254110136398080 0.946856
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_572 33 5058194669516104 1.01614
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_573 32 3345864581927216 0.511444
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_574 32 2369822034426949 0.661012
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_575 33 3377762934247894 0.977145
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_576 32 2362084195827712 1.48101
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_577 32 1672169044129792 0.787668
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_578 33 5055572963246900 2.37272
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_579 34 15546046869810400 1.8215
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_580 32 751379603895968 1.14888
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_581 32 417903591083765 0.966823
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_582 32 797008989499974 0.306357
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_583 32 1441017660458838 0.78018
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_584 32 503100952531230 0.516763
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_585 32 694441131489930 0.248386
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_586 32 523858511266638 0.44962
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_587 32 797823969937088 0.33194
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_588 35 16175904183590448 2.63512
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_589 32 944270610364298 0.728126
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_590 32 2113318573389814 0.503302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_591 32 398014779424768 1.71037
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_592 32 1181701266289936 0.849553
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_593 32 1769929383688804 0.550707
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_594 32 2280195807894868 0.502909
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_595 32 529459583123456 1.32181
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_596 32 1571833011639424 0.686895
+Perman: [veni] running with 34 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_597 34 13526962334855800 0.988716
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_598 32 1292491272673912 0.470853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_599 32 1000715440322654 0.513943
+Perman: [veni] running with 33 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_600 33 4447989464034464 1.71067
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_601 32 960159337440496 1.19499
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_602 32 1911205627974144 0.728112
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_603 32 1498111228668419 0.525907
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_604 32 1964020870221295 0.655058
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_605 32 777378024390656 1.04059
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_606 32 986935947764120 1.2829
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_607 32 539894524225581 0.397394
+Perman: [veni] running with 32 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_608 32 668432517835340 0.623037
+Perman: [veni] running with 35 rows:
+ [vidi] 10 3 /home/kaya/sparyser/matrices/mesh1em6.mtx_609 35 22754745625063872 3.88376
+Perman: [veni] running with 38 rows:

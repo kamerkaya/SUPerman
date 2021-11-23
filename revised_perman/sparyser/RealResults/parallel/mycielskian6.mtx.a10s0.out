@@ -1,0 +1,13 @@
+Number of rows/cols is 47
+Number of nnz is    472
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 5
+************************************************************************
+Algo is 10
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 0
+Single run 0
+************************************************************************
+Perman: [veni] running with 47 rows:

@@ -1,0 +1,181 @@
+Number of rows/cols is 39
+Number of nnz is    340
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 3
+************************************************************************
+Algo is 10
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 1
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_0 32 793094664918 7.65658
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_1 32 91558386417 9.90941
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_2 32 426660513865 7.7465
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_3 32 37381005237 7.00678
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_4 32 426660513865 7.74774
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_5 32 37381005237 7.0041
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_6 32 197894209807 4.40399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_7 32 18278365773 6.80282
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_8 32 213033050138 7.59777
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_9 32 105425702653 7.29428
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_10 32 6922166153 1.06791
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_11 32 3104824178 2.10518
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_12 32 23672578731 1.64487
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_13 32 616056992 1.04819
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_14 32 731619329 1.23516
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_15 32 213033050138 7.60169
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_16 32 105425702653 7.29466
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_17 32 60613028053 5.37696
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_18 32 3520331092 1.70012
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_19 32 8044538158 2.02649
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_20 32 19289380283 1.60419
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_21 32 538261023 0.845137
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_22 32 8734663650 1.088
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_23 32 302833439 1.7244
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_24 32 650589846 1.91601
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_25 32 3104822279 2.93853
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_26 32 196001408 0.97147
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_27 32 1476969691049 7.23275
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_28 32 107019434328 6.16012
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_29 32 1101586376320 8.78388
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_30 32 78950420351 8.2304
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_31 32 320131729654 7.94651
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_32 32 236000577419 7.48286
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_33 32 11639867917 1.67764
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_34 32 7750000479 1.9661
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_35 32 17468101213 1.19658
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_36 32 6408220770 1.97659
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_37 32 33537276744 7.97383
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_38 32 2088230650 0.932071
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_39 32 12134602246 8.73405
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_40 32 708749695 0.76465
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_41 32 72226489009 2.03491
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_42 32 31683799614 1.20533
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_43 32 3668046275 1.17753
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_44 32 1134414062 2.17324
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_45 32 2873626431 0.211052
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_46 32 3658330957 8.11399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_47 32 392002724 1.90775
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_48 32 1476969691049 7.22505
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_49 32 107019434328 6.15734
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_50 32 1101586376320 8.78656
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_51 32 78950420351 8.23535
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_52 32 320131729654 7.94503
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_53 32 236000577419 7.48408
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_54 32 11639867917 1.67767
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_55 32 7750000479 1.96659
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_56 32 1711715135817 4.70689
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_57 32 1263427816177 6.46903
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_58 32 52498469269 5.95816
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_59 32 3788021643 1.48388
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_60 32 96957688993 9.5176
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_61 32 3845595085 1.25171
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_62 32 8805368322 2.11225
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_63 32 47046816086 1.56771
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_64 32 20454370615 0.914702
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_65 32 3513938521 1.42302
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_66 32 1552181485 1.06232
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_67 32 8248358045 5.90297
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_68 32 570827198 1.17058
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_69 32 33537276744 7.97747
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_70 32 2088230650 0.93065
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_71 32 12134602246 8.72905
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_72 32 708749695 0.764678
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_73 32 132887204957 1.46159
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_74 32 58375092741 0.790399
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_75 32 5683357100 1.40916
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_76 32 2433530071 0.770658
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_77 32 2955336192 0.198786
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_78 32 8865826151 1.61218
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_79 32 142807872 0.731084
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_80 32 225990144 0.906651
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_81 32 15719063748 2.20395
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_82 32 364375519 0.565108
+Perman: [veni] running with 32 rows:
+ [vidi] 10 1 /home/kaya/sparyser/matrices/chesapeake.mtx_83 32 1006320071 1.7241
+Overall perman is: 13173498301896 in 327.04

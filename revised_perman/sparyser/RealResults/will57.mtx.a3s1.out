@@ -1,0 +1,2588 @@
+Number of rows/cols is 57
+Number of nnz is    281
+#d1 vertices: 0
+#d2 vertices: 8
+min degree: 2
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 1
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.812963 - percent 0.0157722
+	11 of 21 in 1.30524 - percent 0.0161069
+	18 of 21 in 2.20907 - percent 0.016559
+	20 of 21 in 2.44742 - percent 0.0164896
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_0 32 13318596711873948 2.5843
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.866174 - percent 0.015155
+	21 of 21 in 2.5337 - percent 0.0165524
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_1 32 14031682200791366 2.56184
+Perman: [veni] running with 32 rows:
+	20 of 21 in 1.59716 - percent 0.00949718
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_2 32 13188253793517568 1.67286
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.544471 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_3 32 6594125210222592 1.41668
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.545742 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_4 32 9553827077996544 1.41914
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.54587 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_5 32 9500161131233280 1.41938
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.545855 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_6 32 9553827077996544 1.4193
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.546027 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_7 32 7851585692286976 1.41947
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.545455 - percent 0.00843973
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_8 32 9224120871534592 1.41917
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0999442 - percent 0.0135891
+	16 of 21 in 2.00419 - percent 0.0169718
+	18 of 21 in 2.26885 - percent 0.0171044
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_9 32 6737251056746496 2.69783
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_10 32 1400347511750656 1.55842
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_11 32 1686466421850112 1.72765
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_12 32 1553129833234432 1.84672
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_13 32 1343160559075328 1.72759
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_14 32 1551834363723776 1.76851
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.516976 - percent 0.024252
+	10 of 21 in 1.189 - percent 0.0162772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_15 32 7306004247600384 2.61459
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.455817 - percent 0.0128785
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_16 32 1489851857094136 1.42333
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.535341 - percent 0.0121777
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_17 32 1480804181822608 1.66742
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.589079 - percent 0.0120128
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_18 32 1489851872600488 1.82879
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.535252 - percent 0.0121777
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_19 32 1224453154861136 1.66739
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.554738 - percent 0.0120953
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_20 32 1438581647830300 1.72593
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.746681 - percent 0.0150447
+	10 of 21 in 1.08098 - percent 0.0152276
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_21 32 2352397686871600 2.45752
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.588355 - percent 0.0102883
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_22 32 387542436280776 1.50978
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.588944 - percent 0.0102883
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_23 32 389050384390670 1.50945
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.588877 - percent 0.0102883
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_24 32 319684810883142 1.51005
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.589635 - percent 0.0102883
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_25 32 375478855326465 1.51151
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.926307 - percent 0.0156456
+	9 of 21 in 0.990573 - percent 0.0148385
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_26 32 6264885222572032 2.2096
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.166092 - percent 0.0243667
+	2 of 21 in 0.373544 - percent 0.0276987
+	9 of 21 in 1.11793 - percent 0.017992
+	16 of 21 in 2.01256 - percent 0.018061
+	17 of 21 in 2.12111 - percent 0.0179144
+	21 of 21 in 2.52441 - percent 0.0172604
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_27 32 10231128023629824 2.56714
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.528929 - percent 0.0101801
+	9 of 21 in 0.585533 - percent 0.0100271
+	20 of 21 in 1.28712 - percent 0.00987741
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_28 32 3396094475108352 1.34345
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.529297 - percent 0.0101801
+	9 of 21 in 0.585948 - percent 0.0100271
+	20 of 21 in 1.28814 - percent 0.00987741
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_29 32 3371968052068352 1.34459
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.529791 - percent 0.0101801
+	9 of 21 in 0.586626 - percent 0.0100271
+	20 of 21 in 1.28863 - percent 0.00987741
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_30 32 3395372442451968 1.3451
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.528891 - percent 0.0101801
+	9 of 21 in 0.585577 - percent 0.0100271
+	20 of 21 in 1.28684 - percent 0.00987741
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_31 32 2790424210571264 1.34317
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.528527 - percent 0.0101801
+	9 of 21 in 0.585376 - percent 0.0100271
+	20 of 21 in 1.28673 - percent 0.00987741
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_32 32 3279342108409856 1.34321
+Perman: [veni] running with 32 rows:
+	16 of 21 in 2.17574 - percent 0.0189632
+	17 of 21 in 2.28572 - percent 0.0187385
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_33 32 6054686914248704 2.76829
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.489434 - percent 0.00970593
+	9 of 21 in 0.543271 - percent 0.00958493
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_34 32 1199731590561792 1.24256
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.563069 - percent 0.00926862
+	9 of 21 in 0.625266 - percent 0.00914698
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_35 32 1195271703232512 1.43241
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.612935 - percent 0.00915593
+	9 of 21 in 0.680561 - percent 0.00903434
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_36 32 1199708964388864 1.55867
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.563633 - percent 0.00926862
+	9 of 21 in 0.625909 - percent 0.00914698
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_37 32 986350526922752 1.43282
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.581089 - percent 0.00921228
+	9 of 21 in 0.645197 - percent 0.00909066
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_38 32 1158112453328896 1.47807
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.810592 - percent 0.0157722
+	11 of 21 in 1.30136 - percent 0.0161069
+	18 of 21 in 2.20439 - percent 0.016559
+	20 of 21 in 2.44229 - percent 0.0164896
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_39 32 12126877984111984 2.57882
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.865987 - percent 0.015155
+	21 of 21 in 2.5293 - percent 0.0165524
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_40 32 12776158152556882 2.55736
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_41 32 12008199254648888 5.21385
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_42 32 6004100965576553 3.40459
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_43 32 8698954076275742 3.51391
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_44 32 8650087562822686 3.50994
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_45 32 8698954076275742 3.51097
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_46 32 7149062798853000 3.50731
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_47 32 8398749723697106 3.50731
+Perman: [veni] running with 32 rows:
+	9 of 21 in 4.11941 - percent 0.0641776
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_48 32 7576401437261824 9.53766
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_49 32 1567828289904640 5.30646
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_50 32 1524223687290880 6.23529
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_51 32 1543999608385536 6.84238
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_52 32 1258953286324224 6.23718
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_53 32 1485039136776192 6.45529
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.190056 - percent 0.0309021
+	17 of 21 in 5.55513 - percent 0.0529687
+	20 of 21 in 6.31646 - percent 0.0510915
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_54 32 7306004201416391 6.58348
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_55 32 1489851853060771 4.81879
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_56 32 1480804166384842 5.24051
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_57 32 1489851846629307 5.60982
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_58 32 1224453144977840 5.24516
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_59 32 1438581643188040 5.36576
+Perman: [veni] running with 32 rows:
+	4 of 21 in 1.12476 - percent 0.0473217
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_60 32 2352397650761580 6.16796
+Perman: [veni] running with 32 rows:
+	10 of 21 in 1.76583 - percent 0.0290919
+	16 of 21 in 3.06335 - percent 0.0314616
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_61 32 387542434568405 3.89223
+Perman: [veni] running with 32 rows:
+	10 of 21 in 1.76571 - percent 0.0290919
+	16 of 21 in 3.06292 - percent 0.0314616
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_62 32 389050382620104 3.89192
+Perman: [veni] running with 32 rows:
+	10 of 21 in 1.76839 - percent 0.0290919
+	16 of 21 in 3.06632 - percent 0.0314616
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_63 32 319684810363136 3.89509
+Perman: [veni] running with 32 rows:
+	10 of 21 in 1.76719 - percent 0.0290919
+	16 of 21 in 3.06529 - percent 0.0314616
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_64 32 375478855894351 3.89408
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.66778 - percent 0.0478054
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_65 32 13465438003400704 6.41886
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.543381 - percent 0.033248
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_66 32 2774498343314688 5.21272
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.587795 - percent 0.0290511
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_67 32 2755485184610176 5.66072
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.630052 - percent 0.0278338
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_68 32 2774470823961600 6.07184
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.588165 - percent 0.0290511
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_69 32 2280372780572544 5.66194
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.60195 - percent 0.0284425
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_70 32 2679453178335488 5.79794
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.34562 - percent 0.009193
+	20 of 21 in 1.49312 - percent 0.0104186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_71 32 3095752766745805 1.58357
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.759714 - percent 0.0428902
+	7 of 21 in 1.90096 - percent 0.0460538
+	9 of 21 in 2.55811 - percent 0.0481654
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_72 32 3511431250666496 5.85681
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_73 32 498595032605760 3.65669
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_74 32 409706070501888 3.80526
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_75 32 481223541258496 3.57391
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_76 32 3600571851222016 6.08695
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.80755 - percent 0.0226926
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_77 32 593212473924960 3.12597
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.808196 - percent 0.0226926
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_78 32 595522124460848 3.12687
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.808512 - percent 0.0226926
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_79 32 489331170949024 3.12645
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.807568 - percent 0.0226926
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_80 32 574735082026432 3.12629
+Perman: [veni] running with 32 rows:
+	5 of 21 in 1.20172 - percent 0.0305067
+	9 of 21 in 2.23188 - percent 0.0314905
+	11 of 21 in 2.74183 - percent 0.0316247
+	13 of 21 in 3.28264 - percent 0.0318875
+	21 of 21 in 5.28547 - percent 0.0314186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_81 32 12677638562934784 5.38563
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.921331 - percent 0.154384
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_82 32 9169776616275968 11.9739
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_83 32 4428465886515344 1.23843
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_84 32 4403586864703268 1.23898
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_85 32 4428465886529874 1.23862
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_86 32 3639445479763703 1.23887
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_87 32 4275637609480538 1.23808
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.454936 - percent 0.0213766
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_88 32 4381892020529408 2.5146
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.338509 - percent 0.0162403
+	13 of 21 in 1.04717 - percent 0.011255
+	20 of 21 in 1.65705 - percent 0.0115355
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_89 32 734365508536505 1.76854
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.338406 - percent 0.0162403
+	13 of 21 in 1.04745 - percent 0.011255
+	20 of 21 in 1.65724 - percent 0.0115355
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_90 32 738514466097434 1.76887
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.33874 - percent 0.0162403
+	13 of 21 in 1.04799 - percent 0.011255
+	20 of 21 in 1.65868 - percent 0.0115355
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_91 32 606933239564787 1.77049
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.338549 - percent 0.0162403
+	13 of 21 in 1.04727 - percent 0.011255
+	20 of 21 in 1.65709 - percent 0.0115355
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_92 32 713028012946462 1.76862
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.995656 - percent 0.0107778
+	18 of 21 in 1.37643 - percent 0.0106601
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_93 32 0 1.66696
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.29807 - percent 0.0146708
+	4 of 21 in 0.422123 - percent 0.0156118
+	18 of 21 in 2.34822 - percent 0.0193444
+	20 of 21 in 2.57177 - percent 0.0190512
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_94 32 3858920775633338368 2.69655
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.307578 - percent 0.0153258
+	4 of 21 in 0.43732 - percent 0.0163135
+	18 of 21 in 2.4406 - percent 0.020219
+	20 of 21 in 2.67322 - percent 0.0199114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_95 32 1985696009530900480 2.80182
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.286074 - percent 0.015837
+	4 of 21 in 0.405046 - percent 0.0168502
+	18 of 21 in 2.25551 - percent 0.0208899
+	20 of 21 in 2.47027 - percent 0.0205727
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_96 32 1579745321439723520 2.58992
+Perman: [veni] running with 32 rows:
+	17 of 21 in 0.788824 - percent 0.00615724
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_97 32 1495652473124159488 1.00335
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.202621 - percent 0.0258618
+	3 of 21 in 0.43128 - percent 0.0182417
+	4 of 21 in 0.567737 - percent 0.0179919
+	5 of 21 in 0.855147 - percent 0.0217649
+	8 of 21 in 1.57037 - percent 0.0250825
+	13 of 21 in 2.28766 - percent 0.0222885
+	18 of 21 in 3.3371 - percent 0.0234585
+	21 of 21 in 3.89425 - percent 0.0234179
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_98 32 18309532719144501248 3.93368
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.176127 - percent 0.0272378
+	3 of 21 in 0.377248 - percent 0.0192379
+	4 of 21 in 0.493648 - percent 0.0189798
+	5 of 21 in 0.734928 - percent 0.023004
+	8 of 21 in 1.34249 - percent 0.02659
+	13 of 21 in 1.96816 - percent 0.0235777
+	18 of 21 in 2.8637 - percent 0.0248528
+	21 of 21 in 3.34322 - percent 0.0248018
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_99 32 18195629636698767360 3.37853
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_100 32 511609345335507 1.74525
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.19384 - percent 0.0273341
+	18 of 21 in 3.65251 - percent 0.0274106
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_101 32 55956238651973 4.37773
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.04999 - percent 0.0285547
+	18 of 21 in 3.21944 - percent 0.0286662
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_102 32 65348420541449 3.86586
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.295475 - percent 0.00555977
+	9 of 21 in 0.38988 - percent 0.005667
+	15 of 21 in 0.684456 - percent 0.00582146
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_103 32 150671763230675 0.980841
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.648072 - percent 0.0259324
+	5 of 21 in 1.25721 - percent 0.0300616
+	6 of 21 in 1.70232 - percent 0.0340205
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_104 32 17064668530486 5.76074
+Perman: [veni] running with 32 rows:
+	16 of 21 in 2.65599 - percent 0.022076
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_105 32 8232556017145952 3.59048
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0797358 - percent 0.0115472
+	5 of 21 in 0.515466 - percent 0.0150744
+	7 of 21 in 0.708697 - percent 0.0148053
+	21 of 21 in 2.21294 - percent 0.0150635
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_106 32 1607136362549257 2.25387
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0798826 - percent 0.0115472
+	5 of 21 in 0.515564 - percent 0.0150744
+	7 of 21 in 0.710664 - percent 0.0148165
+	21 of 21 in 2.21849 - percent 0.0150768
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_107 32 1566957953388571 2.25938
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0856577 - percent 0.0114772
+	5 of 21 in 0.554401 - percent 0.0149796
+	7 of 21 in 0.755706 - percent 0.014626
+	21 of 21 in 2.37948 - percent 0.0149072
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_108 32 1255575283188209 2.4241
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0855661 - percent 0.0114772
+	5 of 21 in 0.554908 - percent 0.0149796
+	7 of 21 in 0.756708 - percent 0.014626
+	21 of 21 in 2.38074 - percent 0.0149072
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_109 32 1466511930807761 2.42532
+Perman: [veni] running with 32 rows:
+	16 of 21 in 2.21219 - percent 0.020617
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_110 32 1600181864362844 2.92496
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.538656 - percent 0.0108755
+	9 of 21 in 0.890896 - percent 0.0119902
+	13 of 21 in 1.22638 - percent 0.0113537
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_111 32 2089757013458955 2.03067
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.994928 - percent 0.0312012
+	16 of 21 in 4.64616 - percent 0.0356708
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_112 32 224519348550555 6.25328
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.882436 - percent 0.0324955
+	16 of 21 in 4.024 - percent 0.0371203
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_113 32 262108560750686 5.40878
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.44045 - percent 0.0134849
+	8 of 21 in 0.887933 - percent 0.0134915
+	16 of 21 in 1.62688 - percent 0.0122487
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_114 32 2173747173252868 2.18546
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.915392 - percent 0.0291807
+	18 of 21 in 3.97932 - percent 0.0278676
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_115 32 336863683213090 4.72256
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.94795 - percent 0.0295066
+	18 of 21 in 4.16369 - percent 0.0282145
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_116 32 269735050690915 4.94487
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.869481 - percent 0.0301579
+	18 of 21 in 3.79486 - percent 0.0288732
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_117 32 314894312571393 4.5084
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_118 32 6293666043813504 2.62281
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_119 32 1275729274615740 1.42862
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_120 32 1268562253684896 1.6711
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_121 32 1275729270184120 1.82081
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_122 32 1048432406172406 1.67102
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_123 32 1231703302714504 1.72541
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.527477 - percent 0.0190517
+	8 of 21 in 1.01703 - percent 0.0183722
+	9 of 21 in 1.11987 - percent 0.0179797
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_124 32 9383069165389984 2.86265
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.91054 - percent 0.0174683
+	18 of 21 in 2.12454 - percent 0.0177737
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_125 32 1817917243091444 2.51496
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.91062 - percent 0.0174683
+	18 of 21 in 2.12492 - percent 0.0177737
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_126 32 1770959971113802 2.51577
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.912418 - percent 0.0174683
+	18 of 21 in 2.12713 - percent 0.0177737
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_127 32 1418780431386752 2.51778
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.909843 - percent 0.0174683
+	18 of 21 in 2.12421 - percent 0.0177737
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_128 32 1656920882077842 2.51533
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.879422 - percent 0.0177605
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_129 32 1850625811086867 2.46255
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.147801 - percent 0.00983426
+	16 of 21 in 1.12485 - percent 0.00914684
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_130 32 1752259324384128 1.52289
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.319744 - percent 0.0412504
+	8 of 21 in 1.66773 - percent 0.0262669
+	21 of 21 in 5.13017 - percent 0.0305311
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_131 32 188259266258863 5.19302
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.27667 - percent 0.0437865
+	8 of 21 in 1.43614 - percent 0.0278641
+	21 of 21 in 4.38393 - percent 0.0323964
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_132 32 219777785947697 4.43875
+Perman: [veni] running with 32 rows:
+	12 of 21 in 0.844066 - percent 0.00920941
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_133 32 1814111604283422 1.5966
+Perman: [veni] running with 32 rows:
+	9 of 21 in 1.69858 - percent 0.0252887
+	15 of 21 in 2.60985 - percent 0.0230349
+	18 of 21 in 3.35961 - percent 0.0247232
+	20 of 21 in 3.68355 - percent 0.0243034
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_134 32 281131276128543 3.86247
+Perman: [veni] running with 32 rows:
+	9 of 21 in 1.78575 - percent 0.0257571
+	15 of 21 in 2.74249 - percent 0.023469
+	18 of 21 in 3.53534 - percent 0.0252132
+	20 of 21 in 3.87468 - percent 0.0247839
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_135 32 225108739210323 4.06124
+Perman: [veni] running with 32 rows:
+	9 of 21 in 1.60737 - percent 0.0266508
+	15 of 21 in 2.47992 - percent 0.0242989
+	18 of 21 in 3.19871 - percent 0.0261467
+	20 of 21 in 3.50955 - percent 0.0257013
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_136 32 262796627681668 3.68109
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.551342 - percent 0.0196296
+	8 of 21 in 1.08022 - percent 0.0191036
+	9 of 21 in 1.20861 - percent 0.0189849
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_137 32 6872532160721342 3.05055
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_138 32 1341636341750005 2.01586
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_139 32 1308095433212886 2.01465
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_140 32 1048153391997980 2.17652
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_141 32 1224243161878262 2.17566
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.905132 - percent 0.0171201
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_142 32 1360168390601679 2.58625
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_143 32 1752259324397924 1.52467
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.305779 - percent 0.0400321
+	4 of 21 in 0.822942 - percent 0.0262998
+	8 of 21 in 1.90023 - percent 0.030159
+	9 of 21 in 2.04395 - percent 0.028797
+	13 of 21 in 3.08553 - percent 0.0299069
+	16 of 21 in 3.852 - percent 0.030271
+	21 of 21 in 5.10174 - percent 0.0304481
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_144 32 188259266258081 5.17714
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.268197 - percent 0.0423631
+	4 of 21 in 0.717156 - percent 0.0278634
+	8 of 21 in 1.63887 - percent 0.0320476
+	9 of 21 in 1.76295 - percent 0.030579
+	13 of 21 in 2.64547 - percent 0.0317432
+	16 of 21 in 3.30039 - percent 0.0321257
+	21 of 21 in 4.36612 - percent 0.0323105
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_145 32 219777785950583 4.43146
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_146 32 1814111604250574 1.60089
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.12245 - percent 0.0251031
+	10 of 21 in 1.81146 - percent 0.0241463
+	15 of 21 in 2.61402 - percent 0.0230023
+	18 of 21 in 3.36871 - percent 0.0247212
+	20 of 21 in 3.69546 - percent 0.0243155
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_147 32 281131276123135 3.87345
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.17897 - percent 0.025568
+	10 of 21 in 1.90253 - percent 0.0245882
+	15 of 21 in 2.74503 - percent 0.0234337
+	18 of 21 in 3.54213 - percent 0.0252112
+	20 of 21 in 3.88496 - percent 0.0247963
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_148 32 225108739214639 4.07139
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.06048 - percent 0.0264592
+	10 of 21 in 1.71236 - percent 0.0254321
+	15 of 21 in 2.48086 - percent 0.0242633
+	18 of 21 in 3.20363 - percent 0.0261438
+	20 of 21 in 3.51752 - percent 0.025714
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_149 32 262796627683967 3.68868
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_150 32 2047599834631471 2.22627
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_151 32 2157229532155192 2.073
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_152 32 2027559990230108 1.32498
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.547201 - percent 0.00841832
+	9 of 21 in 0.603265 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_153 32 1013779995344590 1.43955
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.547893 - percent 0.00841832
+	9 of 21 in 0.604009 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_154 32 1468802191292002 1.44183
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.548092 - percent 0.00841832
+	9 of 21 in 0.604098 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_155 32 1460550494664610 1.4417
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.548209 - percent 0.00841832
+	9 of 21 in 0.604281 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_156 32 1468802191292002 1.44231
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.548262 - percent 0.00841832
+	9 of 21 in 0.604313 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_157 32 1207105493639020 1.44237
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.548366 - percent 0.00841832
+	9 of 21 in 0.604381 - percent 0.00821772
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_158 32 1418113179816420 1.44264
+Perman: [veni] running with 32 rows:
+	15 of 21 in 0.865376 - percent 0.00735583
+	17 of 21 in 1.00538 - percent 0.00751506
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_159 32 1095473003397191 1.23104
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.182879 - percent 0.00806202
+	13 of 21 in 0.58688 - percent 0.0057378
+	18 of 21 in 0.853374 - percent 0.00601409
+	20 of 21 in 0.922646 - percent 0.00584008
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_160 32 183591377141800 0.983524
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.183043 - percent 0.00806202
+	13 of 21 in 0.587496 - percent 0.0057378
+	18 of 21 in 0.854118 - percent 0.00601409
+	20 of 21 in 0.923404 - percent 0.00584008
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_161 32 184628616560643 0.984108
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.183135 - percent 0.00806202
+	13 of 21 in 0.587722 - percent 0.0057378
+	18 of 21 in 0.854089 - percent 0.00601409
+	20 of 21 in 0.923419 - percent 0.00584008
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_162 32 151733309276173 0.984062
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.183008 - percent 0.00806202
+	13 of 21 in 0.587778 - percent 0.0057378
+	18 of 21 in 0.854114 - percent 0.00601409
+	20 of 21 in 0.923357 - percent 0.00584008
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_163 32 178257002987555 0.984019
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.47018 - percent 0.0108217
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_164 32 705099412275200 1.72572
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.293685 - percent 0.0149552
+	6 of 21 in 0.757959 - percent 0.0193503
+	16 of 21 in 1.88464 - percent 0.0179496
+	18 of 21 in 2.21806 - percent 0.0187804
+	20 of 21 in 2.40111 - percent 0.0182702
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_165 32 145510337871872 2.53067
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.304359 - percent 0.0156154
+	6 of 21 in 0.78973 - percent 0.0201786
+	16 of 21 in 1.96857 - percent 0.0187244
+	18 of 21 in 2.31553 - percent 0.0195918
+	20 of 21 in 2.5088 - percent 0.0190595
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_166 32 100844758368256 2.64259
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.281942 - percent 0.0160985
+	6 of 21 in 0.727896 - percent 0.0208432
+	16 of 21 in 1.81247 - percent 0.0193285
+	18 of 21 in 2.13424 - percent 0.0202269
+	20 of 21 in 2.30998 - percent 0.0196748
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_167 32 114917285822464 2.43481
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.416212 - percent 0.00621056
+	19 of 21 in 0.889067 - percent 0.00619038
+	21 of 21 in 0.986646 - percent 0.00621459
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_168 32 342857709780992 1.00316
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.151945 - percent 0.0196764
+	4 of 21 in 0.681562 - percent 0.0216442
+	8 of 21 in 1.56256 - percent 0.0249635
+	9 of 21 in 1.73028 - percent 0.0245063
+	13 of 21 in 2.3082 - percent 0.0224876
+	18 of 21 in 3.42236 - percent 0.0240715
+	19 of 21 in 3.56413 - percent 0.0237181
+	21 of 21 in 3.8881 - percent 0.0233623
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_169 32 33740449382400 3.93638
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.136287 - percent 0.0208544
+	4 of 21 in 0.586376 - percent 0.0228086
+	8 of 21 in 1.33779 - percent 0.0264648
+	9 of 21 in 1.48184 - percent 0.0259498
+	13 of 21 in 1.98842 - percent 0.0237924
+	18 of 21 in 2.93781 - percent 0.025512
+	19 of 21 in 3.05855 - percent 0.0251279
+	21 of 21 in 3.3404 - percent 0.0247403
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_170 32 37156223451136 3.38338
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.230819 - percent 0.0141645
+	7 of 21 in 0.637738 - percent 0.0110898
+	8 of 21 in 0.770932 - percent 0.0117135
+	13 of 21 in 1.14761 - percent 0.0106178
+	18 of 21 in 1.6245 - percent 0.0107832
+	21 of 21 in 1.90909 - percent 0.0108222
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_171 32 852709587025863 1.96287
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.340171 - percent 0.0049948
+	18 of 21 in 0.75139 - percent 0.0054183
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_172 32 123085744373771 0.874437
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.344233 - percent 0.00509961
+	18 of 21 in 0.748904 - percent 0.00554995
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_173 32 101155539517450 0.87805
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.324289 - percent 0.00519925
+	18 of 21 in 0.713253 - percent 0.00562095
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_174 32 118838001991659 0.830151
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_175 32 764099705243074 0.79259
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_176 32 83571861749564 2.05235
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_177 32 97599290081097 1.81933
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_178 32 225031561543096 0.529954
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_179 32 25486454292505 2.59646
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.541771 - percent 0.0132722
+	6 of 21 in 0.783069 - percent 0.0163851
+	17 of 21 in 2.63595 - percent 0.0186832
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_180 32 2179699959832128 3.15505
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.199508 - percent 0.00772977
+	6 of 21 in 0.403228 - percent 0.0107278
+	15 of 21 in 1.13676 - percent 0.0119271
+	20 of 21 in 1.46607 - percent 0.011428
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_181 32 449105547707322 1.55428
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.468642 - percent 0.0102061
+	15 of 21 in 1.31725 - percent 0.0113514
+	20 of 21 in 1.69604 - percent 0.0108843
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_182 32 446029483683708 1.79759
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.511003 - percent 0.0100771
+	15 of 21 in 1.43371 - percent 0.0112107
+	20 of 21 in 1.84482 - percent 0.0107533
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_183 32 449105549201052 1.95493
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.468847 - percent 0.0102061
+	15 of 21 in 1.3177 - percent 0.0113514
+	20 of 21 in 1.69635 - percent 0.0108843
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_184 32 369127852476368 1.7979
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.483999 - percent 0.0101416
+	15 of 21 in 1.35944 - percent 0.011281
+	20 of 21 in 1.75014 - percent 0.0108188
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_185 32 433725220136734 1.85504
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_186 32 490040715340791 1.01011
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.484966 - percent 0.0325001
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_187 32 565300344298031 4.35556
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.221126 - percent 0.00735334
+	9 of 21 in 0.725049 - percent 0.0108002
+	21 of 21 in 1.64773 - percent 0.0103644
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_188 32 80268292445714 1.67812
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.227743 - percent 0.00752597
+	9 of 21 in 0.747473 - percent 0.0110716
+	21 of 21 in 1.69896 - percent 0.010622
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_189 32 65956891357319 1.73033
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.213752 - percent 0.00766115
+	9 of 21 in 0.700773 - percent 0.0112799
+	21 of 21 in 1.59259 - percent 0.0108207
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_190 32 77468236050660 1.62202
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_191 32 583085883899392 2.96008
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.25518 - percent 0.00932576
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_192 32 96059662758217 1.44283
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.25527 - percent 0.00932576
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_193 32 96433435116420 1.44286
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.25529 - percent 0.00932576
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_194 32 79239878108501 1.44276
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.25549 - percent 0.00932576
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_195 32 93069478838625 1.44284
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.832798 - percent 0.0164029
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_196 32 3777050984831874 2.39898
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.35618 - percent 0.0587854
+	8 of 21 in 2.48748 - percent 0.0518028
+	14 of 21 in 4.36971 - percent 0.0521053
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_197 32 2731929215781960 6.51127
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_198 32 1319373570555132 1.22384
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_199 32 1311961359591140 1.22443
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_200 32 1319373570737702 1.22419
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_201 32 1084300590786153 1.22466
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_202 32 1273841417062393 1.22404
+Perman: [veni] running with 32 rows:
+	17 of 21 in 1.48543 - percent 0.0101605
+	18 of 21 in 1.56847 - percent 0.0101517
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_203 32 1148938745610992 1.87741
+Perman: [veni] running with 32 rows:
+	15 of 21 in 0.597458 - percent 0.00516898
+	20 of 21 in 0.791355 - percent 0.00510084
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_204 32 165845421342729 0.845276
+Perman: [veni] running with 32 rows:
+	15 of 21 in 0.601902 - percent 0.00532637
+	20 of 21 in 0.798252 - percent 0.00525624
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_205 32 136296718663696 0.854726
+Perman: [veni] running with 32 rows:
+	15 of 21 in 0.57249 - percent 0.00542026
+	20 of 21 in 0.758506 - percent 0.00534812
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_206 32 160122023976934 0.810487
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.582974 - percent 0.0135174
+	10 of 21 in 0.87848 - percent 0.0142595
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_207 32 1029697672577024 1.83806
+Perman: [veni] running with 32 rows:
+	7 of 21 in 1.77277 - percent 0.0361608
+	8 of 21 in 2.00291 - percent 0.0357179
+	17 of 21 in 4.2007 - percent 0.0350919
+	18 of 21 in 4.54441 - percent 0.0358795
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_208 32 112450854715392 5.38136
+Perman: [veni] running with 32 rows:
+	7 of 21 in 1.55469 - percent 0.0380884
+	8 of 21 in 1.75487 - percent 0.03761
+	17 of 21 in 3.66986 - percent 0.0369668
+	18 of 21 in 3.96966 - percent 0.0377822
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_209 32 131585605107712 4.69748
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.0965989 - percent 0.0066492
+	15 of 21 in 0.688602 - percent 0.0062162
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_210 32 303304692203520 0.983385
+Perman: [veni] running with 32 rows:
+	8 of 21 in 2.57978 - percent 0.0398585
+	16 of 21 in 5.19066 - percent 0.0399095
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_211 32 34330622296064 6.94984
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.104887 - percent 0.012123
+	18 of 21 in 1.29177 - percent 0.00788718
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_212 32 876522777968408 1.53946
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.07263 - percent 0.00705301
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_213 32 90864479109121 1.23739
+Perman: [veni] running with 32 rows:
+	18 of 21 in 0.943077 - percent 0.00719354
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_214 32 106748015984614 1.09155
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_215 32 761433686771243 0.634264
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.145568 - percent 0.020749
+	16 of 21 in 2.02328 - percent 0.0173063
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_216 32 87670024772279 2.71782
+Perman: [veni] running with 32 rows:
+	18 of 21 in 0.427949 - percent 0.00311802
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_217 32 225031561537168 0.48153
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.302634 - percent 0.0106458
+	16 of 21 in 0.98762 - percent 0.00837619
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_218 32 1307440403119798 1.25042
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.54164 - percent 0.0199124
+	5 of 21 in 0.653992 - percent 0.0191281
+	8 of 21 in 1.0606 - percent 0.0188792
+	11 of 21 in 1.36858 - percent 0.0174203
+	13 of 21 in 1.59016 - percent 0.0170459
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_219 32 144271767209572 2.73856
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_220 32 364967659077632 2.06552
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.434272 - percent 0.0087299
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_221 32 243307200728016 1.36445
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.583325 - percent 0.0272889
+	17 of 21 in 2.77846 - percent 0.0215469
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_222 32 2373772127365525 3.41329
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.390008 - percent 0.011033
+	6 of 21 in 0.552704 - percent 0.0132959
+	7 of 21 in 0.700746 - percent 0.0143407
+	17 of 21 in 1.8467 - percent 0.0152573
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_223 32 402757967234980 2.20448
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.390058 - percent 0.011033
+	6 of 21 in 0.553181 - percent 0.0132959
+	7 of 21 in 0.701342 - percent 0.0143407
+	17 of 21 in 1.8481 - percent 0.0152573
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_224 32 405535608325636 2.20581
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.390265 - percent 0.011033
+	6 of 21 in 0.553294 - percent 0.0132959
+	7 of 21 in 0.701434 - percent 0.0143407
+	17 of 21 in 1.84804 - percent 0.0152573
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_225 32 333316938308257 2.20613
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.390594 - percent 0.011033
+	6 of 21 in 0.553627 - percent 0.0132959
+	7 of 21 in 0.702104 - percent 0.0143407
+	17 of 21 in 1.85008 - percent 0.0152573
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_226 32 391647402295305 2.20786
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_227 32 419763558489584 1.00983
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.791003 - percent 0.0298348
+	17 of 21 in 3.05675 - percent 0.027153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_228 32 444949216870432 3.92317
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.8094 - percent 0.0231842
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_229 32 45459871651035 3.36039
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.41987 - percent 0.0244849
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_230 32 53393905808450 2.89588
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.49667 - percent 0.0336273
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_231 32 728216758813289 4.3834
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.242268 - percent 0.00810934
+	9 of 21 in 0.793958 - percent 0.0119026
+	21 of 21 in 1.79104 - percent 0.0113672
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_232 32 103401169024270 1.82466
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.249566 - percent 0.00829956
+	9 of 21 in 0.818755 - percent 0.0122019
+	21 of 21 in 1.84682 - percent 0.0116521
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_233 32 84965301675561 1.88126
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.232732 - percent 0.00845081
+	9 of 21 in 0.762403 - percent 0.0124353
+	21 of 21 in 1.72133 - percent 0.011875
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_234 32 99794151492399 1.75367
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_235 32 490040715340790 1.01015
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.298188 - percent 0.00403864
+	10 of 21 in 0.320043 - percent 0.00390601
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_236 32 176701728153599 0.710075
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.104955 - percent 0.0130552
+	2 of 21 in 0.158675 - percent 0.00981105
+	3 of 21 in 0.240443 - percent 0.00987208
+	7 of 21 in 0.568259 - percent 0.00995713
+	9 of 21 in 0.749728 - percent 0.0101972
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_237 32 0 1.81322
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.376418 - percent 0.0153219
+	7 of 21 in 1.09953 - percent 0.0193076
+	13 of 21 in 1.94186 - percent 0.0181236
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_238 32 340008577726939136 3.35389
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.336386 - percent 0.015766
+	7 of 21 in 0.960246 - percent 0.0199755
+	13 of 21 in 1.69947 - percent 0.0186861
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_239 32 18263984350452252672 2.91682
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.545393 - percent 0.00644532
+	18 of 21 in 1.01252 - percent 0.00656051
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_240 32 18446744073709551597 1.2162
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.68327 - percent 0.0126412
+	21 of 21 in 2.08886 - percent 0.0118843
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_241 32 5 2.14908
+Perman: [veni] running with 32 rows:
+	21 of 21 in 1.38765 - percent 0.00770153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_242 32 9223372036854775808 1.41423
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_243 32 18446743344202383360 1.02349
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.732305 - percent 0.110461
+	2 of 21 in 1.61125 - percent 0.122405
+	4 of 21 in 3.90973 - percent 0.14987
+	5 of 21 in 4.86317 - percent 0.149216
+	7 of 21 in 6.71978 - percent 0.147382
+	10 of 21 in 9.58213 - percent 0.147126
+	14 of 21 in 13.0742 - percent 0.143173
+	15 of 21 in 14.2605 - percent 0.14583
+	20 of 21 in 19.1376 - percent 0.146901
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_244 32 4358925684047872 20.1872
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.81151 - percent 0.0986157
+	12 of 21 in 6.68943 - percent 0.0910689
+	14 of 21 in 7.95133 - percent 0.0928684
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_245 32 1155297767325696 12.2711
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.07181 - percent 0.0942151
+	12 of 21 in 7.05106 - percent 0.0870421
+	14 of 21 in 8.37881 - percent 0.0887954
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_246 32 1082710827728896 12.9347
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.06911 - percent 0.0942485
+	12 of 21 in 7.04671 - percent 0.0870662
+	14 of 21 in 8.37678 - percent 0.0887907
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_247 32 1054722899443712 12.9275
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.81225 - percent 0.0986157
+	12 of 21 in 6.69125 - percent 0.0910689
+	14 of 21 in 7.95379 - percent 0.0928684
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_248 32 844463315615744 12.2741
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.89583 - percent 0.0971956
+	12 of 21 in 6.80679 - percent 0.0897608
+	14 of 21 in 8.09399 - percent 0.0914937
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_249 32 986072903057408 12.4905
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.340568 - percent 0.0142221
+	7 of 21 in 0.699188 - percent 0.0123441
+	8 of 21 in 0.856487 - percent 0.0132423
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_250 32 901517178470557 2.19056
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.465856 - percent 0.00756678
+	16 of 21 in 0.882291 - percent 0.00705884
+	18 of 21 in 0.971882 - percent 0.00688487
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_251 32 130696841134082 1.18014
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.476386 - percent 0.00769051
+	16 of 21 in 0.892813 - percent 0.00720184
+	18 of 21 in 0.978923 - percent 0.00703311
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_252 32 107414812753896 1.19613
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.439466 - percent 0.00785113
+	16 of 21 in 0.834179 - percent 0.00732756
+	18 of 21 in 0.919439 - percent 0.00714654
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_253 32 126199176560578 1.11752
+Perman: [veni] running with 32 rows:
+	8 of 21 in 3.66253 - percent 0.0722663
+	10 of 21 in 4.61145 - percent 0.0727186
+	21 of 21 in 9.56916 - percent 0.071769
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_254 32 751153312997376 9.82932
+Perman: [veni] running with 32 rows:
+	8 of 21 in 6.49704 - percent 0.141615
+	18 of 21 in 13.8197 - percent 0.133516
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_255 32 82670697791488 16.039
+Perman: [veni] running with 32 rows:
+	8 of 21 in 7.43003 - percent 0.134396
+	18 of 21 in 15.8025 - percent 0.12669
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_256 32 96573780873216 18.3556
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.89409 - percent 0.0253514
+	7 of 21 in 1.21377 - percent 0.0242635
+	9 of 21 in 1.66283 - percent 0.0259569
+	10 of 21 in 1.81602 - percent 0.0254509
+	15 of 21 in 2.70921 - percent 0.0252083
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_257 32 301404895471616 3.87892
+Perman: [veni] running with 32 rows:
+	3 of 21 in 4.66124 - percent 0.188712
+	5 of 21 in 7.44944 - percent 0.180082
+	6 of 21 in 9.37655 - percent 0.188809
+	8 of 21 in 12.164 - percent 0.183366
+	9 of 21 in 13.8662 - percent 0.185915
+	10 of 21 in 15.0017 - percent 0.180733
+	16 of 21 in 24.6792 - percent 0.184189
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_258 32 34129372954368 33.2118
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.219446 - percent 0.0144246
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_259 32 1147304292249635 1.99384
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_260 32 162908369510243 1.43519
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_261 32 133862691225568 1.4557
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_262 32 157225519411245 1.37878
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.873458 - percent 0.0130958
+	13 of 21 in 1.47397 - percent 0.0135184
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_263 32 480720972349355 2.47951
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0825968 - percent 0.010576
+	3 of 21 in 0.210499 - percent 0.00869761
+	7 of 21 in 0.537667 - percent 0.00939091
+	9 of 21 in 0.753324 - percent 0.0102615
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_264 32 68258674114536 1.71527
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0830068 - percent 0.0108247
+	3 of 21 in 0.211734 - percent 0.00885652
+	7 of 21 in 0.540764 - percent 0.00954682
+	9 of 21 in 0.758153 - percent 0.0104403
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_265 32 56088522915837 1.72966
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0793852 - percent 0.0109702
+	3 of 21 in 0.202512 - percent 0.0089527
+	7 of 21 in 0.516484 - percent 0.00964083
+	9 of 21 in 0.723852 - percent 0.0105484
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_266 32 65877557575781 1.65427
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.62009 - percent 0.0207877
+	15 of 21 in 2.23335 - percent 0.0208795
+	16 of 21 in 2.38511 - percent 0.0208892
+	17 of 21 in 2.52314 - percent 0.0207791
+	19 of 21 in 2.82147 - percent 0.0207493
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_267 32 0 3.20462
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.51038 - percent 0.0158773
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_268 32 9223372036854775808 2.27332
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.509865 - percent 0.0158773
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_269 32 0 2.27286
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.510328 - percent 0.0158773
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_270 32 10002776247366582272 2.27252
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.508999 - percent 0.0158773
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_271 32 0 2.27043
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0904801 - percent 0.012476
+	16 of 21 in 0.833494 - percent 0.00698696
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_272 32 881160981315584 1.11854
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.177392 - percent 0.0262957
+	2 of 21 in 0.305713 - percent 0.0226132
+	9 of 21 in 1.01515 - percent 0.0163947
+	13 of 21 in 1.49258 - percent 0.0166014
+	18 of 21 in 2.07761 - percent 0.0165981
+	21 of 21 in 2.31981 - percent 0.0158018
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_273 32 136564624244736 2.34418
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.19017 - percent 0.0270822
+	2 of 21 in 0.32776 - percent 0.0232838
+	9 of 21 in 1.08398 - percent 0.0168601
+	13 of 21 in 1.59478 - percent 0.017063
+	18 of 21 in 2.22287 - percent 0.0170491
+	21 of 21 in 2.48106 - percent 0.016226
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_274 32 109359660318720 2.50697
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.171454 - percent 0.0285669
+	2 of 21 in 0.295315 - percent 0.0245615
+	9 of 21 in 0.978806 - percent 0.0177376
+	13 of 21 in 1.43805 - percent 0.0179324
+	18 of 21 in 2.00195 - percent 0.0179035
+	21 of 21 in 2.23607 - percent 0.0170294
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_275 32 127660962267136 2.25963
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.428261 - percent 0.0732229
+	11 of 21 in 5.62635 - percent 0.0879117
+	12 of 21 in 6.03831 - percent 0.0864606
+	14 of 21 in 7.22051 - percent 0.0886689
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_276 32 2405447352975360 10.9981
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.16157 - percent 0.0938183
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_277 32 464141085048832 9.99404
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.16385 - percent 0.0938183
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_278 32 451931197669376 9.9989
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.16266 - percent 0.0938183
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_279 32 362684047425536 9.99394
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.1625 - percent 0.0938183
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_280 32 423621597069312 9.99592
+Perman: [veni] running with 32 rows:
+	13 of 21 in 4.96369 - percent 0.0567883
+	14 of 21 in 5.50256 - percent 0.0586088
+	15 of 21 in 5.92618 - percent 0.0589877
+	18 of 21 in 6.88381 - percent 0.0568753
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_281 32 958429006331904 8.33311
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.69005 - percent 0.10077
+	2 of 21 in 1.24091 - percent 0.0904998
+	4 of 21 in 2.47323 - percent 0.0901407
+	6 of 21 in 3.56913 - percent 0.0866454
+	7 of 21 in 4.19744 - percent 0.087343
+	10 of 21 in 5.90893 - percent 0.0860485
+	21 of 21 in 12.8516 - percent 0.087627
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_282 32 151534958457728 13.228
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.694796 - percent 0.104805
+	2 of 21 in 1.27583 - percent 0.0934279
+	4 of 21 in 2.57425 - percent 0.0930964
+	6 of 21 in 3.76228 - percent 0.0891698
+	7 of 21 in 4.42789 - percent 0.0899399
+	10 of 21 in 6.2676 - percent 0.0885158
+	21 of 21 in 13.6238 - percent 0.0903435
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_283 32 121401035401728 14.0107
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.65742 - percent 0.108063
+	2 of 21 in 1.18271 - percent 0.0970423
+	4 of 21 in 2.3572 - percent 0.0966577
+	6 of 21 in 3.39994 - percent 0.0929056
+	7 of 21 in 3.99859 - percent 0.0936548
+	10 of 21 in 5.62789 - percent 0.0922658
+	21 of 21 in 12.3312 - percent 0.0943094
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_284 32 141778383316736 12.6952
+Perman: [veni] running with 32 rows:
+	7 of 21 in 1.27476 - percent 0.0272787
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_285 32 736008653872128 4.18393
+Perman: [veni] running with 32 rows:
+	3 of 21 in 2.89933 - percent 0.128195
+	5 of 21 in 4.87093 - percent 0.128119
+	6 of 21 in 5.86319 - percent 0.127694
+	7 of 21 in 6.86212 - percent 0.127963
+	8 of 21 in 7.82234 - percent 0.127623
+	10 of 21 in 9.83137 - percent 0.127537
+	21 of 21 in 21.0749 - percent 0.128345
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_286 32 79077898331136 21.56
+Perman: [veni] running with 32 rows:
+	3 of 21 in 2.4744 - percent 0.136509
+	5 of 21 in 4.12099 - percent 0.136481
+	6 of 21 in 4.93209 - percent 0.136095
+	7 of 21 in 5.766 - percent 0.136392
+	8 of 21 in 6.57229 - percent 0.136025
+	10 of 21 in 8.21461 - percent 0.136036
+	21 of 21 in 17.7598 - percent 0.137252
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_287 32 92316510133504 18.1762
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.810753 - percent 0.0157722
+	11 of 21 in 1.30184 - percent 0.0161069
+	18 of 21 in 2.20522 - percent 0.016559
+	20 of 21 in 2.44305 - percent 0.0164896
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_288 32 4955737279027220 2.57952
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.865371 - percent 0.015155
+	21 of 21 in 2.52959 - percent 0.0165524
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_289 32 5221070363059167 2.55766
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.658016 - percent 0.00988269
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_290 32 4907235663748096 1.68977
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.504244 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_291 32 2453617780129024 1.30679
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.505803 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_292 32 3554892863173120 1.31031
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.506036 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_293 32 3534921310632704 1.31034
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.505794 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_294 32 3554892863173120 1.31025
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.505597 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_295 32 2921517066952448 1.31036
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.505842 - percent 0.00792813
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_296 32 3432211867621888 1.31031
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.103476 - percent 0.0140705
+	8 of 21 in 1.09168 - percent 0.0184635
+	9 of 21 in 1.1956 - percent 0.0179197
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_297 32 2524241698226176 2.75666
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.30584 - percent 0.0119899
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_298 32 512066472640512 1.48455
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.51836 - percent 0.0113516
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_299 32 509203520159744 1.72406
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.65384 - percent 0.0112087
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_300 32 512072916140032 1.87966
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.51886 - percent 0.0113516
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_301 32 420802100592640 1.72426
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.56948 - percent 0.0112762
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_302 32 494290773475328 1.78008
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.982202 - percent 0.0158428
+	20 of 21 in 2.14925 - percent 0.0152971
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_303 32 2657513910635196 2.2902
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.225999 - percent 0.00891598
+	8 of 21 in 0.611362 - percent 0.0124625
+	9 of 21 in 0.674424 - percent 0.0121371
+	13 of 21 in 0.941929 - percent 0.0114922
+	18 of 21 in 1.38212 - percent 0.0122644
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_304 32 541924405929119 1.59303
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.24827 - percent 0.00825522
+	8 of 21 in 0.667033 - percent 0.0113354
+	9 of 21 in 0.736067 - percent 0.0110601
+	13 of 21 in 1.02831 - percent 0.0105303
+	18 of 21 in 1.5065 - percent 0.0111914
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_305 32 538633366790249 1.73643
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.264922 - percent 0.0080637
+	8 of 21 in 0.711402 - percent 0.0110046
+	9 of 21 in 0.784966 - percent 0.0107442
+	13 of 21 in 1.09615 - percent 0.010248
+	18 of 21 in 1.60524 - percent 0.0108764
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_306 32 541924405598760 1.84986
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.248293 - percent 0.00825522
+	8 of 21 in 0.667298 - percent 0.0113354
+	9 of 21 in 0.736359 - percent 0.0110601
+	13 of 21 in 1.0286 - percent 0.0105303
+	18 of 21 in 1.50705 - percent 0.0111914
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_307 32 445387264466483 1.73707
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.254094 - percent 0.00815946
+	8 of 21 in 0.682228 - percent 0.0111695
+	9 of 21 in 0.752711 - percent 0.0109021
+	13 of 21 in 1.05164 - percent 0.0103903
+	18 of 21 in 1.54049 - percent 0.011034
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_308 32 523275184669817 1.77555
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.454437 - percent 0.0167223
+	20 of 21 in 2.28412 - percent 0.0161803
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_309 32 855670113606083 2.41468
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0651986 - percent 0.00892572
+	9 of 21 in 0.663164 - percent 0.0103554
+	10 of 21 in 0.721253 - percent 0.010078
+	17 of 21 in 1.28835 - percent 0.010532
+	18 of 21 in 1.35838 - percent 0.0104465
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_310 32 140966166149527 1.58116
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0651366 - percent 0.00892572
+	9 of 21 in 0.663827 - percent 0.0103554
+	10 of 21 in 0.721809 - percent 0.010078
+	17 of 21 in 1.28986 - percent 0.010532
+	18 of 21 in 1.35988 - percent 0.0104465
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_311 32 141514672649484 1.58254
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0651976 - percent 0.00892572
+	9 of 21 in 0.664 - percent 0.0103554
+	10 of 21 in 0.722086 - percent 0.010078
+	17 of 21 in 1.28971 - percent 0.010532
+	18 of 21 in 1.35984 - percent 0.0104465
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_312 32 116283374463791 1.58278
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0651546 - percent 0.00892572
+	9 of 21 in 0.663799 - percent 0.0103554
+	10 of 21 in 0.721858 - percent 0.010078
+	17 of 21 in 1.28903 - percent 0.010532
+	18 of 21 in 1.35908 - percent 0.0104465
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_313 32 136578114421091 1.58158
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.789825 - percent 0.0167964
+	7 of 21 in 0.949664 - percent 0.0172627
+	12 of 21 in 1.60863 - percent 0.0165409
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_314 32 5575876477714432 3.0319
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.160081 - percent 0.00835589
+	6 of 21 in 0.42459 - percent 0.0113273
+	7 of 21 in 0.514559 - percent 0.0116732
+	13 of 21 in 0.923514 - percent 0.0111162
+	18 of 21 in 1.37277 - percent 0.0118538
+	20 of 21 in 1.48439 - percent 0.0115316
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_315 32 1148848172998656 1.5756
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.173226 - percent 0.00765127
+	6 of 21 in 0.461543 - percent 0.010309
+	7 of 21 in 0.559095 - percent 0.0106395
+	13 of 21 in 1.00487 - percent 0.0101678
+	18 of 21 in 1.49532 - percent 0.0108589
+	20 of 21 in 1.61762 - percent 0.0105675
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_316 32 1140977020655616 1.71694
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.185005 - percent 0.00745687
+	6 of 21 in 0.493902 - percent 0.0100305
+	7 of 21 in 0.597813 - percent 0.0103529
+	13 of 21 in 1.07387 - percent 0.00990683
+	18 of 21 in 1.59833 - percent 0.0105867
+	20 of 21 in 1.7295 - percent 0.0103033
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_317 32 1148846722801664 1.83541
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.173424 - percent 0.00765127
+	6 of 21 in 0.461632 - percent 0.010309
+	7 of 21 in 0.559106 - percent 0.0106395
+	13 of 21 in 1.00454 - percent 0.0101678
+	18 of 21 in 1.49497 - percent 0.0108589
+	20 of 21 in 1.61745 - percent 0.0105675
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_318 32 944256636948480 1.7169
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.177196 - percent 0.00755407
+	6 of 21 in 0.472563 - percent 0.0101665
+	7 of 21 in 0.572233 - percent 0.0104971
+	13 of 21 in 1.02859 - percent 0.0100373
+	18 of 21 in 1.53103 - percent 0.0107228
+	20 of 21 in 1.65657 - percent 0.0104354
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_319 32 1109500616554496 1.75819
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.345515 - percent 0.009193
+	20 of 21 in 1.49355 - percent 0.0104186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_320 32 1281902591923379 1.58412
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.312045 - percent 0.0196174
+	3 of 21 in 0.568234 - percent 0.0244028
+	7 of 21 in 1.38815 - percent 0.0250898
+	19 of 21 in 3.9669 - percent 0.0258964
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_321 32 1454036762785792 4.39927
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.05601 - percent 0.0100704
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_322 32 206461972863232 1.64532
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.07461 - percent 0.0105077
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_323 32 169650947572864 1.6774
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.01635 - percent 0.0107793
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_324 32 199259987998464 1.5867
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.949703 - percent 0.01732
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_325 32 1491047855718400 3.07905
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.291826 - percent 0.00787285
+	6 of 21 in 0.411092 - percent 0.00955232
+	7 of 21 in 0.504735 - percent 0.00994205
+	8 of 21 in 0.607681 - percent 0.010323
+	17 of 21 in 1.27132 - percent 0.0100535
+	20 of 21 in 1.45587 - percent 0.0098153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_326 32 245638599574528 1.54537
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.291988 - percent 0.00787285
+	6 of 21 in 0.411583 - percent 0.00955232
+	7 of 21 in 0.504835 - percent 0.00994205
+	8 of 21 in 0.607256 - percent 0.010323
+	17 of 21 in 1.2703 - percent 0.0100535
+	20 of 21 in 1.45479 - percent 0.0098153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_327 32 246593540706304 1.54436
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.291404 - percent 0.00787285
+	6 of 21 in 0.41049 - percent 0.00955232
+	7 of 21 in 0.503758 - percent 0.00994205
+	8 of 21 in 0.606465 - percent 0.010323
+	17 of 21 in 1.26939 - percent 0.0100535
+	20 of 21 in 1.45396 - percent 0.0098153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_328 32 202628030118912 1.5436
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.291721 - percent 0.00787285
+	6 of 21 in 0.410811 - percent 0.00955232
+	7 of 21 in 0.503991 - percent 0.00994205
+	8 of 21 in 0.606746 - percent 0.010323
+	17 of 21 in 1.26984 - percent 0.0100535
+	20 of 21 in 1.45448 - percent 0.0098153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_329 32 237992058206208 1.54402
+Perman: [veni] running with 32 rows:
+	13 of 21 in 2.55602 - percent 0.0273807
+	17 of 21 in 3.32239 - percent 0.0271924
+	19 of 21 in 3.81744 - percent 0.0279734
+	21 of 21 in 4.17541 - percent 0.0276858
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_330 32 8023877855753404 4.2361
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.232704 - percent 0.036801
+	4 of 21 in 1.01001 - percent 0.0407459
+	11 of 21 in 4.06617 - percent 0.0610827
+	17 of 21 in 6.85836 - percent 0.0669089
+	18 of 21 in 7.12882 - percent 0.0656344
+	21 of 21 in 7.85451 - percent 0.0618253
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_331 32 5803645880669384 7.96589
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.706064 - percent 0.00737847
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_332 32 2802846034400496 1.20237
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.70651 - percent 0.00737847
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_333 32 2787099702122008 1.20289
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.706596 - percent 0.00737847
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_334 32 2802846035311880 1.20312
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.706175 - percent 0.00737847
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_335 32 2303462555062384 1.2031
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.706066 - percent 0.00737847
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_336 32 2706118609266880 1.20274
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.720361 - percent 0.01817
+	12 of 21 in 1.71829 - percent 0.0178695
+	13 of 21 in 1.86376 - percent 0.0178989
+	18 of 21 in 2.65221 - percent 0.0182157
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_337 32 2722758096453632 3.17875
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.307755 - percent 0.0167186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_338 32 456302323027968 1.59536
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.307872 - percent 0.0167186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_339 32 458878911557632 1.59722
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.307705 - percent 0.0167186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_340 32 377119812161536 1.59637
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.308017 - percent 0.0167186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_341 32 443041243140096 1.59646
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.403836 - percent 0.0193386
+	10 of 21 in 1.23578 - percent 0.0164159
+	16 of 21 in 2.00897 - percent 0.0166997
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_342 32 2867348174398080 2.69262
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.579892 - percent 0.0123083
+	11 of 21 in 0.862661 - percent 0.0112445
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_343 32 482725168341696 1.6965
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.581199 - percent 0.0123083
+	11 of 21 in 0.86397 - percent 0.0112445
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_344 32 485674609348288 1.69835
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.580335 - percent 0.0123083
+	11 of 21 in 0.863252 - percent 0.0112445
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_345 32 399157674902547 1.6985
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.580419 - percent 0.0123083
+	11 of 21 in 0.862957 - percent 0.0112445
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_346 32 468961110568910 1.69752
+Perman: [veni] running with 32 rows:
+	8 of 21 in 1.35297 - percent 0.0210289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_347 32 893189033570785 3.81288
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_348 32 126825960737282 1.70925
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_349 32 104213580119770 1.73405
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_350 32 122401799291828 1.64901
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0816703 - percent 0.0115772
+	4 of 21 in 0.321162 - percent 0.0115938
+	18 of 21 in 1.16163 - percent 0.0089976
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_351 32 2840291641935872 1.33359
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.219401 - percent 0.0164266
+	5 of 21 in 0.672008 - percent 0.0202831
+	8 of 21 in 1.07852 - percent 0.0198484
+	11 of 21 in 1.40051 - percent 0.0184866
+	16 of 21 in 2.11552 - percent 0.0191788
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_352 32 313416872347264 2.79156
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.147957 - percent 0.0216502
+	2 of 21 in 0.257884 - percent 0.0187286
+	4 of 21 in 0.432501 - percent 0.0155167
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_353 32 516351783534592 2.23717
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.123643 - percent 0.0176299
+	2 of 21 in 0.260929 - percent 0.0186482
+	4 of 21 in 0.462426 - percent 0.0162544
+	9 of 21 in 0.903593 - percent 0.013281
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_354 32 689173867712696 2.23808
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.26183 - percent 0.0175284
+	5 of 21 in 0.639063 - percent 0.0166657
+	14 of 21 in 2.24212 - percent 0.0207599
+	18 of 21 in 3.05796 - percent 0.0219166
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_355 32 5349058869370880 3.51198
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.34769 - percent 0.0102321
+	20 of 21 in 1.75327 - percent 0.0128542
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_356 32 907574763783680 1.86602
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.347475 - percent 0.0102321
+	20 of 21 in 1.75479 - percent 0.0128542
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_357 32 913833922711616 1.86751
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.348072 - percent 0.0102321
+	20 of 21 in 1.75501 - percent 0.0128542
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_358 32 751096392738048 1.86786
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.348224 - percent 0.0102321
+	20 of 21 in 1.75543 - percent 0.0128542
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_359 32 882538222689792 1.86814
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.345731 - percent 0.009193
+	20 of 21 in 1.4933 - percent 0.0104186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_360 32 969102388800058 1.58375
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_361 32 1012391793569792 3.53858
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_362 32 103434731578080 4.16044
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_363 32 121487073756244 3.61395
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.316423 - percent 0.0202011
+	3 of 21 in 0.57919 - percent 0.0252529
+	7 of 21 in 1.41107 - percent 0.0258881
+	19 of 21 in 4.01319 - percent 0.026687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_364 32 1638427434948096 4.44753
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.1846 - percent 0.0113819
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_365 32 232644104401856 1.85167
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.20765 - percent 0.011888
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_366 32 191164889235136 1.88846
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.14322 - percent 0.0122029
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_367 32 224528606124992 1.78717
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.345492 - percent 0.009193
+	20 of 21 in 1.49328 - percent 0.0104186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_368 32 1131911590118341 1.58381
+Perman: [veni] running with 32 rows:
+	16 of 21 in 0.5559 - percent 0.00461286
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_369 32 408151257292790 0.660611
+Perman: [veni] running with 32 rows:
+	5 of 21 in 1.19605 - percent 0.0305067
+	9 of 21 in 2.2217 - percent 0.0314905
+	11 of 21 in 2.72969 - percent 0.0316247
+	13 of 21 in 3.2699 - percent 0.0318875
+	21 of 21 in 5.26662 - percent 0.0314186
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_370 32 4656887637392768 5.36663
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.9205 - percent 0.154384
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_371 32 3366867160793088 11.9742
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.1015 - percent 0.00805687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_372 32 1626712069571571 1.34165
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.10183 - percent 0.00805687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_373 32 1617573237720252 1.34182
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.10162 - percent 0.00805687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_374 32 1626712069571212 1.34171
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.10225 - percent 0.00805687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_375 32 1336880545136681 1.34264
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.10168 - percent 0.00805687
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_376 32 1570573531054370 1.34185
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.466567 - percent 0.0156699
+	9 of 21 in 1.1979 - percent 0.0179863
+	10 of 21 in 1.31916 - percent 0.017787
+	13 of 21 in 1.65616 - percent 0.0170366
+	20 of 21 in 2.6217 - percent 0.0174572
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_377 32 1460630671219122 2.80514
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0744753 - percent 0.0102831
+	16 of 21 in 1.28619 - percent 0.0112962
+	20 of 21 in 1.60188 - percent 0.0112518
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_378 32 244788502852651 1.72716
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0744332 - percent 0.0102831
+	16 of 21 in 1.28548 - percent 0.0112962
+	20 of 21 in 1.60065 - percent 0.0112518
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_379 32 246171488741649 1.72636
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.07447 - percent 0.0102831
+	16 of 21 in 1.28845 - percent 0.0112962
+	20 of 21 in 1.60385 - percent 0.0112518
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_380 32 202311079039620 1.72969
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0745304 - percent 0.0102831
+	16 of 21 in 1.28801 - percent 0.0112962
+	20 of 21 in 1.60365 - percent 0.0112518
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_381 32 237676003983612 1.72911
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.996461 - percent 0.0107778
+	18 of 21 in 1.37784 - percent 0.0106601
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_382 32 18445890053822480384 1.6687
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.297822 - percent 0.0146708
+	4 of 21 in 0.421625 - percent 0.0156118
+	18 of 21 in 2.34899 - percent 0.0193444
+	20 of 21 in 2.57264 - percent 0.0190512
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_383 32 38599407960064 2.6975
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.30838 - percent 0.0153258
+	4 of 21 in 0.438478 - percent 0.0163135
+	18 of 21 in 2.44472 - percent 0.020219
+	20 of 21 in 2.67757 - percent 0.0199114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_384 32 169280230391808 2.80636
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.287235 - percent 0.015837
+	4 of 21 in 0.40675 - percent 0.0168502
+	18 of 21 in 2.26374 - percent 0.0208899
+	20 of 21 in 2.47881 - percent 0.0205727
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_385 32 205243602173952 2.59877
+Perman: [veni] running with 32 rows:
+	17 of 21 in 0.790174 - percent 0.00615724
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_386 32 513026327314432 1.00445
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.202637 - percent 0.0258618
+	3 of 21 in 0.43181 - percent 0.0182417
+	4 of 21 in 0.568447 - percent 0.0179919
+	5 of 21 in 0.855889 - percent 0.0217649
+	8 of 21 in 1.57229 - percent 0.0250825
+	13 of 21 in 2.29008 - percent 0.0222885
+	18 of 21 in 3.3404 - percent 0.0234585
+	21 of 21 in 3.8982 - percent 0.0234179
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_387 32 67711568707584 3.93767
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.176233 - percent 0.0272378
+	3 of 21 in 0.377527 - percent 0.0192379
+	4 of 21 in 0.494217 - percent 0.0189798
+	5 of 21 in 0.735708 - percent 0.023004
+	8 of 21 in 1.34441 - percent 0.02659
+	13 of 21 in 1.97141 - percent 0.0235777
+	18 of 21 in 2.86809 - percent 0.0248528
+	21 of 21 in 3.34875 - percent 0.0248018
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_388 32 72034251964416 3.38411
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_389 32 255804672608150 1.74325
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.19346 - percent 0.0273341
+	18 of 21 in 3.65238 - percent 0.0274106
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_390 32 27978119329070 4.37784
+Perman: [veni] running with 32 rows:
+	6 of 21 in 1.04968 - percent 0.0285547
+	18 of 21 in 3.22012 - percent 0.0286662
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_391 32 32674210284907 3.86546
+Perman: [veni] running with 32 rows:
+	7 of 21 in 0.295166 - percent 0.00555977
+	9 of 21 in 0.389551 - percent 0.005667
+	15 of 21 in 0.683949 - percent 0.00582146
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_392 32 75335881602925 0.980398
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.647342 - percent 0.0259324
+	5 of 21 in 1.2563 - percent 0.0300616
+	6 of 21 in 1.70116 - percent 0.0340205
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_393 32 8532334264742 5.75713
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.18823 - percent 0.0240245
+	2 of 21 in 0.48131 - percent 0.0311724
+	6 of 21 in 1.04648 - percent 0.0222009
+	14 of 21 in 2.15142 - percent 0.0193686
+	17 of 21 in 2.79053 - percent 0.0206413
+	21 of 21 in 3.31467 - percent 0.0198089
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_394 32 2991236050207121 3.37509
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0933721 - percent 0.013928
+	6 of 21 in 0.530492 - percent 0.0132775
+	16 of 21 in 1.33897 - percent 0.0125059
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_395 32 616314512179033 1.69415
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.100577 - percent 0.0130174
+	6 of 21 in 0.574274 - percent 0.0123151
+	16 of 21 in 1.45101 - percent 0.0115923
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_396 32 612093179904169 1.83547
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.106677 - percent 0.0127574
+	6 of 21 in 0.610345 - percent 0.0120408
+	16 of 21 in 1.54134 - percent 0.011333
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_397 32 616314512178139 1.94941
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.10058 - percent 0.0130174
+	6 of 21 in 0.574549 - percent 0.0123151
+	16 of 21 in 1.4514 - percent 0.0115923
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_398 32 506559873023405 1.83581
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.102665 - percent 0.0128873
+	6 of 21 in 0.586913 - percent 0.0121781
+	16 of 21 in 1.48345 - percent 0.0114623
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_399 32 595207850803125 1.87658
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.257883 - percent 0.0331985
+	9 of 21 in 1.55867 - percent 0.0218386
+	11 of 21 in 1.82511 - percent 0.0208949
+	18 of 21 in 3.15989 - percent 0.0219529
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_400 32 1317055669863138 3.62871
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.765847 - percent 0.0102531
+	16 of 21 in 1.2754 - percent 0.0106027
+	18 of 21 in 1.40184 - percent 0.0103401
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_401 32 216976478945382 1.62387
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.765963 - percent 0.0102531
+	16 of 21 in 1.27502 - percent 0.0106027
+	18 of 21 in 1.40121 - percent 0.0103401
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_402 32 217820745401148 1.62315
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.764613 - percent 0.0102531
+	16 of 21 in 1.27405 - percent 0.0106027
+	18 of 21 in 1.40034 - percent 0.0103401
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_403 32 178984488467981 1.62233
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.76564 - percent 0.0102531
+	16 of 21 in 1.2753 - percent 0.0106027
+	18 of 21 in 1.40172 - percent 0.0103401
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_404 32 210222347305256 1.62376
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.180055 - percent 0.0128159
+	4 of 21 in 0.359633 - percent 0.0126998
+	8 of 21 in 0.811415 - percent 0.014406
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_405 32 2097888665464764 2.30315
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.18265 - percent 0.0148113
+	4 of 21 in 0.328306 - percent 0.013142
+	8 of 21 in 0.63347 - percent 0.0125369
+	9 of 21 in 0.696206 - percent 0.0122293
+	11 of 21 in 0.811987 - percent 0.0116569
+	18 of 21 in 1.32173 - percent 0.0115546
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_406 32 425243090437144 1.60925
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.198709 - percent 0.0130699
+	4 of 21 in 0.35595 - percent 0.0118468
+	8 of 21 in 0.694461 - percent 0.0113736
+	9 of 21 in 0.761741 - percent 0.0111301
+	11 of 21 in 0.885448 - percent 0.0106605
+	18 of 21 in 1.44122 - percent 0.0106062
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_407 32 422854084329677 1.75265
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.201816 - percent 0.0130699
+	4 of 21 in 0.368102 - percent 0.0115953
+	8 of 21 in 0.72298 - percent 0.0111745
+	9 of 21 in 0.796986 - percent 0.0108904
+	11 of 21 in 0.934226 - percent 0.0103614
+	18 of 21 in 1.53124 - percent 0.0102746
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_408 32 425243090460258 1.85541
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.198794 - percent 0.0130699
+	4 of 21 in 0.356155 - percent 0.0118468
+	8 of 21 in 0.694343 - percent 0.0113736
+	9 of 21 in 0.761656 - percent 0.0111301
+	11 of 21 in 0.885362 - percent 0.0106605
+	18 of 21 in 1.44128 - percent 0.0106062
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_409 32 349477467585704 1.75274
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.200901 - percent 0.0126432
+	4 of 21 in 0.35896 - percent 0.0115814
+	8 of 21 in 0.709985 - percent 0.0111755
+	9 of 21 in 0.777538 - percent 0.0109532
+	11 of 21 in 0.90125 - percent 0.0105157
+	18 of 21 in 1.47004 - percent 0.0104882
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_410 32 410567767099942 1.78703
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.138286 - percent 0.0184576
+	2 of 21 in 0.340593 - percent 0.0237133
+	4 of 21 in 0.62565 - percent 0.0214024
+	9 of 21 in 1.19572 - percent 0.0178095
+	10 of 21 in 1.33791 - percent 0.0179859
+	13 of 21 in 1.70976 - percent 0.0176055
+	17 of 21 in 2.31834 - percent 0.0181225
+	20 of 21 in 2.69696 - percent 0.0179507
+	21 of 21 in 2.80883 - percent 0.0177795
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_411 32 3296355114796891 2.85943
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.21022 - percent 0.0166502
+	12 of 21 in 0.940652 - percent 0.0119494
+	18 of 21 in 1.48048 - percent 0.0125637
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_412 32 672197905765495 1.72663
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.224473 - percent 0.0149491
+	12 of 21 in 1.00728 - percent 0.0108096
+	18 of 21 in 1.58463 - percent 0.0113434
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_413 32 668115732250007 1.84723
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.237127 - percent 0.0144697
+	12 of 21 in 1.06326 - percent 0.010486
+	18 of 21 in 1.67348 - percent 0.0109987
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_414 32 672197905767018 1.95054
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.224587 - percent 0.0149491
+	12 of 21 in 1.00749 - percent 0.0108096
+	18 of 21 in 1.58513 - percent 0.0113434
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_415 32 552454149275273 1.84778
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.228516 - percent 0.0147052
+	12 of 21 in 1.02621 - percent 0.0106478
+	18 of 21 in 1.61518 - percent 0.0111711
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_416 32 649065589171642 1.88278
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.829728 - percent 0.0218223
+	9 of 21 in 1.35234 - percent 0.0196433
+	10 of 21 in 1.48659 - percent 0.0194408
+	14 of 21 in 2.06487 - percent 0.0191459
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_417 32 1061365114371565 3.20247
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0698757 - percent 0.009771
+	6 of 21 in 0.427466 - percent 0.0100725
+	16 of 21 in 1.11837 - percent 0.00983114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_418 32 174853098969313 1.4535
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0701011 - percent 0.009771
+	6 of 21 in 0.427819 - percent 0.0100725
+	16 of 21 in 1.1192 - percent 0.00983114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_419 32 175533461222423 1.45492
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0700833 - percent 0.009771
+	6 of 21 in 0.42736 - percent 0.0100725
+	16 of 21 in 1.11871 - percent 0.00983114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_420 32 144236797593451 1.45423
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0699335 - percent 0.009771
+	6 of 21 in 0.427679 - percent 0.0100725
+	16 of 21 in 1.11949 - percent 0.00983114
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_421 32 169410200947407 1.45538
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.138636 - percent 0.0184759
+	2 of 21 in 0.341304 - percent 0.0237314
+	4 of 21 in 0.626951 - percent 0.0214201
+	13 of 21 in 1.71336 - percent 0.0176222
+	17 of 21 in 2.32269 - percent 0.018136
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_422 32 2410523461665646 2.8647
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0818067 - percent 0.0123445
+	9 of 21 in 0.723036 - percent 0.0123076
+	16 of 21 in 1.33387 - percent 0.0127362
+	18 of 21 in 1.48651 - percent 0.0126158
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_423 32 496664444542937 1.72767
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0879583 - percent 0.0113403
+	9 of 21 in 0.77676 - percent 0.0111239
+	16 of 21 in 1.433 - percent 0.0115038
+	18 of 21 in 1.59685 - percent 0.0113922
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_424 32 493262633279264 1.85588
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0926234 - percent 0.0110534
+	9 of 21 in 0.820129 - percent 0.0107856
+	16 of 21 in 1.51314 - percent 0.0111529
+	18 of 21 in 1.68601 - percent 0.011044
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_425 32 496664444543188 1.95922
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0878606 - percent 0.0113403
+	9 of 21 in 0.776318 - percent 0.0111239
+	16 of 21 in 1.43249 - percent 0.0115038
+	18 of 21 in 1.59631 - percent 0.0113922
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_426 32 408217351680241 1.85526
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0895265 - percent 0.0111968
+	9 of 21 in 0.791683 - percent 0.0109544
+	16 of 21 in 1.46007 - percent 0.0113279
+	18 of 21 in 1.62704 - percent 0.0112172
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_427 32 479655388223659 1.89099
+Perman: [veni] running with 32 rows:
+	9 of 21 in 1.35559 - percent 0.0196705
+	10 of 21 in 1.48999 - percent 0.0194663
+	14 of 21 in 2.06952 - percent 0.0191704
+	18 of 21 in 2.7576 - percent 0.0198746
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_428 32 1061365114370409 3.20904
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.428854 - percent 0.0100888
+	10 of 21 in 0.684779 - percent 0.00968642
+	16 of 21 in 1.1221 - percent 0.0098476
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_429 32 174853098969754 1.45881
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.429093 - percent 0.0100888
+	10 of 21 in 0.685713 - percent 0.00968642
+	16 of 21 in 1.12377 - percent 0.0098476
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_430 32 175533461222257 1.46076
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.429091 - percent 0.0100888
+	10 of 21 in 0.684958 - percent 0.00968642
+	16 of 21 in 1.12263 - percent 0.0098476
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_431 32 144236797593459 1.45954
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.429122 - percent 0.0100888
+	10 of 21 in 0.685457 - percent 0.00968642
+	16 of 21 in 1.12322 - percent 0.0098476
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_432 32 169410200947277 1.46023
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_433 32 1023799917315735 2.22232
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_434 32 1078614766077596 2.06736
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.110686 - percent 0.013938
+	20 of 21 in 1.59947 - percent 0.00954023
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_435 32 1013779999444174 1.68195
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0646963 - percent 0.00841474
+	9 of 21 in 0.549199 - percent 0.00773087
+	10 of 21 in 0.600103 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_436 32 506889999275458 1.33402
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0647882 - percent 0.00841474
+	9 of 21 in 0.549748 - percent 0.00773087
+	10 of 21 in 0.600789 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_437 32 734401092046016 1.33559
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0648786 - percent 0.00841474
+	9 of 21 in 0.549575 - percent 0.00773087
+	10 of 21 in 0.600512 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_438 32 730275243216546 1.33545
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0648544 - percent 0.00841474
+	9 of 21 in 0.54951 - percent 0.00773087
+	10 of 21 in 0.600457 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_439 32 734401092046016 1.33523
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0648176 - percent 0.00841474
+	9 of 21 in 0.549763 - percent 0.00773087
+	10 of 21 in 0.600696 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_440 32 603552743500679 1.33551
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0647951 - percent 0.00841474
+	9 of 21 in 0.549587 - percent 0.00773087
+	10 of 21 in 0.600534 - percent 0.0075561
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_441 32 709056592249713 1.3353
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_442 32 547736501698510 1.29728
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0374271 - percent 0.0049946
+	13 of 21 in 0.490166 - percent 0.00501194
+	15 of 21 in 0.581714 - percent 0.00514581
+	16 of 21 in 0.627038 - percent 0.00517975
+	20 of 21 in 0.775304 - percent 0.0051136
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_443 32 91795688570894 0.830569
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0374124 - percent 0.0049946
+	13 of 21 in 0.490102 - percent 0.00501194
+	15 of 21 in 0.581824 - percent 0.00514581
+	16 of 21 in 0.627083 - percent 0.00517975
+	20 of 21 in 0.774982 - percent 0.0051136
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_444 32 92314308280325 0.83019
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0373479 - percent 0.0049946
+	13 of 21 in 0.490003 - percent 0.00501194
+	15 of 21 in 0.581785 - percent 0.00514581
+	16 of 21 in 0.627106 - percent 0.00517975
+	20 of 21 in 0.77548 - percent 0.0051136
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_445 32 75866654638054 0.830827
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0373643 - percent 0.0049946
+	13 of 21 in 0.489907 - percent 0.00501194
+	15 of 21 in 0.581651 - percent 0.00514581
+	16 of 21 in 0.626894 - percent 0.00517975
+	20 of 21 in 0.775034 - percent 0.0051136
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_446 32 89128501493737 0.830373
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.12056 - percent 0.0150804
+	2 of 21 in 0.235718 - percent 0.0144132
+	10 of 21 in 1.4391 - percent 0.0168567
+	17 of 21 in 2.45595 - percent 0.0167969
+	18 of 21 in 2.62969 - percent 0.0170418
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_447 32 504913331405071 3.12125
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.667888 - percent 0.00860453
+	18 of 21 in 1.2409 - percent 0.00889769
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_448 32 73199467560954 1.45336
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.678332 - percent 0.00883014
+	18 of 21 in 1.26241 - percent 0.00914969
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_449 32 60159886295027 1.47797
+Perman: [veni] running with 32 rows:
+	10 of 21 in 0.63902 - percent 0.00897077
+	18 of 21 in 1.18864 - percent 0.0093076
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_450 32 70680457543699 1.39229
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_451 32 153733699583969 2.97658
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.146186 - percent 0.00891718
+	9 of 21 in 0.761793 - percent 0.00998986
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_452 32 15706768343043 1.84534
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.131423 - percent 0.00915682
+	9 of 21 in 0.684067 - percent 0.0102776
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_453 32 18448043950074 1.66093
+Perman: [veni] running with 32 rows:
+	13 of 21 in 0.945938 - percent 0.00894111
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_454 32 426354793512934 1.63721
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.0970103 - percent 0.00632627
+	14 of 21 in 0.611233 - percent 0.00550686
+	16 of 21 in 0.712173 - percent 0.00561423
+	18 of 21 in 0.795568 - percent 0.00555793
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_455 32 61542872186878 0.949389
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.0997935 - percent 0.00641753
+	14 of 21 in 0.605117 - percent 0.00565665
+	16 of 21 in 0.712444 - percent 0.00575649
+	18 of 21 in 0.791776 - percent 0.0057051
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_456 32 50577769758714 0.950056
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.0930264 - percent 0.0066456
+	14 of 21 in 0.580695 - percent 0.00574091
+	16 of 21 in 0.67723 - percent 0.00585534
+	18 of 21 in 0.756021 - percent 0.00579352
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_457 32 59419000995828 0.902939
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_458 32 385408532643934 2.47639
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_459 32 40106590863347 2.23749
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_460 32 47120305029007 1.96579
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.60089 - percent 0.0116406
+	10 of 21 in 1.01216 - percent 0.0117075
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_461 32 112960311951393 2.22232
+Perman: [veni] running with 32 rows:
+	18 of 21 in 2.30964 - percent 0.0153491
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_462 32 12298695966722 2.73423
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.155787 - percent 0.0206606
+	2 of 21 in 0.408534 - percent 0.0276044
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_463 32 461273697356841 2.53715
+Perman: [veni] running with 32 rows:
+	5 of 21 in 1.16379 - percent 0.0295046
+	7 of 21 in 1.43666 - percent 0.0257598
+	13 of 21 in 2.3784 - percent 0.0228047
+	21 of 21 in 4.00412 - percent 0.0235605
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_464 32 752009682680127 4.08328
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.11434 - percent 0.016171
+	3 of 21 in 0.416714 - percent 0.0198766
+	10 of 21 in 0.876109 - percent 0.0124119
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_465 32 249985003020384 1.8517
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.114537 - percent 0.016171
+	3 of 21 in 0.416678 - percent 0.0198766
+	10 of 21 in 0.876235 - percent 0.0124119
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_466 32 248272776935803 1.85371
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.114583 - percent 0.016171
+	3 of 21 in 0.417077 - percent 0.0198766
+	10 of 21 in 0.877082 - percent 0.0124119
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_467 32 249985002979039 1.85341
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.11461 - percent 0.016171
+	3 of 21 in 0.416995 - percent 0.0198766
+	10 of 21 in 0.876635 - percent 0.0124119
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_468 32 205467125680852 1.85337
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.114659 - percent 0.016171
+	3 of 21 in 0.417409 - percent 0.0198766
+	10 of 21 in 0.876735 - percent 0.0124119
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_469 32 241423872667262 1.85156
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.234614 - percent 0.0307862
+	4 of 21 in 0.960301 - percent 0.0319425
+	11 of 21 in 1.85007 - percent 0.0220539
+	17 of 21 in 3.09757 - percent 0.0236989
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_470 32 445863662765566 3.69191
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.105131 - percent 0.0145633
+	3 of 21 in 0.382251 - percent 0.0179181
+	10 of 21 in 0.793888 - percent 0.011041
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_471 32 88350864194949 1.6757
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.111325 - percent 0.0138108
+	3 of 21 in 0.405788 - percent 0.0168036
+	10 of 21 in 0.843105 - percent 0.0103479
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_472 32 88008418921804 1.78142
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.115829 - percent 0.0136383
+	3 of 21 in 0.42373 - percent 0.0165474
+	10 of 21 in 0.87964 - percent 0.0101935
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_473 32 88350864131489 1.85832
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.111315 - percent 0.0138108
+	3 of 21 in 0.405721 - percent 0.0168036
+	10 of 21 in 0.842925 - percent 0.0103479
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_474 32 72598384446544 1.7816
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.113275 - percent 0.0136935
+	3 of 21 in 0.413431 - percent 0.0166307
+	10 of 21 in 0.859058 - percent 0.0102397
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_475 32 85268857144686 1.81561
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_476 32 1023799917312450 2.22641
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_477 32 1078614766078771 2.07277
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.112054 - percent 0.013861
+	10 of 21 in 0.947509 - percent 0.0115619
+	20 of 21 in 1.90118 - percent 0.0113829
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_478 32 1013779998717411 2.02049
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.101882 - percent 0.0127677
+	6 of 21 in 0.567726 - percent 0.0117871
+	17 of 21 in 1.54746 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_479 32 506889999364062 1.88731
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.102967 - percent 0.0127677
+	6 of 21 in 0.57187 - percent 0.0117871
+	17 of 21 in 1.55784 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_480 32 734401092082243 1.89951
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.103089 - percent 0.0127677
+	6 of 21 in 0.571845 - percent 0.0117871
+	17 of 21 in 1.55794 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_481 32 730275243242421 1.89956
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.102961 - percent 0.0127677
+	6 of 21 in 0.571896 - percent 0.0117871
+	17 of 21 in 1.55782 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_482 32 734401092082243 1.89941
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.102944 - percent 0.0127677
+	6 of 21 in 0.571853 - percent 0.0117871
+	17 of 21 in 1.55769 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_483 32 603552743429418 1.89941
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.102917 - percent 0.0127677
+	6 of 21 in 0.571908 - percent 0.0117871
+	17 of 21 in 1.55796 - percent 0.0110291
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_484 32 709056592120734 1.89964
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.07968 - percent 0.00946602
+	18 of 21 in 1.40419 - percent 0.00957007
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_485 32 547736501698646 1.67897
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_486 32 91795688570887 1.08811
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_487 32 92314308280319 1.08817
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_488 32 75866654638083 1.08729
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_489 32 89128501493754 1.08739
+Perman: [veni] running with 32 rows:
+	8 of 21 in 1.45922 - percent 0.0212658
+	9 of 21 in 1.63308 - percent 0.0210536
+	11 of 21 in 1.94386 - percent 0.0203292
+	16 of 21 in 2.88608 - percent 0.0206264
+	21 of 21 in 3.81609 - percent 0.0207346
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_490 32 504913331404828 3.88414
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_491 32 73199467560898 2.03314
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_492 32 60159886295014 2.06144
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_493 32 70680457543688 1.96014
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.633456 - percent 0.0179075
+	19 of 21 in 3.078 - percent 0.0176504
+	20 of 21 in 3.24441 - percent 0.0176357
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_494 32 153733699583963 3.47267
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.91239 - percent 0.0137069
+	18 of 21 in 2.12644 - percent 0.0134721
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_495 32 15706768343037 2.50056
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.73027 - percent 0.0141327
+	18 of 21 in 1.92616 - percent 0.0138835
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_496 32 18448043950063 2.26897
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.621961 - percent 0.0122984
+	13 of 21 in 1.31833 - percent 0.0118207
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_497 32 426354793512973 2.28037
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.203172 - percent 0.00644931
+	7 of 21 in 0.345376 - percent 0.00625893
+	18 of 21 in 0.945504 - percent 0.00656189
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_498 32 61542872186882 1.12501
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.203875 - percent 0.00659969
+	7 of 21 in 0.349089 - percent 0.00641245
+	18 of 21 in 0.944059 - percent 0.00674651
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_499 32 50577769758718 1.12911
+Perman: [veni] running with 32 rows:
+	4 of 21 in 0.194405 - percent 0.00674987
+	7 of 21 in 0.330145 - percent 0.00655404
+	18 of 21 in 0.900253 - percent 0.0068545
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_500 32 59419000995853 1.07201
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.943686 - percent 0.0181833
+	11 of 21 in 1.79353 - percent 0.018578
+	18 of 21 in 3.04647 - percent 0.019053
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_501 32 385408532644314 3.5989
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.39569 - percent 0.0155824
+	13 of 21 in 1.65448 - percent 0.0156079
+	18 of 21 in 2.39161 - percent 0.0162286
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_502 32 40106590863325 2.7721
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.22099 - percent 0.0161506
+	13 of 21 in 1.44763 - percent 0.0161721
+	18 of 21 in 2.09353 - percent 0.0168096
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_503 32 47120305029134 2.42483
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.308846 - percent 0.0176151
+	4 of 21 in 0.577873 - percent 0.0161385
+	6 of 21 in 0.855091 - percent 0.0157989
+	7 of 21 in 0.999308 - percent 0.0158001
+	18 of 21 in 2.62878 - percent 0.0158836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_504 32 112960311951415 3.1423
+Perman: [veni] running with 32 rows:
+	6 of 21 in 0.891349 - percent 0.0179619
+	16 of 21 in 2.30781 - percent 0.0173633
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_505 32 12298695966716 3.00636
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.245264 - percent 0.0304197
+	5 of 21 in 1.14261 - percent 0.0288294
+	11 of 21 in 1.98545 - percent 0.0224827
+	17 of 21 in 3.35432 - percent 0.0243172
+	21 of 21 in 3.9149 - percent 0.022964
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_506 32 461273697333034 3.98935
+Perman: [veni] running with 32 rows:
+	4 of 21 in 1.22125 - percent 0.0382276
+	6 of 21 in 1.55098 - percent 0.0317329
+	18 of 21 in 4.23311 - percent 0.0283004
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_507 32 752009680131176 4.86269
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.78567 - percent 0.0155057
+	21 of 21 in 2.19548 - percent 0.0144565
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_508 32 249985003014264 2.23684
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.78496 - percent 0.0155057
+	21 of 21 in 2.1941 - percent 0.0144565
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_509 32 248272776957274 2.23548
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.78525 - percent 0.0155057
+	21 of 21 in 2.19462 - percent 0.0144565
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_510 32 249985003007583 2.236
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.78599 - percent 0.0155057
+	21 of 21 in 2.19591 - percent 0.0144565
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_511 32 205467125762886 2.23721
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.7849 - percent 0.0155057
+	21 of 21 in 2.19431 - percent 0.0144565
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_512 32 241423872761045 2.23566
+Perman: [veni] running with 32 rows:
+	5 of 21 in 1.65515 - percent 0.0416222
+	7 of 21 in 2.04729 - percent 0.036298
+	13 of 21 in 3.39441 - percent 0.0322193
+	21 of 21 in 5.7181 - percent 0.0332414
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_513 32 445863662915477 5.83246
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.60588 - percent 0.0138763
+	17 of 21 in 1.68414 - percent 0.0136451
+	21 of 21 in 1.96896 - percent 0.0128992
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_514 32 88350864069811 2.00618
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.71224 - percent 0.0128293
+	17 of 21 in 1.79597 - percent 0.0126302
+	21 of 21 in 2.09944 - percent 0.0119314
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_515 32 88008418864739 2.13934
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.78849 - percent 0.0125998
+	17 of 21 in 1.87581 - percent 0.0124061
+	21 of 21 in 2.19222 - percent 0.0117194
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_516 32 88350864071627 2.23379
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.71301 - percent 0.0128293
+	17 of 21 in 1.79667 - percent 0.0126302
+	21 of 21 in 2.09983 - percent 0.0119314
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_517 32 72598384433885 2.13971
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.74499 - percent 0.0126673
+	17 of 21 in 1.83041 - percent 0.012472
+	21 of 21 in 2.13949 - percent 0.0117805
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_518 32 85268857190760 2.18008
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.412839 - percent 0.00997039
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_519 32 134 1.86473
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.01133 - percent 0.00866225
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_520 32 2 1.49825
+Perman: [veni] running with 32 rows:
+	15 of 21 in 0.895135 - percent 0.00893728
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_521 32 3 1.32554
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.10463 - percent 0.00708997
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_522 32 26 1.28948
+Perman: [veni] running with 32 rows:
+	16 of 21 in 1.53415 - percent 0.0118045
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_523 32 7 1.95352
+Perman: [veni] running with 32 rows:
+	21 of 21 in 1.38268 - percent 0.00770153
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_524 32 9223372036854775808 1.40912
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_525 32 3128729600 1.01817
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.605286 - percent 0.00873662
+	10 of 21 in 0.669943 - percent 0.00868267
+	12 of 21 in 0.768119 - percent 0.00821285
+	20 of 21 in 1.32385 - percent 0.00840345
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_526 32 2418350435023469 1.42469
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0797032 - percent 0.0119841
+	18 of 21 in 0.891397 - percent 0.00686989
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_527 32 493153814200215 1.09842
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.088717 - percent 0.0112274
+	18 of 21 in 0.97752 - percent 0.00660708
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_528 32 490158952980428 1.20605
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.089311 - percent 0.0112274
+	18 of 21 in 1.02502 - percent 0.00653922
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_529 32 493153814200256 1.26114
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0886999 - percent 0.0112274
+	18 of 21 in 0.977407 - percent 0.00660708
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_530 32 405304551751737 1.20592
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0901851 - percent 0.0110224
+	18 of 21 in 0.998702 - percent 0.00657447
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_531 32 476182933954468 1.2323
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.162587 - percent 0.0207796
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_532 32 450758589235215 2.0399
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_533 32 65348420567025 1.14652
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_534 32 53707406376944 1.16162
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_535 32 63099588280288 1.08773
+Perman: [veni] running with 32 rows:
+	8 of 21 in 3.05673 - percent 0.0601823
+	10 of 21 in 4.00529 - percent 0.0630204
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_536 32 375554899911114 8.61842
+Perman: [veni] running with 32 rows:
+	8 of 21 in 5.87664 - percent 0.128055
+	18 of 21 in 12.2957 - percent 0.118742
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_537 32 41338863352656 14.0314
+Perman: [veni] running with 32 rows:
+	8 of 21 in 6.72775 - percent 0.121538
+	18 of 21 in 14.0686 - percent 0.112683
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_538 32 48283731801726 16.0624
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.799865 - percent 0.0226554
+	7 of 21 in 1.03664 - percent 0.0207425
+	9 of 21 in 1.42209 - percent 0.0222172
+	10 of 21 in 1.57509 - percent 0.0220844
+	15 of 21 in 2.34849 - percent 0.0218591
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_539 32 150671651061826 3.39439
+Perman: [veni] running with 32 rows:
+	3 of 21 in 3.91477 - percent 0.158877
+	5 of 21 in 5.65581 - percent 0.137112
+	6 of 21 in 7.31928 - percent 0.147638
+	8 of 21 in 10.1069 - percent 0.152487
+	9 of 21 in 11.8067 - percent 0.158444
+	10 of 21 in 12.9416 - percent 0.155996
+	16 of 21 in 22.6168 - percent 0.168677
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_540 32 17064679358503 29.0412
+Perman: [veni] running with 32 rows:
+	21 of 21 in 2.53235 - percent 0.0145008
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_541 32 573652146124746 2.61871
+Perman: [veni] running with 32 rows:
+	21 of 21 in 1.30211 - percent 0.00789055
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_542 32 81454184755133 1.3636
+Perman: [veni] running with 32 rows:
+	21 of 21 in 1.31555 - percent 0.00813224
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_543 32 66931345612803 1.37774
+Perman: [veni] running with 32 rows:
+	21 of 21 in 1.24072 - percent 0.00828302
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_544 32 78612759705622 1.29933
+Perman: [veni] running with 32 rows:
+	15 of 21 in 2.34682 - percent 0.0180806
+	21 of 21 in 3.27466 - percent 0.0178184
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_545 32 240360486174740 3.36524
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.05989 - percent 0.00869703
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_546 32 34129337057271 1.47329
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.06492 - percent 0.0088895
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_547 32 28044261457917 1.47944
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.00872 - percent 0.00900913
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_548 32 32938778787915 1.40186
+Perman: [veni] running with 32 rows:
+	17 of 21 in 1.67666 - percent 0.0123048
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_549 32 2307344112230393 2.16119
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0632793 - percent 0.00849682
+	2 of 21 in 0.152613 - percent 0.0105565
+	16 of 21 in 0.968739 - percent 0.00810231
+	20 of 21 in 1.1946 - percent 0.0079836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_550 32 388447097241461 1.3009
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0630263 - percent 0.00849682
+	2 of 21 in 0.152013 - percent 0.0105565
+	16 of 21 in 0.968371 - percent 0.00810231
+	20 of 21 in 1.19381 - percent 0.0079836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_551 32 390820501094417 1.30003
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0630234 - percent 0.00849682
+	2 of 21 in 0.152269 - percent 0.0105565
+	16 of 21 in 0.969185 - percent 0.00810231
+	20 of 21 in 1.19562 - percent 0.0079836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_552 32 321200654745436 1.30189
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.0633072 - percent 0.00849682
+	2 of 21 in 0.152704 - percent 0.0105565
+	16 of 21 in 0.969016 - percent 0.00810231
+	20 of 21 in 1.1946 - percent 0.0079836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_553 32 377371212595177 1.30103
+Perman: [veni] running with 32 rows:
+	21 of 21 in 2.54664 - percent 0.0147836
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_554 32 449508082360260 2.59012
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_555 32 63826684231669 1.33609
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_556 32 52446732779510 1.35387
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_557 32 61600171990980 1.28438
+Perman: [veni] running with 32 rows:
+	5 of 21 in 0.596267 - percent 0.014762
+	10 of 21 in 1.19979 - percent 0.0147773
+	17 of 21 in 2.07531 - percent 0.0148892
+	21 of 21 in 2.60368 - percent 0.0150742
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_558 32 1250123811471961 2.66436
+Perman: [veni] running with 32 rows:
+	16 of 21 in 0.687856 - percent 0.00558318
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_559 32 210461440573486 0.92581
+Perman: [veni] running with 32 rows:
+	16 of 21 in 0.687427 - percent 0.00558318
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_560 32 211747355688996 0.924728
+Perman: [veni] running with 32 rows:
+	16 of 21 in 0.686623 - percent 0.00558318
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_561 32 174027178966904 0.923959
+Perman: [veni] running with 32 rows:
+	16 of 21 in 0.686451 - percent 0.00558318
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_562 32 204460503367594 0.92397
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_563 32 407394555019840 7.13677
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.60129 - percent 0.107492
+	6 of 21 in 3.69932 - percent 0.101926
+	10 of 21 in 6.02676 - percent 0.0996176
+	21 of 21 in 13.1992 - percent 0.101832
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_564 32 44843488109196 13.6569
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.91941 - percent 0.102982
+	6 of 21 in 4.20238 - percent 0.0974836
+	10 of 21 in 6.88341 - percent 0.095207
+	21 of 21 in 14.9698 - percent 0.0971321
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_565 32 52377194358524 15.4803
+Perman: [veni] running with 32 rows:
+	9 of 21 in 1.74817 - percent 0.0257026
+	10 of 21 in 1.94856 - percent 0.0257766
+	15 of 21 in 3.00238 - percent 0.0258243
+	19 of 21 in 3.77121 - percent 0.0253074
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_566 32 163445638127936 4.31811
+Perman: [veni] running with 32 rows:
+	3 of 21 in 3.6361 - percent 0.147975
+	6 of 21 in 7.35613 - percent 0.148415
+	8 of 21 in 9.50282 - percent 0.143191
+	16 of 21 in 19.2711 - percent 0.143526
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_567 32 18511394795944 25.8939
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_568 32 371236578048196 1.53579
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.28183 - percent 0.0085913
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_569 32 37928749178924 1.49062
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.13505 - percent 0.00884069
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_570 32 44548389365749 1.32102
+Perman: [veni] running with 32 rows:
+	16 of 21 in 3.96894 - percent 0.0308821
+	17 of 21 in 4.22183 - percent 0.0307072
+	18 of 21 in 4.53536 - percent 0.0309039
+	21 of 21 in 5.20691 - percent 0.0300325
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_571 32 9947920504774362 5.28977
+Perman: [veni] running with 32 rows:
+	8 of 21 in 4.104 - percent 0.0853734
+	16 of 21 in 8.03399 - percent 0.0853633
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_572 32 7195300024180224 10.3876
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.296983 - percent 0.0210481
+	8 of 21 in 1.25492 - percent 0.0220289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_573 32 3474939421345632 3.65868
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.296654 - percent 0.0210481
+	8 of 21 in 1.25411 - percent 0.0220289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_574 32 3455417299052217 3.6581
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.29658 - percent 0.0210481
+	8 of 21 in 1.25504 - percent 0.0220289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_575 32 3474939429277907 3.65799
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.296906 - percent 0.0210481
+	8 of 21 in 1.2535 - percent 0.0220289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_576 32 2855808969419166 3.65104
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.296918 - percent 0.0210481
+	8 of 21 in 1.253 - percent 0.0220289
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_577 32 3355017764677165 3.65025
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.95875 - percent 0.0243479
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_578 32 8605974358432098 3.82646
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.16956 - percent 0.0201224
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_579 32 1744435342540215 2.63581
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.47863 - percent 0.0191856
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_580 32 1734635143987293 3.0064
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.64287 - percent 0.0188127
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_581 32 1744435342541020 3.20046
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.47967 - percent 0.0191856
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_582 32 1433629045555857 3.00731
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.53407 - percent 0.0190105
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_583 32 1684234122854153 3.07396
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_584 32 18446744073709551568 2.80822
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.414183 - percent 0.0301508
+	9 of 21 in 1.94067 - percent 0.0278716
+	18 of 21 in 3.7913 - percent 0.0260723
+	21 of 21 in 4.27385 - percent 0.0251236
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_585 32 18446744073709551615 4.44462
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.383833 - percent 0.0316951
+	9 of 21 in 1.72692 - percent 0.0287844
+	18 of 21 in 3.40996 - percent 0.0268424
+	21 of 21 in 3.83726 - percent 0.0258777
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_586 32 0 3.99798
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.446664 - percent 0.0186813
+	19 of 21 in 2.69905 - percent 0.0172458
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_587 32 2 3.0196
+Perman: [veni] running with 32 rows:
+	9 of 21 in 2.13469 - percent 0.0310965
+	18 of 21 in 4.52564 - percent 0.0322403
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_588 32 0 5.2732
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_589 32 18446744073709551612 0.389659
+Perman: [veni] running with 32 rows:
+	9 of 21 in 2.72157 - percent 0.0450536
+	17 of 21 in 5.53132 - percent 0.04802
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_590 32 7967360205006433 6.55423
+Perman: [veni] running with 32 rows:
+	17 of 21 in 3.46131 - percent 0.0354111
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_591 32 1624716583107863 4.05402
+Perman: [veni] running with 32 rows:
+	17 of 21 in 4.03223 - percent 0.0330141
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_592 32 1614849883065203 4.71502
+Perman: [veni] running with 32 rows:
+	17 of 21 in 4.37021 - percent 0.032294
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_593 32 1624716588447136 5.11361
+Perman: [veni] running with 32 rows:
+	17 of 21 in 4.03258 - percent 0.0330141
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_594 32 1335293388930070 4.71591
+Perman: [veni] running with 32 rows:
+	17 of 21 in 4.15646 - percent 0.0326639
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_595 32 1568805286180435 4.85176
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.192558 - percent 0.0294692
+ [vidi] 3 1 /home/kaya/sparyser/matrices/will57.mtx_596 32 2565341990707867 6.29337
+Perman: [veni] running with 32 rows:

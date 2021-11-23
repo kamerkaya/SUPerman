@@ -1,0 +1,54 @@
+Number of rows/cols is 37
+Number of nnz is    233
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 3
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 1
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+	2 of 21 in 1.03826 - percent 0.0861098
+	15 of 21 in 8.52284 - percent 0.0930237
+	17 of 21 in 9.50801 - percent 0.0914445
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_0 32 652201381969117 12.4179
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.796453 - percent 0.0457535
+	9 of 21 in 3.30282 - percent 0.0416751
+	17 of 21 in 6.69782 - percent 0.0449833
+	18 of 21 in 7.1577 - percent 0.0454576
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_1 32 184661652931116 8.30807
+Perman: [veni] running with 32 rows:
+	18 of 21 in 5.2807 - percent 0.0388997
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_2 32 205106300136111 6.17572
+Perman: [veni] running with 32 rows:
+	18 of 21 in 5.51897 - percent 0.0425071
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_3 32 293820238907747 6.46438
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.958761 - percent 0.06422
+	12 of 21 in 5.59858 - percent 0.0619209
+	20 of 21 in 10.6222 - percent 0.0705905
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_4 32 261166328874356 11.1578
+Perman: [veni] running with 32 rows:
+	2 of 21 in 0.65745 - percent 0.0409099
+	18 of 21 in 6.29747 - percent 0.0419
+	19 of 21 in 6.71359 - percent 0.0422248
+	21 of 21 in 7.26309 - percent 0.0412514
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_5 32 88219717835470 7.37178
+Perman: [veni] running with 32 rows:
+	19 of 21 in 10.0798 - percent 0.0915353
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_6 32 262496211330765 11.177
+Perman: [veni] running with 32 rows:
+	16 of 21 in 4.28888 - percent 0.029392
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_7 32 68609384511828 5.42029
+Perman: [veni] running with 32 rows:
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_8 32 88297320094655 6.59063
+Perman: [veni] running with 32 rows:
+	1 of 21 in 0.121104 - percent 0.0133071
+	9 of 21 in 0.921163 - percent 0.0107164
+	17 of 21 in 1.94037 - percent 0.0118781
+ [vidi] 3 1 /home/kaya/sparyser/matrices/cage5.mtx_9 32 23079021180157 2.32773
+Overall perman is: 2127657557771322 in 77.4117

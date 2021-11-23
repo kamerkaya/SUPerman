@@ -1,0 +1,386 @@
+Number of rows/cols is 39
+Number of nnz is    340
+#d1 vertices: 0
+#d2 vertices: 0
+min degree: 3
+************************************************************************
+Algo is 3
+Compress matrix 0
+Apply Dulmage-Mendehlson 0
+Sorting 3
+Single run 0
+************************************************************************
+Perman: [veni] running with 32 rows:
+	13 of 21 in 14.4788 - percent 0.121775
+	21 of 21 in 30.252 - percent 0.151465
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_0 32 793094529406 30.516
+Perman: [veni] running with 32 rows:
+	13 of 21 in 16.6909 - percent 0.128431
+	16 of 21 in 30.8966 - percent 0.189235
+	18 of 21 in 38.8401 - percent 0.21038
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_1 32 91558278249 50.7417
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.0665 - percent 0.0622238
+	6 of 21 in 3.07534 - percent 0.0602213
+	11 of 21 in 5.12137 - percent 0.052528
+	12 of 21 in 8.9697 - percent 0.078001
+	13 of 21 in 12.8874 - percent 0.101721
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_2 32 426660715936 24.4336
+Perman: [veni] running with 32 rows:
+	10 of 21 in 9.12673 - percent 0.098534
+	13 of 21 in 19.6887 - percent 0.14947
+	14 of 21 in 22.1271 - percent 0.15764
+	15 of 21 in 26.5181 - percent 0.178487
+	17 of 21 in 34.4296 - percent 0.193247
+	20 of 21 in 45.5472 - percent 0.215304
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_3 32 37392158290 48.6701
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.06772 - percent 0.0622238
+	6 of 21 in 3.07673 - percent 0.0602213
+	11 of 21 in 5.12397 - percent 0.052528
+	12 of 21 in 8.97287 - percent 0.078001
+	13 of 21 in 12.8923 - percent 0.101721
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_4 32 426660715936 24.4413
+Perman: [veni] running with 32 rows:
+	10 of 21 in 9.12694 - percent 0.098534
+	13 of 21 in 19.688 - percent 0.14947
+	14 of 21 in 22.1261 - percent 0.15764
+	15 of 21 in 26.5162 - percent 0.178487
+	17 of 21 in 34.4277 - percent 0.193247
+	20 of 21 in 45.5447 - percent 0.215304
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_5 32 37392158290 48.667
+Perman: [veni] running with 32 rows:
+	4 of 21 in 1.97811 - percent 0.065847
+	6 of 21 in 2.87198 - percent 0.063625
+	13 of 21 in 10.6234 - percent 0.105614
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_6 32 197894298601 20.2015
+Perman: [veni] running with 32 rows:
+	10 of 21 in 8.77657 - percent 0.0997152
+	11 of 21 in 10.1834 - percent 0.1055
+	15 of 21 in 26.0129 - percent 0.185155
+	17 of 21 in 34.2997 - percent 0.205004
+	18 of 21 in 38.9596 - percent 0.219082
+	20 of 21 in 45.6316 - percent 0.22955
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_7 32 18280514960 49.489
+Perman: [veni] running with 32 rows:
+	7 of 21 in 3.16116 - percent 0.0472566
+	18 of 21 in 21.5066 - percent 0.113316
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_8 32 213033045871 24.0885
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.46217 - percent 0.0649926
+	6 of 21 in 3.64399 - percent 0.0626901
+	12 of 21 in 9.65669 - percent 0.0745575
+	13 of 21 in 14.0722 - percent 0.099219
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_9 32 105425701063 27.8624
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.74234 - percent 0.0130811
+	18 of 21 in 2.3482 - percent 0.0142564
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_10 32 6922166118 2.88899
+Perman: [veni] running with 32 rows:
+	15 of 21 in 3.7183 - percent 0.022989
+	18 of 21 in 6.11812 - percent 0.0308431
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_11 32 3104824187 8.42781
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_12 32 23672578498 8.09418
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_13 32 616056992 3.89016
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_14 32 731619330 2.6281
+Perman: [veni] running with 32 rows:
+	7 of 21 in 3.16178 - percent 0.0472566
+	18 of 21 in 21.5102 - percent 0.113316
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_15 32 213033045871 24.0929
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.46411 - percent 0.0649926
+	6 of 21 in 3.64644 - percent 0.0626901
+	12 of 21 in 9.65947 - percent 0.0745575
+	13 of 21 in 14.0755 - percent 0.099219
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_16 32 105425701063 27.868
+Perman: [veni] running with 32 rows:
+	13 of 21 in 5.69966 - percent 0.0367374
+	20 of 21 in 14.8639 - percent 0.057915
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_17 32 60613027891 15.1126
+Perman: [veni] running with 32 rows:
+	3 of 21 in 0.221878 - percent 0.00799189
+	18 of 21 in 4.90037 - percent 0.0302862
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_18 32 3520331074 6.75478
+Perman: [veni] running with 32 rows:
+	18 of 21 in 5.9158 - percent 0.0307921
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_19 32 8044538119 8.07935
+Perman: [veni] running with 32 rows:
+	15 of 21 in 2.77742 - percent 0.0188433
+	18 of 21 in 4.40941 - percent 0.0245656
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_20 32 19289380241 5.7468
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_21 32 538261023 2.69696
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.77014 - percent 0.013058
+	18 of 21 in 2.35576 - percent 0.0142432
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_22 32 8734663670 2.89254
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_23 32 302833439 11.3345
+Perman: [veni] running with 32 rows:
+	9 of 21 in 3.3779 - percent 0.043747
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_24 32 650589834 9.02879
+Perman: [veni] running with 32 rows:
+	13 of 21 in 4.24193 - percent 0.0364733
+	20 of 21 in 10.2417 - percent 0.0583574
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_25 32 3104821828 10.3686
+Perman: [veni] running with 32 rows:
+	18 of 21 in 2.57039 - percent 0.0204484
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_26 32 196001406 3.43347
+Perman: [veni] running with 32 rows:
+	7 of 21 in 4.72995 - percent 0.0739835
+	14 of 21 in 11.537 - percent 0.0896631
+	16 of 21 in 21.1411 - percent 0.139712
+	18 of 21 in 28.6164 - percent 0.166399
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_27 32 1476969703965 32.8911
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.12174 - percent 0.0868026
+	6 of 21 in 6.2252 - percent 0.112994
+	9 of 21 in 17.8925 - percent 0.209212
+	12 of 21 in 29.1795 - percent 0.252741
+	13 of 21 in 33.9566 - percent 0.271183
+	14 of 21 in 38.8527 - percent 0.287365
+	16 of 21 in 48.2287 - percent 0.312199
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_28 32 107019437303 51.9292
+Perman: [veni] running with 32 rows:
+	7 of 21 in 6.07382 - percent 0.0795282
+	14 of 21 in 14.8879 - percent 0.0949455
+	16 of 21 in 27.38 - percent 0.147666
+	18 of 21 in 37.8157 - percent 0.178523
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_29 32 1101586374946 43.6651
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.72278 - percent 0.0885105
+	6 of 21 in 8.04386 - percent 0.119073
+	9 of 21 in 23.9028 - percent 0.226339
+	12 of 21 in 40.3308 - percent 0.277372
+	13 of 21 in 46.5523 - percent 0.296635
+	14 of 21 in 53.2056 - percent 0.312568
+	16 of 21 in 64.8377 - percent 0.334938
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_30 32 78950407992 69.8026
+Perman: [veni] running with 32 rows:
+	14 of 21 in 11.9996 - percent 0.0819616
+	15 of 21 in 16.6673 - percent 0.105002
+	16 of 21 in 20.6194 - percent 0.120317
+	17 of 21 in 21.9573 - percent 0.119808
+	18 of 21 in 27.0058 - percent 0.137234
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_31 32 320131755585 32.5395
+Perman: [veni] running with 32 rows:
+	13 of 21 in 19.3147 - percent 0.134811
+	14 of 21 in 19.9474 - percent 0.129687
+	18 of 21 in 27.6543 - percent 0.141243
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_32 32 236000584199 29.8714
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_33 32 11639867977 2.92505
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.68445 - percent 0.0159699
+	13 of 21 in 2.68537 - percent 0.0220612
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_34 32 7750000488 5.30406
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_35 32 17468101069 2.62877
+Perman: [veni] running with 32 rows:
+	18 of 21 in 5.51128 - percent 0.0311897
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_36 32 6408220741 7.54657
+Perman: [veni] running with 32 rows:
+	6 of 21 in 4.30782 - percent 0.0652411
+	10 of 21 in 7.08528 - percent 0.0634858
+	12 of 21 in 12.1097 - percent 0.0835959
+	13 of 21 in 16.4092 - percent 0.103196
+	14 of 21 in 20.9135 - percent 0.121619
+	16 of 21 in 30.9756 - percent 0.156597
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_37 32 33537270818 34.9076
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.445747 - percent 0.005037
+	13 of 21 in 0.937944 - percent 0.00726463
+	15 of 21 in 1.5596 - percent 0.0109484
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_38 32 2088230656 1.94509
+Perman: [veni] running with 32 rows:
+	13 of 21 in 10.6239 - percent 0.0787065
+	14 of 21 in 14.0864 - percent 0.0950152
+	15 of 21 in 19.6841 - percent 0.122283
+	17 of 21 in 26.2261 - percent 0.140976
+	18 of 21 in 32.2161 - percent 0.161597
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_39 32 12134603175 38.8682
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_40 32 708749696 1.7124
+Perman: [veni] running with 32 rows:
+	13 of 21 in 1.58781 - percent 0.011657
+	21 of 21 in 4.61547 - percent 0.0232324
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_41 32 72226488449 4.70363
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_42 32 31683799572 4.39398
+Perman: [veni] running with 32 rows:
+	15 of 21 in 1.90465 - percent 0.0138075
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_43 32 3668046410 3.15935
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.770506 - percent 0.00991319
+	15 of 21 in 4.13726 - percent 0.0280518
+	17 of 21 in 5.41603 - percent 0.0322133
+	18 of 21 in 6.18386 - percent 0.0348868
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_44 32 1134414071 6.99371
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.206616 - percent 0.00296307
+	12 of 21 in 0.268104 - percent 0.00253633
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_45 32 2873626431 0.961163
+Perman: [veni] running with 32 rows:
+	13 of 21 in 18.143 - percent 0.128712
+	16 of 21 in 33.3857 - percent 0.18908
+	20 of 21 in 35.7197 - percent 0.161767
+	21 of 21 in 36.1721 - percent 0.155909
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_46 32 3658333727 36.4145
+Perman: [veni] running with 32 rows:
+	17 of 21 in 7.19634 - percent 0.044306
+	18 of 21 in 8.52423 - percent 0.0492805
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_47 32 392002743 10.7389
+Perman: [veni] running with 32 rows:
+	7 of 21 in 4.73543 - percent 0.0739835
+	14 of 21 in 11.5518 - percent 0.0896631
+	16 of 21 in 21.1679 - percent 0.139712
+	18 of 21 in 28.6548 - percent 0.166399
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_48 32 1476969703965 32.9345
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.1239 - percent 0.0868026
+	6 of 21 in 6.23033 - percent 0.112994
+	9 of 21 in 17.9089 - percent 0.209212
+	12 of 21 in 29.2087 - percent 0.252741
+	13 of 21 in 33.9914 - percent 0.271183
+	14 of 21 in 38.8943 - percent 0.287365
+	16 of 21 in 48.2815 - percent 0.312199
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_49 32 107019437303 51.9866
+Perman: [veni] running with 32 rows:
+	7 of 21 in 6.07788 - percent 0.0795282
+	14 of 21 in 14.8967 - percent 0.0949455
+	16 of 21 in 27.3984 - percent 0.147666
+	18 of 21 in 37.8412 - percent 0.178523
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_50 32 1101586374946 43.6939
+Perman: [veni] running with 32 rows:
+	4 of 21 in 3.72434 - percent 0.0885105
+	6 of 21 in 8.04709 - percent 0.119073
+	9 of 21 in 23.912 - percent 0.226339
+	12 of 21 in 40.3485 - percent 0.277372
+	13 of 21 in 46.5745 - percent 0.296635
+	14 of 21 in 53.231 - percent 0.312568
+	16 of 21 in 64.8715 - percent 0.334938
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_51 32 78950407992 69.8403
+Perman: [veni] running with 32 rows:
+	14 of 21 in 12.0103 - percent 0.0819616
+	15 of 21 in 16.6818 - percent 0.105002
+	16 of 21 in 20.6384 - percent 0.120317
+	17 of 21 in 21.9781 - percent 0.119808
+	18 of 21 in 27.0308 - percent 0.137234
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_52 32 320131755585 32.5692
+Perman: [veni] running with 32 rows:
+	13 of 21 in 19.3239 - percent 0.134811
+	14 of 21 in 19.9572 - percent 0.129687
+	18 of 21 in 27.6705 - percent 0.141243
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_53 32 236000584199 29.8896
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_54 32 11639867977 2.92964
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.68655 - percent 0.0159699
+	13 of 21 in 2.68836 - percent 0.0220612
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_55 32 7750000488 5.31113
+Perman: [veni] running with 32 rows:
+	7 of 21 in 7.44599 - percent 0.118315
+	14 of 21 in 22.1733 - percent 0.169878
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_56 32 1711715058428 29.8785
+Perman: [veni] running with 32 rows:
+	4 of 21 in 2.03334 - percent 0.0535807
+	9 of 21 in 16.0754 - percent 0.181793
+	13 of 21 in 24.517 - percent 0.192809
+	14 of 21 in 28.0343 - percent 0.203552
+	16 of 21 in 36.1646 - percent 0.229983
+	17 of 21 in 36.5804 - percent 0.219147
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_57 32 1263427798421 39.6621
+Perman: [veni] running with 32 rows:
+	13 of 21 in 7.77684 - percent 0.0674666
+	14 of 21 in 10.2427 - percent 0.0812999
+	18 of 21 in 23.0876 - percent 0.138264
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_58 32 52498466388 27.6289
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.709964 - percent 0.00840618
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_59 32 3788021622 2.77755
+Perman: [veni] running with 32 rows:
+	13 of 21 in 18.8746 - percent 0.124596
+	14 of 21 in 19.957 - percent 0.121907
+	15 of 21 in 26.8784 - percent 0.15196
+	17 of 21 in 33.161 - percent 0.16333
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_60 32 96957687916 49.4038
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.606267 - percent 0.00726947
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_61 32 3845595074 2.35152
+Perman: [veni] running with 32 rows:
+	11 of 21 in 1.90307 - percent 0.016041
+	13 of 21 in 3.02922 - percent 0.0221464
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_62 32 8805368247 5.99091
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_63 32 47046816002 3.76609
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_64 32 20454370618 3.40092
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.7261 - percent 0.0127761
+	18 of 21 in 3.65096 - percent 0.0214524
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_65 32 3513938481 4.2412
+Perman: [veni] running with 32 rows:
+	14 of 21 in 2.17235 - percent 0.0170813
+	18 of 21 in 2.92168 - percent 0.0183672
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_66 32 1552181486 3.3453
+Perman: [veni] running with 32 rows:
+	13 of 21 in 5.80746 - percent 0.0504744
+	16 of 21 in 11.7781 - percent 0.0834532
+	18 of 21 in 14.9099 - percent 0.0938528
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_67 32 8248360602 17.7357
+Perman: [veni] running with 32 rows:
+	18 of 21 in 1.99564 - percent 0.0150153
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_68 32 570827199 2.1079
+Perman: [veni] running with 32 rows:
+	6 of 21 in 4.30872 - percent 0.0652411
+	10 of 21 in 7.08748 - percent 0.0634858
+	12 of 21 in 12.113 - percent 0.0835959
+	13 of 21 in 16.4134 - percent 0.103196
+	14 of 21 in 20.9199 - percent 0.121619
+	16 of 21 in 30.9886 - percent 0.156597
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_69 32 33537270818 34.9227
+Perman: [veni] running with 32 rows:
+	9 of 21 in 0.44632 - percent 0.005037
+	13 of 21 in 0.939376 - percent 0.00726463
+	15 of 21 in 1.56161 - percent 0.0109484
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_70 32 2088230656 1.94759
+Perman: [veni] running with 32 rows:
+	13 of 21 in 10.6344 - percent 0.0787065
+	14 of 21 in 14.1014 - percent 0.0950152
+	15 of 21 in 19.7058 - percent 0.122283
+	17 of 21 in 26.256 - percent 0.140976
+	18 of 21 in 32.2524 - percent 0.161597
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_71 32 12134603175 38.9124
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_72 32 708749696 1.71493
+Perman: [veni] running with 32 rows:
+	17 of 21 in 2.84661 - percent 0.0173825
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_73 32 132887205064 4.06473
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_74 32 58375092742 2.3887
+Perman: [veni] running with 32 rows:
+	14 of 21 in 1.50925 - percent 0.0106928
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_75 32 5683357100 3.65653
+Perman: [veni] running with 32 rows:
+	14 of 21 in 2.00338 - percent 0.0143206
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_76 32 2433530068 2.96712
+Perman: [veni] running with 32 rows:
+	8 of 21 in 0.159551 - percent 0.00218213
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_77 32 2955336192 0.835105
+Perman: [veni] running with 32 rows:
+	17 of 21 in 3.77266 - percent 0.0249971
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_78 32 8865826175 4.86044
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_79 32 142807871 2.77381
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_80 32 225990144 2.84119
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_81 32 15719063778 9.45597
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_82 32 364375519 2.46228
+Perman: [veni] running with 32 rows:
+ [vidi] 3 3 /home/kaya/sparyser/matrices/chesapeake.mtx_83 32 1006320062 3.65626
+Overall perman is: 13173522959198 in 1505.26
