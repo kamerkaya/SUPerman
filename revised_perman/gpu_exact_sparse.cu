@@ -224,7 +224,7 @@ int xshared_coalescing_sparse_sharedmem(int b){ //Actually the same but no need 
 }
 
 int xshared_coalescing_mshared_sparse_sharedmem(int b){
-  
+  printf("b: %d , return: %d \n", glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s);
   return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s;
   //////////////for my_x////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
   //Note that d_x is not resides at the shared memory, in contrary, we copy it to d_p at the very beginning
@@ -1140,8 +1140,10 @@ template <class C, class S>
   int grid_dim_multip = flags.grid_multip;
   //Pack flags
   
-  //cudaDeviceProp prop;
-  //cudaGetDeviceProperties(&prop, device_id);
+  cudaDeviceProp prop;
+  cudaGetDeviceProperties(&prop, device_id);
+
+  size_t max_shared_per_block = prop.sharedMemPerBlock;
 
   cudaSetDevice(device_id);
   cudaDeviceSynchronize();
@@ -1177,10 +1179,11 @@ template <class C, class S>
 						 &block_dim,
 						 &kernel_xshared_coalescing_mshared_sparse<C,S>,
 						 xshared_coalescing_mshared_sparse_sharedmem,
-						 0);
+						 (int)max_shared_per_block);
 
   size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(S);
-  
+
+  printf("==SC== Maximum Shared memory per block : %zu \n", max_shared_per_block);
   printf("==SC== Shared memory per block is set to : %zu \n", size);
   printf("==SC== Grid dim is set to : %d \n", grid_dim);
   printf("==SC== Block dim is set to : %d \n", block_dim);
@@ -1196,7 +1199,7 @@ template <class C, class S>
   C *h_p = new C[grid_dim * block_dim];
 
   cudaMalloc( &d_x, (nov) * sizeof(C));
-  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C)); //Why it should be grid_dim * block_dim? Changed it..
+  cudaMalloc( &d_p, (grid_dim * block_dim) * sizeof(C));  
   cudaMalloc( &d_cptrs, (nov + 1) * sizeof(int));
   cudaMalloc( &d_rows, (total) * sizeof(int));
   cudaMalloc( &d_cvals, (total) * sizeof(S));
