@@ -32,6 +32,8 @@
 #include "mmio.h"
 #endif
 
+#include <cfenv>
+
 //#define DEBUG
 
 using namespace std;
@@ -1629,6 +1631,8 @@ int main (int argc, char **argv)
     print_flags(flags);
     exit(1);
   }
-  
+
+  std::feclearexcept(FE_OVERFLOW);
+  std::cout << "Is any overflow happened: " << (bool)std::fetestexcept(FE_OVERFLOW) << std::endl;
   return 0;
 }
