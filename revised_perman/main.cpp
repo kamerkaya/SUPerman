@@ -41,7 +41,7 @@ using namespace std;
 int recursive_count = 0;
 
 void print_flags(flags flags){
-  
+  //
   std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
   std::cout << "- cpu: " << flags.cpu << std::endl;
   std::cout << "- gpu: " << flags.gpu << std::endl;
@@ -50,7 +50,9 @@ void print_flags(flags flags){
   std::cout << "- exact: " << flags.exact << std::endl;
   std::cout << "- approximation: " << flags.approximation << std::endl;
   std::cout << "- calculation half-precision: " << flags.calculation_half_precision << std::endl;
+  std::cout << "- calculation quad-precision: " << flags.calculation_quad_precision << std::endl;
   std::cout << "- storage half-precision: " << flags.storage_half_precision << std::endl;
+  std::cout << "- storage quad-precision: " << flags.storage_quad_precision << std::endl;
   std::cout << "- binary graph: " << flags.binary_graph << std::endl;
   std::cout << "- grid_graph: " << flags.grid_graph << std::endl;
   std::cout << "- gridm: " << flags.gridm << std::endl;
@@ -69,26 +71,19 @@ void print_flags(flags flags){
   std::cout << "- block_dim: " << flags.block_dim << std::endl;
   std::cout << "- device_id: " << flags.device_id << std::endl;
   std::cout << "- grid_multip: " << flags.grid_multip << std::endl;
+  std::cout << "- compression: " << flags.compression << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
 }
 
 
 template <class S>
-Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags, bool supress) 
+Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags, bool supress) 
 {
 
-  if(!supress)
-    print_flags(flags);
-
-  int grid_dim = 2048;
+  int grid_dim = 2048; //For any case, if it's failed to determined by CUDA
   int block_dim = 256;
   
-  //if(std::string(flags.type) == std::string("double")){
-  //std::cout << "==SC== Resetted block_dim to 128 due to double entries.. " << std::endl;
-  //block_dim = 128;
-  //}
-
   //Pack flags
   bool cpu = flags.cpu;
   bool gpu = flags.gpu;
@@ -110,7 +105,7 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
   //Pack flags
   
   double start, end, perman;
-
+  
   Result result;
   
   if(cpu && dense && exact && !gpu){    
@@ -122,22 +117,18 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = parallel_perman64<float, S>(densemat, flags);
-	else
-	  perman = parallel_perman64<double, S>(densemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: parallel_perman64 " << perman << " in " << (end - start) << endl;
-      }
+      flags.algo_name = "parallel_perman";
+      if(flags.calculation_half_precision)
+	result = parallel_perman64<float, S>(densemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = parallel_perman64<__float128, S>(densemat, flags);
+      else
+	result = parallel_perman64<double, S>(densemat, flags);	
     }
     else{
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
-      //return 1;
     }
-    
   }
   
   if(cpu && sparse && exact && !gpu){
@@ -149,54 +140,50 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();	
-	if(flags.calculation_half_precision)
-	  perman = parallel_perman64_sparse<float, S>(densemat, sparsemat, flags);
-	else
-	  perman = parallel_perman64_sparse<double, S>(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: parallel_perman64_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 2) {
+      flags.algo_name = "parallel_perman_sparse";
+      if(flags.calculation_half_precision)
+	result = parallel_perman64_sparse<float, S>(densemat, sparsemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = parallel_perman64_sparse<__float128, S>(densemat, sparsemat, flags);
+      else
+	result = parallel_perman64_sparse<double, S>(densemat, sparsemat, flags); 
+    }
+    else if (perman_algo == 2) {
 #ifdef DEBUG
       cout << "Calling, parallel_skip_perman64_w()" << endl;
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = parallel_skip_perman64_w<float, S>(sparsemat, flags);
-	else
-	  perman = parallel_skip_perman64_w<double, S>(sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: parallel_skip_perman64_w " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 3) {
+      flags.algo_name = "parallel_skip_perman";
+
+      if(flags.calculation_half_precision)
+	result = parallel_skip_perman64_w<float, S>(sparsemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = parallel_skip_perman64_w<__float128, S>(sparsemat, flags);
+      else
+	result = parallel_skip_perman64_w<double, S>(sparsemat, flags);
+    }
+    else if (perman_algo == 3) {
 #ifdef DEBUG
       cout << "Calling, parallel_skip_perman64_w_balanced()" << endl;
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = parallel_skip_perman64_w_balanced<float, S>(sparsemat, flags);
-	else
-	  perman = parallel_skip_perman64_w_balanced<double, S>(sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: parallel_skip_perman64_w_balanced " << perman << " in " << (end - start) << endl;
+      flags.algo_name = "parallel_skip_perman_balanced";
+      if(flags.calculation_half_precision)
+	result = parallel_skip_perman64_w_balanced<float, S>(sparsemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = parallel_skip_perman64_w_balanced<__float128, S>(sparsemat, flags);
+      else
+	result = parallel_skip_perman64_w_balanced<double, S>(sparsemat, flags);
+    }
+    else
+      {
+	std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
+	exit(1);
       }
-    }
-    
-    else{
-      std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
-      exit(1);
-    }
-    
   }
   
   if(cpu && dense && approximation && !gpu){
@@ -208,39 +195,36 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = rasmussen<float, S>(densemat, flags);
-	else
-	  perman = rasmussen<double, S>(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: rasmussen %e in %lf\n", perman, end-start);
-	//cout << "Result: rasmussen " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 2) { // approximation_with_scaling
+      flags.algo_name = "rasmussen";
+      if(flags.calculation_half_precision)
+	result = rasmussen<float, S>(densemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = rasmussen<__float128, S>(densemat, flags);
+      else
+	result = rasmussen<double, S>(densemat, flags);
+    }
+    
+    else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("Calling, approximation_perman64() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = approximation_perman64<float, S>(densemat, flags);
-	else
-	  perman = approximation_perman64<double, S>(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: approximation_perman64 %e in %lf\n", perman, end-start);
-	//cout << "Result: approximation_perman64 " << perman << " in " << (end - start) << endl;
-      }
+      flags.algo_name = "approximation";
+      if(flags.calculation_half_precision)
+	result = approximation_perman64<float, S>(densemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = approximation_perman64<__float128, S>(densemat, flags);
+      else
+	result = approximation_perman64<double, S>(densemat, flags); 
     }
     else{
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
     }  
   }
+  
   if(cpu && sparse && approximation && !gpu){
     
     if (perman_algo == 1) { // rasmussen
@@ -250,33 +234,28 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = rasmussen_sparse<float, S>(densemat, sparsemat, flags);
-	else
-	  perman = rasmussen_sparse<double, S>(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: rasmussen_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: rasmussen_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 2) { // approximation_with_scaling
+      flags.algo_name = "rasmussen_sparse";
+      if(flags.calculation_half_precision)
+	result = rasmussen_sparse<float, S>(densemat, sparsemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = rasmussen_sparse<__float128, S>(densemat, sparsemat, flags);
+      else
+	result = rasmussen_sparse<double, S>(densemat, sparsemat, flags);
+    }
+    else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("Calling, approximation_perman64_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  perman = approximation_perman64_sparse<float, S>(sparsemat, flags);
-	else
-	  perman = approximation_perman64_sparse<double, S>(sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: approximation_perman64_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
-      }
+      flags.algo_name = "approximation_perman64";
+      if(flags.calculation_half_precision)
+	result = approximation_perman64_sparse<float, S>(sparsemat, flags);
+      else if(flags.calculation_quad_precision)
+	result = approximation_perman64_sparse<__float128, S>(sparsemat, flags);
+      else
+	result = approximation_perman64_sparse<double, S>(sparsemat, flags);
     }
     else{
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
@@ -295,97 +274,80 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xglobal<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_xglobal<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xglobal " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xglobal | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 1) {
+      flags.algo_name = "gpu_perman_xglobal";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xglobal<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_xglobal<double, S>(densemat, flags);
+    }
+    else if (perman_algo == 1) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xlocal() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();	
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xlocal<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_xlocal<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xlocal " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xlocal | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 2) {
+      flags.algo_name = "gpu_perman_xlocal";
+      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xlocal<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_xlocal<double, S>(densemat, flags);
+      
+    }
+    else if (perman_algo == 2) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_xshared<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xshared " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xshared | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 3) {
+      flags.algo_name = "gpu_perman_xshared";
+      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_xshared<double, S>(densemat, flags);
+      
+    }
+    else if (perman_algo == 3) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared_coalescing<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_xshared_coalescing<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xshared_coalescing " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xshared_coalescing | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 4) {
+      flags.algo_name = "gpu_perman_xshared_coalescing";
+      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_coalescing<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_xshared_coalescing<double, S>(densemat, flags);
+    }
+    else if (perman_algo == 4) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared_coalescing_mshared<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_xshared_coalescing_mshared<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xshared_coalescing_mshared " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xshared_coalescing_mshared | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 5) {
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_coalescing_mshared<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_xshared_coalescing_mshared<double, S>(densemat, flags);
+      
+    }
+    else if (perman_algo == 5) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpu(densemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpu " << perman << " in " << (end - start) << endl;
-      }
+      flags.algo_name = "gpu_perman64_xshared_mshared_multigpu";
+      //Will have it's change
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu(densemat, flags);      
     } 
     else if (perman_algo == 6) {
 #ifdef DEBUG
@@ -394,27 +356,20 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpu_manual_distribution";
       flags.gpu_num = 4; //This will change accordingly
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution %2lf in %lf\n", perman, end-start);
-      }
+      
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution(densemat, flags);	
     }
-    else if (perman_algo == 6) {
+    else if (perman_algo == 7) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpucpu_chunks";
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
     }
     
     else{
@@ -432,93 +387,77 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xlocal_sparse<float, S>(densemat, sparsemat, flags);
-	else
-	  result = gpu_perman64_xlocal_sparse<double, S>(densemat, sparsemat, flags);
-	//end = omp_get_wtime();
-	//cout << "Result: gpu_perman64_xlocal_sparse " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_xlocal_sparse | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 2) {
+      flags.algo_name = "gpu_perman_xlocal_sparse";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xlocal_sparse<float, S>(densemat, sparsemat, flags);
+      else
+	result = gpu_perman64_xlocal_sparse<double, S>(densemat, sparsemat, flags);
+    }
+    else if (perman_algo == 2) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared_sparse<float, S>(densemat, sparsemat, flags);
-	else
-	  result = gpu_perman64_xshared_sparse<double, S>(densemat, sparsemat, flags);
-	//end = omp_get_wtime();
-	printf("Result | gpu_perman64_xshared_sparse | %e in %f \n", result.permanent, result.time);
-	//cout << "Result: gpu_perman64_xshared_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 3) {
+      flags.algo_name = "gpu_perman_xlocal_sparse";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_sparse<float, S>(densemat, sparsemat, flags);
+      else
+	result = gpu_perman64_xshared_sparse<double, S>(densemat, sparsemat, flags);
+      
+    }
+    else if (perman_algo == 3) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared_coalescing_sparse<float, S>(densemat, sparsemat, flags);
-	else
-	  result = gpu_perman64_xshared_coalescing_sparse<double, S>(densemat, sparsemat, flags);
-	//end = omp_get_wtime();
-	printf("Result | gpu_perman64_xshared_coalescing_sparse | %e in %f \n", result.permanent, result.time);
-	//cout << "Result: gpu_perman64_xshared_coalescing_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 4) {
+      
+      flags.algo_name = "gpu_perman_xshared_coalescing_sparse";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_coalescing_sparse<float, S>(densemat, sparsemat, flags);
+      else
+	result = gpu_perman64_xshared_coalescing_sparse<double, S>(densemat, sparsemat, flags);
+      
+      
+    }
+    else if (perman_algo == 4) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-      start = omp_get_wtime();
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_sparse";
       if(flags.calculation_half_precision)
 	result = gpu_perman64_xshared_coalescing_mshared_sparse<float, S>(densemat, sparsemat, flags);
       else
 	result = gpu_perman64_xshared_coalescing_mshared_sparse<double, S>(densemat, sparsemat, flags);
-      printf("Result | gpu_perman64_xshared_coalescing_mshared_sparse | %e in %f \n", result.permanent, result.time);
-      end = omp_get_wtime();
-      //cout << "Result: gpu_perman64_xshared_coalescing_mshared_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 5) {
+      
+    }
+    else if (perman_algo == 5) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpu_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpu_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 7) {
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpu_sparse";
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(densemat, sparsemat, flags);
+      
+      
+    }
+    else if (perman_algo == 7) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-      start = omp_get_wtime();
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpucpu_chunks_sparse";
       perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(densemat, sparsemat, flags);
-      end = omp_get_wtime();
-      cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
     }
     else if (perman_algo == 14){
 #ifdef DEBUG
@@ -527,16 +466,11 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_xshared_coalescing_mshared_skipper<float, S>(densemat, sparsemat, flags);
-	else
-	  result = gpu_perman64_xshared_coalescing_mshared_skipper<double, S>(densemat, sparsemat, flags);
-	//end = omp_get_wtime();
-	printf("Result | gpu_perman64_xshared_coalescing_mshared_skipper | %e in %f \n", result.permanent, result.time);
-	//cout << "Result: gpu_perman64_xshared_coalescing_mshared_skipper " << perman << " in " << end - start << endl;
-      }
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_skipper";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_coalescing_mshared_skipper<float, S>(densemat, sparsemat, flags);
+      else
+	result = gpu_perman64_xshared_coalescing_mshared_skipper<double, S>(densemat, sparsemat, flags);
     }
     else if (perman_algo == 17){
 #ifdef DEBUG
@@ -545,12 +479,8 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper " << perman << " in " << end - start << endl;
-      }
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpucpu_chunks_skipper";
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
     }
     else if (perman_algo == 6) {
 #ifdef DEBUG
@@ -558,16 +488,15 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #endif
 #ifdef STRUCTURAL
       exit(1);
-#endif      
+#endif
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpu_sparse_manual_distribution";
       flags.gpu_num = 4; //This is a manual setting specialized for GPUs we have, so recommend not to use it.
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
 	perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse_manual_distribution(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_xshared_coalescing_mshared_multigpu_manual_distribution %e in %lf\n", perman, end-start);
-      }
-    }else{
-      std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
+
+    
+    }
+    else{
+    std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
     }
   }
@@ -582,64 +511,58 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_rasmussen<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_rasmussen<double, S>(densemat, flags);
-	//end = omp_get_wtime();
-	//printf("Result: gpu_perman64_rasmussen %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_rasmussen | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 2) { // approximation_with_scaling
+
+      flags.algo_name = "gpu_rasmussen";
+      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_rasmussen<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_rasmussen<double, S>(densemat, flags);
+      
+    }
+    else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("Calling, gpu_perman64_approximation() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_approximation<float, S>(densemat, flags);
-	else
-	  result = gpu_perman64_approximation<double, S>(densemat, flags);
-	end = omp_get_wtime();
-	//printf("Result: gpu_perman64_approximation %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_approximation | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 3) { // rasmussen
+      
+      flags.algo_name = "gpu_approximation";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_approximation<float, S>(densemat, flags);
+      else
+	result = gpu_perman64_approximation<double, S>(densemat, flags);
+      
+      
+    }
+    else if (perman_algo == 3) { // rasmussen
 #ifdef DEBUG
       printf("Calling, gpu_perman64_rasmussen_multigpucpu_chunks() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 4) { // approximation_with_scaling
+
+      //This will change accordingly
+      flags.algo_name = "gpu_rasmussen_multigpucpu_chunks";
+      perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
+      
+    
+    }
+    else if (perman_algo == 4) { // approximation_with_scaling
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_approximation_multigpucpu_chunks %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
-    } else {
+
+      flags.algo_name = "gpu_approximation_multigpucpu_chunks";
+      perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
+      
+    }
+    else {
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
       exit(1);
     } 
@@ -655,49 +578,45 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_rasmussen_sparse<float, S>(sparsemat, flags);
-	else
-	  result = gpu_perman64_rasmussen_sparse<double, S>(sparsemat, flags);
-	//end = omp_get_wtime();
-	//printf("Result: gpu_perman64_rasmussen_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_rasmussen_sparse | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 2) { // approximation_with_scaling
+
+      flags.algo_name = "gpu_rasmussen_sparse";
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_rasmussen_sparse<float, S>(sparsemat, flags);
+      else
+	result = gpu_perman64_rasmussen_sparse<double, S>(sparsemat, flags);
+      
+      
+    }
+    else if (perman_algo == 2) { // approximation_with_scaling
 #ifdef DEBUG
       printf("gpu_perman64_approximation_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	//start = omp_get_wtime();
-	if(flags.calculation_half_precision)
-	  result = gpu_perman64_approximation_sparse<float, S>(sparsemat, flags);
-	else
-	  result = gpu_perman64_approximation_sparse<double, S>(sparsemat, flags);
-	//end = omp_get_wtime();
-	//printf("Result: gpu_perman64_approximation_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation_sparse " << perman << " in " << (end - start) << endl;
-	printf("Result | gpu_perman64_approximation_sparse | %e in %f \n", result.permanent, result.time);
-      }
-    } else if (perman_algo == 3) { // rasmussen
+      
+
+      flags.algo_name = "gpu_approximation_sparse";
+      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_approximation_sparse<float, S>(sparsemat, flags);
+      else
+	result = gpu_perman64_approximation_sparse<double, S>(sparsemat, flags);
+      
+      
+    }
+    else if (perman_algo == 3) { // rasmussen
 #ifdef DEBUG
       printf("gpu_perman64_rasmussen_multigpucpu_chunks_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
+
+      flags.algo_name = "gpu_rasmussen_multigpucpu_chunks_sparse";
+      //This will change accordingly
+      perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
+	
     } else if (perman_algo == 4) { // approximation_with_scaling
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks_sparse() \n");
@@ -705,13 +624,11 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_approximation_multigpucpu_chunks_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
+
+      flags.algo_name = "gpu_approximation_myultigpucpu_chunks_sparse";
+      //This will change accordingly
+      perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
+	
     } 
     else {
       std::cout << "No algorithm with specified setting, exiting.. " << std::endl;
@@ -719,7 +636,6 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
   }
   
   if(gpu && cpu && dense && exact){
-    std::cout << "I should be printed and I am .. " << std::endl;
     if (perman_algo == 7) {
 #ifdef DEBUG
       printf("Calling, gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks() \n");
@@ -727,12 +643,12 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
+
+      flags.algo_name = "gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks";
+      //This will change accordingly
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks(densemat, flags);
+	
+      
     }
   }
   
@@ -745,12 +661,11 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
+
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpucpu_chunks_sparse";
+      //This will change accordingly
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_sparse(densemat, sparsemat, flags);
+
     }
   }
   else if(perman_algo == 17){
@@ -760,12 +675,11 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
-	end = omp_get_wtime();
-	cout << "Result: gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper " << perman << " in " << end - start << endl;
-      }
+
+      flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpucpu_chunks_skipper";
+      //This will change accordingly
+      perman = gpu_perman64_xshared_coalescing_mshared_multigpucpu_chunks_skipper(densemat, sparsemat, flags);
+  
   }
   
   if(gpu && cpu && dense && approximation){
@@ -776,27 +690,22 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 4) { // approximation_with_scaling
+
+      flags.algo_name = "rasmussen_multigpucpu_chunks";
+      perman = gpu_perman64_rasmussen_multigpucpu_chunks(densemat, flags);
+
+    }
+    else if (perman_algo == 4) { // approximation_with_scaling
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_approximation_multigpucpu_chunks %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation_multigpucpu_chunks " << perman << " in " << (end - start) << endl;
-      }
+
+      flags.algo_name = "approximation_mulltigpucpu_chunks";
+      perman = gpu_perman64_approximation_multigpucpu_chunks(densemat, flags);
+	
     }
   }
   
@@ -808,28 +717,25 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_rasmussen_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } else if (perman_algo == 4) { // approximation_with_scaling
+
+      flags.algo_name = "gpu_perman6_rasmussen_multigpucpu_chunks_sparse";
+      perman = gpu_perman64_rasmussen_multigpucpu_chunks_sparse(sparsemat, flags);
+
+    
+    }
+    else if (perman_algo == 4) { // approximation_with_scaling
 #ifdef DEBUG
       printf("gpu_perman64_approximation_multigpucpu_chunks_sparse() \n");
 #endif
 #ifdef STRUCTURAL
       exit(1);
 #endif
-      for(int i = 0; i < no_repetition; i++){
-	start = omp_get_wtime();
-	perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
-	end = omp_get_wtime();
-	printf("Result: gpu_perman64_approximation_multigpucpu_chunks_sparse %e in %lf\n", perman, end-start);
-	//cout << "Result: gpu_perman64_approximation_multigpucpu_chunks_sparse " << perman << " in " << (end - start) << endl;
-      }
-    } 
+
+      flags.algo_name = "gpu_perman_approximation_multigpucpu_chunks_sparse";
+      perman = gpu_perman64_approximation_multigpucpu_chunks_sparse(sparsemat, flags);
+
+      
+    }
   }
 #endif
   //return perman;
@@ -916,9 +822,6 @@ void RunPermanForGridGraphs(flags flags) {
 	  result = gpu_perman64_rasmussen_sparse<float, int>(sparsemat, flags);
 	else
 	  result = gpu_perman64_rasmussen_sparse<double, int>(sparsemat, flags);
-	//end = omp_get_wtime();
-	//printf("Result: gpu_perman64_rasmussen_sparse %2lf in %lf\n", perman, end-start);
-	//cout << "Try: gpu_perman64_rasmussen_sparse " << perman << " in " << (end - start) << endl;
 	printf("Result | gpu_perman64_rasmussen_sparse | %e in %f \n", result.permanent, result.time);
       }
     } else if (perman_algo == 2) { // approximation_with_scaling
@@ -957,9 +860,9 @@ void RunPermanForGridGraphs(flags flags) {
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = rasmussen_sparse<float, int>(densemat, sparsemat, flags);
+	  result = rasmussen_sparse<float, int>(densemat, sparsemat, flags);
 	else
-	  perman = rasmussen_sparse<double, int>(densemat, sparsemat, flags);
+	  result = rasmussen_sparse<double, int>(densemat, sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: rasmussen_sparse %e in %lf\n", perman, end-start);
 	//cout << "Try: rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -968,9 +871,9 @@ void RunPermanForGridGraphs(flags flags) {
       for(int i = 0; i < no_repetition; i++){
 	start = omp_get_wtime();
 	if(flags.calculation_half_precision)
-	  perman = approximation_perman64_sparse<float, int>(sparsemat, flags);
+	  result = approximation_perman64_sparse<float, int>(sparsemat, flags);
 	else
-	  perman = approximation_perman64_sparse<double, int>(sparsemat, flags);
+	  result = approximation_perman64_sparse<double, int>(sparsemat, flags);
 	end = omp_get_wtime();
 	printf("Result: approximation_perman64_sparse %e in %lf\n", perman, end-start);
 	//cout << "Try: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
@@ -984,9 +887,9 @@ void RunPermanForGridGraphs(flags flags) {
     for(int i = 0; i < no_repetition; i++){
       start = omp_get_wtime();
       if(flags.calculation_half_precision)
-	perman = rasmussen_sparse<float, int>(densemat, sparsemat, flags);
+	result = rasmussen_sparse<float, int>(densemat, sparsemat, flags);
       else
-	perman = rasmussen_sparse<double, int>(densemat, sparsemat, flags);
+	result = rasmussen_sparse<double, int>(densemat, sparsemat, flags);
       end = omp_get_wtime();
       printf("Result: rasmussen_sparse %e in %lf\n", perman, end-start);
       //cout << "Try: rasmussen_sparse " << perman << " in " << (end - start) << endl;
@@ -995,9 +898,9 @@ void RunPermanForGridGraphs(flags flags) {
     for(int i = 0; i < no_repetition; i++){
       start = omp_get_wtime();
       if(flags.calculation_half_precision)
-	perman = approximation_perman64_sparse<float, int>(sparsemat, flags);
+	result = approximation_perman64_sparse<float, int>(sparsemat, flags);
       else
-	perman = approximation_perman64_sparse<double, int>(sparsemat, flags);
+	result = approximation_perman64_sparse<double, int>(sparsemat, flags);
       end = omp_get_wtime();
       printf("Result: approximation_perman64_sparse %e in %lf\n", perman, end-start);
       //cout << "Try: approximation_perman64_sparse " << perman << " in " << (end - start) << endl;
@@ -1069,24 +972,25 @@ SparseMatrix<S>* create_sparsematrix_from_densemat2(DenseMatrix<S>* densemat2, f
 }
 
 template<class S>
-Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags){
+Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags){
 
-  cout << "In, compress_and_calculate_recursive-> " << recursive_count++ << endl;
+  //cout << "In, compress_and_calculate_recursive-> " << recursive_count++ << endl;
   
   //cout << "densemat->nov: " << densemat->nov << endl;
   //cout << "densemat->nnz: " << densemat->nnz << endl;
   
-  
+  bool silent = 0;
   
   //double final_perman = 0;
   Result result;
   int minDeg = getMinNnz(densemat->mat, densemat->nov);
-  cout << "##MINDEG: " << minDeg << endl;
+  //cout << "##MINDEG: " << minDeg << endl;
   if(minDeg < 5 && densemat->nov > 30){
 
     if(minDeg == 1){
       d1compress(densemat->mat, densemat->nov);
-      cout << "d1: matrix is reduced to: " << densemat->nov << " rows" << endl;
+      if(!silent)
+	cout << "d1: matrix is reduced to: " << densemat->nov << " rows" << endl;
       densemat->nnz = getNnz(densemat->mat, densemat->nov);
       delete sparsemat;
       sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
@@ -1095,7 +999,8 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
     
     else if(minDeg == 2){
       d2compress(densemat->mat, densemat->nov);
-      cout << "d2: matrix is reduced to: " << densemat->nov << " rows" << endl;
+      if(!silent)
+	cout << "d2: matrix is reduced to: " << densemat->nov << " rows" << endl;
       densemat->nnz = getNnz(densemat->mat, densemat->nov);
       delete sparsemat;
       sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
@@ -1108,7 +1013,8 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
       d34compress(densemat->mat, densemat->nov, mat2, nov2, minDeg);
       DenseMatrix<S>* densemat2 = create_densematrix_from_mat2(mat2, nov2);
       SparseMatrix<S>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
-      cout << "d34: matrix is reduced to matrices with : " << densemat->nov << "and " << densemat2->nov <<" rows" << endl;
+      if(!silent)
+	cout << "d34: matrix is reduced to matrices with: " << densemat->nov << " and " << densemat2->nov <<" rows" << endl;
       result = compress_and_calculate_recursive(densemat, sparsemat, flags) +
 	compress_and_calculate_recursive(densemat2, sparsemat2, flags);
       
@@ -1119,7 +1025,7 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
     }
   }
   else{
-    cout << "Calling RunAlgo: " << endl;
+    //cout << "Calling RunAlgo: " << endl;
     //Result result;
     //print_densematrix(densemat);
     result = RunAlgo(densemat, sparsemat, flags, true);
@@ -1128,7 +1034,7 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
 }
 
 template<class S>
-Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags){
+Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags){
 
   bool comp = true;
   while(comp && densemat->nov > 1){
@@ -1193,7 +1099,7 @@ int main (int argc, char **argv)
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwq:k:e:o";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwqk:e:ol:v";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -1202,7 +1108,8 @@ int main (int argc, char **argv)
     { "threads",  1, NULL, 't' },
     { "file",  1, NULL, 'f' },
     { "gpu",  0, NULL, 'g' },
-    { "device",  1, NULL, 'd' },
+    { "nodevice",  1, NULL, 'd' },
+    { "deviceid" , 0, NULL, 'l'},
     { "cpu",  0, NULL, 'c' },
     { "approximation",  0, NULL, 'a' },
     { "perman",  1, NULL, 'p' },
@@ -1213,8 +1120,9 @@ int main (int argc, char **argv)
     { "gridm",  1, NULL, 'm' },
     { "gridn",  1, NULL, 'n' },
     { "calchalfprec" , 0, NULL, 'h'},
-    { "storchalfprec" , 0, NULL, 'w'},
-    { "deviceid", 0, NULL, 'q'},
+    { "calcquadprec", 0, NULL, 'q'},
+    { "storhalfprec" , 0, NULL, 'w'},
+    { "storquadprec" , 0, NULL, 'v'},
     { "norep", 1, NULL, 'k'},
     { "gridmultip", 1, NULL, 'e'},
     { "compression", 0, },
@@ -1325,10 +1233,16 @@ int main (int argc, char **argv)
       case 'h':
 	flags.calculation_half_precision = 1;
 	break;
+      case 'q':
+	flags.calculation_quad_precision = 1;
+	break;
       case 'w':
 	flags.storage_half_precision = 1;
 	break;
-      case 'q':
+      case 'v':
+	flags.storage_quad_precision = 1;
+	break;
+      case 'l':
 	if(optarg[0] == '-'){
 	  fprintf(stderr, "Option -q requires an argument. \n");
 	  return 1;
@@ -1373,6 +1287,11 @@ int main (int argc, char **argv)
   
   if (!flags.cpu && !flags.gpu) {
     gpu = true;
+  }
+
+  if(flags.gpu && (flags.storage_quad_precision || flags.calculation_quad_precision)){
+    std::cout << "Quad precision is only available with cpu.. exiting.. " << std::endl;
+    exit(1);
   }
   
   if(flags.grid_graph) {
@@ -1454,7 +1373,7 @@ int main (int argc, char **argv)
     is_symmetric = true;
 
   if(is_symmetric)
-  nz *= 2;
+    nz *= 2;
 
 #ifdef DEBUG
   std::cout << "Matrix is pattern: " << is_pattern << std::endl;
@@ -1466,7 +1385,7 @@ int main (int argc, char **argv)
   cout << "matcode - stor_half - !is_pattern - !is_binary: " << mm_is_real(matcode) << " " <<!flags.storage_half_precision << " " <<!is_pattern << " " <<!is_binary << endl;
 #endif
   
-  if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern && !is_binary){
+  if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern && !is_binary && !flags.storage_quad_precision){ 
 #ifdef DEBUG
     std::cout << "Read Case: 0" << std::endl;
 #endif
@@ -1510,19 +1429,91 @@ int main (int argc, char **argv)
 #endif
 
     Result result;
+
+    print_flags(flags);
+
+    for(int i = 0; i < flags.rep; i++){
     
-    if(flags.compression)
-      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
-    else
-      result = RunAlgo(densemat, sparsemat, flags, false);
+      if(flags.compression)
+	result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
+      else
+	result = RunAlgo(densemat, sparsemat, flags, false);
+      
+      printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+    }
     
-    //printf("Final perman is: %e \n", final_perman);
-    printf("Final Result is: %e in %f \n", result.permanent, result.time);
   }
+
+#ifdef ONLYCPU
+  
+#ifdef DEBUG
+  cout << "matcode - stor_half - !is_pattern - !is_binary: " << mm_is_real(matcode) << " " <<!flags.storage_half_precision << " " <<!is_pattern << " " <<!is_binary << endl;
+#endif
+  
+  else if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern && !is_binary && flags.storage_quad_precision){
+#ifdef DEBUG
+    std::cout << "Read Case: 1" << std::endl;
+#endif
+    flags.type = "__float128";
+    SparseMatrix<__float128>* sparsemat;
+    DenseMatrix<__float128>* densemat;
+    sparsemat = new SparseMatrix<__float128>();
+    densemat = new DenseMatrix<__float128>(); 
+    densemat->mat = new __float128[M*N];
+    sparsemat->rvals = new __float128[nz];
+    sparsemat->cvals = new __float128[nz];
+    sparsemat->cptrs = new int[nov + 1];
+    sparsemat->rptrs = new int[nov + 1];
+    sparsemat->rows = new int[nz];
+    sparsemat->cols = new int[nz];
+    sparsemat->nov = M; 
+    densemat->nov = M; 
+    sparsemat->nnz = nz;
+    densemat->nnz = nz;
+
+    if(!is_symmetric)
+      readDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
+    else 
+      readSymmetricDenseMatrix(densemat, flags.filename, is_pattern, is_binary);
+    
+#ifdef DEBUG
+    std::cout << "Read.. OK! -- Sparse Representation Compressing.. " << std::endl;
+#endif
+    if(flags.preprocessing == 0)
+      matrix2compressed_o(densemat, sparsemat); 
+    if(flags.preprocessing == 1)
+      matrix2compressed_sortOrder_o(densemat, sparsemat); 
+    if(flags.preprocessing == 2)
+      matrix2compressed_skipOrder_o(densemat, sparsemat);
+    
+#ifdef DEBUG
+    std::cout << "Sparse Compression..OK!" << std::endl;
+
+    print_sparsematrix(sparsemat);
+    print_densematrix(densemat);
+#endif
+
+    Result result;
+
+    print_flags(flags);
+
+    for(int i = 0; i < flags.rep; i++){
+    
+      if(flags.compression)
+	result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
+      else
+	result = RunAlgo(densemat, sparsemat, flags, false);
+      
+      printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+    }
+    
+  }
+
+#endif
   
   else if(mm_is_real(matcode) == 1 && flags.storage_half_precision && !is_pattern && !is_binary){
 #ifdef DEBUG
-    std::cout << "Read Case: 1" << std::endl;
+    std::cout << "Read Case: 2" << std::endl;
 #endif
     flags.type = "float";
     SparseMatrix<float>* sparsemat;
@@ -1563,19 +1554,26 @@ int main (int argc, char **argv)
 #endif
 
     Result result;
+
+    print_flags(flags);
+
+    for(int i = 0; i < flags.rep;i++){
+      
+      if(flags.compression)
+	result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
+      else
+	result = RunAlgo(densemat, sparsemat, flags, false);
+      
+      printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+    }
     
-    if(flags.compression)
-      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
-    else
-      result = RunAlgo(densemat, sparsemat, flags, false);
     
-    //printf("Final perman is: %e \n", final_perman);
-    printf("Final Result is: %e in %f \n", result.permanent, result.time);
+    
   }
   
   else if(mm_is_integer(matcode) == 1 || is_pattern || is_binary){
 #ifdef DEBUG
-    std::cout << "Read Case: 2" << std::endl;
+    std::cout << "Read Case: 3" << std::endl;
 #endif
     flags.type = "int";
     SparseMatrix<int>* sparsemat;
@@ -1617,13 +1615,58 @@ int main (int argc, char **argv)
 #endif
 
     Result result;
+
+    print_flags(flags);
+
+    for(int i = 0; i < flags.rep; i++){
+      
+      if(flags.compression)
+	result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
+      else
+	result = RunAlgo(densemat, sparsemat, flags, false);
+      
+      printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+    }
+
+    std::cout << "Before scaling: " << std::endl;
+    print_densematrix(densemat);
     
-    if(flags.compression)
-      result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
-    else
-      result = RunAlgo(densemat, sparsemat, flags, false);
-    //printf("Final perman is: %e \n", final_perman);
-    printf("Final Result is: %e in %f \n", result.permanent, result.time);
+    DenseMatrix<double>* densemat2 = swap_types<int, double>(densemat);
+    delete densemat;
+    delete sparsemat;
+    SparseMatrix<double>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
+    
+    
+    //SCALING TRY
+
+    ScaleCompanion<double>* sc = scalesk<double,double>(sparsemat2);
+    scaleMatrix<double, double>(densemat2, sc);
+
+    std::cout << "After scaling: " << std::endl;
+    print_densematrix(densemat2);
+
+      for(int i = 0; i < flags.rep; i++){
+	if(flags.compression)
+	  result = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
+	else
+	  result = RunAlgo(densemat2, sparsemat2, flags, false);
+	
+	printf("Mid Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+
+	for(int i = 0; i < nov; i++){
+	  result.permanent *= sc->c_v[i];
+	}
+
+	for(int i = 0; i < nov; i++){
+	  result.permanent *= sc->r_v[i];
+	}
+
+	printf("Final Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+	
+      }
+    //SCALING TRY
+
+    
   }
   
   else{
@@ -1632,7 +1675,7 @@ int main (int argc, char **argv)
     exit(1);
   }
 
-  std::feclearexcept(FE_OVERFLOW);
-  std::cout << "Is any overflow happened: " << (bool)std::fetestexcept(FE_OVERFLOW) << std::endl;
+  //std::feclearexcept(FE_OVERFLOW);
+  //std::cout << "Is any overflow happened: " << (bool)std::fetestexcept(FE_OVERFLOW) << std::endl;
   return 0;
 }

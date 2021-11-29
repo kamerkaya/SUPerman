@@ -224,7 +224,6 @@ int xshared_coalescing_sparse_sharedmem(int b){ //Actually the same but no need 
 }
 
 int xshared_coalescing_mshared_sparse_sharedmem(int b){
-  printf("b: %d , return: %d \n", glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s);
   return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s;
   //////////////for my_x////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
   //Note that d_x is not resides at the shared memory, in contrary, we copy it to d_p at the very beginning

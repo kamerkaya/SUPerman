@@ -1,6 +1,29 @@
 #ifndef FLAGS_H
 #define FLAGS_H
 
+#include<string>
+
+template<class C>
+struct ScaleCompanion{
+
+  C* r_v;
+  C* c_v;
+
+
+  ScaleCompanion(int nov)
+  {
+    r_v = new C[nov];
+    c_v = new C[nov];
+  }
+
+  ~ScaleCompanion()
+  {
+    delete r_v;
+    delete c_v;
+  }
+  
+};
+
 struct Result{
 
   double permanent;
@@ -35,7 +58,9 @@ struct flags {
 
   bool grid_graph;
   bool calculation_half_precision;
+  bool calculation_quad_precision;
   bool storage_half_precision;
+  bool storage_quad_precision;
   bool binary_graph;
   
   int gridm;
@@ -49,6 +74,7 @@ struct flags {
   
   const char* filename;
   const char* type;
+  std::string algo_name;
   int preprocessing;
 
   int gpu_num;
@@ -78,7 +104,9 @@ struct flags {
     
     grid_graph = 0; //Assumed it is not a grid graph
     storage_half_precision = 0; //Assumed double data type
+    storage_quad_precision = 0; //Assumed double data type
     calculation_half_precision = 0; //Assumed double data type
+    calculation_quad_precision = 0; //Assumed double data type
     binary_graph = 0;
     
     gridm = -1; //If stay -1, means there is a problem getting the actual value
@@ -111,6 +139,7 @@ struct flags {
   }
   
 };
+
 
 //These structs should be relocated to "flags.h"
 template <class T>

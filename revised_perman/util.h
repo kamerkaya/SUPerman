@@ -1375,4 +1375,146 @@ bool d34compress(S* mat, int& nov, S*& mat2, int& nov2, int minDeg) {
   return true;
 }
 
+template<class S>
+S get_max(int nov, int* xptrs, S* xvals, S* xv){
+
+  S x_max = 0;
+  
+  for(int i = 0; i < nov; i++){
+    for(int j = xptrs[i]; j < xptrs[i+1]; j++){
+      
+      if(x_max < (xv[i]*xvals[j]))
+      	x_max = xv[i]*xvals[j];
+    }
+  }
+  
+  return x_max;
+}
+
+template<class C, class S>
+ScaleCompanion<C>* scalesk(SparseMatrix<S>* sparsemat){
+
+  //Pack Parameters//
+  int* cptrs = sparsemat->cptrs;
+  int* rptrs = sparsemat->rptrs;
+  int* rows = sparsemat->rows;
+  int* cols = sparsemat->cols;
+  S* cvals = sparsemat->cvals;
+  S* rvals = sparsemat->rvals;
+  int nov = sparsemat->nov;
+  int nnz = sparsemat->nnz;
+  //Pack Parameters//
+  
+  int i;
+  C sum;
+  int iv;
+  int eptr;
+
+  ScaleCompanion<C>* sc = new ScaleCompanion<C>(nov);
+
+  C* rv = sc->r_v;
+  C* cv = sc->c_v;
+
+  for(iv = 0; iv < nov; iv++){
+    rv[iv] = cv[iv] = 1;
+  }
+
+  C col_max = get_max(nov, cptrs, cvals, cv);
+  C row_max = get_max(nov, rptrs, rvals, rv);
+
+  /*
+  for(int i = 0; i < nov; i++){
+    for(int j = cptrs[i]; j < cptrs[i+1]; j++){
+      
+      if(my_col_max < (cv[i]*cvals[j]))
+	my_col_max = cv[i]*cvals[j];
+    }
+  }
+  */
+  
+  while(col_max > (S)10 && row_max > (S)10){
+    
+    for(iv = 0; iv < nov; iv++){
+      if(cptrs[iv] != cptrs[iv+1]){
+	
+	sum = 0;
+
+	for(eptr = cptrs[iv]; eptr < cptrs[iv+1]; eptr++){
+	  sum += cv[cols[eptr]];
+	}
+	rv[iv] = (C)1 / sum;
+      }
+    }
+
+    for(iv = 0; iv < nov; iv++){
+      if(rptrs[iv] != rptrs[iv+1]){
+	
+	sum = 0;
+
+	for(eptr = rptrs[iv]; eptr < rptrs[iv+1]; eptr++){
+	  sum += rv[rows[eptr]];
+	}
+	cv[iv] = (C)1 / sum;
+      }
+    }
+
+    col_max = get_max(nov, cptrs, cvals, cv);
+    row_max = get_max(nov, rptrs, rvals, rv);
+  } //while
+  
+  return sc;
+ 
+}
+
+template<class MAT, class SC>
+void scaleMatrix(DenseMatrix<MAT>* densemat, ScaleCompanion<SC>* sc){
+
+  for(int i = 0; i < densemat->nov; i++){
+    std::cout << sc->r_v[i] << " ";
+  }
+
+  std::cout << std::endl;
+  
+  for(int i = 0; i < densemat->nov; i++){
+    std::cout << sc->c_v[i] << " ";
+  }
+  
+  //Pack parameters
+  int nov = densemat->nov;
+  //Pack parameters
+
+  for(int i = 0; i < nov; i++){
+    for(int j = 0; j < nov; j++){
+      
+      densemat->mat[i*nov+j] *= sc->r_v[i];
+      
+    }
+  }
+
+  for(int i = 0; i < nov; i++){
+    for(int j = 0; j < nov; j++){
+      
+      densemat->mat[j*nov+i] *= sc->c_v[i];
+      
+    }
+  }
+  
+}
+
+template<class T1, class T2>
+DenseMatrix<T2>* swap_types(DenseMatrix<T1>* densemat1){
+
+  DenseMatrix<T2>* densemat2 = new DenseMatrix<T2>;
+  densemat2->nov = densemat1->nov;
+  densemat2->nnz = densemat1->nnz;
+
+  int nov = densemat2->nov;
+  
+  densemat2->mat = new T2[nov*nov];
+  for(int i = 0; i < nov*nov; i++){
+    densemat2->mat[i] = (T2)densemat1->mat[i];
+  }
+
+  return densemat2;
+}
 #endif

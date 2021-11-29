@@ -7,6 +7,7 @@
 #include <string.h>
 #include "flags.h"
 #include "util.h"
+#include <typeinfo>
 using namespace std;
 
 template <class T>
@@ -168,7 +169,7 @@ double greedy(T* mat, int nov, int number_of_times) {
 }
 
 template <class C, class S>
-double rasmussen_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
+Result rasmussen_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters
   S* mat = densemat->mat;
@@ -181,6 +182,8 @@ double rasmussen_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, fl
   int number_of_times = flags.number_of_times;
   int threads = flags.threads;
   //Pack flags//
+
+  double starttime = omp_get_wtime();
 
   S* mat_t = new S[nov * nov];
   
@@ -272,15 +275,16 @@ double rasmussen_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, fl
     }
 
   delete[] mat_t;
-
-  cout << "number of zeros: " << sum_zeros << endl;
   
-  return (sum_perm / number_of_times);
+  double duration = omp_get_wtime() - starttime;  
+  double perman = sum_perm / number_of_times;
+  Result result(perman, duration);
+  return result;
 }
 
 //Buradaki C pekala int'de olabilir
 template <class C, class S>
-double rasmussen(DenseMatrix<S>* densemat, flags flags) {
+Result rasmussen(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
   S* mat = densemat->mat;
@@ -291,6 +295,8 @@ double rasmussen(DenseMatrix<S>* densemat, flags flags) {
   int threads = flags.threads;
   int number_of_times = flags.number_of_times;
   //Pack flags//
+
+  double starttime = omp_get_wtime();
 
   S* mat_t = new S[nov * nov];
   
@@ -382,13 +388,15 @@ double rasmussen(DenseMatrix<S>* densemat, flags flags) {
 
   delete[] mat_t;
 
-  cout << "number of zeros: " << sum_zeros << endl;
   
-  return (sum_perm / number_of_times);
+  double duration = omp_get_wtime() - starttime;  
+  double perman = sum_perm / number_of_times;
+  Result result(perman, duration);
+  return result;
 }
 
 template <class C, class S>
-double approximation_perman64_sparse(SparseMatrix<S>* sparsemat, flags flags) {
+Result approximation_perman64_sparse(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* cptrs = sparsemat->cptrs;
@@ -404,6 +412,8 @@ double approximation_perman64_sparse(SparseMatrix<S>* sparsemat, flags flags) {
   int scale_times = flags.scale_times;
   int threads = flags.threads;
   //Pack flags//
+
+  double starttime = omp_get_wtime();
 
   srand(time(0));
 
@@ -502,14 +512,15 @@ double approximation_perman64_sparse(SparseMatrix<S>* sparsemat, flags flags) {
 
       sum_perm += Xa;
     }
-  
-  cout << "number of zeros: " << sum_zeros << endl;
-  
-  return (sum_perm / number_of_times);
+
+    double duration = omp_get_wtime() - starttime;  
+    double perman = sum_perm / number_of_times;
+    Result result(perman, duration);
+    return result;
 }
 
 template <class C, class S>
-double approximation_perman64(DenseMatrix<S>* densemat, flags flags) {
+Result approximation_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
   S* mat = densemat->mat;
@@ -523,6 +534,8 @@ double approximation_perman64(DenseMatrix<S>* densemat, flags flags) {
   int threads = flags.threads;
   //Pack flags//
 
+  double starttime = omp_get_wtime();
+  
   srand(time(0));
 
   C sum_perm = 0;
@@ -612,14 +625,15 @@ double approximation_perman64(DenseMatrix<S>* densemat, flags flags) {
 
       sum_perm += Xa;
     }
-  
-  cout << "number of zeros: " << sum_zeros << endl;
-  
-  return (sum_perm / number_of_times);
+    
+    double duration = omp_get_wtime() - starttime;  
+    double perman = sum_perm / number_of_times;
+    Result result(perman, duration);
+    return result;
 }
 
 template <class C, class S>
-double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
+Result parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
   
   //Pack parameters//
   S* mat = densemat->mat;
@@ -632,6 +646,8 @@ double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
   //Pack flags//
   int threads = flags.threads;
   //Pack flags//
+
+  double starttime = omp_get_wtime();
   
   C x[nov];   
   C rs; //row sum
@@ -721,15 +737,18 @@ double parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
     #pragma omp critical
       p += my_p;
   }
-  //std::cout << "Parallel perman64 p before return: " << p << std::endl;
-  //std::cout << "What 1: " << (4*(nov&1)-2) << std::endl;
-  //std::cout << "Parallel perman64 should return: " << (double)(4*(nov&1)-2) * p << std::endl;
-
-  return((double)(4*(nov&1)-2) * p);
+  
+  
+  double duration = omp_get_wtime() - starttime;  
+  double perman = (4*(nov&1)-2) * p;
+  Result result(perman, duration);
+  return result;
 }
 
+template <typename T> std::string type_name();
+
 template <class C, class S>
-double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
+Result parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   //Pack parameters//
   S* mat = densemat->mat;
@@ -740,12 +759,23 @@ double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
   int threads = flags.threads;
   //Pack flags//
 
+  double starttime = omp_get_wtime();
+  
   C x[nov];   
   C rs; //row sum
   C p = 1; //product of the elements in vector 'x'
-  cout << "First letter of calculation type " << typeid(p).name() << endl;
-  cout << "First letter of storage type " << typeid(mat[0]).name() << endl;
   
+  //cout << "First letter of calculation type " << typeid(p).name() << endl;
+  //cout << "First letter of storage type " << typeid(mat[0]).name() << endl;
+
+  //std::string ctype(typeid(p).name());
+  //std::string stype(typeid(mat[0]).name());
+
+  
+  //std::cout << "ctype: " << type_name<decltype(p)>() << '\n';
+  //std::cout << "stype: " << type_name<decltype(mat[0])>() << '\n';
+  
+    
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
     rs = .0f;
@@ -825,11 +855,14 @@ double parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
 
   delete [] mat_t;
 
-  return((4*(nov&1)-2) * p);
+  double duration = omp_get_wtime() - starttime;  
+  double perman = (4*(nov&1)-2) * p;
+  Result result(perman, duration);
+  return result;
 }
 
 template <class C, class S>
-double parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
+Result parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* rptrs = sparsemat->rptrs;
@@ -849,6 +882,8 @@ double parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
   C rs, x[64], p;
   int j, ptr;
   unsigned long long ci, start, end, chunk_size, change_j;
+  
+  double starttime = omp_get_wtime();
 
   //initialize the vector entries                                                                                        
   for (j = 0; j < nov; j++) {
@@ -978,12 +1013,16 @@ double parallel_skip_perman64_w(SparseMatrix<S>* sparsemat, flags flags) {
       //printf("tid is: %d -- p is: %f\n", tid, p);
     }
   }
-  return ((4*(nov&1)-2) * p);
+
+  double duration = omp_get_wtime() - starttime;  
+  double perman = (4*(nov&1)-2) * p;
+  Result result(perman, duration);
+  return result;
 }
 
 
 template <class C, class S>
-double parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags) {
+Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags) {
 
   //Pack parameters//
   int* rptrs = sparsemat->rptrs;
@@ -998,6 +1037,8 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
   //Pack flags//
   int threads = flags.threads;
   //Pack flags//
+
+  double starttime = omp_get_wtime();
   
   //first initialize the vector then we will copy it to ourselves
   C rs, x[nov], p;
@@ -1134,7 +1175,10 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
       }
   }
     
-  return ((4*(nov&1)-2) * p);
+  double duration = omp_get_wtime() - starttime;  
+  double perman = (4*(nov&1)-2) * p;
+  Result result(perman, duration);
+  return result;
 }
 
 
@@ -1144,7 +1188,7 @@ double parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
 
 
 template <class C, class S>
-double perman64(S* mat, int nov) {
+Result perman64(S* mat, int nov) {
   C x[64];   
   C rs; //row sum
   C s;  //+1 or -1 
@@ -1154,6 +1198,8 @@ double perman64(S* mat, int nov) {
   int j, k;
   unsigned long long i, tn11 = (1ULL << (nov-1)) - 1ULL;
   unsigned long long int gray;
+
+  double starttime = omp_get_wtime();
   
   //create the x vector and initiate the permanent
   for (j = 0; j < nov; j++) {
@@ -1199,7 +1245,10 @@ double perman64(S* mat, int nov) {
 
   delete [] mat_t;
 
-  return((4*(nov&1)-2) * p);
+  double duration = omp_get_wtime() - starttime;  
+  double perman = (4*(nov&1)-2) * p;
+  Result result(perman, duration);
+  return result;
 }
 
 
