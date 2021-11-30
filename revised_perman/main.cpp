@@ -34,7 +34,7 @@
 
 #include <cfenv>
 
-//#define DEBUG
+#define DEBUG
 
 using namespace std;
 
@@ -72,6 +72,7 @@ void print_flags(flags flags){
   std::cout << "- device_id: " << flags.device_id << std::endl;
   std::cout << "- grid_multip: " << flags.grid_multip << std::endl;
   std::cout << "- compression: " << flags.compression << std::endl;
+  std::cout << "- scaling_threshold: " << flags.scaling_threshold << std::endl;
   std::cout << "*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*" << std::endl;
   //
 }
@@ -1068,6 +1069,54 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
   return compress_and_calculate_recursive(densemat, sparsemat, flags);
   
 }
+
+//It is S and S is int for now but will be completely templated for ease of use and efficiency
+template<class S>
+void scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags){
+
+  //Pack parameters//
+  int nov = densemat->nov;
+  //Pack parameters//
+  
+  DenseMatrix<double>* densemat2 = swap_types<int, double>(densemat);
+  std::cout << "Swapped mat type: " << std::endl;
+
+  //print_densematrix(densemat2);
+  delete densemat;
+  delete sparsemat;
+  
+  SparseMatrix<double>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
+  ScaleCompanion<double>* sc = scalesk(sparsemat2, flags);
+  scaleMatrix(densemat2, sc);
+  delete sparsemat2;
+
+  SparseMatrix<double>* sparsemat3 = create_sparsematrix_from_densemat2(densemat2, flags);
+  print_densematrix(densemat2);
+  //print_sparsematrix(sparsemat3);
+
+  Result result2;
+  
+  for(int i = 0; i < flags.rep; i++){
+    if(flags.compression)
+      result2 = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
+    else
+      result2 = RunAlgo(densemat2, sparsemat3, flags, false);
+    
+    printf("Mid Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result2.permanent, result2.time);
+    
+    for(int i = 0; i < nov; i++){
+      result2.permanent /= sc->c_v[i];
+    }
+    
+    for(int i = 0; i < nov; i++){
+      result2.permanent /= sc->r_v[i];
+    }
+    
+    printf("Final Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result2.permanent, result2.time);
+    
+  }
+  
+}
   
 
 int main (int argc, char **argv)
@@ -1099,7 +1148,7 @@ int main (int argc, char **argv)
 
   flags flags;
   /* A string listing valid short options letters.  */
-  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwqk:e:ol:v";
+  const char* const short_options = "bsr:t:f:gd:cap:x:y:z:im:n:hwqk:e:ol:vu:";
   /* An array describing valid long options.  */
   const struct option long_options[] = {
     { "binary",     0, NULL, 'b' },
@@ -1125,7 +1174,9 @@ int main (int argc, char **argv)
     { "storquadprec" , 0, NULL, 'v'},
     { "norep", 1, NULL, 'k'},
     { "gridmultip", 1, NULL, 'e'},
-    { "compression", 0, },
+    { "compression", 0, NULL, 'o'},
+    { "scalingthresh", 0, NULL, 'u'},
+    
     { NULL,       0, NULL, 0   }   /* Required at end of array.  */
   };
 
@@ -1263,6 +1314,9 @@ int main (int argc, char **argv)
 	break;
       case 'o':
 	flags.compression = 1;
+	break;
+      case 'u':
+	flags.scaling_threshold = (double)atoi(optarg);
 	break;
       case '?':
         return 1;
@@ -1429,9 +1483,9 @@ int main (int argc, char **argv)
 #endif
 
     Result result;
-
+    
     print_flags(flags);
-
+    
     for(int i = 0; i < flags.rep; i++){
     
       if(flags.compression)
@@ -1444,11 +1498,8 @@ int main (int argc, char **argv)
     
   }
 
+ 
 #ifdef ONLYCPU
-  
-#ifdef DEBUG
-  cout << "matcode - stor_half - !is_pattern - !is_binary: " << mm_is_real(matcode) << " " <<!flags.storage_half_precision << " " <<!is_pattern << " " <<!is_binary << endl;
-#endif
   
   else if(mm_is_real(matcode) == 1 && !flags.storage_half_precision && !is_pattern && !is_binary && flags.storage_quad_precision){
 #ifdef DEBUG
@@ -1489,8 +1540,8 @@ int main (int argc, char **argv)
 #ifdef DEBUG
     std::cout << "Sparse Compression..OK!" << std::endl;
 
-    print_sparsematrix(sparsemat);
-    print_densematrix(densemat);
+    //print_sparsematrix(sparsemat);
+    //print_densematrix(densemat);
 #endif
 
     Result result;
@@ -1510,6 +1561,7 @@ int main (int argc, char **argv)
   }
 
 #endif
+  
   
   else if(mm_is_real(matcode) == 1 && flags.storage_half_precision && !is_pattern && !is_binary){
 #ifdef DEBUG
@@ -1618,16 +1670,30 @@ int main (int argc, char **argv)
 
     print_flags(flags);
 
-    for(int i = 0; i < flags.rep; i++){
-      
-      if(flags.compression)
-	result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
-      else
-	result = RunAlgo(densemat, sparsemat, flags, false);
-      
-      printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+    bool scaling_chosen = 0;
+    if(flags.scaling_threshold != 1)
+      scaling_chosen = 1;
+
+#ifdef DEBUG
+    std::cout << "Scaling chosen: " << scaling_chosen << " threshold: " << flags.scaling_threshold << std::endl;
+#endif
+    
+    if(scaling_chosen){
+      scale_and_calculate(densemat, sparsemat, flags);
     }
 
+    else{
+      for(int i = 0; i < flags.rep; i++){
+	
+	if(flags.compression)
+	  result = compress_singleton_and_then_recurse(densemat, sparsemat, flags);
+	else
+	  result = RunAlgo(densemat, sparsemat, flags, false);
+      
+	printf("Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+      }
+    }
+    /*
     std::cout << "Before scaling: " << std::endl;
     print_densematrix(densemat);
     
@@ -1636,6 +1702,7 @@ int main (int argc, char **argv)
     delete sparsemat;
     SparseMatrix<double>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
     
+
     
     //SCALING TRY
 
@@ -1645,28 +1712,30 @@ int main (int argc, char **argv)
     std::cout << "After scaling: " << std::endl;
     print_densematrix(densemat2);
 
+    Result result2;
+    
       for(int i = 0; i < flags.rep; i++){
 	if(flags.compression)
-	  result = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
+	  result2 = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
 	else
-	  result = RunAlgo(densemat2, sparsemat2, flags, false);
+	  result2 = RunAlgo(densemat2, sparsemat2, flags, false);
 	
-	printf("Mid Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+	printf("Mid Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result2.permanent, result2.time);
 
 	for(int i = 0; i < nov; i++){
-	  result.permanent *= sc->c_v[i];
+	  result2.permanent *= sc->c_v[i];
 	}
 
 	for(int i = 0; i < nov; i++){
-	  result.permanent *= sc->r_v[i];
+	  result2.permanent *= sc->r_v[i];
 	}
 
-	printf("Final Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result.permanent, result.time);
+	printf("Final Result || %s | %s | %e in %f \n", flags.algo_name.c_str(), flags.filename, result2.permanent, result2.time);
 	
       }
     //SCALING TRY
 
-    
+    */
   }
   
   else{

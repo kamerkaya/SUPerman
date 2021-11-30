@@ -1391,9 +1391,28 @@ S get_max(int nov, int* xptrs, S* xvals, S* xv){
   return x_max;
 }
 
-template<class C, class S>
-ScaleCompanion<C>* scalesk(SparseMatrix<S>* sparsemat){
+template<class S>
+void print_rv_cv(S* rv, S* cv, int nov){
 
+  std::cout << "--rv--" << std::endl;
+
+  for(int i = 0; i < nov; i++){
+    std::cout << rv[i] << " ";
+  }
+  std::cout << std::endl;
+
+  std::cout << "--cv--" << std::endl;
+
+  for(int i = 0; i < nov; i++){
+    std::cout << cv[i] << " ";
+  }
+  std::cout << std::endl;
+ 
+}
+
+template<class S>
+ScaleCompanion<S>* scalesk(SparseMatrix<S>* sparsemat, flags flags){
+  
   //Pack Parameters//
   int* cptrs = sparsemat->cptrs;
   int* rptrs = sparsemat->rptrs;
@@ -1404,35 +1423,32 @@ ScaleCompanion<C>* scalesk(SparseMatrix<S>* sparsemat){
   int nov = sparsemat->nov;
   int nnz = sparsemat->nnz;
   //Pack Parameters//
+
+  //Pack flags//
+  S scaling_threshold = (S)flags.scaling_threshold;
+  //Pack flags//
   
-  int i;
-  C sum;
+  S sum;
+  S colsum;
+  S rowsum;
   int iv;
   int eptr;
 
-  ScaleCompanion<C>* sc = new ScaleCompanion<C>(nov);
+  ScaleCompanion<S>* sc = new ScaleCompanion<S>(nov);
 
-  C* rv = sc->r_v;
-  C* cv = sc->c_v;
+  S* rv = sc->r_v;
+  S* cv = sc->c_v;
 
   for(iv = 0; iv < nov; iv++){
-    rv[iv] = cv[iv] = 1;
+    rv[iv] = cv[iv] = 1.0;
   }
 
-  C col_max = get_max(nov, cptrs, cvals, cv);
-  C row_max = get_max(nov, rptrs, rvals, rv);
+  S col_max = get_max(nov, cptrs, cvals, cv);
+  S row_max = get_max(nov, rptrs, rvals, rv);
 
-  /*
-  for(int i = 0; i < nov; i++){
-    for(int j = cptrs[i]; j < cptrs[i+1]; j++){
-      
-      if(my_col_max < (cv[i]*cvals[j]))
-	my_col_max = cv[i]*cvals[j];
-    }
-  }
-  */
-  
-  while(col_max > (S)10 && row_max > (S)10){
+  S max_error = 100;
+
+  while(max_error > 10.0){
     
     for(iv = 0; iv < nov; iv++){
       if(cptrs[iv] != cptrs[iv+1]){
@@ -1440,11 +1456,13 @@ ScaleCompanion<C>* scalesk(SparseMatrix<S>* sparsemat){
 	sum = 0;
 
 	for(eptr = cptrs[iv]; eptr < cptrs[iv+1]; eptr++){
-	  sum += cv[cols[eptr]];
+	  sum += cvals[eptr]*cv[iv]*rv[rows[eptr]];
 	}
-	rv[iv] = (C)1 / sum;
+
+	cv[iv] = scaling_threshold / sum;
       }
     }
+    
 
     for(iv = 0; iv < nov; iv++){
       if(rptrs[iv] != rptrs[iv+1]){
@@ -1452,37 +1470,64 @@ ScaleCompanion<C>* scalesk(SparseMatrix<S>* sparsemat){
 	sum = 0;
 
 	for(eptr = rptrs[iv]; eptr < rptrs[iv+1]; eptr++){
-	  sum += rv[rows[eptr]];
+	  sum += rvals[eptr]*rv[iv]*cv[cols[eptr]];
 	}
-	cv[iv] = (C)1 / sum;
+	rv[iv] = scaling_threshold / sum;
       }
     }
 
-    col_max = get_max(nov, cptrs, cvals, cv);
-    row_max = get_max(nov, rptrs, rvals, rv);
+    colsum = 0;
+    rowsum = 0;
+    
+    for(iv = 0; iv < nov; iv++){
+      if(cptrs[iv] != cptrs[iv+1]){
+	
+	
+	for(eptr = cptrs[iv]; eptr < cptrs[iv+1]; eptr++){
+          colsum += cvals[eptr]*cv[iv]*rv[rows[eptr]];
+        }
+	
+      } 
+    }
+
+    for(iv = 0; iv < nov; iv++){
+      if(rptrs[iv] != rptrs[iv+1]){
+	
+	
+	for(eptr = rptrs[iv]; eptr < rptrs[iv+1]; eptr++){
+          rowsum += rvals[eptr]*rv[iv]*cv[cols[eptr]];
+        }
+	
+      } 
+    }
+    
+    print_rv_cv(rv, cv, nov);
+    std::cout << "colsum: " << colsum << std::endl;
+    std::cout << "rowsum: " << rowsum << std::endl;
+    max_error = std::max(fabs(scaling_threshold-(colsum/nov)), fabs(scaling_threshold-(rowsum/nov)));
+    std::cout << "Max error: " << max_error << std::endl;
+    
   } //while
+  
+  //col_max = get_max(nov, cptrs, cvals, cv);
+  //std::cout << "Col max: " << col_max << std::endl;
+  //row_max = get_max(nov, rptrs, rvals, rv);
+  //std::cout << "Row max: " << col_max << std::endl;
+  
+  
   
   return sc;
  
 }
 
-template<class MAT, class SC>
-void scaleMatrix(DenseMatrix<MAT>* densemat, ScaleCompanion<SC>* sc){
+template<class S>
+void scaleMatrix(DenseMatrix<S>* densemat, ScaleCompanion<S>* sc){
 
-  for(int i = 0; i < densemat->nov; i++){
-    std::cout << sc->r_v[i] << " ";
-  }
-
-  std::cout << std::endl;
-  
-  for(int i = 0; i < densemat->nov; i++){
-    std::cout << sc->c_v[i] << " ";
-  }
-  
   //Pack parameters
   int nov = densemat->nov;
   //Pack parameters
 
+  
   for(int i = 0; i < nov; i++){
     for(int j = 0; j < nov; j++){
       
@@ -1490,7 +1535,8 @@ void scaleMatrix(DenseMatrix<MAT>* densemat, ScaleCompanion<SC>* sc){
       
     }
   }
-
+  
+    
   for(int i = 0; i < nov; i++){
     for(int j = 0; j < nov; j++){
       
