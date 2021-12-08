@@ -32,8 +32,8 @@ void print_densematrix(DenseMatrix<T>* densemat){
   int no_row = densemat->nov;
   int no_col = densemat->nov;
 
-  std::cout << "Type of T: " << typeid(T).name() << std::endl;
-  std::cout << "Printing dense matrix: " << std::endl;
+  //std::cout << "Type of T: " << typeid(T).name() << std::endl;
+  //std::cout << "Printing dense matrix: " << std::endl;
 
   for(int i = 0; i < no_row; i++){
     std::cout << "_ ";
@@ -62,7 +62,7 @@ void print_float_densematrix(DenseMatrix<T>* densemat){
   int no_row = densemat->nov;
   int no_col = densemat->nov;
 
-  std::cout << "Type of T: " << typeid(T).name() << std::endl;
+  //std::cout << "Type of T: " << typeid(T).name() << std::endl;
   std::cout << "Printing dense matrix: " << std::endl;
 
   for(int i = 0; i < no_row; i++){
