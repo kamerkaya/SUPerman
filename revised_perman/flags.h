@@ -1,3 +1,4 @@
+
 #ifndef FLAGS_H
 #define FLAGS_H
 
@@ -157,6 +158,26 @@ struct DenseMatrix{
 };
 
 template <class T>
+DenseMatrix<T>* copy_dense(DenseMatrix<T>* to_copy){
+
+  DenseMatrix<T>* ret = new DenseMatrix<T>;
+  
+  int nov = to_copy->nov;
+  int nnz = to_copy->nnz;
+
+  ret->nov = nov;
+  ret->nnz = nnz;
+
+
+  ret->mat = new T[nov * nov];
+  for(int i = 0; i < nov * nov; i++){
+    ret->mat[i] = to_copy->mat[i];
+  }
+
+  return ret;
+}
+
+template <class T>
 struct SparseMatrix{
   int* cptrs;
   int* rptrs;
@@ -177,6 +198,40 @@ struct SparseMatrix{
   }
   
 };
+
+template<class T>
+SparseMatrix<T>* copy_sparse(SparseMatrix<T>* to_copy){
+
+  SparseMatrix<T>* ret = new SparseMatrix<T>;
+
+  int nov = to_copy->nov;
+  int nnz = to_copy->nnz;
+
+  ret->nov = nov;
+  ret->nnz = nnz;
+
+  ret->rvals = new T[nnz];
+  ret->cvals = new T[nnz];
+  ret->cptrs = new int[nov + 1];
+  ret->rptrs = new int[nov + 1];
+  ret->rows = new int[nnz];
+  ret->cols = new int[nnz];
+  
+  for(int i = 0; i < nov + 1; i++){
+    ret->cptrs[i] = to_copy->cptrs[i];
+    ret->rptrs[i] = to_copy->rptrs[i];
+  }
+  
+  for(int i = 0; i < nnz; i++){
+    ret->rvals[i] = to_copy->rvals[i];
+    ret->cvals[i] = to_copy->cvals[i];
+    
+    ret->rows[i] = to_copy->rows[i];
+    ret->cols[i] = to_copy->cols[i];
+  }
+
+  return ret;
+}
 
 
 #endif
