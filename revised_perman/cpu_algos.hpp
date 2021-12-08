@@ -652,6 +652,11 @@ Result parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
   C x[nov];   
   C rs; //row sum
   C p = 1; //product of the elements in vector 'x'
+
+#ifdef DTYPE
+  cout << "First letter of calculation type " << typeid(p).name() << endl;
+  cout << "First letter of storage type " << typeid(mat[0]).name() << endl;
+#endif
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {
@@ -742,10 +747,16 @@ Result parallel_perman64_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* spars
   double duration = omp_get_wtime() - starttime;  
   double perman = (4*(nov&1)-2) * p;
   Result result(perman, duration);
+
+  //if(flags.type == "__float128"){
+  //__float128 big_perman = (4*(nov&1)-2) * p;
+  //printf("Difference: %.16e \n", big_perman - perman);
+  //}
+    
   return result;
 }
 
-template <typename T> std::string type_name();
+//template <typename T> std::string type_name();
 
 template <class C, class S>
 Result parallel_perman64(DenseMatrix<S>* densemat, flags flags) {
@@ -1045,6 +1056,11 @@ Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
   int j, ptr;
   unsigned long long ci, start, end, chunk_size, change_j;
 
+#ifdef DTYPE
+  cout << "First letter of calculation type " << typeid(p).name() << endl;
+  cout << "First letter of storage type " << typeid(rvals[0]).name() << endl;
+#endif
+  
   //initialize the vector entries                                                                                        
   for (j = 0; j < nov; j++) {
     rs = .0f; 
@@ -1057,6 +1073,11 @@ Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
     x[rows[ptr]] += cvals[ptr];
   }
 
+  //for(j = 0; j < nov; j++) {
+  //cout << ((double)x[j]) << " ";
+  //}
+  //cout << endl;
+  
   //update perman with initial x
   C prod = 1;
   for(j = 0; j < nov; j++) {
@@ -1084,6 +1105,7 @@ Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
   end = (1ULL << (nov-1));
 
   int no_chunks = 512;
+  //int no_chunks = 2048;
   chunk_size = (end - start + 1) / no_chunks + 1;
 
   #pragma omp parallel num_threads(threads) private(j, ci, change_j) 
@@ -1135,14 +1157,17 @@ Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
           //counter++;
           my_prev_gray = my_gray;
           last_zero = -1;
-          C my_prod = 1; 
-          for(j = nov - 1; j >= 0; j--) {
+	  
+          C my_prod = 1;
+	  if(1){
+	  for(j = nov - 1; j >= 0; j--) {
             my_prod *= my_x[j];
             if(my_x[j] == 0) {
               last_zero = j;
               break;
             }
           }
+	  }
   
           if(my_prod != 0) {
             my_p += ((i&1ULL)? -1.0:1.0) * my_prod;
@@ -1178,6 +1203,12 @@ Result parallel_skip_perman64_w_balanced(SparseMatrix<S>* sparsemat, flags flags
   double duration = omp_get_wtime() - starttime;  
   double perman = (4*(nov&1)-2) * p;
   Result result(perman, duration);
+
+  //if(flags.type == "__float128"){
+  //__float128 big_perman = (4*(nov&1)-2) * p;
+  //printf("Difference: %.16e \n", big_perman - perman);
+  //}
+  
   return result;
 }
 

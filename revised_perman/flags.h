@@ -138,7 +138,7 @@ struct flags {
 
     grid_multip = 1; //Assume maximum possible shared memory
     compression = 0; //Assume will not compress unless stated otherwise
-    scaling_threshold = 1.0; //It is doubly stochastic if called by mistake
+    scaling_threshold = -1.0; //It is doubly stochastic if called by mistake
   }
   
 };

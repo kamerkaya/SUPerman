@@ -1138,7 +1138,8 @@ template <class C, class S>
   int device_id = flags.device_id;
   int grid_dim_multip = flags.grid_multip;
   //Pack flags
-  
+
+    
   cudaDeviceProp prop;
   cudaGetDeviceProperties(&prop, device_id);
 
@@ -1153,6 +1154,9 @@ template <class C, class S>
   C rs; //row sum
   C p = 1; //product of the elements in vector 'x'
   int total = 0;
+
+  //printf("Calculation bytes: %d \n", sizeof(p));
+  //printf("Storage bytes: %d \n", sizeof(mat[0]));
   
   //create the x vector and initiate the permanent
   for (int j = 0; j < nov; j++) {

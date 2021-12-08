@@ -56,6 +56,37 @@ void print_densematrix(DenseMatrix<T>* densemat){
 }
 
 template<class T>
+void print_float_densematrix(DenseMatrix<T>* densemat){
+  
+  T* mat = densemat->mat;
+  int no_row = densemat->nov;
+  int no_col = densemat->nov;
+
+  std::cout << "Type of T: " << typeid(T).name() << std::endl;
+  std::cout << "Printing dense matrix: " << std::endl;
+
+  for(int i = 0; i < no_row; i++){
+    std::cout << "_ ";
+  }
+  std::cout << std::endl;
+  std::cout << std::endl;
+
+  for(int i = 0; i < no_row; i++){
+    for(int j = 0; j < no_col; j++){
+      //std::cout << mat[i*no_row+j] << " ";
+      printf("%.2f ", (double)mat[i*no_row+j]);
+    }
+    std::cout << std::endl;
+  }
+
+  for(int i = 0; i < no_row; i++){
+    std::cout << "_ ";
+  }
+  std::cout << std::endl;
+  
+}
+
+template<class T>
 void print_sparsematrix(SparseMatrix<T>* sparsemat){
 
   std::cout << "Printing sparse matrix: " << std::endl;
@@ -780,6 +811,8 @@ void matrix2compressed_sortOrder(T* mat, int*& cptrs, int*& rows, T*& cvals, int
 //Object oriented version
 template <class T>
 void matrix2compressed_sortOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
+
+  //std::cout << "--> I need to sortorder a matrix " << std::endl;
   
   T* mat = densemat->mat;
   
@@ -929,7 +962,8 @@ void matrix2compressed_skipOrder(T* mat, int*& cptrs, int*& rows, T*& cvals, int
 //Object oriented version
 template <class T>
 void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sparsemat){
-
+  
+  //std::cout << "--> I need to skiporder a matrix " << std::endl;
   
   T* mat = densemat->mat;
 
@@ -952,10 +986,7 @@ void matrix2compressed_skipOrder_o(DenseMatrix<T>* densemat, SparseMatrix<T>* sp
   bool rowVisited[nov];
   int degs[nov];
   
-  //Definitely need to ask this to Kamer Hoca
-  //But first, get a deeper understanding of SkipOrder
-  //But now it looks like it solved the problem
-  //Another to do is to look at matrix before and after ordering OK
+  
   for(int i = 0; i < nov; i++){
     rowPerm[i] = 0;
     colPerm[i] = 0;
@@ -1501,11 +1532,11 @@ ScaleCompanion<S>* scalesk(SparseMatrix<S>* sparsemat, flags flags){
       } 
     }
     
-    print_rv_cv(rv, cv, nov);
-    std::cout << "colsum: " << colsum << std::endl;
-    std::cout << "rowsum: " << rowsum << std::endl;
+    //print_rv_cv(rv, cv, nov);
+    //std::cout << "colsum: " << colsum << std::endl;
+    //std::cout << "rowsum: " << rowsum << std::endl;
     max_error = std::max(fabs(scaling_threshold-(colsum/nov)), fabs(scaling_threshold-(rowsum/nov)));
-    std::cout << "Max error: " << max_error << std::endl;
+    //std::cout << "Max error: " << max_error << std::endl;
     
   } //while
   
