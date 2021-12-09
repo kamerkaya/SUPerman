@@ -40,6 +40,23 @@ using namespace std;
 
 int recursive_count = 0;
 
+template<class S>
+bool max20(DenseMatrix<S>* densemat){
+
+  int nov = densemat->nov;
+  
+
+  for(int i = 0; i < nov*nov; i++){
+    if(densemat->mat[i] > (S)20)
+      return true;
+    }
+
+  return false;
+}
+
+template<class S>
+Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags, bool compressing);
+
 void print_flags(flags flags){
   //
   std::cout << "*~~~~~~~~~~~~FLAGS~~~~~~~~~~~~*" << std::endl;
@@ -1026,10 +1043,10 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
     }
   }
   else{
-    //cout << "Calling RunAlgo: " << endl;
-    //Result result;
-    //print_densematrix(densemat);
-    result = RunAlgo(densemat, sparsemat, flags, true);
+    if(flags.scaling_threshold != -1.0 && !max20(densemat))
+      result = scale_and_calculate(densemat, sparsemat, flags, true);
+    else
+      result = RunAlgo(densemat, sparsemat, flags, true);
   }
   return result;
 }
@@ -1071,7 +1088,7 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
 }
 
 template<class S>
-Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags){
+Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags, bool compressing){
 
   //print_densematrix(densemat);
   
@@ -1107,7 +1124,7 @@ Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat,
     print_sparsematrix(sparsemat3);
 #endif
     
-    if(flags.compression)
+    if(flags.compression && !compressing)
       result = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
     else
       result = RunAlgo(densemat2, sparsemat3, flags, false);
@@ -1155,7 +1172,7 @@ Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat,
 #endif
     
     
-    if(flags.compression)
+    if(flags.compression && !compressing)
       result = compress_singleton_and_then_recurse(densemat2, sparsemat2, flags);
     else
       result = RunAlgo(densemat2, sparsemat3, flags, false);
@@ -1186,7 +1203,7 @@ Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat,
     print_sparsematrix(sparsemat2);
 #endif
 
-    if(flags.compression)
+    if(flags.compression && !compressing)
       result = compress_singleton_and_then_recurse(densemat, sparsemat2, flags);
     else
       result = RunAlgo(densemat, sparsemat2, flags, false);
@@ -1213,7 +1230,7 @@ Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat,
     
     SparseMatrix<S>* sparsemat2 = create_sparsematrix_from_densemat2(densemat, flags);
         
-    if(flags.compression)
+    if(flags.compression && !compressing)
       result = compress_singleton_and_then_recurse(densemat, sparsemat2, flags);
     else
       result = RunAlgo(densemat, sparsemat2, flags, false);
@@ -1626,7 +1643,7 @@ int main (int argc, char **argv)
       if(scaling_chosen){
 	DenseMatrix<double>* copy_densemat = copy_dense(densemat);
 	SparseMatrix<double>* copy_sparsemat = copy_sparse(sparsemat);
-	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags);
+	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
       }
@@ -1776,7 +1793,7 @@ int main (int argc, char **argv)
 	//result = scale_and_calculate(densemat, sparsemat, flags);
 	DenseMatrix<float>* copy_densemat = copy_dense(densemat);
 	SparseMatrix<float>* copy_sparsemat = copy_sparse(sparsemat);
-	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags);
+	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
       }
@@ -1852,7 +1869,7 @@ int main (int argc, char **argv)
 	//result = scale_and_calculate(densemat, sparsemat, flags);
 	DenseMatrix<int>* copy_densemat = copy_dense(densemat);
 	SparseMatrix<int>* copy_sparsemat = copy_sparse(sparsemat);
-	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags);
+	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
       }
