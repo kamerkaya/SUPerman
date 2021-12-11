@@ -3,6 +3,7 @@
 #define FLAGS_H
 
 #include<string>
+#include<iostream>
 
 template<class C>
 struct ScaleCompanion{
@@ -189,11 +190,22 @@ struct SparseMatrix{
   int nnz;
 
   ~SparseMatrix(){
+    std::cout << "deleting cptrs" << std::endl;
     delete[] cptrs;
+    std::cout << "deleting rptrs" << std::endl;
+    //for(int i = 0; i < 30; i++){
+    //std::cout << "i: " << i << " rptrs[i]: " << rptrs[i] << std::endl; 
+    //}
+    if(rptrs == NULL)
+      std::cout << "Will try to delete nullptr " << std::endl;
     delete[] rptrs;
+    std::cout << "deleting rows" << std::endl;
     delete[] rows;
+    std::cout << "deleting cols" << std::endl;
     delete[] cols;
+    std::cout << "deleting cvals" << std::endl;
     delete[] cvals;
+    std::cout << "deleting rvals" << std::endl;
     delete[] rvals;
   }
   

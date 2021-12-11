@@ -1123,7 +1123,7 @@ template <class C, class S>
 
 template <class C, class S>
   extern Result gpu_perman64_xshared_coalescing_mshared_sparse(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags flags) {
-
+  
   //Pack parameters
   S* mat = densemat->mat;
   int* cptrs = sparsemat->cptrs;
@@ -1139,9 +1139,10 @@ template <class C, class S>
   int grid_dim_multip = flags.grid_multip;
   //Pack flags
 
-    
+      
   cudaDeviceProp prop;
   cudaGetDeviceProperties(&prop, device_id);
+  printf("==SC== Running on device: %d -- %s \n", device_id, prop.name);
 
   size_t max_shared_per_block = prop.sharedMemPerBlock;
 
@@ -1236,7 +1237,7 @@ template <class C, class S>
   cudaFree(d_cptrs);
   cudaFree(d_rows);
   cudaFree(d_cvals);
-
+  
   double return_p = p;
   
   for (int i = 0; i < grid_dim * block_dim; i++) {

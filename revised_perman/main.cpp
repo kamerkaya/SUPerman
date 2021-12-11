@@ -1002,7 +1002,7 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
   //double final_perman = 0;
   Result result;
   int minDeg = getMinNnz(densemat->mat, densemat->nov);
-  //cout << "##MINDEG: " << minDeg << endl;
+  cout << "##MINDEG: " << minDeg << endl;
   if(minDeg < 5 && densemat->nov > 30){
 
     if(minDeg == 1){
@@ -1031,11 +1031,13 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
       d34compress(densemat->mat, densemat->nov, mat2, nov2, minDeg);
       DenseMatrix<S>* densemat2 = create_densematrix_from_mat2(mat2, nov2);
       SparseMatrix<S>* sparsemat2 = create_sparsematrix_from_densemat2(densemat2, flags);
+      
       if(!silent)
 	cout << "d34: matrix is reduced to matrices with: " << densemat->nov << " and " << densemat2->nov <<" rows" << endl;
+      
       result = compress_and_calculate_recursive(densemat, sparsemat, flags) +
 	compress_and_calculate_recursive(densemat2, sparsemat2, flags);
-      
+
       if(mat2 != nullptr){
 	delete[] mat2;
 	mat2 = nullptr;
@@ -1043,10 +1045,13 @@ Result compress_and_calculate_recursive(DenseMatrix<S>* densemat, SparseMatrix<S
     }
   }
   else{
-    if(flags.scaling_threshold != -1.0 && !max20(densemat))
+
+    //if(flags.scaling_threshold != -1.0 && !max20(densemat))
+    if(flags.scaling_threshold != -1.0)
       result = scale_and_calculate(densemat, sparsemat, flags, true);
     else
       result = RunAlgo(densemat, sparsemat, flags, true);
+
   }
   return result;
 }
@@ -1089,6 +1094,8 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
 
 template<class S>
 Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flags, bool compressing){
+
+  std::cout << "this: in scale and calculate begin sparsemat->rptrs[1]: " << sparsemat->rptrs[1] << std::endl;
 
   //print_densematrix(densemat);
   
@@ -1252,7 +1259,8 @@ Result scale_and_calculate(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat,
     std::cout << "Why do you want to scale? Exiting.. " << std::endl;
     exit(1);
   }
-  
+
+  std::cout << "this: in scale and calculate end sparsemat->rptrs[1]: " << sparsemat->rptrs[1] << std::endl;
   return result;
 }
 
@@ -1643,9 +1651,14 @@ int main (int argc, char **argv)
       if(scaling_chosen){
 	DenseMatrix<double>* copy_densemat = copy_dense(densemat);
 	SparseMatrix<double>* copy_sparsemat = copy_sparse(sparsemat);
+	std::cout << "this 0 : " << copy_sparsemat->rptrs[1] << std::endl; 
 	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
+	std::cout << "i:" << i << " Delete sparsemat 0: " << &copy_sparsemat << std::endl;
+	std::cout << "copy_sparsemat->nov: " << copy_sparsemat->nov << std::endl;
+	std::cout << "this 1: " << copy_sparsemat->rptrs[1] << std::endl; 
 	delete copy_sparsemat;
+	std::cout << "i:" << i << " Delete sparsemat 1: " << &copy_sparsemat << std::endl;
       }
 
       else{
