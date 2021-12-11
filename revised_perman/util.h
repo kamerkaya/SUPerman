@@ -1463,7 +1463,7 @@ ScaleCompanion<S>* scalesk(SparseMatrix<S>* sparsemat, flags flags){
   S colsum;
   S rowsum;
   int iv;
-  int eptr;
+  unsigned int eptr;
 
   ScaleCompanion<S>* sc = new ScaleCompanion<S>(nov);
 
@@ -1487,10 +1487,17 @@ ScaleCompanion<S>* scalesk(SparseMatrix<S>* sparsemat, flags flags){
 	sum = 0;
 
 	for(eptr = cptrs[iv]; eptr < cptrs[iv+1]; eptr++){
+	  //std::cout << "######" << std::endl;
+	  //std::cout << "cvsumbefore: " << sum << std::endl;
+	  //std::cout << "cvals[eptr]: " << cvals[eptr] << " cv[iv]: " << cv[iv] << " rv[rows[eptr]]: " << rv[rows[eptr]] << " rows[eptr]: " << rows[eptr] << " multip: " << cvals[eptr]*cv[iv]*rv[rows[eptr]] <<std::endl;
 	  sum += cvals[eptr]*cv[iv]*rv[rows[eptr]];
+	  //std::cout << "cvsumafter: " << sum << std::endl;
+	  //std::cout << "######" << std::endl;
 	}
-
+	//std::cout << "cv[iv] was: " << cv[iv] << std::endl;
+	//std::cout << "scaling_threshold: " << scaling_threshold << " sum: " << sum << " scaling_threshold/sum: " << scaling_threshold / sum << std::endl;
 	cv[iv] = scaling_threshold / sum;
+	//std::cout << "cv[iv] become: " << cv[iv] << std::endl;
       }
     }
     
@@ -1500,13 +1507,20 @@ ScaleCompanion<S>* scalesk(SparseMatrix<S>* sparsemat, flags flags){
 	
 	sum = 0;
 
-	for(eptr = rptrs[iv]; eptr < rptrs[iv+1]; eptr++){
+	//std::cout << "sum: " << sum << " rptrs[iv]: " << rptrs[iv] << " rptrs[iv + 1] " << rptrs[iv + 1] << std::endl;
+	
+	for(eptr = rptrs[iv]; eptr < rptrs[iv+1]; eptr++){ //Produce arithmetic exception
+	  //std::cout << "######" << std::endl;
+	  //std::cout << "rvsumbefore: " << sum << std::endl;
+	  //std::cout << "rvals[eptr]: " << rvals[eptr] << " rv[iv]: " << rv[iv] << " cv[cols[eptr]] :" << cv[cols[eptr]] << " cols[eptr]: " << cols[eptr] << " multip: " << rvals[eptr]*rv[iv]*cv[cols[eptr]] << std::endl;
 	  sum += rvals[eptr]*rv[iv]*cv[cols[eptr]];
+	  //std::cout << "rvsumafter: " << sum << std::endl;
+	  //std::cout << "######" << std::endl;
 	}
 	rv[iv] = scaling_threshold / sum;
       }
     }
-
+    
     colsum = 0;
     rowsum = 0;
     

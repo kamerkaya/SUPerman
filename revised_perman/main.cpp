@@ -1652,6 +1652,7 @@ int main (int argc, char **argv)
 	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
+	flags.type = "double"; //In case if scale_and_calculate change it
       }
 
       else{
@@ -1802,6 +1803,7 @@ int main (int argc, char **argv)
 	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
+	flags.type = "float";//In case if scale_and_calculate change it
       }
 
       else{
@@ -1870,7 +1872,8 @@ int main (int argc, char **argv)
 #endif
     for(int i = 0; i < flags.rep; i++){
       Result result;
-      
+      std::cout << "####################REP --> " << i << std::endl;
+  
       if(scaling_chosen){
 	//result = scale_and_calculate(densemat, sparsemat, flags);
 	DenseMatrix<int>* copy_densemat = copy_dense(densemat);
@@ -1878,6 +1881,7 @@ int main (int argc, char **argv)
 	result = scale_and_calculate(copy_densemat, copy_sparsemat, flags, false);
 	delete copy_densemat;
 	delete copy_sparsemat;
+	flags.type = "int";
       }
       
       else{

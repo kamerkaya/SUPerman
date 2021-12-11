@@ -572,7 +572,7 @@ template <class C, class S>
   }
   shared_cptrs[nov] = cptrs[nov];
   
-  for (int k = 0; k < total; k++) {
+  for (int k = 0; k < total; k++) { //Produce out of warp error
     shared_rows[k] = rows[k];
     //printf("Adress of misaligned: %p \n", &shared_cvals[k]);
     shared_cvals[k] = cvals[k];
@@ -1177,6 +1177,7 @@ template <class C, class S>
   glob_total = total;
   glob_sizeof_c = sizeof(C);
   glob_sizeof_s = sizeof(S);
+  printf("sizeof_c: %d -- sizeof_s: %d \n", glob_sizeof_c, glob_sizeof_s);
   //For variable smem
   
   cudaOccupancyMaxPotentialBlockSizeVariableSMem(&grid_dim,
