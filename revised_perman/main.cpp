@@ -1065,7 +1065,7 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
     if(comp){
       cout << "Removing singleton -- d1: matrix is reduced to: " << densemat->nov << " rows" << endl;
       densemat->nnz = getNnz(densemat->mat, densemat->nov);
-      delete sparsemat;
+      //delete sparsemat; //Possible memory leak, will deal with later
       sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
     }
     else{
@@ -1073,7 +1073,7 @@ Result compress_singleton_and_then_recurse(DenseMatrix<S>* densemat, SparseMatri
       if(comp){
 	cout << "Removing singleton -- d2: matrix is reduced to: " << densemat->nov << " rows" << endl;
 	densemat->nnz = getNnz(densemat->mat, densemat->nov);
-	delete sparsemat;
+	//delete sparsemat; //Possible memory leak, will deal with later
 	sparsemat = create_sparsematrix_from_densemat2(densemat, flags);
       }
     }
