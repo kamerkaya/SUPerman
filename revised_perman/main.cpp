@@ -463,9 +463,10 @@ Result RunAlgo(DenseMatrix<S>* densemat, SparseMatrix<S>* sparsemat, flags &flag
       exit(1);
 #endif
       flags.algo_name = "gpu_perman_xshared_coalescing_mshared_multigpu_sparse";
-      perman = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse(densemat, sparsemat, flags);
-      
-      
+      if(flags.calculation_half_precision)
+	result = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<float, S>(densemat, sparsemat, flags);
+      else
+	result = gpu_perman64_xshared_coalescing_mshared_multigpu_sparse<double, S>(densemat, sparsemat, flags);
     }
     else if (perman_algo == 7) {
 #ifdef DEBUG
