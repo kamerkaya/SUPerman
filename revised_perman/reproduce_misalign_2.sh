@@ -1,25 +1,25 @@
 echo '####################################################'
 echo './gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -u2'
-./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -u2
+./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4
 echo '####################################################'
 echo '####################################################'
 echo './gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o -u2'
-./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o -u2
+./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o
 echo '####################################################'
 echo '####################################################'
 echo './gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o -u2 -w'
-./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o -u2 -w
+./gpu_perman -f erdos_int/34_0.20_0.mtx -k1 -s -p4 -o
 echo '####################################################'
 echo '####################################################'
 echo '####################################################'
 echo './gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -u2'
-./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -u2
+./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4
 echo '####################################################'
 echo '####################################################'
 echo './gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o -u2'
-./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o -u2
+./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o
 echo '####################################################'
 echo '####################################################'
 echo './gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o -u2 -w'
-./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o -u2 -w
+./gpu_perman -f erdos_real/38_0.20_0.mtx -k1 -s -p4 -o -w
 echo '####################################################'

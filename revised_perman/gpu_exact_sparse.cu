@@ -224,7 +224,7 @@ int xshared_coalescing_sparse_sharedmem(int b){ //Actually the same but no need 
 }
 
 int xshared_coalescing_mshared_sparse_sharedmem(int b){
-  return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s;
+  return glob_nov*b*glob_sizeof_c + (glob_nov+1)*sizeof(int) + glob_total*sizeof(int)  + glob_total*glob_sizeof_s + glob_sizeof_s;
   //////////////for my_x////////////////////for d_cptrs//////////for d_rows///////////////////for d_cvals////////////
   //Note that d_x is not resides at the shared memory, in contrary, we copy it to d_p at the very beginning
 }
@@ -528,14 +528,26 @@ template <class C, class S>
 
   int thread_id = threadIdx.x;
   int block_dim = blockDim.x;
-  //int block_dim = 2;
 
-  //(nov*block_dim*sizeof(float) + (nov+1)*sizeof(int) + 2*total*sizeof(T)) 
   extern __shared__ double shared_mem[]; 
   C *my_x = (C*)shared_mem; // size = nov * BLOCK_SIZE
   int *shared_cptrs = (int*) &my_x[nov * block_dim]; // size = nov + 1
   int *shared_rows = (int*) &shared_cptrs[nov + 1];  // size = total num of elts
   S *shared_cvals;
+
+  int offset = ((unsigned long long)(&shared_rows[total])) % sizeof(S);
+  if(thread_id == 0)
+    printf("offset: %d \n", offset);
+  shared_cvals = (S*) ((unsigned long long)(&shared_rows[total]) + (sizeof(S) - offset));
+  
+  /*  if(sizeof(S) == 4) {
+    shared_cvals = (S*) &shared_rows[total];
+  } else if(sizeof(S) == 8) {
+    int offset = (&shared_rows[total]) % 8;
+    if(offset != 0) {
+      shared_cvals = (S*) (&shared_rows[total] + (8 - offset));
+    }
+  }
   
   if((nov * block_dim + nov + 1 + total % 2) == 0 && sizeof(S) == 4) {
     shared_cvals = (S*) &shared_rows[total]; // size = total num of elts -- Misaligned address
@@ -548,7 +560,7 @@ template <class C, class S>
   } else if(sizeof(S) == 8) {
     unsigned int offset = 8 - ((nov * block_dim + nov + 1 + total) % 8);
     shared_cvals = (S*) (&shared_rows[total+offset]); // size = total num of elts -- Misaligned address
-  }
+    }*/
   
   /*
   if(tid == 0){
@@ -1186,7 +1198,7 @@ template <class C, class S>
 						 xshared_coalescing_mshared_sparse_sharedmem,
 						 (int)max_shared_per_block);
 
-  size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(S);
+  size_t size = nov*block_dim*sizeof(C) + (nov+1)*sizeof(int) + total*sizeof(int) + total*sizeof(S) + sizeof(double);
 
   printf("==SC== Maximum Shared memory per block : %zu \n", max_shared_per_block);
   printf("==SC== Shared memory per block is set to : %zu \n", size);
